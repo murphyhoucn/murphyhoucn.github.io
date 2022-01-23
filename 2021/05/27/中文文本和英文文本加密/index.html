@@ -1,0 +1,702 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>中文文本和英文文本加密 - Murphy</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="TriDiamond Obsidian Murphy Blog,"> 
+    <meta name="description" content="Hello,I Am Murphy,之前做过简单的英文文本加密，用过凯撒密码这样很简单的加密方式，我想有没有简单易学，但是加密程度更高的加密方式；之前的加密都是针对于英文加密的，也想学学针对于中文的加密方式；另外通过这个程序还想学习一,"> 
+    <meta name="author" content="Murphy Hou"> 
+    <link rel="alternative" href="atom.xml" title="Murphy" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+    
+    <script>var musiclist = ""</script>
+    
+<script src="/js/loadaplayer.js"></script>
+
+    <!-- 引用依赖 -->
+    
+<link rel="stylesheet" href="/aplayer/dist/APlayer.min.css">
+
+    
+<script src="/aplayer/dist/APlayer.min.js"></script>
+<script src="/js/Meting.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none">Murphy</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://murphyhoucn.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">中文文本和英文文本加密</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url('https://gitee.com/murphyhou/picgo/raw/master/Website/聊天加密封面.png') ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/想法实现"><b>「
+                    </b>想法实现<b> 」</b></a>
+                
+                五月 27, 2021
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/05/27/%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E5%92%8C%E8%8B%B1%E6%96%87%E6%96%87%E6%9C%AC%E5%8A%A0%E5%AF%86/" title="中文文本和英文文本加密" class="">中文文本和英文文本加密</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    7.6k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    7 mins.
+                </span>
+                
+                
+                <span id="/2021/05/27/中文文本和英文文本加密/" class="leancloud_visitors" data-flag-title="中文文本和英文文本加密">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">1000000</span>
+                </span>
+                
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/GUI/" rel="tag">GUI</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" rel="tag">加密算法</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <p>之前做过简单的英文文本加密，用过凯撒密码这样很简单的加密方式，我想有没有简单易学，但是加密程度更高的加密方式；<br>之前的加密都是针对于英文加密的，也想学学针对于中文的加密方式；<br>另外通过这个程序还想学习一下python的GUI开发，做出真正的界面；<br>如果可以与QQ等聊天界面结合起来那就更好了，这个可以参考之前别人写的那个消息轰炸器的源代码，可以将内容直接输入到QQ的消息窗口中去，省去了复制粘贴的麻烦；</p>
+<h1 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h1><p>Encrypt.py</p>
+<pre><code class="python"># -*- coding : utf-8 -*-
+# Time       : 2021/8/11 18:28
+# Author     : MurphyHou
+# Proj_Name  : encrypt
+# File_Name  : Encrypt.py
+# Software   : PyCharm
+# =======Here We Go!=======
+
+
+import sys
+from PyQt5 import QtWidgets
+from Encrypt_GUI import Ui_Form
+
+import win32gui
+import win32con
+import win32clipboard as w
+import  time
+
+
+import base64
+from Crypto.Cipher import AES
+
+&#39;&#39;&#39;
+采用AES对称加密算法
+&#39;&#39;&#39;
+
+
+
+class MyPyQT_Form(QtWidgets.QWidget,Ui_Form):
+
+    def __init__(self):
+        super(MyPyQT_Form, self).__init__()
+        self.setupUi(self)
+
+    def pushButton_click(self):
+
+        name=self.lineEdit.text()
+        msg=self.lineEdit_2.text()
+        key=self.lineEdit_3.text()
+
+        msg_encrypt=encrypt_oracle(key,msg)
+
+        start(name,key,msg,msg_encrypt)
+
+def start(name,key,msg,msg_encrypt):
+    print(&quot;加密信息如下：&quot;)
+    print(&quot;昵称:&quot; + name)
+    print(&quot;密钥:&quot; + key)
+    print(&quot;未加密内容:&quot; + msg)
+    print(&quot;已加密内容:&quot; + msg_encrypt)
+
+    # =====将消息复制到剪切板中=====
+
+    w.OpenClipboard()
+    #打开剪切板
+
+    w.EmptyClipboard()
+    #清空剪切板
+
+    w.SetClipboardData(win32con.CF_UNICODETEXT, msg_encrypt)
+    #将msg_encrypt设置给剪切板
+
+    w.CloseClipboard()
+    #关闭剪切板
+
+    handle = win32gui.FindWindow(None, name)
+    # 根据对方昵称获取窗口句柄
+    win32gui.SendMessage(handle, 770, 0, 0)
+    # 将剪切板内容填充消息
+    win32gui.SendMessage(handle, win32con.WM_KEYDOWN, win32con.VK_RETURN, 0)
+    # 按下回车发送消息
+
+
+# str不是16的倍数那就补足为16的倍数
+def add_to_16(value):
+    while len(value) % 16 != 0:
+        value += &#39;\0&#39;
+    return str.encode(value)  # 返回bytes
+
+
+# 加密方法
+def encrypt_oracle(key0,msg):
+    # 秘钥
+    key = key0
+
+    mystr=msg
+    text = base64.b64encode(mystr.encode(&#39;utf-8&#39;)).decode(&#39;ascii&#39;)
+    # 初始化加密器
+    aes = AES.new(add_to_16(key), AES.MODE_ECB)
+    # 先进行aes加密
+    encrypt_aes = aes.encrypt(add_to_16(text))
+    # 用base64转成字符串形式
+    encrypted_text = str(base64.encodebytes(encrypt_aes), encoding=&#39;utf-8&#39;)  # 执行加密并转码返回bytes
+    # print(encrypted_text) 测试打印加密数据
+    return encrypted_text
+
+
+if __name__ == &#39;__main__&#39;:
+    app = QtWidgets.QApplication(sys.argv)
+    my_pyqt_form = MyPyQT_Form()
+    my_pyqt_form.show()
+    sys.exit(app.exec_())
+</code></pre>
+<p>Encrypt_GUI.py</p>
+<pre><code class="python"># -*- coding : utf-8 -*-
+# Time       : 2021/8/11 18:29
+# Author     : MurphyHou
+# Proj_Name  : encrypt
+# File_Name  : Encrypt_GUI.py
+# Software   : PyCharm
+# =======Here We Go!=======
+
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+
+class Ui_Form(object):
+    def setupUi(self, Form):
+        Form.setObjectName(&quot;Form&quot;)
+        Form.resize(656, 491)
+        self.widget = QtWidgets.QWidget(Form)
+        self.widget.setGeometry(QtCore.QRect(130, 70, 391, 341))
+        self.widget.setObjectName(&quot;widget&quot;)
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.widget)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName(&quot;verticalLayout&quot;)
+        self.label = QtWidgets.QLabel(self.widget)
+        self.label.setObjectName(&quot;label&quot;)
+        self.verticalLayout.addWidget(self.label)
+        self.gridLayout = QtWidgets.QGridLayout()
+        self.gridLayout.setObjectName(&quot;gridLayout&quot;)
+        self.lineEdit_3 = QtWidgets.QLineEdit(self.widget)
+        self.lineEdit_3.setObjectName(&quot;lineEdit_3&quot;)
+        self.gridLayout.addWidget(self.lineEdit_3, 2, 2, 1, 1)
+        self.lineEdit_2 = QtWidgets.QLineEdit(self.widget)
+        self.lineEdit_2.setObjectName(&quot;lineEdit_2&quot;)
+        self.gridLayout.addWidget(self.lineEdit_2, 1, 2, 1, 1)
+        self.label_4 = QtWidgets.QLabel(self.widget)
+        self.label_4.setObjectName(&quot;label_4&quot;)
+        self.gridLayout.addWidget(self.label_4, 2, 0, 1, 1)
+        self.lineEdit = QtWidgets.QLineEdit(self.widget)
+        self.lineEdit.setObjectName(&quot;lineEdit&quot;)
+        self.gridLayout.addWidget(self.lineEdit, 0, 2, 1, 1)
+        self.label_3 = QtWidgets.QLabel(self.widget)
+        self.label_3.setObjectName(&quot;label_3&quot;)
+        self.gridLayout.addWidget(self.label_3, 1, 0, 1, 2)
+        self.label_2 = QtWidgets.QLabel(self.widget)
+        self.label_2.setObjectName(&quot;label_2&quot;)
+        self.gridLayout.addWidget(self.label_2, 0, 0, 1, 2)
+        self.verticalLayout.addLayout(self.gridLayout)
+        self.pushButton = QtWidgets.QPushButton(self.widget)
+        self.pushButton.setObjectName(&quot;pushButton&quot;)
+        self.verticalLayout.addWidget(self.pushButton)
+
+        self.retranslateUi(Form)
+        self.pushButton.clicked.connect(Form.pushButton_click)
+        QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def retranslateUi(self, Form):
+        _translate = QtCore.QCoreApplication.translate
+        Form.setWindowTitle(_translate(&quot;Form&quot;, &quot;Encrypt&quot;))
+        self.label.setText(_translate(&quot;Form&quot;, &quot;&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=\&quot;center\&quot;&gt;&lt;span style=\&quot; font-size:30pt; font-weight:600;\&quot;&gt;消息加密&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;&quot;))
+
+        self.label_4.setText(_translate(&quot;Form&quot;, &quot;输入加密密钥&quot;))
+
+        self.label_3.setText(_translate(&quot;Form&quot;, &quot;输入消息内容&quot;))
+
+        self.label_2.setText(_translate(&quot;Form&quot;, &quot;输入对方昵称&quot;))
+
+        self.pushButton.setText(_translate(&quot;Form&quot;, &quot;开始&quot;))
+</code></pre>
+<p>Decrypt.py</p>
+<pre><code class="python"># -*- coding : utf-8 -*-
+# Time       : 2021/8/11 18:28
+# Author     : MurphyHou
+# Proj_Name  : encrypt
+# File_Name  : Decrypt.py
+# Software   : PyCharm
+# =======Here We Go!=======
+
+
+import base64
+from Crypto.Cipher import AES
+import pyperclip
+import time
+
+# str不是16的倍数那就补足为16的倍数
+def add_to_16(value):
+    while len(value) % 16 != 0:
+        value += &#39;\0&#39;
+    return str.encode(value)  # 返回bytes
+
+def decrypt_oralce(key0,msg):
+    # 秘钥
+    key = key0
+    # 密文
+    text=msg
+    # 初始化加密器
+    aes = AES.new(add_to_16(key), AES.MODE_ECB)
+    # 优先逆向解密base64成bytes
+    base64_decrypted = base64.decodebytes(text.encode(encoding=&#39;utf-8&#39;))
+
+    # bytes解密
+    decrypted_text = str(aes.decrypt(base64_decrypted),encoding=&#39;utf-8&#39;) # 执行解密密并转码返回str
+    decrypted_text = base64.b64decode(decrypted_text.encode(&#39;utf-8&#39;)).decode(&#39;utf-8&#39;)
+    # print(decrypted_text)
+
+    return decrypted_text
+
+def clip():
+    aaa=str(pyperclip.paste())
+    aaa.replace(&#39;\n&#39;,&#39;&#39;)
+    return aaa
+
+if __name__ == &#39;__main__&#39;:
+
+    last_clip = &quot;blank&quot;
+    key=input(&quot;请输入密钥：&quot;)
+
+
+    while True:
+        time.sleep(1)
+
+        if clip() != last_clip:
+            msg = clip()
+
+            print()
+            print(&quot;==============================&quot;)
+            print(&#39;明文：&#39;, decrypt_oralce(key,msg))
+            print(&quot;==============================&quot;)
+            print()
+
+            last_clip = clip()
+
+# if __name__ == &#39;__main__&#39;:
+#     print(&quot;请输入密钥：&quot;)
+#     key=input()
+#
+#
+#     while( 1 ):
+#         print(&quot;请输入加密内容：&quot;)
+#         msg = input()
+#         decrypt_oralce(key,msg)
+</code></pre>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>半成品！</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/chengdu.mp3'></li>
+                
+                    
+            </ul>
+            
+                        
+            
+            
+            <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="https://gitee.com/murphyhou/picgo/raw/master/Website/me.jpg" height=300 width=300></img>
+                    <p>MurphyHou</p>
+                    <span>A Future Without Disappointment!</span>
+                    <dl>
+                        
+                        
+                            
+                                <dd>
+                                    <link rel="stylesheet" type="text/css" href="">
+                                    <a href="function link() { [native code] }" target="_blank"><span
+                                    class=" iconfont "></span></a>
+                                </dd>
+                            
+                            
+                            
+                        
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">23 <p>文章</p></a></li>
+                    <li><a href="/categories">8 <p>分类</p></a></li>
+                    <li><a href="/tags">22 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>目录</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text">源代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C"><span class="toc-number">2.</span> <span class="toc-text">结果</span></a></li></ol>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2022
+        <span class="gradient-text">
+            Murphy Hou
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.9.3" target="_blank" rel="noopener">v1.4.9.3</a></small>
+        
+        
+    </p>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+   
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Dreams&#39; never sold, blood&#39;s never cold.', '十年饮冰，难凉热血。'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var valine = new Valine();
+
+  function initValine(path) {
+    if (!path) path = window.location.pathname;
+    let language = 'zh-CN';
+    if (!language) {
+      language = 'en';
+    } else {
+      language = language.toLowerCase();
+    }
+    valine.init({
+      el: '#vcomments',
+      appId: '',
+      appKey: '',
+      notify: 'true',
+      verify: 'true',
+      avatar: 'mp',
+      placeholder: 'Leave your throughs behind~',
+      visitor: 'true',
+      path: path,
+      lang: language,
+    });
+  }
+
+  $(document).ready(function () {
+    initValine();
+  });
+</script>
+
+
+
+<!-- 引用依赖 -->
+<script>document.write(aplayerconf)</script>
+
+
+
+
+</html>

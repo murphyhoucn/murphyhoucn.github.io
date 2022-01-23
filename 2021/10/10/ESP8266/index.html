@@ -1,0 +1,574 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ESP8266 - Murphy</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="TriDiamond Obsidian Murphy Blog,"> 
+    <meta name="description" content="Hello,I Am Murphy,ESP8266是一款物联网WiFi芯片，基于ESP8266可以开发物联网串口WiFi模块，像SKYLAB的WG219/WG229专为移动设备和物联网应用设计，可将用户的物理设备连接到WiFi无线网络,"> 
+    <meta name="author" content="Murphy Hou"> 
+    <link rel="alternative" href="atom.xml" title="Murphy" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+    
+    <script>var musiclist = ""</script>
+    
+<script src="/js/loadaplayer.js"></script>
+
+    <!-- 引用依赖 -->
+    
+<link rel="stylesheet" href="/aplayer/dist/APlayer.min.css">
+
+    
+<script src="/aplayer/dist/APlayer.min.js"></script>
+<script src="/js/Meting.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none">Murphy</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://murphyhoucn.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">ESP8266</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url('https://gitee.com/murphyhou/picgo/raw/master/Website/esp8266.jpg') ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/电子电路"><b>「
+                    </b>电子电路<b> 」</b></a>
+                
+                十月 10, 2021
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/10/10/ESP8266/" title="ESP8266" class="">ESP8266</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    4.9k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    4 mins.
+                </span>
+                
+                
+                <span id="/2021/10/10/ESP8266/" class="leancloud_visitors" data-flag-title="ESP8266">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">1000000</span>
+                </span>
+                
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <p>ESP8266是一款物联网WiFi芯片，基于ESP8266可以开发物联网串口WiFi模块，像SKYLAB的WG219/WG229专为移动设备和物联网应用设计，可将用户的物理设备连接到WiFi无线网络上，进行互联网或局域网通信，实现联网功能。另外WG219/WG229仅需要通过出串口使用AT指令控制，就能满足大部分的网络功能需求。</p>
+<p>学习ESP8266主要是通过 B站<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1L7411c7jw?from=search&seid=5700302342344653731&spm_id_from=333.337.0.0">太极创客</a></p>
+<h1 id="开发板详解"><a href="#开发板详解" class="headerlink" title="开发板详解"></a>开发板详解</h1><p><img src="https://gitee.com/murphyhou/picgo/raw/master/ESP8266/image-20211013214656601.png" alt="image-20211013214656601"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/ESP8266/pin.png" alt="pin"></p>
+<p>蓝底白字:GPIO：通用输入输出（ESP8266芯片上的引脚命名）</p>
+<p>ADC:模拟引脚</p>
+<p>3V3,GND</p>
+<p>VIN：为nodemcu供电</p>
+<p>nodemcu供电方式:数据线/VIN</p>
+<p>数字引脚电压：3.3V</p>
+<p>数字引脚所能连接的电压不能超过3.3V</p>
+<pre><code>数字引脚
+digitalWrite:给引脚写电平
+digitalRead：读引脚电平
+</code></pre>
+<p>模拟引脚可读取的电压范围:0-1V</p>
+<p>蓝底黑字：通讯类型的引脚，通讯方式:串口通讯，SPI通讯，I2C通讯；</p>
+<p>串口通信引脚：</p>
+<ul>
+<li><p>U0TXD：</p>
+</li>
+<li><p>U0RXD：</p>
+</li>
+<li><p>U1TXD</p>
+</li>
+<li><p>U1RXD</p>
+</li>
+</ul>
+<p>黑底白字：操作存储单元的引脚</p>
+<p>按键RST：</p>
+<p>按键：FLASH：刷固件的时候要用</p>
+<h1 id="互联网基础"><a href="#互联网基础" class="headerlink" title="互联网基础"></a>互联网基础</h1><h2 id="互联网协议"><a href="#互联网协议" class="headerlink" title="互联网协议"></a>互联网协议</h2><p>TCP/IP协议：</p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/ESP8266/image-20211013220921195.png" alt="image-20211013220921195"></p>
+<p>ESP8266通过WiFi联网时有三种工作模式</p>
+<ul>
+<li>接入点模式access point<br><img src="https://gitee.com/murphyhou/picgo/raw/master/ESP8266/image-20211013221107227.png" alt="image-20211013221107227"></li>
+<li>无线终端模式wireless Station<br><img src="https://gitee.com/murphyhou/picgo/raw/master/ESP8266/image-20211013221143482.png" alt="image-20211013221143482"></li>
+<li>混合模式<br><img src="https://gitee.com/murphyhou/picgo/raw/master/ESP8266/image-20211013221210643.png" alt="image-20211013221210643"></li>
+</ul>
+<p>IP协议：IP地址</p>
+<ul>
+<li>IPV4</li>
+<li>IPV6</li>
+</ul>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/ESP8266/image-20211013221453128.png" alt="image-20211013221453128"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/ESP8266/image-20211013222410720.png" alt="image-20211013222410720"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/ESP8266/image-20211013222529174.png" alt="image-20211013222529174"></p>
+<p>重点：HTTP</p>
+<p>HTTP协议：请求和响应</p>
+<p>请求：</p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/ESP8266/image-20211013222836011.png" alt="image-20211013222836011"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/ESP8266/image-20211013223004844.png" alt="image-20211013223004844"></p>
+<p>POST：发送信息</p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/ESP8266/image-20211013223149995.png" alt="image-20211013223149995"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/ESP8266/image-20211013223324335.png" alt="image-20211013223324335"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/ESP8266/image-20211013223417263.png" alt="image-20211013223417263"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/ESP8266/image-20211013223651530.png" alt="image-20211013223651530"></p>
+<h1 id="ESP8266-物联网开发基础"><a href="#ESP8266-物联网开发基础" class="headerlink" title="ESP8266 物联网开发基础"></a>ESP8266 物联网开发基础</h1><h2 id="开发环境搭建"><a href="#开发环境搭建" class="headerlink" title="开发环境搭建"></a>开发环境搭建</h2><p>串口芯片驱动</p>
+<p>arduino开发环境搭建</p>
+<h2 id="工作模式设置"><a href="#工作模式设置" class="headerlink" title="工作模式设置"></a>工作模式设置</h2><pre><code class="c">// AP模式设置
+#include &lt;ESP8266WiFi.h&gt;
+
+const char *ssid = &quot;Murphy&quot;;
+const char *password = &quot;0928&quot;;
+
+void setup()&#123;
+  Serial.begin(9600);
+  WiFi.softAP(ssid,password);
+
+  Serial.print(&quot;Access Point:&quot;);
+  Serial.println(ssid);
+  Serial.print(&quot;IP address:&quot;);
+  Serial.println(WiFi.softAPIP());
+  
+&#125;
+
+void loop()&#123;
+  
+&#125;
+</code></pre>
+<pre><code class="C">// WS 模式设置
+
+#include &lt;ESP8266WiFi.h&gt;
+
+const char* ssid = &quot;MERCURY&quot;;
+const char* passwd = &quot;11235813&quot;;
+
+void setup()&#123;
+  Serial.begin(9600);
+
+  WiFi.begin(ssid,passwd);
+  Serial.print(&quot;Connect to:&quot;);
+  Serial.print(ssid);
+  Serial.println(&quot;......&quot;);
+
+
+  int i = 0;
+  while (WiFi.status() != WL_CONNECTED)&#123;
+    delay(1000);
+    Serial.print(i++);
+    Serial.println(&#39; &#39;);
+  &#125;
+
+  Serial.println(&#39; &#39;);
+
+  Serial.println(&quot;Connection established&quot;);
+  Serial.print(&quot;IP address:&quot;);
+  Serial.println(WiFi.localIP());
+
+  
+
+&#125;
+
+ void loop()&#123;
+  
+ &#125;
+</code></pre>
+<p>电脑和开发板连在同一台路由器的不同频段，也可以ping通</p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/ML/image-20220117111530188.png" alt="image-20220117111530188"></p>
+<h2 id="网络服务器设置"><a href="#网络服务器设置" class="headerlink" title="网络服务器设置"></a>网络服务器设置</h2>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/chengdu.mp3'></li>
+                
+                    
+            </ul>
+            
+                        
+            
+            
+            <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="https://gitee.com/murphyhou/picgo/raw/master/Website/me.jpg" height=300 width=300></img>
+                    <p>MurphyHou</p>
+                    <span>A Future Without Disappointment!</span>
+                    <dl>
+                        
+                        
+                            
+                                <dd>
+                                    <link rel="stylesheet" type="text/css" href="">
+                                    <a href="function link() { [native code] }" target="_blank"><span
+                                    class=" iconfont "></span></a>
+                                </dd>
+                            
+                            
+                            
+                        
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">23 <p>文章</p></a></li>
+                    <li><a href="/categories">8 <p>分类</p></a></li>
+                    <li><a href="/tags">22 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>目录</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E6%9D%BF%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">开发板详解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E5%9F%BA%E7%A1%80"><span class="toc-number">2.</span> <span class="toc-text">互联网基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.1.</span> <span class="toc-text">互联网协议</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ESP8266-%E7%89%A9%E8%81%94%E7%BD%91%E5%BC%80%E5%8F%91%E5%9F%BA%E7%A1%80"><span class="toc-number">3.</span> <span class="toc-text">ESP8266 物联网开发基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="toc-number">3.1.</span> <span class="toc-text">开发环境搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">工作模式设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.3.</span> <span class="toc-text">网络服务器设置</span></a></li></ol></li></ol>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2022
+        <span class="gradient-text">
+            Murphy Hou
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.9.3" target="_blank" rel="noopener">v1.4.9.3</a></small>
+        
+        
+    </p>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+   
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Dreams&#39; never sold, blood&#39;s never cold.', '十年饮冰，难凉热血。'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var valine = new Valine();
+
+  function initValine(path) {
+    if (!path) path = window.location.pathname;
+    let language = 'zh-CN';
+    if (!language) {
+      language = 'en';
+    } else {
+      language = language.toLowerCase();
+    }
+    valine.init({
+      el: '#vcomments',
+      appId: '',
+      appKey: '',
+      notify: 'true',
+      verify: 'true',
+      avatar: 'mp',
+      placeholder: 'Leave your throughs behind~',
+      visitor: 'true',
+      path: path,
+      lang: language,
+    });
+  }
+
+  $(document).ready(function () {
+    initValine();
+  });
+</script>
+
+
+
+<!-- 引用依赖 -->
+<script>document.write(aplayerconf)</script>
+
+
+
+
+</html>

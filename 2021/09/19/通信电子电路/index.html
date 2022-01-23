@@ -1,0 +1,713 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>通信电子电路 - Murphy</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="TriDiamond Obsidian Murphy Blog,"> 
+    <meta name="description" content="Hello,I Am Murphy,通信电子电路就是模电的升级版，信号从模电的低频变成了高频，研究的数学原理从线性变成了非线性。这么课是前后关系联系比较紧密的，前面的知识点需要充分的理解，在学习后面知识点时，才能更快速的跟上老师的思路,"> 
+    <meta name="author" content="Murphy Hou"> 
+    <link rel="alternative" href="atom.xml" title="Murphy" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+    
+    <script>var musiclist = ""</script>
+    
+<script src="/js/loadaplayer.js"></script>
+
+    <!-- 引用依赖 -->
+    
+<link rel="stylesheet" href="/aplayer/dist/APlayer.min.css">
+
+    
+<script src="/aplayer/dist/APlayer.min.js"></script>
+<script src="/js/Meting.min.js"></script>
+
+    
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none">Murphy</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://murphyhoucn.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">通信电子电路</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url('https://gitee.com/murphyhou/picgo/raw/master/Website/通信电子电路.jpg') ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/通信工程"><b>「
+                    </b>通信工程<b> 」</b></a>
+                
+                九月 19, 2021
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/09/19/%E9%80%9A%E4%BF%A1%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF/" title="通信电子电路" class="">通信电子电路</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    21k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    19 mins.
+                </span>
+                
+                
+                <span id="/2021/09/19/通信电子电路/" class="leancloud_visitors" data-flag-title="通信电子电路">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">1000000</span>
+                </span>
+                
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AF%BE%E6%9C%AC%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" rel="tag">课本学习记录</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <p>通信电子电路就是模电的升级版，信号从模电的低频变成了高频，研究的数学原理从线性变成了非线性。<br>这么课是前后关系联系比较紧密的，前面的知识点需要充分的理解，在学习后面知识点时，才能更快速的跟上老师的思路。</p>
+<h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章 绪论"></a>第一章 绪论</h1><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/%E7%AC%AC%E4%B8%80%E7%AB%A0%E7%BB%AA%E8%AE%BA.png" alt="第一章绪论"></p>
+<h2 id="1-1-通信系统的概念"><a href="#1-1-通信系统的概念" class="headerlink" title="1.1 通信系统的概念"></a>1.1 通信系统的概念</h2><ul>
+<li>信息源</li>
+<li>发送设备</li>
+<li>信道（噪声源）</li>
+<li>接收设备</li>
+<li>收信装置</li>
+</ul>
+<h2 id="1-2-无线电波的传播特性"><a href="#1-2-无线电波的传播特性" class="headerlink" title="1.2 无线电波的传播特性"></a>1.2 无线电波的传播特性</h2><p>不同频段的无线电信号，其传播特性不同。</p>
+<p>同一信道对不同频率的信号传播特性是不同的。</p>
+<p>传播方式</p>
+<ul>
+<li>绕射——超视距通信<ul>
+<li>地波</li>
+<li>中长波信号</li>
+</ul>
+</li>
+<li>折射与反射——超视距通信<ul>
+<li>利用电离层</li>
+<li>天波</li>
+<li>短波</li>
+</ul>
+</li>
+<li>直射——视距通信<ul>
+<li>超短波</li>
+<li>对流层散射<ul>
+<li>散射通信已经成为超短波甚至微波的长距离通信的有力手段</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>只有当天线的尺寸大到可以与信号的波长相比拟时，天线才具有较高的辐射效率。</strong></p>
+<h2 id="1-3-无线电波的频段划分"><a href="#1-3-无线电波的频段划分" class="headerlink" title="1.3 无线电波的频段划分"></a>1.3 无线电波的频段划分</h2><p>波长λ</p>
+<p>频率f</p>
+<p>电磁波传播速度c</p>
+<p>c=λ*f</p>
+<table>
+<thead>
+<tr>
+<th><strong>波段（频段）</strong></th>
+<th align="center"><strong>符号</strong></th>
+<th><strong>波长范围</strong></th>
+<th><strong>频率范围</strong></th>
+<th><strong>应用范围</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>超长波（甚低频）</td>
+<td align="center">VLF</td>
+<td>100000-10000m</td>
+<td>3-30kHz</td>
+<td>1.海岸——潜艇通信；2.海上导航。</td>
+</tr>
+<tr>
+<td>长波（低频）</td>
+<td align="center">LF</td>
+<td>10000-1000m</td>
+<td>30-300kHz</td>
+<td>1.大气层内中等距离通信；2.地下岩层通信；3.海上导航。</td>
+</tr>
+<tr>
+<td>中波（中频）</td>
+<td align="center">MF</td>
+<td>1000-100m</td>
+<td>300kHz-3MHz</td>
+<td>1.广播；2.海上导航。</td>
+</tr>
+<tr>
+<td>短波（高频）</td>
+<td align="center">HF</td>
+<td>100-10m</td>
+<td>3-30MHz</td>
+<td>1.远距离短波通信；2.短波广播。</td>
+</tr>
+<tr>
+<td>超短波（甚高频）</td>
+<td align="center">VHF</td>
+<td>10-1m</td>
+<td>30-300MHz</td>
+<td>1.电离层散射通信（30-60MHz）；2.流星余迹通信（30-100MHz）；3.人造电离层通信（30-144MHz）；4.对大气层内、外空间飞行体（飞机、导弹、卫星）的通信；电视、雷达、导航、移动通信。</td>
+</tr>
+<tr>
+<td>分米波（特高频）</td>
+<td align="center">UHF</td>
+<td>1-0.1m</td>
+<td>300-3000MHz</td>
+<td>1.对流层工散射通信（700-1000MHz）；2.小容量（8-12路）微波接力通信（352-420MHz）；3.中容量（120路）微波接力通信（1700-2400MHz）。</td>
+</tr>
+<tr>
+<td>厘米波（超高频）</td>
+<td align="center">SHF</td>
+<td>10-1cm</td>
+<td>3-30GHz</td>
+<td>1.大容量（2500路、6000路）微波接力通信（3600-4200MHz，5850-8500MHz）；2.数字通信；3.卫星通信；4.波导通信。</td>
+</tr>
+<tr>
+<td>毫米波（极高频）</td>
+<td align="center">EHF</td>
+<td>10-1mm</td>
+<td>30-300GHz</td>
+<td>穿入大气层时的通信</td>
+</tr>
+</tbody></table>
+<h2 id="1-4-调制的通信系统（难点）"><a href="#1-4-调制的通信系统（难点）" class="headerlink" title="1.4 调制的通信系统（难点）"></a>1.4 调制的通信系统（难点）</h2><ul>
+<li> 无线电广播发射系统</li>
+<li>超外差式接受系统</li>
+</ul>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/CEC.jpg" alt="CEC"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/CEC2.jpg" alt="CEC2"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/CEC3.jpg" alt="CEC3"></p>
+<h1 id="第二章-小信号调谐放大电路"><a href="#第二章-小信号调谐放大电路" class="headerlink" title="第二章 小信号调谐放大电路"></a>第二章 小信号调谐放大电路</h1><pre><code>主要是接收信号部分的电路，与接受天线相连
+</code></pre>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E5%BC%95%E8%A8%80.png" alt="第二章 引言"></p>
+<h2 id="2-2-LC谐振回路"><a href="#2-2-LC谐振回路" class="headerlink" title="2.2 LC谐振回路"></a>2.2 LC谐振回路</h2><p> <img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/QQ%E5%9B%BE%E7%89%8720211008112640.jpg" alt="QQ图片20211008112640"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20LC%E8%B0%90%E6%8C%AF%E5%9B%9E%E8%B7%AF.png" alt="第二章 LC谐振回路"></p>
+<h2 id="2-3-放大器"><a href="#2-3-放大器" class="headerlink" title="2.3 放大器"></a>2.3 放大器</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20%E6%94%BE%E5%A4%A7%E5%99%A8.png" alt="第二章 放大器"></p>
+<h1 id="第三章-高频功率放大器"><a href="#第三章-高频功率放大器" class="headerlink" title="第三章  高频功率放大器"></a>第三章  高频功率放大器</h1><h2 id="3-1-概述"><a href="#3-1-概述" class="headerlink" title="3.1 概述"></a>3.1 概述</h2><pre><code>主要是发射信号部分的电路，与发射天线相连
+</code></pre>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E6%A6%82%E8%BF%B0.png" alt="第三章 概述"></p>
+<h2 id="3-2-高频调谐功率放大器的工作原理"><a href="#3-2-高频调谐功率放大器的工作原理" class="headerlink" title="3.2 高频调谐功率放大器的工作原理"></a>3.2 高频调谐功率放大器的工作原理</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/%E9%AB%98%E9%A2%91%E8%B0%83%E8%B0%90%E5%8A%9F%E7%8E%87%E6%94%BE%E5%A4%A7%E5%99%A8%E7%94%B5%E8%B7%AF.jpg" alt="高频调谐功率放大器电路"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211010203806166.png" alt="image-20211010203806166"></p>
+<p>输出的电压信号和输入的电压信号同频，但是幅值变大</p>
+<p>输出的电流信号：尖顶余弦脉冲</p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211010205100710.png" alt="image-20211010205100710"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/3.2%E9%AB%98%E9%A2%91%E8%B0%83%E8%B0%90%E5%8A%9F%E7%8E%87%E6%94%BE%E5%A4%A7%E5%99%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86.png" alt="3.2高频调谐功率放大器的工作原理"></p>
+<h2 id="3-3-功率和效率"><a href="#3-3-功率和效率" class="headerlink" title="3.3 功率和效率"></a>3.3 功率和效率</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/3.3%20%E5%8A%9F%E7%8E%87%E5%92%8C%E6%95%88%E7%8E%87.png" alt="3.3 功率和效率"></p>
+<h2 id="3-4-高频调谐功率放大器的工作状态分析"><a href="#3-4-高频调谐功率放大器的工作状态分析" class="headerlink" title="3.4 高频调谐功率放大器的工作状态分析"></a>3.4 高频调谐功率放大器的工作状态分析</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/3.4%20%E9%AB%98%E9%A2%91%E8%B0%83%E8%B0%90%E5%8A%9F%E7%8E%87%E6%94%BE%E5%A4%A7%E5%99%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%8A%B6%E6%80%81%E5%88%86%E6%9E%90.png" alt="3.4 高频调谐功率放大器的工作状态分析"></p>
+<h2 id="3-7-倍频器"><a href="#3-7-倍频器" class="headerlink" title="3.7 倍频器"></a>3.7 倍频器</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/3.5%20%E5%80%8D%E9%A2%91%E5%99%A8.png" alt="3.5 倍频器"></p>
+<h1 id="第四章-正弦波振荡器"><a href="#第四章-正弦波振荡器" class="headerlink" title="第四章 正弦波振荡器"></a>第四章 正弦波振荡器</h1><h2 id="4-1-概述"><a href="#4-1-概述" class="headerlink" title="4.1 概述"></a>4.1 概述</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/4.1%20%E6%A6%82%E8%BF%B0.png" alt="4.1 概述"></p>
+<h2 id="4-2-反馈型正弦自激振荡器基本原理"><a href="#4-2-反馈型正弦自激振荡器基本原理" class="headerlink" title="4.2 反馈型正弦自激振荡器基本原理"></a>4.2 反馈型正弦自激振荡器基本原理</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211023143502233.png" alt="image-20211023143502233"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/4.2%20%E5%8F%8D%E9%A6%88%E5%9E%8B%E6%AD%A3%E5%BC%A6%E6%B3%A2%E8%87%AA%E6%BF%80%E6%8C%AF%E8%8D%A1%E5%99%A8%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86.png" alt="4.2 反馈型正弦波自激振荡器基本原理"></p>
+<h2 id="4-3-三点式LC振荡器"><a href="#4-3-三点式LC振荡器" class="headerlink" title="4.3 三点式LC振荡器"></a>4.3 三点式LC振荡器</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/4.3%20%E4%B8%89%E7%82%B9%E5%BC%8FLC%E6%8C%AF%E8%8D%A1%E5%99%A8.png" alt="4.3 三点式LC振荡器"></p>
+<h2 id="4-4-改进型电容三点式振荡器"><a href="#4-4-改进型电容三点式振荡器" class="headerlink" title="4.4 改进型电容三点式振荡器"></a>4.4 改进型电容三点式振荡器</h2><h2 id="4-5-振荡器的频率稳定"><a href="#4-5-振荡器的频率稳定" class="headerlink" title="4.5 振荡器的频率稳定"></a>4.5 振荡器的频率稳定</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/4.4%20%E6%94%B9%E8%BF%9B%E5%9E%8B%E7%94%B5%E5%AE%B9%E4%B8%89%E7%82%B9%E5%BC%8F%E6%8C%AF%E8%8D%A1%E5%99%A8.png" alt="4.4 改进型电容三点式振荡器"></p>
+<h2 id="4-6-石英晶体振荡器"><a href="#4-6-石英晶体振荡器" class="headerlink" title="4.6 石英晶体振荡器"></a>4.6 石英晶体振荡器</h2><p>LC振荡器的频率稳定度不能做的很高，主要原因是LC回路的Q值不能做的很高</p>
+<p>石英晶体振荡器是以石英晶体谐振器取代LC振荡器中构成谐振回路的电感，电容元件所组成的正弦波振荡，频率稳定度高</p>
+<p>石英片是从石英晶体柱中切割下来的一种弹性体，有一 固有振动频率，其值与石英片的形状、尺寸、切型有关。</p>
+<p>当 外加交流电压的频率等于晶体固有频率时，晶体片的机械振 动最大，晶体表面电荷量最多，外电路中的交流电流最强， 于是产生了谐振。</p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211031142136753.png"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211031142113658.png" alt="image-20211031142113658"></p>
+<p>晶片可用一个串联LC回路表示，L_q为动态电感，C_q为动态电容，r_q为动态电阻</p>
+<p>切片与金属极板构成的静电电容C_0，即使石英晶片不震动，C_0仍然存在！</p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211114144254883.png" alt="image-20211114144254883"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211031142136753.png" alt="image-20211031142136753"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211031143346149.png" alt="image-20211031143346149"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211031143414023.png" alt="image-20211031143414023"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211114144323874.png" alt="image-20211114144323874"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211114144343687.png" alt="image-20211114144343687"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211114144406406.png" alt="image-20211114144406406"></p>
+<h2 id="4-7-石英晶体振荡器电路"><a href="#4-7-石英晶体振荡器电路" class="headerlink" title="4.7 石英晶体振荡器电路"></a>4.7 石英晶体振荡器电路</h2><h1 id="第五章-振幅调制与解调"><a href="#第五章-振幅调制与解调" class="headerlink" title="第五章 振幅调制与解调"></a>第五章 振幅调制与解调</h1><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/5.1%20%E8%B0%83%E5%88%B6%E4%B8%8E%E8%A7%A3%E8%B0%83.png" alt="5.1 调制与解调"></p>
+<h2 id="5-2-调幅信号的分析"><a href="#5-2-调幅信号的分析" class="headerlink" title="5.2 调幅信号的分析"></a>5.2 调幅信号的分析</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/5.2%20%E8%B0%83%E5%B9%85%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%88%86%E6%9E%90.png" alt="5.2 调幅信号的分析"></p>
+<h3 id="5-2-1-普通调幅波"><a href="#5-2-1-普通调幅波" class="headerlink" title="5.2.1 普通调幅波"></a>5.2.1 普通调幅波</h3><h4 id="调幅波的表达式"><a href="#调幅波的表达式" class="headerlink" title="调幅波的表达式"></a>调幅波的表达式</h4><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211114145422863.png" alt="image-20211114145422863"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211203154930691.png" alt="image-20211203154930691"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211113230535442.png" alt="image-20211113230535442"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211114150501235.png" alt="image-20211114150501235"></p>
+<h4 id="调幅波的频谱"><a href="#调幅波的频谱" class="headerlink" title="调幅波的频谱"></a>调幅波的频谱</h4><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211114152207017.png" alt="image-20211114152207017"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211114152223582.png" alt="image-20211114152223582"></p>
+<h4 id="调幅波的功率"><a href="#调幅波的功率" class="headerlink" title="调幅波的功率"></a>调幅波的功率</h4><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211114153355502.png" alt="image-20211114153355502"></p>
+<h3 id="5-2-2-抑制载波双边带调幅（DSB）"><a href="#5-2-2-抑制载波双边带调幅（DSB）" class="headerlink" title="5.2.2 抑制载波双边带调幅（DSB）"></a>5.2.2 抑制载波双边带调幅（DSB）</h3><p>由于载波不携带信息，因此为了节省发射功率，可以只发送含有信息的上下两个边带，而不发送载波；</p>
+<p>可将调制信号和载波信号直接加到乘法器或者平衡调幅器电路得到；</p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211114155420246.png" alt="image-20211114155420246"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211114154901811.png" alt="image-20211114154901811"></p>
+<p>相位发生180°突变的原因是，调制信号的由正变成负或者说由负变成正；</p>
+<p>对于正弦信号而言，系数变为原来的相反数，等效与加了一个180°的相位；</p>
+<p>特点:</p>
+<ul>
+<li>DSB信号的幅值仍然随调制信号而变化，但与普通调制不同的是，DSB的包络不再反映调制信号的形状，仍保持调幅波频谱搬移的特征</li>
+<li>在调制信号的正负半周，载波的相位反相；</li>
+<li>信号仍然集中在载频ω_c附近，所占频带B=2*F_max</li>
+</ul>
+<h3 id="5-2-3-抑制载波单边带调幅-SSB"><a href="#5-2-3-抑制载波单边带调幅-SSB" class="headerlink" title="5.2.3 抑制载波单边带调幅(SSB)"></a>5.2.3 抑制载波单边带调幅(SSB)</h3><ul>
+<li>减小了发射功率</li>
+<li>减小了频带宽度</li>
+</ul>
+<p>获得单边带的方法</p>
+<ul>
+<li>滤波法</li>
+<li>相移法</li>
+</ul>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211114161159957.png" alt="image-20211114161159957"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/113645865.jpg" alt="113645865"></p>
+<h2 id="5-3-调幅波产生的原理的理论分析"><a href="#5-3-调幅波产生的原理的理论分析" class="headerlink" title="5.3 调幅波产生的原理的理论分析"></a>5.3 调幅波产生的原理的理论分析</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211114162048640.png" alt="image-20211114162048640"></p>
+<h3 id="幂级数分析法（泰勒展开）"><a href="#幂级数分析法（泰勒展开）" class="headerlink" title="幂级数分析法（泰勒展开）"></a>幂级数分析法（泰勒展开）</h3><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211203163137776.png" alt="image-20211203163137776"></p>
+<h3 id="线性时变分析法"><a href="#线性时变分析法" class="headerlink" title="线性时变分析法"></a>线性时变分析法</h3><hr>
+<h3 id="指数函数分析法"><a href="#指数函数分析法" class="headerlink" title="指数函数分析法"></a>指数函数分析法</h3><hr>
+<h3 id="开关函数分析法"><a href="#开关函数分析法" class="headerlink" title="开关函数分析法"></a>开关函数分析法</h3><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211203163150671.png" alt="image-20211203163150671"></p>
+<h2 id="5-4-普通调幅波产生电路"><a href="#5-4-普通调幅波产生电路" class="headerlink" title="5.4 普通调幅波产生电路"></a>5.4 普通调幅波产生电路</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/5.3%20%E6%99%AE%E9%80%9A%E8%B0%83%E5%B9%85%E6%B3%A2%E7%9A%84%E4%BA%A7%E7%94%9F%E7%94%B5%E8%B7%AF.png" alt="5.3 普通调幅波的产生电路"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/5.4%20%E6%99%AE%E9%80%9A%E8%B0%83%E5%B9%85%E6%B3%A2%E7%9A%84%E8%A7%A3%E8%B0%83%E7%94%B5%E8%B7%AF.png" alt="5.4 普通调幅波的解调电路"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211114162933771.png" alt="image-20211114162933771"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211114162957234.png" alt="image-20211114162957234"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211114163053057.png" alt="image-20211114163053057"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211114163442288.png" alt="image-20211114163442288"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211203161147505.png" alt="image-20211203161147505"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/MD_2022-01-14_20-58-26.png" alt="MD_2022-01-14_20-58-26"></p>
+<h1 id="第六章-角度调制与解调"><a href="#第六章-角度调制与解调" class="headerlink" title="第六章 角度调制与解调"></a>第六章 角度调制与解调</h1><h2 id="6-2-角度调制信号分析"><a href="#6-2-角度调制信号分析" class="headerlink" title="6.2 角度调制信号分析"></a>6.2 角度调制信号分析</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211205184659352.png" alt="image-20211205184659352"></p>
+<h3 id="调幅推导"><a href="#调幅推导" class="headerlink" title="调幅推导"></a>调幅推导</h3><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211213194014046.png" alt="image-20211213194014046"></p>
+<h3 id="调频推导（角度调制）"><a href="#调频推导（角度调制）" class="headerlink" title="调频推导（角度调制）"></a>调频推导（角度调制）</h3><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211205184746597.png" alt="image-20211205184746597"></p>
+<h3 id="调相推导（角度调制）"><a href="#调相推导（角度调制）" class="headerlink" title="调相推导（角度调制）"></a>调相推导（角度调制）</h3><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211205184804574.png" alt="image-20211205184804574"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/MS_2022-01-14_21-19-24.png" alt="MS_2022-01-14_21-19-24"></p>
+<h2 id="6-3-调频信号的产生"><a href="#6-3-调频信号的产生" class="headerlink" title="6.3 调频信号的产生"></a>6.3 调频信号的产生</h2><h2 id="6-4-调频电路"><a href="#6-4-调频电路" class="headerlink" title="6.4 调频电路"></a>6.4 调频电路</h2><h3 id="直接调频电路"><a href="#直接调频电路" class="headerlink" title="直接调频电路"></a>直接调频电路</h3><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211213214052716.png" alt="image-20211213214052716"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211213214110648.png" alt="image-20211213214110648"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211213214124187.png" alt="image-20211213214124187"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/MS_2022-01-14_20-51-50.png" alt="MS_2022-01-14_20-51-50"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211213213838548.png" alt="image-20211213213838548"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211213213851813.png" alt="image-20211213213851813"></p>
+<p>高频电路部分，工作在谐振频率w_c频率处</p>
+<h3 id="间接调频"><a href="#间接调频" class="headerlink" title="间接调频"></a>间接调频</h3><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211213221429473.png" alt="image-20211213221429473"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/faabrwvgeth.jpg" alt="faabrwvgeth"></p>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211213222143670.png" alt="image-20211213222143670" style="zoom:200%;" />
+
+
+
+
+
+<h2 id="6-5-调频波的解调"><a href="#6-5-调频波的解调" class="headerlink" title="6.5 调频波的解调"></a>6.5 调频波的解调</h2><h3 id="鉴频"><a href="#鉴频" class="headerlink" title="鉴频"></a>鉴频</h3><h4 id="直接鉴频"><a href="#直接鉴频" class="headerlink" title="直接鉴频"></a>直接鉴频</h4><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211213222649985.png" alt="image-20211213222649985"></p>
+<h4 id="间接鉴频"><a href="#间接鉴频" class="headerlink" title="间接鉴频"></a>间接鉴频</h4><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211213230211347.png" alt="image-20211213230211347"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211213230225517.png" alt="image-20211213230225517"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211213230241571.png" alt="image-20211213230241571"></p>
+<hr>
+<hr>
+<h3 id="鉴相"><a href="#鉴相" class="headerlink" title="鉴相"></a>鉴相</h3><p>相位鉴频器：LC失谐</p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211213223112508.png" alt="image-20211213223112508"></p>
+<h4 id="乘积鉴相"><a href="#乘积鉴相" class="headerlink" title="乘积鉴相"></a>乘积鉴相</h4><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211213225921699.png" alt="image-20211213225921699"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211213225940985.png" alt="image-20211213225940985"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211213230049346.png" alt="image-20211213230049346"></p>
+<h4 id="叠加鉴相"><a href="#叠加鉴相" class="headerlink" title="叠加鉴相"></a>叠加鉴相</h4><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20211213230107462.png" alt="image-20211213230107462"></p>
+<hr>
+<hr>
+<h1 id="第七章-变频器"><a href="#第七章-变频器" class="headerlink" title="第七章 变频器"></a>第七章 变频器</h1><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20220114221448695.png" alt="image-20220114221448695"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20220114221844995.png" alt="image-20220114221844995"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20220114222219113.png" alt="image-20220114222219113"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20220114222647124.png" alt="image-20220114222647124"> </p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20220114222840694.png" alt="image-20220114222840694"></p>
+<p>变频和混频的区别：本振是否由单独的电路产生</p>
+<p>本振由非线性元件产生——变频器</p>
+<p>本振由单独的电路产生——混频器</p>
+<p>实际情况不用区分两者，认为相同就行</p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20220114223135336.png" alt="image-20220114223135336"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20220114223420769.png" alt="image-20220114223420769"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20220114223440058.png" alt="image-20220114223440058"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20220114223725558.png" alt="image-20220114223725558"></p>
+<p>变频器在频域中起加法器和减法器的作用</p>
+<h2 id="7-4-晶体管变频电路"><a href="#7-4-晶体管变频电路" class="headerlink" title="7.4 晶体管变频电路"></a>7.4 晶体管变频电路</h2><p>共射电路——用于频率较低</p>
+<p>共基电路——频率较高</p>
+<h2 id="7-6-环形混频器"><a href="#7-6-环形混频器" class="headerlink" title="7.6 环形混频器"></a>7.6 环形混频器</h2><h2 id="7-9-变频干扰"><a href="#7-9-变频干扰" class="headerlink" title="7.9 变频干扰"></a>7.9 变频干扰</h2><h3 id="7-9-1-信号与本振的自身组合频率干扰"><a href="#7-9-1-信号与本振的自身组合频率干扰" class="headerlink" title="7.9.1 信号与本振的自身组合频率干扰"></a>7.9.1 信号与本振的自身组合频率干扰</h3><h3 id="7-9-2-外来干扰和本振频率产生的副波道干扰"><a href="#7-9-2-外来干扰和本振频率产生的副波道干扰" class="headerlink" title="7.9.2 外来干扰和本振频率产生的副波道干扰"></a>7.9.2 外来干扰和本振频率产生的副波道干扰</h3><ol>
+<li>中频干扰</li>
+<li>镜频干扰</li>
+<li>组合副波道干扰</li>
+</ol>
+<h3 id="7-9-3-交调和互调干扰"><a href="#7-9-3-交调和互调干扰" class="headerlink" title="7.9.3 交调和互调干扰"></a>7.9.3 交调和互调干扰</h3><ol>
+<li>交调干扰</li>
+<li>互调干扰</li>
+</ol>
+<h1 id="第八章-锁相环"><a href="#第八章-锁相环" class="headerlink" title="第八章 锁相环"></a>第八章 锁相环</h1><p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/MS_2022-01-14_22-48-08.png" alt="MS_2022-01-14_22-48-08"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/image-20220114224947240.png" alt="image-20220114224947240"></p>
+<p> <img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/MS_2022-01-14_22-58-24.png" alt="MS_2022-01-14_22-58-24"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/CEC/MS_2022-01-14_22-58-31.png" alt="MS_2022-01-14_22-58-31"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/chengdu.mp3'></li>
+                
+                    
+            </ul>
+            
+                        
+            
+            
+            <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="https://gitee.com/murphyhou/picgo/raw/master/Website/me.jpg" height=300 width=300></img>
+                    <p>MurphyHou</p>
+                    <span>A Future Without Disappointment!</span>
+                    <dl>
+                        
+                        
+                            
+                                <dd>
+                                    <link rel="stylesheet" type="text/css" href="">
+                                    <a href="function link() { [native code] }" target="_blank"><span
+                                    class=" iconfont "></span></a>
+                                </dd>
+                            
+                            
+                            
+                        
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">23 <p>文章</p></a></li>
+                    <li><a href="/categories">8 <p>分类</p></a></li>
+                    <li><a href="/tags">22 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>目录</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">第一章 绪论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 通信系统的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E6%97%A0%E7%BA%BF%E7%94%B5%E6%B3%A2%E7%9A%84%E4%BC%A0%E6%92%AD%E7%89%B9%E6%80%A7"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 无线电波的传播特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E6%97%A0%E7%BA%BF%E7%94%B5%E6%B3%A2%E7%9A%84%E9%A2%91%E6%AE%B5%E5%88%92%E5%88%86"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 无线电波的频段划分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E8%B0%83%E5%88%B6%E7%9A%84%E9%80%9A%E4%BF%A1%E7%B3%BB%E7%BB%9F%EF%BC%88%E9%9A%BE%E7%82%B9%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 调制的通信系统（难点）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%B0%8F%E4%BF%A1%E5%8F%B7%E8%B0%83%E8%B0%90%E6%94%BE%E5%A4%A7%E7%94%B5%E8%B7%AF"><span class="toc-number">2.</span> <span class="toc-text">第二章 小信号调谐放大电路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-LC%E8%B0%90%E6%8C%AF%E5%9B%9E%E8%B7%AF"><span class="toc-number">2.1.</span> <span class="toc-text">2.2 LC谐振回路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E6%94%BE%E5%A4%A7%E5%99%A8"><span class="toc-number">2.2.</span> <span class="toc-text">2.3 放大器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E9%AB%98%E9%A2%91%E5%8A%9F%E7%8E%87%E6%94%BE%E5%A4%A7%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">第三章  高频功率放大器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E6%A6%82%E8%BF%B0"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E9%AB%98%E9%A2%91%E8%B0%83%E8%B0%90%E5%8A%9F%E7%8E%87%E6%94%BE%E5%A4%A7%E5%99%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 高频调谐功率放大器的工作原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E5%8A%9F%E7%8E%87%E5%92%8C%E6%95%88%E7%8E%87"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 功率和效率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E9%AB%98%E9%A2%91%E8%B0%83%E8%B0%90%E5%8A%9F%E7%8E%87%E6%94%BE%E5%A4%A7%E5%99%A8%E7%9A%84%E5%B7%A5%E4%BD%9C%E7%8A%B6%E6%80%81%E5%88%86%E6%9E%90"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 高频调谐功率放大器的工作状态分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-%E5%80%8D%E9%A2%91%E5%99%A8"><span class="toc-number">3.5.</span> <span class="toc-text">3.7 倍频器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E6%AD%A3%E5%BC%A6%E6%B3%A2%E6%8C%AF%E8%8D%A1%E5%99%A8"><span class="toc-number">4.</span> <span class="toc-text">第四章 正弦波振荡器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E6%A6%82%E8%BF%B0"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E5%8F%8D%E9%A6%88%E5%9E%8B%E6%AD%A3%E5%BC%A6%E8%87%AA%E6%BF%80%E6%8C%AF%E8%8D%A1%E5%99%A8%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 反馈型正弦自激振荡器基本原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E4%B8%89%E7%82%B9%E5%BC%8FLC%E6%8C%AF%E8%8D%A1%E5%99%A8"><span class="toc-number">4.3.</span> <span class="toc-text">4.3 三点式LC振荡器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E6%94%B9%E8%BF%9B%E5%9E%8B%E7%94%B5%E5%AE%B9%E4%B8%89%E7%82%B9%E5%BC%8F%E6%8C%AF%E8%8D%A1%E5%99%A8"><span class="toc-number">4.4.</span> <span class="toc-text">4.4 改进型电容三点式振荡器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E6%8C%AF%E8%8D%A1%E5%99%A8%E7%9A%84%E9%A2%91%E7%8E%87%E7%A8%B3%E5%AE%9A"><span class="toc-number">4.5.</span> <span class="toc-text">4.5 振荡器的频率稳定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-6-%E7%9F%B3%E8%8B%B1%E6%99%B6%E4%BD%93%E6%8C%AF%E8%8D%A1%E5%99%A8"><span class="toc-number">4.6.</span> <span class="toc-text">4.6 石英晶体振荡器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-7-%E7%9F%B3%E8%8B%B1%E6%99%B6%E4%BD%93%E6%8C%AF%E8%8D%A1%E5%99%A8%E7%94%B5%E8%B7%AF"><span class="toc-number">4.7.</span> <span class="toc-text">4.7 石英晶体振荡器电路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%8C%AF%E5%B9%85%E8%B0%83%E5%88%B6%E4%B8%8E%E8%A7%A3%E8%B0%83"><span class="toc-number">5.</span> <span class="toc-text">第五章 振幅调制与解调</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-%E8%B0%83%E5%B9%85%E4%BF%A1%E5%8F%B7%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-number">5.1.</span> <span class="toc-text">5.2 调幅信号的分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-1-%E6%99%AE%E9%80%9A%E8%B0%83%E5%B9%85%E6%B3%A2"><span class="toc-number">5.1.1.</span> <span class="toc-text">5.2.1 普通调幅波</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-2-%E6%8A%91%E5%88%B6%E8%BD%BD%E6%B3%A2%E5%8F%8C%E8%BE%B9%E5%B8%A6%E8%B0%83%E5%B9%85%EF%BC%88DSB%EF%BC%89"><span class="toc-number">5.1.2.</span> <span class="toc-text">5.2.2 抑制载波双边带调幅（DSB）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-3-%E6%8A%91%E5%88%B6%E8%BD%BD%E6%B3%A2%E5%8D%95%E8%BE%B9%E5%B8%A6%E8%B0%83%E5%B9%85-SSB"><span class="toc-number">5.1.3.</span> <span class="toc-text">5.2.3 抑制载波单边带调幅(SSB)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E8%B0%83%E5%B9%85%E6%B3%A2%E4%BA%A7%E7%94%9F%E7%9A%84%E5%8E%9F%E7%90%86%E7%9A%84%E7%90%86%E8%AE%BA%E5%88%86%E6%9E%90"><span class="toc-number">5.2.</span> <span class="toc-text">5.3 调幅波产生的原理的理论分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%82%E7%BA%A7%E6%95%B0%E5%88%86%E6%9E%90%E6%B3%95%EF%BC%88%E6%B3%B0%E5%8B%92%E5%B1%95%E5%BC%80%EF%BC%89"><span class="toc-number">5.2.1.</span> <span class="toc-text">幂级数分析法（泰勒展开）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E6%97%B6%E5%8F%98%E5%88%86%E6%9E%90%E6%B3%95"><span class="toc-number">5.2.2.</span> <span class="toc-text">线性时变分析法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E6%95%B0%E5%87%BD%E6%95%B0%E5%88%86%E6%9E%90%E6%B3%95"><span class="toc-number">5.2.3.</span> <span class="toc-text">指数函数分析法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%85%B3%E5%87%BD%E6%95%B0%E5%88%86%E6%9E%90%E6%B3%95"><span class="toc-number">5.2.4.</span> <span class="toc-text">开关函数分析法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-%E6%99%AE%E9%80%9A%E8%B0%83%E5%B9%85%E6%B3%A2%E4%BA%A7%E7%94%9F%E7%94%B5%E8%B7%AF"><span class="toc-number">5.3.</span> <span class="toc-text">5.4 普通调幅波产生电路</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E8%A7%92%E5%BA%A6%E8%B0%83%E5%88%B6%E4%B8%8E%E8%A7%A3%E8%B0%83"><span class="toc-number">6.</span> <span class="toc-text">第六章 角度调制与解调</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E8%A7%92%E5%BA%A6%E8%B0%83%E5%88%B6%E4%BF%A1%E5%8F%B7%E5%88%86%E6%9E%90"><span class="toc-number">6.1.</span> <span class="toc-text">6.2 角度调制信号分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E5%B9%85%E6%8E%A8%E5%AF%BC"><span class="toc-number">6.1.1.</span> <span class="toc-text">调幅推导</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E9%A2%91%E6%8E%A8%E5%AF%BC%EF%BC%88%E8%A7%92%E5%BA%A6%E8%B0%83%E5%88%B6%EF%BC%89"><span class="toc-number">6.1.2.</span> <span class="toc-text">调频推导（角度调制）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%9B%B8%E6%8E%A8%E5%AF%BC%EF%BC%88%E8%A7%92%E5%BA%A6%E8%B0%83%E5%88%B6%EF%BC%89"><span class="toc-number">6.1.3.</span> <span class="toc-text">调相推导（角度调制）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-%E8%B0%83%E9%A2%91%E4%BF%A1%E5%8F%B7%E7%9A%84%E4%BA%A7%E7%94%9F"><span class="toc-number">6.2.</span> <span class="toc-text">6.3 调频信号的产生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-%E8%B0%83%E9%A2%91%E7%94%B5%E8%B7%AF"><span class="toc-number">6.3.</span> <span class="toc-text">6.4 调频电路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E8%B0%83%E9%A2%91%E7%94%B5%E8%B7%AF"><span class="toc-number">6.3.1.</span> <span class="toc-text">直接调频电路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%B4%E6%8E%A5%E8%B0%83%E9%A2%91"><span class="toc-number">6.3.2.</span> <span class="toc-text">间接调频</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-5-%E8%B0%83%E9%A2%91%E6%B3%A2%E7%9A%84%E8%A7%A3%E8%B0%83"><span class="toc-number">6.4.</span> <span class="toc-text">6.5 调频波的解调</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%89%B4%E9%A2%91"><span class="toc-number">6.4.1.</span> <span class="toc-text">鉴频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%89%B4%E7%9B%B8"><span class="toc-number">6.4.2.</span> <span class="toc-text">鉴相</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%8F%98%E9%A2%91%E5%99%A8"><span class="toc-number">7.</span> <span class="toc-text">第七章 变频器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4-%E6%99%B6%E4%BD%93%E7%AE%A1%E5%8F%98%E9%A2%91%E7%94%B5%E8%B7%AF"><span class="toc-number">7.1.</span> <span class="toc-text">7.4 晶体管变频电路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-6-%E7%8E%AF%E5%BD%A2%E6%B7%B7%E9%A2%91%E5%99%A8"><span class="toc-number">7.2.</span> <span class="toc-text">7.6 环形混频器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-9-%E5%8F%98%E9%A2%91%E5%B9%B2%E6%89%B0"><span class="toc-number">7.3.</span> <span class="toc-text">7.9 变频干扰</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-9-1-%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%9C%AC%E6%8C%AF%E7%9A%84%E8%87%AA%E8%BA%AB%E7%BB%84%E5%90%88%E9%A2%91%E7%8E%87%E5%B9%B2%E6%89%B0"><span class="toc-number">7.3.1.</span> <span class="toc-text">7.9.1 信号与本振的自身组合频率干扰</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-9-2-%E5%A4%96%E6%9D%A5%E5%B9%B2%E6%89%B0%E5%92%8C%E6%9C%AC%E6%8C%AF%E9%A2%91%E7%8E%87%E4%BA%A7%E7%94%9F%E7%9A%84%E5%89%AF%E6%B3%A2%E9%81%93%E5%B9%B2%E6%89%B0"><span class="toc-number">7.3.2.</span> <span class="toc-text">7.9.2 外来干扰和本振频率产生的副波道干扰</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-9-3-%E4%BA%A4%E8%B0%83%E5%92%8C%E4%BA%92%E8%B0%83%E5%B9%B2%E6%89%B0"><span class="toc-number">7.3.3.</span> <span class="toc-text">7.9.3 交调和互调干扰</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E9%94%81%E7%9B%B8%E7%8E%AF"><span class="toc-number">8.</span> <span class="toc-text">第八章 锁相环</span></a></li></ol>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2022
+        <span class="gradient-text">
+            Murphy Hou
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.9.3" target="_blank" rel="noopener">v1.4.9.3</a></small>
+        
+        
+    </p>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+   
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Dreams&#39; never sold, blood&#39;s never cold.', '十年饮冰，难凉热血。'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var valine = new Valine();
+
+  function initValine(path) {
+    if (!path) path = window.location.pathname;
+    let language = 'zh-CN';
+    if (!language) {
+      language = 'en';
+    } else {
+      language = language.toLowerCase();
+    }
+    valine.init({
+      el: '#vcomments',
+      appId: '',
+      appKey: '',
+      notify: 'true',
+      verify: 'true',
+      avatar: 'mp',
+      placeholder: 'Leave your throughs behind~',
+      visitor: 'true',
+      path: path,
+      lang: language,
+    });
+  }
+
+  $(document).ready(function () {
+    initValine();
+  });
+</script>
+
+
+
+<!-- 引用依赖 -->
+<script>document.write(aplayerconf)</script>
+
+
+
+
+</html>
