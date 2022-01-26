@@ -5,13 +5,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Book2022 - Murphy</title>
+    <title>Nodejs - Murphy</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian Murphy Blog,"> 
-    <meta name="description" content="Hello,I Am Murphy,2021年读书确实不少，特别是假期期间。2022年估计读书不会很多，因为有更重要的任务去做！应该没有很多时间来读书了！
-"> 
+    <meta name="description" content="Hello,I Am Murphy,Node.js
+
+
+Node.js参考：教程
+
+
+
+
+
+
+
+
+
+
+
+
+NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题，常见的使用场景有以下几种：
+
+允许用户从N,"> 
     <meta name="author" content="Murphy Hou"> 
     <link rel="alternative" href="atom.xml" title="Murphy" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -62,7 +79,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://murphyhoucn.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">Book2022</h3>
+        <h3 class="subtitle">Nodejs</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -87,24 +104,24 @@
             animation-duration: 1.2s;
             background-image: 
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url('https://gitee.com/murphyhou/picgo/raw/master/Website/Book2022.jpg') ">
+                url('https://gitee.com/murphyhou/picgo/raw/master/Website/nodejs.png') ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/生活记录"><b>「
-                    </b>生活记录<b> 」</b></a>
+                <a href="/categories/知识拓展"><b>「
+                    </b>知识拓展<b> 」</b></a>
                 
-                一月 01, 2022
+                一月 26, 2022
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2022/01/01/Book2022/" title="Book2022" class="">Book2022</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2022/01/26/Nodejs/" title="Nodejs" class="">Nodejs</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    94
+                    1.3k
                 </span>
                 
                 
@@ -114,7 +131,7 @@
                 </span>
                 
                 
-                <span id="/2022/01/01/Book2022/" class="leancloud_visitors" data-flag-title="Book2022">
+                <span id="/2022/01/26/Nodejs/" class="leancloud_visitors" data-flag-title="Nodejs">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">1000000</span>
                 </span>
@@ -123,7 +140,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E8%AF%BB%E4%B9%A6/" rel="tag">读书</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/NodeJS/" rel="tag">NodeJS</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E7%9F%A5%E8%AF%86%E6%8B%93%E5%B1%95/" rel="tag">知识拓展</a></li></ul>
             
         </div>
     </div>
@@ -144,8 +161,29 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>2021年读书确实不少，特别是假期期间。<br>2022年估计读书不会很多，因为有更重要的任务去做！应该没有很多时间来读书了！</p>
+            <p>Node.js</p>
 <span id="more"></span>
+
+<h1 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h1><p>参考：<a href="%5BNode%E3%80%81npm%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%EF%BC%8CNode%E5%9C%A8D%E7%9B%98%E5%AE%89%E8%A3%85%EF%BC%88%E6%88%91%E7%A7%B0%E4%B9%8B%E4%B8%BA%E6%9C%80%E5%A5%BD%E7%9A%84%EF%BC%89_%E6%88%91%E8%AF%B4%E5%A5%B9%E6%98%AF%E6%88%91%E7%9A%84%E5%A5%B9-CSDN%E5%8D%9A%E5%AE%A2_node%E5%AE%89%E8%A3%85%E5%9C%A8%E5%93%AA%E4%B8%AA%E7%9B%98%E6%AF%94%E8%BE%83%E5%A5%BD%5D(https://blog.csdn.net/qq_45351419/article/details/112302401)">教程</a></p>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/applist/image-20220126195833209.png"/>
+
+<img src="https://gitee.com/murphyhou/picgo/raw/master/applist/image-20220126200008972.png"/>
+
+<img src="https://gitee.com/murphyhou/picgo/raw/master/applist/image-20220126200503646.png"/>
+
+<img src="https://gitee.com/murphyhou/picgo/raw/master/applist/image-20220126201032243.png"/>
+
+<img src="https://gitee.com/murphyhou/picgo/raw/master/applist/image-20220126201344733.png"/>
+
+
+
+<p>NPM是随同NodeJS一起安装的包管理工具，能解决NodeJS代码部署上的很多问题，常见的使用场景有以下几种：</p>
+<ul>
+<li>允许用户从NPM服务器下载别人编写的第三方包到本地使用。</li>
+<li>允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。</li>
+<li>允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。</li>
+</ul>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
                 data-autoplay="false">
@@ -195,6 +233,13 @@
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>目录</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js"><span class="toc-number">1.</span> <span class="toc-text">Node.js</span></a></li></ol>
+                </div>
+            </div>
             
             
         </div>
