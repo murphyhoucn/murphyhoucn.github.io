@@ -112,13 +112,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    6.9k
+                    8.7k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    6 mins.
+                    8 mins.
                 </span>
                 
                 
@@ -351,6 +351,40 @@ end
 <li>计算每个指标的信息熵，<br> 并计算信息效用值，<br> 并归一化得到每个指标的熵权</li>
 </ol>
 <p>熵权法的代码    </p>
+<hr>
+<h1 id="灰色关联分析（美赛不用）"><a href="#灰色关联分析（美赛不用）" class="headerlink" title="灰色关联分析（美赛不用）"></a>灰色关联分析（美赛不用）</h1><h2 id="模型基本介绍"><a href="#模型基本介绍" class="headerlink" title="模型基本介绍"></a>模型基本介绍</h2><p>系统分析和综合评价</p>
+<p>系统分析，分析自变量对结果影响大小</p>
+<p>数理统计：回归分析，方差分析，主成分分析</p>
+<p>灰色关联分析，对<strong>数据量的大小</strong>和样本的规律性没有要求</p>
+<p>灰色关联分析的<strong>思想</strong>是根据序列曲线<strong>几何形状的相似程度</strong>来判断其联系是否紧密。曲线越接，相应序列之间的关联度就越大，反之就越小；</p>
+<h2 id="应用一：进行系统分析"><a href="#应用一：进行系统分析" class="headerlink" title="应用一：进行系统分析"></a>应用一：进行系统分析</h2><ol>
+<li><p>画统计图（用Excel），并根据图表做几条简单的分析</p>
+</li>
+<li><p>确定分析数列</p>
+<pre><code class="bash"> 母序列（参考数列，母指标）：反映系统行为的数据序列-&gt;类似于因变量Y（只有一个）；
+ 子序列（比较数列，子指标）：影响系统行为的因素所组成的数据序列-&gt;类似于自变量X（可以有多个）；
+</code></pre>
+</li>
+<li><p>对变量进行预处理（目的：去量纲，缩小变量范围简化计算）<br>对母序列和子序列中的每个指标进行预处理：先求出每个指标的均值，在用该指标中的每个元素都除以其均值；</p>
+</li>
+</ol>
+<ol start="4">
+<li>计算子序列中各个指标与母系列的关联系数（小数点后四位数字）<br>两极最小差，两极最大差<img src="https://gitee.com/murphyhou/picgo/raw/master/AST/QQ%E6%88%AA%E5%9B%BE20220129204228.png"/></li>
+</ol>
+<p>​        计算关联系数<img src="https://gitee.com/murphyhou/picgo/raw/master/AST/QQ%E6%88%AA%E5%9B%BE20220129204406.png"/></p>
+<ol start="5">
+<li><p>灰色关联度<img src="https://gitee.com/murphyhou/picgo/raw/master/AST/QQ%E6%88%AA%E5%9B%BE20220129205232.png"/></p>
+</li>
+<li><p>通过比较三那个子序列和母序列的关联度可以得到结论：<br>找到灰色关联度最大的那个指标，该子指标对母指标的影响最大；</p>
+</li>
+</ol>
+<p>讨论：</p>
+<p><strong>美赛不要用灰色关联分析，美赛用传统的数理分析方法（回归分析，方差分析，主成分分析）</strong></p>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/AST/QQ截图20220129210021.png"/>
+
+<h2 id="应用二：用于综合评价"><a href="#应用二：用于综合评价" class="headerlink" title="应用二：用于综合评价"></a>应用二：用于综合评价</h2><p>（类似于TOPSIS联合熵权法）</p>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/AST/QQ截图20220129210117.png"/>
+
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -405,7 +439,7 @@ end
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">层次分析法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95-AHP%E8%AE%B2%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">层次分析法 AHP讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%8B%93%E5%B1%95%E9%83%A8%E5%88%86"><span class="toc-number">1.2.</span> <span class="toc-text">模型拓展部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3%E9%83%A8%E5%88%86"><span class="toc-number">1.3.</span> <span class="toc-text">代码讲解部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E7%90%86%E8%A7%A3%E4%B9%8B%E5%A4%84"><span class="toc-number">1.4.</span> <span class="toc-text">不理解之处</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TOPSIS"><span class="toc-number">2.</span> <span class="toc-text">TOPSIS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#TOPSIS-%E6%A8%A1%E5%9E%8B%E8%AE%B2%E8%A7%A3"><span class="toc-number">2.1.</span> <span class="toc-text">TOPSIS 模型讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%8B%93%E5%B1%95"><span class="toc-number">2.2.</span> <span class="toc-text">模型拓展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86"><span class="toc-number">2.3.</span> <span class="toc-text">代码部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%86%B5%E6%9D%83%E6%B3%95%E5%AF%B9TOPSIS%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BF%AE%E6%AD%A3"><span class="toc-number">2.4.</span> <span class="toc-text">基于熵权法对TOPSIS模型的修正</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">层次分析法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95-AHP%E8%AE%B2%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">层次分析法 AHP讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%8B%93%E5%B1%95%E9%83%A8%E5%88%86"><span class="toc-number">1.2.</span> <span class="toc-text">模型拓展部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3%E9%83%A8%E5%88%86"><span class="toc-number">1.3.</span> <span class="toc-text">代码讲解部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E7%90%86%E8%A7%A3%E4%B9%8B%E5%A4%84"><span class="toc-number">1.4.</span> <span class="toc-text">不理解之处</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TOPSIS"><span class="toc-number">2.</span> <span class="toc-text">TOPSIS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#TOPSIS-%E6%A8%A1%E5%9E%8B%E8%AE%B2%E8%A7%A3"><span class="toc-number">2.1.</span> <span class="toc-text">TOPSIS 模型讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%8B%93%E5%B1%95"><span class="toc-number">2.2.</span> <span class="toc-text">模型拓展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86"><span class="toc-number">2.3.</span> <span class="toc-text">代码部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%86%B5%E6%9D%83%E6%B3%95%E5%AF%B9TOPSIS%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BF%AE%E6%AD%A3"><span class="toc-number">2.4.</span> <span class="toc-text">基于熵权法对TOPSIS模型的修正</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%81%B0%E8%89%B2%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88%E7%BE%8E%E8%B5%9B%E4%B8%8D%E7%94%A8%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">灰色关联分析（美赛不用）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.</span> <span class="toc-text">模型基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E4%B8%80%EF%BC%9A%E8%BF%9B%E8%A1%8C%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90"><span class="toc-number">3.2.</span> <span class="toc-text">应用一：进行系统分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E4%BA%8C%EF%BC%9A%E7%94%A8%E4%BA%8E%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7"><span class="toc-number">3.3.</span> <span class="toc-text">应用二：用于综合评价</span></a></li></ol></li></ol>
                 </div>
             </div>
             
