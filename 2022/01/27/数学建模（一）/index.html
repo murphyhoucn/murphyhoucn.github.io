@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian Murphy Blog,"> 
-    <meta name="description" content="Hello,I Am Murphy,清风数学建视频学习笔记（一）层次分析法
+    <meta name="description" content="Hello,I Am Murphy,清风数学建视频学习笔记（一）层次分析法TOPSIS灰色关联分析模糊综合分析
 
 
 美赛：建模+编程+写作
@@ -18,8 +18,7 @@
 层次分析法层次分析法 AHP讲解
 层次分析法主要解决评价类问题——评价类问题用打分解决
 
-权重——权重和为1
-表格：指标和指标权,"> 
+权,"> 
     <meta name="author" content="Murphy Hou"> 
     <link rel="alternative" href="atom.xml" title="Murphy" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -112,13 +111,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    8.7k
+                    12k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    8 mins.
+                    11 mins.
                 </span>
                 
                 
@@ -131,7 +130,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95/" rel="tag">层次分析法</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" rel="tag">数学建模</a></li></ul>
             
         </div>
     </div>
@@ -152,7 +151,7 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>清风数学建视频学习笔记（一）<br>层次分析法</p>
+            <p>清风数学建视频学习笔记（一）<br>层次分析法<br>TOPSIS<br>灰色关联分析<br>模糊综合分析</p>
 <span id="more"></span>
 
 <p>美赛：建模+编程+写作</p>
@@ -385,6 +384,106 @@ end
 <h2 id="应用二：用于综合评价"><a href="#应用二：用于综合评价" class="headerlink" title="应用二：用于综合评价"></a>应用二：用于综合评价</h2><p>（类似于TOPSIS联合熵权法）</p>
 <img src="https://gitee.com/murphyhou/picgo/raw/master/AST/QQ截图20220129210117.png"/>
 
+<hr>
+<h1 id="模糊综合评价"><a href="#模糊综合评价" class="headerlink" title="模糊综合评价"></a>模糊综合评价</h1><div align=center>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220129210959111.png"/>
+</div>
+
+
+<h2 id="模糊综合评价概述"><a href="#模糊综合评价概述" class="headerlink" title="模糊综合评价概述"></a>模糊综合评价概述</h2><ol>
+<li><p>数学归纳法和秃子悖论<br>量变引起质变数学上就算模糊的概念</p>
+</li>
+<li><p>数学中研究的量的划分</p>
+</li>
+</ol>
+<pre><code class="bash">    量 
+    - 确定性
+        - 经典数学（几何，代数）
+    - 不确定性
+        - 随机性（概率论，随机过程）
+        - 灰性（灰色系统）
+        - 模糊性（模糊数学）
+</code></pre>
+<ol start="3">
+<li><p>生活存在的模糊性<br> 确定性：性别，年龄，身高……<br> 模糊性：高，帅，白，年轻……</p>
+</li>
+<li><p>模糊数学</p>
+<div align=center>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220129221649.png"/>
+</div></li>
+</ol>
+<h2 id="经典集合和模糊集合的基本概念"><a href="#经典集合和模糊集合的基本概念" class="headerlink" title="经典集合和模糊集合的基本概念"></a>经典集合和模糊集合的基本概念</h2><ol>
+<li>经典集合与特征函数</li>
+</ol>
+<ul>
+<li>论域：我们感兴趣的一些对象集合</li>
+</ul>
+<ol start="2">
+<li>模糊集合和隶属函数</li>
+</ol>
+<ul>
+<li>隶属函数（分段函数），隶属函数不唯一</li>
+<li>隶属度</li>
+<li>模糊集合的三种表示方法<br>```bash<br>论域U，模糊集合A，隶属度A(xi)</li>
+</ul>
+<ol>
+<li>扎德表示法 2.序偶表示法 3. 向量表示法<br>```<div align=center>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220131133052.png"/>
+</div></li>
+</ol>
+<ul>
+<li>模糊集合的分类<br>偏小型——隶属函数递减<br>中间型——隶属函数先增大后减小<br>偏大型——隶属函数递增</li>
+</ul>
+<h2 id="隶属函数的三种确定方法"><a href="#隶属函数的三种确定方法" class="headerlink" title="隶属函数的三种确定方法"></a>隶属函数的三种确定方法</h2><ol>
+<li><p>模糊统计法（比赛中用的少，因为需要发问卷，实际研究中应用更多）<br>原理：找到多个人对同一个模糊概念进行描述，用隶属频率去定义隶属度</p>
+</li>
+<li><p>借助已有的客观尺度（需要有合适的指标，并能收集到数据）</p>
+</li>
+</ol>
+<ul>
+<li>论域</li>
+<li>模糊集</li>
+<li>隶属度（指标介于0-1至今（归一化处理））</li>
+</ul>
+<ol start="3">
+<li>指派法（根据问题的性质直接套用某些分布作为隶属函数，主观性强）<br>博客网站链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_29831163/article/details/89892822">(1条消息) 模糊数学模型（一）： 隶属函数、模糊集合的表示方法、模糊关系、模糊矩阵_冷月无声的博客-CSDN博客_常用的模糊函数分布表</a><div align=center>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/20190506222358274.png"/>
+</div></li>
+</ol>
+<div align=center>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/20190506222421707.png"/>
+</div>
+## 模糊综合评价应用
+
+<div align=center>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ%E6%88%AA%E5%9B%BE20220131135021.png" alt="QQ截图20220131135021"  />
+</div>
+
+
+
+<ol>
+<li>概述</li>
+</ol>
+<pre><code class="bash">    把论域中的对象对应评语集中一个指定的评语
+    将方案作为评语集并选择一个最优的方案
+
+    模糊综合评价中的三个集合：因素集合（评价指标集）；评语集合（评价的结果）；权重集（指标的权重）
+</code></pre>
+<ol start="2">
+<li>一级模糊综合评价模型<br> 在指标个数较少的考核中，运用一级模糊综合评判，而在问题较为复杂，指标较多时，运用多层次模糊综合评价<br> 步骤：</li>
+<li>确定因素集。评价角度</li>
+<li>确定评语集。评价值 评价等级</li>
+<li>确定各因素的权重。使用Delphi法（专家调查法）：征求专意见后，再反馈给专家，再次征求意见，直到意见的统一；其他方法：无数据：层次分析法；有数据：熵权法。</li>
+<li>确定<strong>模糊综合判断矩阵</strong>（关键）。<div align=center>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220131140039.png"/>
+</div></li>
+</ol>
+<ol start="5">
+<li><p>综合评判。模糊变换。</p>
+</li>
+<li><p>多级模糊综合评价模型<br> 因素中元素较多，我们可以对其进行归类归类后，可以简化我们的计算。<br> 确定权重的时候，指标越少，越容易判断权重</p>
+</li>
+</ol>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -428,7 +527,7 @@ end
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">28 <p>文章</p></a></li>
+                    <li><a href="/">29 <p>文章</p></a></li>
                     <li><a href="/categories">11 <p>分类</p></a></li>
                     <li><a href="/tags">31 <p>标签</p></a></li>
                 </ul>
@@ -439,7 +538,7 @@ end
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">层次分析法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95-AHP%E8%AE%B2%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">层次分析法 AHP讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%8B%93%E5%B1%95%E9%83%A8%E5%88%86"><span class="toc-number">1.2.</span> <span class="toc-text">模型拓展部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3%E9%83%A8%E5%88%86"><span class="toc-number">1.3.</span> <span class="toc-text">代码讲解部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E7%90%86%E8%A7%A3%E4%B9%8B%E5%A4%84"><span class="toc-number">1.4.</span> <span class="toc-text">不理解之处</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TOPSIS"><span class="toc-number">2.</span> <span class="toc-text">TOPSIS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#TOPSIS-%E6%A8%A1%E5%9E%8B%E8%AE%B2%E8%A7%A3"><span class="toc-number">2.1.</span> <span class="toc-text">TOPSIS 模型讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%8B%93%E5%B1%95"><span class="toc-number">2.2.</span> <span class="toc-text">模型拓展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86"><span class="toc-number">2.3.</span> <span class="toc-text">代码部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%86%B5%E6%9D%83%E6%B3%95%E5%AF%B9TOPSIS%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BF%AE%E6%AD%A3"><span class="toc-number">2.4.</span> <span class="toc-text">基于熵权法对TOPSIS模型的修正</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%81%B0%E8%89%B2%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88%E7%BE%8E%E8%B5%9B%E4%B8%8D%E7%94%A8%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">灰色关联分析（美赛不用）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.</span> <span class="toc-text">模型基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E4%B8%80%EF%BC%9A%E8%BF%9B%E8%A1%8C%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90"><span class="toc-number">3.2.</span> <span class="toc-text">应用一：进行系统分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E4%BA%8C%EF%BC%9A%E7%94%A8%E4%BA%8E%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7"><span class="toc-number">3.3.</span> <span class="toc-text">应用二：用于综合评价</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">层次分析法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95-AHP%E8%AE%B2%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">层次分析法 AHP讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%8B%93%E5%B1%95%E9%83%A8%E5%88%86"><span class="toc-number">1.2.</span> <span class="toc-text">模型拓展部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3%E9%83%A8%E5%88%86"><span class="toc-number">1.3.</span> <span class="toc-text">代码讲解部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E7%90%86%E8%A7%A3%E4%B9%8B%E5%A4%84"><span class="toc-number">1.4.</span> <span class="toc-text">不理解之处</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TOPSIS"><span class="toc-number">2.</span> <span class="toc-text">TOPSIS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#TOPSIS-%E6%A8%A1%E5%9E%8B%E8%AE%B2%E8%A7%A3"><span class="toc-number">2.1.</span> <span class="toc-text">TOPSIS 模型讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%8B%93%E5%B1%95"><span class="toc-number">2.2.</span> <span class="toc-text">模型拓展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%83%A8%E5%88%86"><span class="toc-number">2.3.</span> <span class="toc-text">代码部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%86%B5%E6%9D%83%E6%B3%95%E5%AF%B9TOPSIS%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BF%AE%E6%AD%A3"><span class="toc-number">2.4.</span> <span class="toc-text">基于熵权法对TOPSIS模型的修正</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%81%B0%E8%89%B2%E5%85%B3%E8%81%94%E5%88%86%E6%9E%90%EF%BC%88%E7%BE%8E%E8%B5%9B%E4%B8%8D%E7%94%A8%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">灰色关联分析（美赛不用）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.</span> <span class="toc-text">模型基本介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E4%B8%80%EF%BC%9A%E8%BF%9B%E8%A1%8C%E7%B3%BB%E7%BB%9F%E5%88%86%E6%9E%90"><span class="toc-number">3.2.</span> <span class="toc-text">应用一：进行系统分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E4%BA%8C%EF%BC%9A%E7%94%A8%E4%BA%8E%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7"><span class="toc-number">3.3.</span> <span class="toc-text">应用二：用于综合评价</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E7%B3%8A%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7"><span class="toc-number">4.</span> <span class="toc-text">模糊综合评价</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E7%B3%8A%E7%BB%BC%E5%90%88%E8%AF%84%E4%BB%B7%E6%A6%82%E8%BF%B0"><span class="toc-number">4.1.</span> <span class="toc-text">模糊综合评价概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E9%9B%86%E5%90%88%E5%92%8C%E6%A8%A1%E7%B3%8A%E9%9B%86%E5%90%88%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">4.2.</span> <span class="toc-text">经典集合和模糊集合的基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%B6%E5%B1%9E%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%89%E7%A7%8D%E7%A1%AE%E5%AE%9A%E6%96%B9%E6%B3%95"><span class="toc-number">4.3.</span> <span class="toc-text">隶属函数的三种确定方法</span></a></li></ol></li></ol>
                 </div>
             </div>
             
