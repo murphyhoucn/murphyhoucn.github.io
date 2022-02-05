@@ -10,15 +10,14 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="TriDiamond Obsidian Murphy Blog,"> 
-    <meta name="description" content="Hello,I Am Murphy,Excel绘制统计图
+    <meta name="description" content="Hello,I Am Murphy,清风数学建视频学习笔记（二）
+Excel绘制统计图插值算法拟合算法
 
 
 Excel绘制统计图美赛：英文写作和作图比建模更重要一般不直接在图中加标题，把图的标题放在论文中
 饼图
 边框无线条
-类别太多：不用饼图而是柱状图
-类别太少：不画饼图
-划分的,"> 
+类别太多：,"> 
     <meta name="author" content="Murphy Hou"> 
     <link rel="alternative" href="atom.xml" title="Murphy" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -111,13 +110,13 @@ Excel绘制统计图美赛：英文写作和作图比建模更重要一般不直
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    1.6k
+                    4.5k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    1 mins.
+                    4 mins.
                 </span>
                 
                 
@@ -151,7 +150,8 @@ Excel绘制统计图美赛：英文写作和作图比建模更重要一般不直
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>Excel绘制统计图</p>
+            <p>清风数学建视频学习笔记（二）</p>
+<p>Excel绘制统计图<br>插值算法<br>拟合算法</p>
 <span id="more"></span>
 
 <h1 id="Excel绘制统计图"><a href="#Excel绘制统计图" class="headerlink" title="Excel绘制统计图"></a>Excel绘制统计图</h1><p>美赛：英文写作和作图比建模更重要<br>一般不直接在图中加标题，把图的标题放在论文中</p>
@@ -208,6 +208,81 @@ Excel绘制统计图美赛：英文写作和作图比建模更重要一般不直
 </div>
 
 
+<h1 id="插值算法"><a href="#插值算法" class="headerlink" title="插值算法"></a>插值算法</h1><p>数据很少的时候，不足以支撑分析的进行，这时候就需要使用数学的方法，模拟产生一些新的但又比较靠谱的值来满足需求。</p>
+<h2 id="一维插值问题"><a href="#一维插值问题" class="headerlink" title="一维插值问题"></a>一维插值问题</h2><ol>
+<li><p>多相式插值：<br>拉格朗日插值法<br>龙格现象：高次插值会产生龙格现象，即在两端处波动极大，产生明显的震荡。</p>
+</li>
+<li><p>分段插值：<br>分段线性插值法<br>分段二次插值法（分段抛物插值）</p>
+</li>
+</ol>
+<ol start="3">
+<li><p>牛顿插值法<br>差商<br>也存在龙格现象</p>
+</li>
+<li><p>埃尔米特插值原理</p>
+</li>
+</ol>
+<p>  <strong>分段三次埃尔米特插值</strong><br>  matab函数：p=pchip(x,y,new_x)</p>
+<pre><code class="bash">x：已知的样本点的横坐标；
+y：已知的样本点的纵坐标；
+new_x:要插入处对应的横坐标；
+</code></pre>
+<ol start="5">
+<li>plot()函数<div align=center>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220205195807.png"/>
+</div></li>
+</ol>
+<ol start="6">
+<li>三次样条插值<br>spline(x,y.new_x)</li>
+</ol>
+<h2 id="n维数据的插值"><a href="#n维数据的插值" class="headerlink" title="n维数据的插值"></a>n维数据的插值</h2><div align=center>
+  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ%E6%88%AA%E5%9B%BE20220205201238.png"  />
+</div>
+
+
+
+
+<h2 id="插值算法可以用于预测"><a href="#插值算法可以用于预测" class="headerlink" title="插值算法可以用于预测"></a>插值算法可以用于预测</h2><div align=center>
+  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220205201722.png"/>
+</div>
+
+
+
+
+<h2 id="建模实例"><a href="#建模实例" class="headerlink" title="建模实例"></a>建模实例</h2><p>两组数据，第一组数据的时间是：第一周，第二周，第三周……<br>第二组的数据的时间是：第一周，第三周，第五周……<br>因此，需要先把第二组的数据使用插值算法扩展到第一周，第二周，第三周……</p>
+<p>subplot()函数</p>
+<h1 id="拟合算法"><a href="#拟合算法" class="headerlink" title="拟合算法"></a>拟合算法</h1><p>拟合算法与插值算法的区别：与插值问题不同，在拟合问题中不需要曲线一定经过给定的点。拟合问题的目标是寻找一个函数（曲线），使得该曲线在某种准则下与所有的数据点最为接近，即曲线拟合的最好（最小化损失函数）。</p>
+<p>插值算法：找到的函数经过所有的样本点<br>拟合算法：误差尽量小</p>
+<h2 id="拟合算法讲解"><a href="#拟合算法讲解" class="headerlink" title="拟合算法讲解"></a>拟合算法讲解</h2><ol>
+<li>确定拟合曲线<br>最小二乘法<div align=center>
+   <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220205204255.png"/>
+</div></li>
+</ol>
+<p>  使用matlab求解最小二乘法</p>
+<pre><code class="bash">  hold on 继续在之前的图形上面来画图形
+  gird on  显示网格线
+
+  % 匿名函数的基本用法。
+  % handle = @(arglist) anonymous_function
+  % 其中handle为调用匿名函数时使用的名字。
+  % arglist为匿名函数的输入参数，可以是一个，也可以是多个，用逗号分隔。
+  % anonymous_function为匿名函数的表达式。
+</code></pre>
+<ol start="2">
+<li>评判拟合的好坏<br>拟合优度（可决系数）<br>量纲会影响SSE<div align=center>
+ <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220205205434.png"/>
+</div></li>
+</ol>
+<pre><code class="bash">  拟合函数要简单
+  R^2只能用于拟合函数是线性函数的时，拟合结果的评价；
+  如果有一个线性函数和一个其他函数（例如复杂指数函数），二者比较拟合的好坏时候，直接看SSE即可
+</code></pre>
+<ol start="3">
+<li>线性函数<br>在函数中，参数仅以一次方出现，且不能乘以或除以其他任何参数，并且不能出现参数的复合函数形式<div align=center>
+ <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220205211638.png"/>
+</div></li>
+<li>matlab计算拟合优度</li>
+</ol>
+<h2 id="曲线拟合工具箱"><a href="#曲线拟合工具箱" class="headerlink" title="曲线拟合工具箱"></a>曲线拟合工具箱</h2><p>Curve Fitting Tool</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -262,7 +337,7 @@ Excel绘制统计图美赛：英文写作和作图比建模更重要一般不直
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Excel%E7%BB%98%E5%88%B6%E7%BB%9F%E8%AE%A1%E5%9B%BE"><span class="toc-number">1.</span> <span class="toc-text">Excel绘制统计图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A5%BC%E5%9B%BE"><span class="toc-number">1.1.</span> <span class="toc-text">饼图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%B1%E7%8A%B6%E5%9B%BE%E5%92%8C%E6%9D%A1%E5%BD%A2%E5%9B%BE"><span class="toc-number">1.2.</span> <span class="toc-text">柱状图和条形图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%96%B9%E5%9B%BE"><span class="toc-number">1.3.</span> <span class="toc-text">直方图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%98%E7%BA%BF%E5%9B%BE"><span class="toc-number">1.4.</span> <span class="toc-text">折线图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%A3%E7%82%B9%E5%9B%BE"><span class="toc-number">1.5.</span> <span class="toc-text">散点图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%B1%E7%BA%BF%E5%9B%BE"><span class="toc-number">1.6.</span> <span class="toc-text">箱线图</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Excel%E7%BB%98%E5%88%B6%E7%BB%9F%E8%AE%A1%E5%9B%BE"><span class="toc-number">1.</span> <span class="toc-text">Excel绘制统计图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A5%BC%E5%9B%BE"><span class="toc-number">1.1.</span> <span class="toc-text">饼图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%B1%E7%8A%B6%E5%9B%BE%E5%92%8C%E6%9D%A1%E5%BD%A2%E5%9B%BE"><span class="toc-number">1.2.</span> <span class="toc-text">柱状图和条形图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%96%B9%E5%9B%BE"><span class="toc-number">1.3.</span> <span class="toc-text">直方图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%98%E7%BA%BF%E5%9B%BE"><span class="toc-number">1.4.</span> <span class="toc-text">折线图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%A3%E7%82%B9%E5%9B%BE"><span class="toc-number">1.5.</span> <span class="toc-text">散点图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%B1%E7%BA%BF%E5%9B%BE"><span class="toc-number">1.6.</span> <span class="toc-text">箱线图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%92%E5%80%BC%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">插值算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E7%BB%B4%E6%8F%92%E5%80%BC%E9%97%AE%E9%A2%98"><span class="toc-number">2.1.</span> <span class="toc-text">一维插值问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#n%E7%BB%B4%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8F%92%E5%80%BC"><span class="toc-number">2.2.</span> <span class="toc-text">n维数据的插值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%80%BC%E7%AE%97%E6%B3%95%E5%8F%AF%E4%BB%A5%E7%94%A8%E4%BA%8E%E9%A2%84%E6%B5%8B"><span class="toc-number">2.3.</span> <span class="toc-text">插值算法可以用于预测</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E6%A8%A1%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.4.</span> <span class="toc-text">建模实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%9F%E5%90%88%E7%AE%97%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">拟合算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%9F%E5%90%88%E7%AE%97%E6%B3%95%E8%AE%B2%E8%A7%A3"><span class="toc-number">3.1.</span> <span class="toc-text">拟合算法讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B2%E7%BA%BF%E6%8B%9F%E5%90%88%E5%B7%A5%E5%85%B7%E7%AE%B1"><span class="toc-number">3.2.</span> <span class="toc-text">曲线拟合工具箱</span></a></li></ol></li></ol>
                 </div>
             </div>
             
