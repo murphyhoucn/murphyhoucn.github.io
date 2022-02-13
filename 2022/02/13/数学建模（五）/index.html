@@ -1,0 +1,696 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>数学建模（五） - Murphy</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="TriDiamond Obsidian Murphy Blog,"> 
+    <meta name="description" content="Hello,I Am Murphy,目录：一、2022 美赛备战二、常用模型和算法三、美赛论文写作四、美赛论文排版
+
+
+2022美赛备战题目分析MCM（数学建模竞赛）：A,B,CICM（交叉学科竞赛）：D,E,F
+MCM要求更深的数学,"> 
+    <meta name="author" content="Murphy Hou"> 
+    <link rel="alternative" href="atom.xml" title="Murphy" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+    
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none">Murphy</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://murphyhoucn.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">数学建模（五）</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url('https://gitee.com/murphyhou/picgo/raw/master/Website/website-647013_1920.jpg') ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/数学建模"><b>「
+                    </b>数学建模<b> 」</b></a>
+                
+                二月 13, 2022
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2022/02/13/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%EF%BC%88%E4%BA%94%EF%BC%89/" title="数学建模（五）" class="">数学建模（五）</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    15k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    14 mins.
+                </span>
+                
+                
+                <span id="/2022/02/13/数学建模（五）/" class="leancloud_visitors" data-flag-title="数学建模（五）">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">1000000</span>
+                </span>
+                
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" rel="tag">数学建模</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <p>目录：<br>一、2022 美赛备战<br>二、常用模型和算法<br>三、美赛论文写作<br>四、美赛论文排版</p>
+<span id="more"></span>
+
+<h1 id="2022美赛备战"><a href="#2022美赛备战" class="headerlink" title="2022美赛备战"></a>2022美赛备战</h1><h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>MCM（数学建模竞赛）：A,B,C<br>ICM（交叉学科竞赛）：D,E,F</p>
+<p>MCM要求更深的数学功底和变成基础<br>ICM要求写作和逻辑能力</p>
+<p>A：连续型<br>B：离散型<br>C：数据挖掘<br>D：运筹学和网络科学<br>E：环境科学<br>F：政策相关的题目</p>
+<h3 id="EF"><a href="#EF" class="headerlink" title="EF"></a>EF</h3><p>E,F是最简单的题目，题目要求我们自己收集数据，用到的模型：评价类模型，相关性分析，回归分析，拟合；<br>E,F比较开放，题目中的小问比较多，因此需要重视写作，论文的结构要求清晰<br>美赛不需要提交数据和代码</p>
+<pre><code class="bash">- 世界数据查找网站：https://www.gapminder.org/data/
+- 国家数据查找：到每个国家的统计局官网
+- 美赛的题目会给参考文献，可以使用参考文献的数据
+- 实在找不到数据：根据实际和逻辑，自己编
+</code></pre>
+<h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><p>D题题目固定，涉及到图论，网络分析，优化问题<br>2020,2021:网络科学<br>matlab:centrality函数<br>python:networkx<br>网络结构可视化软件：gephi——<a target="_blank" rel="noopener" href="https://gephi.org/">https://gephi.org/</a><br>运筹学：排队论，图论，选址优化</p>
+<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>数据挖掘类题目，根据提供的数据分析出结论<br>回归分析，时间序列分析，传统机器学习模型<br>近年来出现了深度学习：2020自然语言处理，2021图像分类<br>深度学习：B站李沐——<a target="_blank" rel="noopener" href="https://space.bilibili.com/1567748478">https://space.bilibili.com/1567748478</a><br>机器学习：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1v64y1B7vJ">https://www.bilibili.com/video/BV1v64y1B7vJ</a></p>
+<h3 id="A-B"><a href="#A-B" class="headerlink" title="A B"></a>A B</h3><p>A——连续<br>问题中的变量因素是连续变化的，如温度，时间等<br>B——离散<br>问题中的变量因素是离散变化的，如数量<br>连续：微分方程<br>离散：差分方程</p>
+<p>A和B可能会出现一道物理题目，涉及到热力学，流体力学，信号处理<br>B题目：可能是离散型优化问题，即组合优化问题——智能算法：遗传算法，模拟退火算法</p>
+<p>A,B,D可能会用到元胞自动机模型（多主体建模），使用Netlogo仿真模拟软件</p>
+<h1 id="常用模型和算法"><a href="#常用模型和算法" class="headerlink" title="常用模型和算法"></a>常用模型和算法</h1><h2 id="三大模型"><a href="#三大模型" class="headerlink" title="三大模型"></a>三大模型</h2><h3 id="预测模型（中等难度）"><a href="#预测模型（中等难度）" class="headerlink" title="预测模型（中等难度）"></a>预测模型（中等难度）</h3><blockquote>
+<p>神经网络预测、灰色预测、拟合插值预测（线性回归）、时间序列预测、马尔科夫链预测、微分方程预测、Logistic 模型等等。<br>应用领域：人口预测、水资源污染增长预测、病毒蔓延预测、竞赛获胜概率预测、月收入预测、销量预测、经济发展情况预测等在工业、农业、商业等经济领域，以及环境、社会和军事等领域中都有广泛的应用。</p>
+</blockquote>
+<h3 id="优化模型（偏难）"><a href="#优化模型（偏难）" class="headerlink" title="优化模型（偏难）"></a>优化模型（偏难）</h3><blockquote>
+<p>规划模型（目标规划、线性规划、非线性规划、整数规划、动态规划）、图论模型、排队论模型、神经网络模型、现代优化算法（遗传算法、 模拟退火算法、蚁群算法、禁忌搜索算法）等等。<br>应用领域：快递员派送快递的最短路径问题、水资源调度优化问题、高速路 口收费站问题、军事行动避空侦察的时机和路线选择、物流选址问题、商区布局规划等各个领域。</p>
+</blockquote>
+<h3 id="评价模型（偏简单）"><a href="#评价模型（偏简单）" class="headerlink" title="评价模型（偏简单）"></a>评价模型（偏简单）</h3><blockquote>
+<p>模糊综合评价法、层次分析法、聚类分析法、主成分分析评价法、 灰色综合评价法、人工神经网络评价法等等。<br>应用领域：某区域水资源评价、水利工程项目风险评价、城市发展程度评价、足球教练评价、篮球队评价、水生态评价、大坝安全评价、边坡稳定性评价</p>
+</blockquote>
+<h2 id="十大算法"><a href="#十大算法" class="headerlink" title="十大算法"></a>十大算法</h2><ol>
+<li><p>蒙特卡洛算法<br>又称为随精选模拟算法，<br>是通过计算机仿真来解决问题的算法，同时可以通过模拟来检验自己模型的正确性，是比赛时，必用的方法</p>
+</li>
+<li><p>数据处理算法<br>数据拟合，参数估计，插值等：<br>比赛在通常会遇到大量的数据需要处理，而处理数据的关键就在于这些算法，通常使用matlab作为工具</p>
+</li>
+<li><p>规划类问题算法<br>线性规划，整体规划，多元规划，二次规划等规划类问题：<br>建模比赛中大数问题属于最优化问题，很多时候这些问题可以用数学规划算法来解决，通常使用Lindo，Lingo等软件实现</p>
+</li>
+</ol>
+<ol start="4">
+<li>图论算法<br>最短路径，网络流，二分图等算法</li>
+</ol>
+<ol start="5">
+<li><p>动态规划，回溯搜索，分治算法，分支定界</p>
+</li>
+<li><p>最优化理论三大经典算法<br>模拟退火算法，遗传算法，神经网络</p>
+</li>
+<li><p>网格算法，穷举法</p>
+</li>
+<li><p>连续离散化方法</p>
+</li>
+<li><p>数值分析算法</p>
+</li>
+<li><p>图像处理算法</p>
+</li>
+</ol>
+<h1 id="美赛论文写作"><a href="#美赛论文写作" class="headerlink" title="美赛论文写作"></a>美赛论文写作</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Na411w7c2?p=23">https://www.bilibili.com/video/BV1Na411w7c2?p=23</a><br><a target="_blank" rel="noopener" href="https://www.comap.com/undergraduate/contests/mcm/instructions.php">https://www.comap.com/undergraduate/contests/mcm/instructions.php</a></p>
+<p>2022 Contest Dates and Times:</p>
+<p>Registration Deadline: Before 3:00 p.m. EST on Thursday, February 17, 2022.<br>Contest Starts: 5:00 p.m. EST on Thursday, February 17, 2022.<br>Contest Ends: 8:00 p.m. EST on Monday, February 21, 2022.<br>Solution Report Deadline: 9:00 p.m. EST on Monday, February 21, 2022.<br>Contest Results: The results will be posted on or before May 20, 2022.</p>
+<p>2022美赛的关键时间节点报名截止时间 美国东部时间2022年2月17日 15:00之前（星期四） 北京时间2022年2月18日 凌晨4:00之前（星期五）<br>比赛开始时间 美国东部时间2022年2月17日 17:00（星期四） 北京时间2022年2月18日 上午6:00（星期五）<br>比赛截止时间 美国东部时间2022年2月21日 20:00（星期一） 北京时间2022年2月22日 上午9:00（星期二）<br>提交方案截止时间 美国东部时间2022年2月21日 21:00（星期一） 北京时间2022年2月22日 上午10:00（星期二）<br>比赛结果公布时间 美国东部时间2022年5月20日之前发布</p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220213141412720.png" alt="image-20220213141412720"></p>
+<h2 id="Summary-Sheet-摘要页（超级重要）"><a href="#Summary-Sheet-摘要页（超级重要）" class="headerlink" title="Summary Sheet 摘要页（超级重要）"></a>Summary Sheet 摘要页（超级重要）</h2><p>布局</p>
+<pre><code class="bash">开头段（必要）
+- 3-5行，2-3句话 
+针对问题1
+针对问题2
+针对问题3
+结尾段（可选）
+</code></pre>
+<pre><code class="bash">开头段（必要）
+- 3-5行，2-3句话 
+Firstly
+Then
+Next
+Finally
+结尾段（可选）
+</code></pre>
+<p>不能超过一页，读者在不阅读全文的情况下，就能获得必要的信息</p>
+<p>摘要包含的三要素：解决了什么问题，应用了什么方法， 得到了什么结果</p>
+<p>概括全文，行文简洁，突出论文的新见解，新方法和特色，不能有主观性</p>
+<p>摘要是其他部分都写完之后，再来书写（半天时间）</p>
+<ul>
+<li><strong>摘要的开头段</strong></li>
+</ul>
+<p>三句话，三到五行</p>
+<p>第一句话简单交代题目的背景（可选）</p>
+<p>第二句话交代你们所作的事情（最重要）</p>
+<p>第三句话说以先解决这个问题的实际意义（少部分论文有）</p>
+<ul>
+<li><strong>摘要的中间段</strong></li>
+</ul>
+<p>解决了什么问题，应用了什么方法， 得到了什么结果</p>
+<ol>
+<li>解决了什么问题：不单独提出我们要解决的问题，因为后面的两个要素会提到</li>
+<li>应用了什么方法：紧扣题目</li>
+<li>得到了什么结果：</li>
+</ol>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220213143507222.png"/>
+
+<ul>
+<li><strong>摘要的结尾段</strong></li>
+</ul>
+<p>介绍论文的亮点，对类似问题进行适当的推广</p>
+<p>如果不会写的话，可以不写结尾段</p>
+<ul>
+<li>不要出现的废话</li>
+</ul>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220213144115302.png"/>
+
+<ul>
+<li>论文的标题title和关键词key world</li>
+</ul>
+<p>标题和关键词要求不严格</p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220213144636944.png" alt="image-20220213144636944"></p>
+<h2 id="Contents-目录"><a href="#Contents-目录" class="headerlink" title="Contents 目录"></a>Contents 目录</h2><p>目录快速生成——排版课程</p>
+<h2 id="正文1-Introduction-引言"><a href="#正文1-Introduction-引言" class="headerlink" title="正文1 Introduction 引言"></a>正文1 Introduction 引言</h2><p>引言包含了两到三个小部分</p>
+<ol>
+<li><strong>Problem Background 问题背景</strong></li>
+</ol>
+<p>总结题目所给的背景</p>
+<p>结合自己对赛题的理解，讲背景介绍有侧重的往自己研究的方向去靠</p>
+<ol start="2">
+<li><strong>Restatement of the Problem 问题重述</strong></li>
+</ol>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220213145515405.png"/>
+
+<p>1和2可以合并为一点</p>
+<ol start="3">
+<li><strong>Literature Review 文献综述</strong></li>
+</ol>
+<p>这部分主要是总结以前的学者针对这个问题已经做的研究。事实上，绝大多数期刊发表的论文都会有文献综述部 分。但在美赛特等奖论文中，只有不到30%的论文有这一部分，不是说这部分不重要，而是这一部分很难写。</p>
+<p>注意：文献综述本身就是一种文体，可以作为论文独立发表，也可以放在论 文中作为独立的一个部分；我们在美赛中写的文献综述不需要达到上面定义写的<br>这么严格的标准。</p>
+<blockquote>
+<p>总结写作特点： 有很多学者都研究过这个问题(红色圈出来的编号就是参考文献的标记)，其中： </p>
+<ul>
+<li><p>某某学者建立了某某模型或者使用了某某方法研究了这个问题； </p>
+</li>
+<li><p>某某学者通过研究了这个问题得到了某某结论。</p>
+</li>
+</ul>
+<p>技巧：文献综述中的文章能直接和你的论文中使用的模型或者得到的结论相互呼应！</p>
+</blockquote>
+<ol start="4">
+<li><strong>Our work 我们的工作</strong></li>
+</ol>
+<blockquote>
+<p>大家如果看特等奖论文的话，会发现很多论文在这 一部分都绘制了一个漂亮的图形来介绍文章的思路，大<br>家可以模仿模仿。</p>
+</blockquote>
+<h2 id="正文2-Assumptions-and-Justifications-模型假设"><a href="#正文2-Assumptions-and-Justifications-模型假设" class="headerlink" title="正文2 Assumptions and Justifications 模型假设"></a>正文2 Assumptions and Justifications 模型假设</h2><p>美赛要求较高</p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220213151907484.png" alt="image-20220213151907484"></p>
+<h2 id="正文3-Notations-符号说明"><a href="#正文3-Notations-符号说明" class="headerlink" title="正文3 Notations 符号说明"></a>正文3 Notations 符号说明</h2><img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220213152534231.png"/>
+
+<p>Glossary——术语汇编</p>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220213152632036.png"/>
+
+<h2 id="正文4-5-6-模型的建立与求解-正文最重要的部分"><a href="#正文4-5-6-模型的建立与求解-正文最重要的部分" class="headerlink" title="正文4 5 6 模型的建立与求解(正文最重要的部分)"></a>正文4 5 6 模型的建立与求解(正文最重要的部分)</h2><blockquote>
+<p>模型建立：模型建立是将原问题抽象成用数学语言的表达式，它一定是在先 前的问题分析和模型假设的基础上得来的。因为比赛时间很紧，大多时候我们都是 使用别人已经建立好的模型。这部分一定要将题目问的问题和模型紧密结合起来， 切忌随意套用模型。我们还可以对已有模型的某一方面进行改进或者优化，或者建 立不同的模型解决同一个问题，这样就是论文的创新和亮点。 </p>
+<p>模型求解：把实际问题归结为一定的数学模型后，就要利用数学模型求解所 提出的实际问题了。一般需要借助计算机软件进行求解，例如常用的软件有Matlab, Spss, Lingo, Excel, Stata, Python等。求解完成后，得到的求解结果应该规范准确并且 醒目，若求解结果过长，最好编入附录里。（注意：如果使用智能优化算法或者数值计算方法求解的话，需要简要阐明算法的计算步骤）</p>
+</blockquote>
+<p>每个模型作为一个单独的大标题</p>
+<p>而美赛的命名方式五花八门，有些 论文使用建立的模型的名称命名；有些使用论文要解决 的问题命名；也有些论文使用和国赛一样简单粗暴的方<br>式命名。</p>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220213152743785.png"/>
+
+<p>可以以要解决的问题命名也可以以求解问题命名</p>
+<blockquote>
+<p>明确题意后，简述基本思路。首先，简要介绍利用的基本原理和基本思 想，再进行构建基本模型，如数学表达式、算法流程图等，要明确说明解题 的思想和思路，有逻辑性、合理性、可行性，需要完整叙述。也可以结合实 际问题，进行改进和完善基本模型，使其能有效、实用解决问题。 </p>
+<p>三点要求： </p>
+<ol>
+<li>必须要有数学模型：即数学公式组成的一套数学结构、或者是一套 数学的解决方案等； </li>
+<li>模型要求表达完整，正确和简明；</li>
+<li>模型要有实用性，要能求解出来，以能够解决问题为原则。</li>
+</ol>
+</blockquote>
+<p>模型求解的注意事项：</p>
+<p>1）国赛中常出优化类问题，如果你用到了启发式算法求解的话，一定要简 要写明算法步骤，并要结合具体的问题来阐明计算的思路。</p>
+<p>2）求解的结果应该在论文中突出的展示出来，有具体答案的问题比较简单， 直接放上数值计算结果即可；如果是开放类问题的话，一定要对结果进行阐明<br>和解释，如果能加上美观整洁的图表就更好了。</p>
+<h2 id="正文-Data-Description-数据描述-不常见"><a href="#正文-Data-Description-数据描述-不常见" class="headerlink" title="正文 Data Description 数据描述(不常见)"></a>正文 Data Description 数据描述(不常见)</h2><blockquote>
+<p>Data Description翻译过来就是数据描述。注意，这部分内容不是必须 的，大家根据自己的需要来进行添加。<br>如果自己收集了数据或者题目给了数据的话，可以先对数据进行一个 简单的介绍，或者将数据可视化，然后再从图形中得到一些直观的结论。<br>这里给大家一些相关的术语的翻译：</p>
+<p> • Data Collection(数据的收集) </p>
+<p>• Data Pre-processing(数据预处理) / Data Cleaning(数据清洗) </p>
+<p>• Data Visualization(数据可视化) </p>
+<p>• Descriptive Statistical Analysis of the Data(数据的描述性统计分析) </p>
+<p>​    这部分内容在论文中的<strong>位置也比较灵活</strong>，我们可以将这个内容放到模型的建立与求解中，也有部分论文放在了引言部分，还有的论文将这个内容放到“Model Preparation模型准备”这个部分，这种见得比较少，我们之前 在国赛论文框架中介绍过模型准备的写法。特别的，<strong>如果做的是美赛C题 （C题一般是数据分析类型的题目），我们可以把这个部分单独作为一个大的部分，然后进行数据预处理和数据可视化分析。</strong></p>
+</blockquote>
+<h2 id="正文7-Sensitivity-Analysis-灵敏度分析（重要）-不是很懂"><a href="#正文7-Sensitivity-Analysis-灵敏度分析（重要）-不是很懂" class="headerlink" title="正文7 Sensitivity Analysis 灵敏度分析（重要）(不是很懂)"></a>正文7 Sensitivity Analysis 灵敏度分析（重要）(不是很懂)</h2><blockquote>
+<p>在这个部分中，我介绍了灵敏度分析、误差分析和稳定性检验的写法， 其中稳定性检验和灵敏度分析非常类似，因此大家要掌握的就是前面两种分 析的写法。 </p>
+<p>在美赛的写作中，写的最多的就是灵敏度分析，因此这里我们的标题就直接取得是Sensitivity Analysis; 如果你既要写灵敏度分析，又要写误差分析， 那么你可以把标题改成： Sensitivity Analysis and Error Analysis. 注意： • 误差分析一般翻译为：Error Analysis • 稳定性检验的别称较多，还可以称为稳健型检验或稳健型分析，因此它的翻译也较多，可翻译为：Stability Test、 Robustness Test或者Robustness Analysis</p>
+</blockquote>
+<blockquote>
+<p>模型的分析 ：在建模比赛中模型分析主要有两种，一个是灵敏度(性)分析， 另一个是误差分析。灵敏度分析是研究与分析一个系统（或模型）的状态或输出 变化对系统参数或周围条件变化的敏感程度的方法。其通用的步骤是：控制其他 参数不变的情况下，改变模型中某个重要参数的值，然后观察模型的结果的变化 情况。误差分析是指分析模型中的误差来源，或者估算模型中存在的误差，一般 用于预测问题或者数值计算类问题。 </p>
+<p>模型的检验：模型检验可以分为两种，一种是使用模型之前应该进行的检验，例如层次分析法中一致性检验，灰色预测中的准指数规律的检验，这部分内容应该放在模型的建立部分；另一种是使用了模型后对模型的结果进行检验，数模中 最常见的是稳定性检验(有的论文也称为稳健型检验或稳健型分析)，实际上这里的稳定性检验和前面的灵敏度分析非常类似，等会大家看到例子就明白了。</p>
+</blockquote>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/2022-02-13_15-15-37-29.png"/>
+
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/2022-02-13_15-15-37-36.png"/>
+
+
+
+<h2 id="正文8-Model-Evaluation-and-Further-Discussion-模型的评价和进一步的讨论"><a href="#正文8-Model-Evaluation-and-Further-Discussion-模型的评价和进一步的讨论" class="headerlink" title="正文8  Model Evaluation and Further Discussion 模型的评价和进一步的讨论"></a>正文8  Model Evaluation and Further Discussion 模型的评价和进一步的讨论</h2><p>该部分可以翻译为模型的评价和进一步的讨论，对应于国赛框架中的模 型的评价、改进与推广部分</p>
+<blockquote>
+<p>我们可以把这个大的部分拆分成三个小部分写： </p>
+<p>（1）Strengths 这里写论文或者模型的优点<br>（2）Weaknesses 这里写缺点：缺点写的个数一般要比优点少<br>（3） Further Discussion 进行进一步的讨论，这里可以写模型的改进和拓展。<br>            模型改进：Model Improvements 模型拓展：Model Extensions<br>        （这里单词写的都是复数形式，如果你只写了一点就改成单数形式）<br>另外，本部分的标题需要根据你的内容进行调整，例如：如果你没有写进一步讨论的话，就直接把标题写成模型的评价Model Evaluation 。</p>
+</blockquote>
+<h2 id="正文9-Conclusion-结论"><a href="#正文9-Conclusion-结论" class="headerlink" title="正文9 Conclusion 结论"></a>正文9 Conclusion 结论</h2><blockquote>
+<p>Conclusion翻译过来就是结论，这个部分在国赛论文几 乎见不到，但在美赛中出现的频率很高。 </p>
+<p>这个部分可以是论文中心思想的重申、研究结果或主要 观点的归纳，也可以是某些启示性的解释或考虑。 </p>
+<p>有些论文把“Model Evaluation and Further Discussion”的 内容放到了结论部分.</p>
+</blockquote>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220213155550897.png"/>
+
+
+
+<p><strong>注意区分这三个部分！！！！！！</strong></p>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220213155712049.png"/>
+
+
+
+<h2 id="References-参考文献"><a href="#References-参考文献" class="headerlink" title="References 参考文献"></a>References 参考文献</h2><blockquote>
+<p> 本部分是参考文献，在美赛中，参考文献不要出现中文！ 如果要引用中文论文或者书籍怎么办？请自己翻译</p>
+</blockquote>
+<h2 id="Appendices-附录"><a href="#Appendices-附录" class="headerlink" title="Appendices 附录"></a>Appendices 附录</h2><p>附录中的代码也不要出现中文注释，也就是任何地方都不要出现中文</p>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220213155934177.png"/>
+
+<h2 id="Article-杂志文章"><a href="#Article-杂志文章" class="headerlink" title="Article 杂志文章"></a>Article 杂志文章</h2><p>美赛有些题目会要求大家给某个杂志写一篇文章(Article)</p>
+<blockquote>
+<p>（1）2020A题 In addition to your technical report, prepare a one- to two-page article for Hook<br>Line and Sinker magazine to help fishermen understand the seriousness of the problem and how your proposed solution(s) will improve their future business prospects.</p>
+<p> 除了你的技术报告，准备一到两页的文章，作为Hook Line and Sinker 的杂 志内容，以帮助渔民了解问题的严重性，以及你的解决方案将如何改善他们未 来的业务前景。<br>（2）2020B题 Finally, write an informative, one- to two-page article describing your model and<br>its results for publication in the vacation magazine: Fun in the Sun, whose readers are mainly non-technical.<br>最后，写一篇内容丰富的一到两页的文章，描述你的模型及其结果，发表<br>在假期杂志上：Fun in the Sun ，读者都是小白，不懂太复杂的模型。</p>
+<p>文章中不要写太过专业的话，确保你的读者能读得懂！</p>
+</blockquote>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220213160515523.png"/>
+
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220213160344273.png"/>
+
+<h2 id="Letter-写信"><a href="#Letter-写信" class="headerlink" title="Letter 写信"></a>Letter 写信</h2><img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220213160657899.png"/>
+
+<h2 id="Memo-备忘录"><a href="#Memo-备忘录" class="headerlink" title="Memo 备忘录"></a>Memo 备忘录</h2><img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220213160759139.png"/>
+
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220213160811182.png"/>
+
+
+
+<h1 id="美赛论文排版"><a href="#美赛论文排版" class="headerlink" title="美赛论文排版"></a>美赛论文排版</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ci4y1c7Ld">数学建模清风——论文排版教程_哔哩哔哩_bilibili</a></p>
+<p>LaTex学习成本太大了，因此使用Word进行排版。</p>
+<blockquote>
+<p>优秀论文共同特点： </p>
+<p>（1）整体结构完整，大多数论文都是使用<strong>三级标题式</strong>进行布局； </p>
+<p>（2）论文正文部分排版<strong>紧凑</strong>，没有大段空行，内容看上去翔实； </p>
+<p>（3）表格整洁，一般使用<strong>三线表形式</strong>，<strong>表格上方有对应的标题</strong>； </p>
+<p>（4）图形清晰美观，<strong>下方有对应的标题</strong>，文中要解释图形意义；（表上图下）</p>
+<p>（5）公式编辑规范，大部分论文使用公式编辑器，且带有编号。</p>
+</blockquote>
+<h2 id="Word-基础知识"><a href="#Word-基础知识" class="headerlink" title="Word 基础知识"></a>Word 基础知识</h2><p><strong>F4</strong>键的作用是重复上一步操作，在PPT和Excel中也是同样的作用。</p>
+<p>首行缩进不要打两个空格，应该在开始-段落中设置首行缩进</p>
+<p>Ctrl+Enter：分页符</p>
+<p>Delete：<strong>大多数时候我们删除某个内容使用的都是退格键，但有时候排版的时候，你会发现使用退格键删除后论文的排版格式乱掉了（特别是有表格需要排版的时候用的很多），这时候可以考虑使用删除键。我们以后遇到了再来给大家强调这一点。</strong></p>
+<p>格式刷：先复制需要的格式，然后点击格式刷，点击格式刷一次，只能进行一次格复制，点击两次能进行无数次格式复制</p>
+<p>左对齐，居中对齐，右对齐，两端对齐，分散对齐</p>
+<p>项目符号，编号，多级列表</p>
+<h2 id="样式和多级列表"><a href="#样式和多级列表" class="headerlink" title="样式和多级列表"></a>样式和多级列表</h2>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/chengdu.mp3'></li>
+                
+                    
+            </ul>
+            
+                        
+            
+            
+            <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="https://gitee.com/murphyhou/picgo/raw/master/Website/me.jpg" height=300 width=300></img>
+                    <p>MurphyHou</p>
+                    <span>A Future Without Disappointment!</span>
+                    <dl>
+                        
+                        
+                            
+                                <dd>
+                                    <link rel="stylesheet" type="text/css" href="">
+                                    <a href="function link() { [native code] }" target="_blank"><span
+                                    class=" iconfont "></span></a>
+                                </dd>
+                            
+                            
+                            
+                        
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">36 <p>文章</p></a></li>
+                    <li><a href="/categories">11 <p>分类</p></a></li>
+                    <li><a href="/tags">33 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>目录</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2022%E7%BE%8E%E8%B5%9B%E5%A4%87%E6%88%98"><span class="toc-number">1.</span> <span class="toc-text">2022美赛备战</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E5%88%86%E6%9E%90"><span class="toc-number">1.1.</span> <span class="toc-text">题目分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#EF"><span class="toc-number">1.1.1.</span> <span class="toc-text">EF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D"><span class="toc-number">1.1.2.</span> <span class="toc-text">D</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C"><span class="toc-number">1.1.3.</span> <span class="toc-text">C</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-B"><span class="toc-number">1.1.4.</span> <span class="toc-text">A B</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%A8%A1%E5%9E%8B%E5%92%8C%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">常用模型和算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E5%A4%A7%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.1.</span> <span class="toc-text">三大模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%EF%BC%88%E4%B8%AD%E7%AD%89%E9%9A%BE%E5%BA%A6%EF%BC%89"><span class="toc-number">2.1.1.</span> <span class="toc-text">预测模型（中等难度）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E6%A8%A1%E5%9E%8B%EF%BC%88%E5%81%8F%E9%9A%BE%EF%BC%89"><span class="toc-number">2.1.2.</span> <span class="toc-text">优化模型（偏难）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%84%E4%BB%B7%E6%A8%A1%E5%9E%8B%EF%BC%88%E5%81%8F%E7%AE%80%E5%8D%95%EF%BC%89"><span class="toc-number">2.1.3.</span> <span class="toc-text">评价模型（偏简单）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E5%A4%A7%E7%AE%97%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">十大算法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87%E5%86%99%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">美赛论文写作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary-Sheet-%E6%91%98%E8%A6%81%E9%A1%B5%EF%BC%88%E8%B6%85%E7%BA%A7%E9%87%8D%E8%A6%81%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">Summary Sheet 摘要页（超级重要）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Contents-%E7%9B%AE%E5%BD%95"><span class="toc-number">3.2.</span> <span class="toc-text">Contents 目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%96%871-Introduction-%E5%BC%95%E8%A8%80"><span class="toc-number">3.3.</span> <span class="toc-text">正文1 Introduction 引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%96%872-Assumptions-and-Justifications-%E6%A8%A1%E5%9E%8B%E5%81%87%E8%AE%BE"><span class="toc-number">3.4.</span> <span class="toc-text">正文2 Assumptions and Justifications 模型假设</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%96%873-Notations-%E7%AC%A6%E5%8F%B7%E8%AF%B4%E6%98%8E"><span class="toc-number">3.5.</span> <span class="toc-text">正文3 Notations 符号说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%96%874-5-6-%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%BB%BA%E7%AB%8B%E4%B8%8E%E6%B1%82%E8%A7%A3-%E6%AD%A3%E6%96%87%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E9%83%A8%E5%88%86"><span class="toc-number">3.6.</span> <span class="toc-text">正文4 5 6 模型的建立与求解(正文最重要的部分)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%96%87-Data-Description-%E6%95%B0%E6%8D%AE%E6%8F%8F%E8%BF%B0-%E4%B8%8D%E5%B8%B8%E8%A7%81"><span class="toc-number">3.7.</span> <span class="toc-text">正文 Data Description 数据描述(不常见)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%96%877-Sensitivity-Analysis-%E7%81%B5%E6%95%8F%E5%BA%A6%E5%88%86%E6%9E%90%EF%BC%88%E9%87%8D%E8%A6%81%EF%BC%89-%E4%B8%8D%E6%98%AF%E5%BE%88%E6%87%82"><span class="toc-number">3.8.</span> <span class="toc-text">正文7 Sensitivity Analysis 灵敏度分析（重要）(不是很懂)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%96%878-Model-Evaluation-and-Further-Discussion-%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BB%B7%E5%92%8C%E8%BF%9B%E4%B8%80%E6%AD%A5%E7%9A%84%E8%AE%A8%E8%AE%BA"><span class="toc-number">3.9.</span> <span class="toc-text">正文8  Model Evaluation and Further Discussion 模型的评价和进一步的讨论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%96%879-Conclusion-%E7%BB%93%E8%AE%BA"><span class="toc-number">3.10.</span> <span class="toc-text">正文9 Conclusion 结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References-%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">3.11.</span> <span class="toc-text">References 参考文献</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Appendices-%E9%99%84%E5%BD%95"><span class="toc-number">3.12.</span> <span class="toc-text">Appendices 附录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Article-%E6%9D%82%E5%BF%97%E6%96%87%E7%AB%A0"><span class="toc-number">3.13.</span> <span class="toc-text">Article 杂志文章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Letter-%E5%86%99%E4%BF%A1"><span class="toc-number">3.14.</span> <span class="toc-text">Letter 写信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Memo-%E5%A4%87%E5%BF%98%E5%BD%95"><span class="toc-number">3.15.</span> <span class="toc-text">Memo 备忘录</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BE%8E%E8%B5%9B%E8%AE%BA%E6%96%87%E6%8E%92%E7%89%88"><span class="toc-number">4.</span> <span class="toc-text">美赛论文排版</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Word-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">4.1.</span> <span class="toc-text">Word 基础知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E5%92%8C%E5%A4%9A%E7%BA%A7%E5%88%97%E8%A1%A8"><span class="toc-number">4.2.</span> <span class="toc-text">样式和多级列表</span></a></li></ol></li></ol>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2022
+        <span class="gradient-text">
+            Murphy Hou
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.9.3" target="_blank" rel="noopener">v1.4.9.3</a></small>
+        
+        
+    </p>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+   
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Dreams&#39; never sold, blood&#39;s never cold.', '十年饮冰，难凉热血。'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var valine = new Valine();
+
+  function initValine(path) {
+    if (!path) path = window.location.pathname;
+    let language = 'zh-CN';
+    if (!language) {
+      language = 'en';
+    } else {
+      language = language.toLowerCase();
+    }
+    valine.init({
+      el: '#vcomments',
+      appId: '',
+      appKey: '',
+      notify: 'true',
+      verify: 'true',
+      avatar: 'mp',
+      placeholder: 'Leave your throughs behind~',
+      visitor: 'true',
+      path: path,
+      lang: language,
+    });
+  }
+
+  $(document).ready(function () {
+    initValine();
+  });
+</script>
+
+
+
+
+
+
+</html>
