@@ -1,0 +1,649 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>数学建模（四） - Murphy</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="TriDiamond Obsidian Murphy Blog,"> 
+    <meta name="description" content="Hello,I Am Murphy,清风数学建视频学习笔记（四）目录：一、预测模型二、Matlab三维图形绘制三、Matlab 符号运算四、微分方程模型
+
+
+
+预测模型灰色预测模型神经网络在数据预测中的应用
+灰色预测模型白色系统：系统,"> 
+    <meta name="author" content="Murphy Hou"> 
+    <link rel="alternative" href="atom.xml" title="Murphy" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+    
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none">Murphy</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://murphyhoucn.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">数学建模（四）</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url('https://gitee.com/murphyhou/picgo/raw/master/mcm/pay-937884_1920.jpg') ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/数学建模"><b>「
+                    </b>数学建模<b> 」</b></a>
+                
+                二月 12, 2022
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2022/02/12/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%EF%BC%88%E5%9B%9B%EF%BC%89/" title="数学建模（四）" class="">数学建模（四）</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    6.7k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    6 mins.
+                </span>
+                
+                
+                <span id="/2022/02/12/数学建模（四）/" class="leancloud_visitors" data-flag-title="数学建模（四）">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">1000000</span>
+                </span>
+                
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" rel="tag">数学建模</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <p>清风数学建视频学习笔记（四）<br>目录：<br>一、预测模型<br>二、Matlab三维图形绘制<br>三、Matlab 符号运算<br>四、微分方程模型</p>
+<span id="more"></span>
+
+
+<h1 id="预测模型"><a href="#预测模型" class="headerlink" title="预测模型"></a>预测模型</h1><p>灰色预测模型<br>神经网络在数据预测中的应用</p>
+<h2 id="灰色预测模型"><a href="#灰色预测模型" class="headerlink" title="灰色预测模型"></a>灰色预测模型</h2><pre><code class="bash">白色系统：系统的信息是完全明确的
+灰色系统：系统的部分信息已知，部分信息未知
+黑色系统：系统的内部信息是未知的
+</code></pre>
+<ol>
+<li>GM(1,1)模型：Grey Model<br>GM(1,1)是使用原始的离散非负数据列，通过一次累加生成削弱随机性的较有规律新的离散数据列，然后通过建立微分方程，得到在离散点处的解经过累计生成的原始数据的近似估计值，从而预测原始数据的后续发展<br>GM(1,1)，前一个1表示1阶微分方程，后一个1表示只有一个变量</li>
+</ol>
+<p><strong>准指数规律检验</strong></p>
+<pre><code class="bash">- 数据具有准指数规律是使用灰色系统建模的理论基础
+</code></pre>
+<p><strong>GM(1,1)模型的评价</strong><br>检验模型对原始数据的拟合程度（对原始数据还原的效果）。一般有两种检验方法：</p>
+<ol>
+<li>残差检验<div align=center>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220212200652.png"/>
+</div></li>
+</ol>
+<ol start="2">
+<li>级比偏差检验<div align=center>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220212200743.png"/>
+</div></li>
+</ol>
+<p><strong>什么时候使用灰色预测</strong></p>
+<ol>
+<li>数据是以年份度量的非负数据（如果是月份或者季度数据，则用时间序列模型）</li>
+<li>数据能经过准指数规律的检验（除了前两期外，后面至少90%的期数的光滑比要低于0.5）</li>
+<li>数据的期数较短且和其他数据之间的关联性不强（小与10期，但也不能太短），要是数据期数较长，一般使用传统的时间序列模型比较合适。<div align=center>
+<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220212201246.png"/>
+</div></li>
+</ol>
+<h2 id="GM-1-1-模型代码讲解"><a href="#GM-1-1-模型代码讲解" class="headerlink" title="GM(1,1)模型代码讲解"></a>GM(1,1)模型代码讲解</h2><p>大概的步骤</p>
+<pre><code class="bash">1. 画出原始数据的时间序列图，并判断原始数据中是否有负数或者其数是否低于4期，如果是的话则报错，否则执行下一步；
+2. 对一次累加后的数据进行准指数规律检验，返回两个指标
+  指标1：光滑比小于0.5的数据占比(一般要大于60%)
+  指标2：除去前两个时期外，光滑比小于0.5的数据占比（一般大于90%）
+  并让用户决定输入是否满足准指数规律，满足则输入1，不满足则输入0
+3. 如果上一步输入0，则程序停止，输入1则继续下面的步骤
+4. 让用户输入需要预测的后续期数，并判断原始数据的期数
+  4.1 数据期数为4：
+    分别计算出传统的GM(1,1)、新信息GM(1,1)模型和新陈代谢GM(1,1)模型对于未来期数的预测结果，为了保证结果的稳健性，对三个结果求平均值作为预测值
+  4.2 数据期数为5，6，7：
+    取最后两期作为实验组，前面n-2期为训练组；用训练组的数据分别训练三种GM(1,1)模型，并将训练出来的模型分别用于预测实验组的两期数据；利用实验组两期数据的真实数据和预测出来的两期数据，分别计算出三个模型的SSE；选择最小的模型作为我们建模的模型；
+  4.3 数据期数大于7：
+    取最后三组作为试验组，其他的过程和4.2相同
+5. 输出并绘制图形显示预测结果，并进行残差检验和级比残差检验
+</code></pre>
+<h2 id="BP神经网络预测"><a href="#BP神经网络预测" class="headerlink" title="BP神经网络预测"></a>BP神经网络预测</h2><div align=center>
+  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220212205911.png"/>
+</div>
+
+
+
+<p>基本概念：<br>训练集（Training Set）:用于模型拟合的数据样本<br>验证集（Validation Set）:是模型训练过程中单独留出的样本集，它可以用于调整模型的超参数和用于对模型的能力进学校初步评估。在神经网络中，我们用验证数据集取寻找最优的网络深度，或者反向传播算法的停止点或者在神经网络中选择隐藏层神经元的数量；<br>测试集（Testing Set）:用来评估模型的泛化能力。不能作为调参、选择特征等算法相关的选择的依据。</p>
+<p>使用matlab的BP神经网络</p>
+<p>APP-Neural Net Fitting</p>
+<p>三种训练网络</p>
+<div align=center>
+  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220212212207.png"/>
+</div>
+
+
+<div align=center>
+  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220212212246.png"/>
+</div>
+
+
+
+
+<h1 id="Matlab三维图形绘制"><a href="#Matlab三维图形绘制" class="headerlink" title="Matlab三维图形绘制"></a>Matlab三维图形绘制</h1><h2 id="matlab绘制三维图形"><a href="#matlab绘制三维图形" class="headerlink" title="matlab绘制三维图形"></a>matlab绘制三维图形</h2><pre><code class="bash">mesh函数:绘制出某一区间内完整的网格图
+1. mesh(X,Y,Z):X是n维向量，Y是n维向量，Z是m*n矩阵
+2. mesh(Z):Z是m*n矩阵
+3. mesh(X,Y,Z):X,Y,Z是m*n矩阵
+
+meshgrid函数：快速生成网格所需要的数据
+
+meshc函数：绘制曲面的等高线
+
+meshz函数：绘制曲面的底座
+
+alpha函数：设置透明度
+</code></pre>
+<pre><code class="bash">surf函数：绘制出在某一区间内完整的曲面图
+mesh是绘制出彩色的线，surf是绘制出彩色的面
+
+subplot：在同一个figure中绘制不同的图
+</code></pre>
+<pre><code class="bash">contour函数：绘制等高线
+
+contourf函数：画出来等高线有颜色填充
+
+contour3函数：三维等高线，等高线不再投影到x-y屏幕
+</code></pre>
+<pre><code class="bash">符号函数的三维图形绘制
+
+plot3函数：三维空间下的折线图
+
+fplot3函数：
+
+fmesh函数：绘制三维网格线图
+
+fsurf函数：绘制三维网格面图
+
+fcontour函数：绘制等高线图
+</code></pre>
+<pre><code class="bash">三维隐函数图形绘制
+fimplicit
+fimplicit3
+</code></pre>
+<pre><code class="bash">新建实时脚本：方便复习代码和命令
+</code></pre>
+<h1 id="Matlab-符号运算"><a href="#Matlab-符号运算" class="headerlink" title="Matlab 符号运算"></a>Matlab 符号运算</h1><h2 id="Matlab定义符号变量和简单的运算"><a href="#Matlab定义符号变量和简单的运算" class="headerlink" title="Matlab定义符号变量和简单的运算"></a>Matlab定义符号变量和简单的运算</h2><ol>
+<li><p>简单符号变量的创建</p>
+<pre><code class="matlab">syms x
+syms a b c
+</code></pre>
+</li>
+<li><p>符号方程的创建</p>
+<pre><code class="matlab">% 法1
+syms a x
+y=a*x+x^2
+% 法2
+y=str2sym(&#39;a*x+x^2&#39;)
+</code></pre>
+</li>
+<li><p>符号矩阵</p>
+</li>
+<li><p>简单运算</p>
+</li>
+<li><p>符号表达式的整理</p>
+<pre><code class="bash">化简：simplify(y)
+因式分解：factor(y)
+多项式展开：expand(y)
+多项式合并：collect()
+计算分子与分母：numden(符号变量)
+把double类型的变量转化为符号变量：sym(double类型的变量)
+让结果显示的更加自然：mupad:2020版本不能用了，可以建立一个实时脚本，然后把要看的内容复制到实时脚本，然后运行就行了
+</code></pre>
+</li>
+</ol>
+<h2 id="符号函数求导和差分的计算"><a href="#符号函数求导和差分的计算" class="headerlink" title="符号函数求导和差分的计算"></a>符号函数求导和差分的计算</h2><ol>
+<li><p>一元函数求导</p>
+<pre><code class="bash">syms x
+y=x^4+5*x+2
+diff(y)  一阶导数
+diff(y,2)  二阶导数
+</code></pre>
+</li>
+<li><p>多元函数求导</p>
+<pre><code class="bash">diff(y,x,2)
+diff(y,x)
+diff(y,z)
+diff(y,x,z)
+diff(y,z,x)
+</code></pre>
+</li>
+<li><p>差分<br>如果diff函数的作用对象不是符号函数，而是矩阵的时候，那么对应的功能是求差分</p>
+</li>
+</ol>
+<h2 id="不定积分和定积分的计算"><a href="#不定积分和定积分的计算" class="headerlink" title="不定积分和定积分的计算"></a>不定积分和定积分的计算</h2><ol>
+<li><p>不定积分<br>int(y,x)<br>计算结果不会给我们加上常数C<br>计算1/x的不定积分，结果不会加上绝对值</p>
+</li>
+<li><p>定积分<br>int(y,x,下限，上限)</p>
+</li>
+<li><p>数值积分——近似积分<br>数值积分，用于求定积分的近似值。在数值分析中，数值积分是计算定积分数值的方法和理论。在数学分析中，给定函数的定积分的计算不总是可行的。许多定积分不能用已知的积分公式得到精确值。<br>数值积分是利用黎曼积分等数学定义，用数值逼近的方法近似计算给定的定积分值。借助于电子计算设备，数值积分可以快速而有效地计算复杂的积分<br>函数y需要写成函数句柄的形式，使用点乘和点除</p>
+</li>
+</ol>
+<p>integral(y,下限，上限)</p>
+<h2 id="求解方程和方程组"><a href="#求解方程和方程组" class="headerlink" title="求解方程和方程组"></a>求解方程和方程组</h2><ol>
+<li><p>solve函数<br>注意周期函数求解的时候需要加上条件，才能得到所有的解</p>
+</li>
+<li><p>vpasolve函数<br>求指定区间上的解<br>vpasolve(y,x,[0 1])</p>
+</li>
+</ol>
+<ol start="3">
+<li>fsolve函数</li>
+</ol>
+<h1 id="微分方程模型"><a href="#微分方程模型" class="headerlink" title="微分方程模型"></a>微分方程模型</h1><p>常微分方程+偏微分方程</p>
+<p>对常微分方程进行建模</p>
+<div align=center>
+    <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/微分方程建模.png"/>
+</div>
+
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><div align=center>
+    <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220213000350.png"/>
+</div>
+
+
+
+<p>微分方程的建立：利用专业知识+套用现有的模型（改进）</p>
+<h2 id="使用Matlab求微分方程的解析解"><a href="#使用Matlab求微分方程的解析解" class="headerlink" title="使用Matlab求微分方程的解析解"></a>使用Matlab求微分方程的解析解</h2><p>解析解：给出解的具体表达式<br>matlab函数：dsolve(‘方程1’,’方程2’,……,’方程n’,’初始条件’,’自变量’)<br>注意</p>
+<pre><code class="bash">1. 英文引号，单引号
+2. 在表达方程时候，用字母D表示微分，D2,D3表示二阶和三阶微分，后面跟的是要求的解的因变量。eg：y-Dy-D2y=x
+3. 自变量可以自己指定，不写则默认以t为自变量
+4. 初始值可以不给，不给则求出来的是通解
+5. 如果有多个微分方程，那么计算的实际上是微分方程组
+6. 如果微分方程形式比较复杂，往往是得不到解析解的
+</code></pre>
+<pre><code class="bash">latex(x)
+转换成latex代码，复制到Axmath能转换成数学公式
+</code></pre>
+<h2 id="使用Matlab求微分方程的数值解"><a href="#使用Matlab求微分方程的数值解" class="headerlink" title="使用Matlab求微分方程的数值解"></a>使用Matlab求微分方程的数值解</h2><p>更新15第5部分</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/chengdu.mp3'></li>
+                
+                    
+            </ul>
+            
+                        
+            
+            
+            <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="https://gitee.com/murphyhou/picgo/raw/master/Website/me.jpg" height=300 width=300></img>
+                    <p>MurphyHou</p>
+                    <span>A Future Without Disappointment!</span>
+                    <dl>
+                        
+                        
+                            
+                                <dd>
+                                    <link rel="stylesheet" type="text/css" href="">
+                                    <a href="function link() { [native code] }" target="_blank"><span
+                                    class=" iconfont "></span></a>
+                                </dd>
+                            
+                            
+                            
+                        
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">39 <p>文章</p></a></li>
+                    <li><a href="/categories">10 <p>分类</p></a></li>
+                    <li><a href="/tags">36 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>目录</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">预测模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%81%B0%E8%89%B2%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">灰色预测模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GM-1-1-%E6%A8%A1%E5%9E%8B%E4%BB%A3%E7%A0%81%E8%AE%B2%E8%A7%A3"><span class="toc-number">1.2.</span> <span class="toc-text">GM(1,1)模型代码讲解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E9%A2%84%E6%B5%8B"><span class="toc-number">1.3.</span> <span class="toc-text">BP神经网络预测</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Matlab%E4%B8%89%E7%BB%B4%E5%9B%BE%E5%BD%A2%E7%BB%98%E5%88%B6"><span class="toc-number">2.</span> <span class="toc-text">Matlab三维图形绘制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#matlab%E7%BB%98%E5%88%B6%E4%B8%89%E7%BB%B4%E5%9B%BE%E5%BD%A2"><span class="toc-number">2.1.</span> <span class="toc-text">matlab绘制三维图形</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Matlab-%E7%AC%A6%E5%8F%B7%E8%BF%90%E7%AE%97"><span class="toc-number">3.</span> <span class="toc-text">Matlab 符号运算</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Matlab%E5%AE%9A%E4%B9%89%E7%AC%A6%E5%8F%B7%E5%8F%98%E9%87%8F%E5%92%8C%E7%AE%80%E5%8D%95%E7%9A%84%E8%BF%90%E7%AE%97"><span class="toc-number">3.1.</span> <span class="toc-text">Matlab定义符号变量和简单的运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%E5%87%BD%E6%95%B0%E6%B1%82%E5%AF%BC%E5%92%8C%E5%B7%AE%E5%88%86%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">3.2.</span> <span class="toc-text">符号函数求导和差分的计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%AE%9A%E7%A7%AF%E5%88%86%E5%92%8C%E5%AE%9A%E7%A7%AF%E5%88%86%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">3.3.</span> <span class="toc-text">不定积分和定积分的计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%82%E8%A7%A3%E6%96%B9%E7%A8%8B%E5%92%8C%E6%96%B9%E7%A8%8B%E7%BB%84"><span class="toc-number">3.4.</span> <span class="toc-text">求解方程和方程组</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">微分方程模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">4.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Matlab%E6%B1%82%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%9A%84%E8%A7%A3%E6%9E%90%E8%A7%A3"><span class="toc-number">4.2.</span> <span class="toc-text">使用Matlab求微分方程的解析解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Matlab%E6%B1%82%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%9A%84%E6%95%B0%E5%80%BC%E8%A7%A3"><span class="toc-number">4.3.</span> <span class="toc-text">使用Matlab求微分方程的数值解</span></a></li></ol></li></ol>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2022
+        <span class="gradient-text">
+            Murphy Hou
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.9.3" target="_blank" rel="noopener">v1.4.9.3</a></small>
+        
+        
+    </p>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+   
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Dreams&#39; never sold, blood&#39;s never cold.', '十年饮冰，难凉热血。'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var valine = new Valine();
+
+  function initValine(path) {
+    if (!path) path = window.location.pathname;
+    let language = 'zh-CN';
+    if (!language) {
+      language = 'en';
+    } else {
+      language = language.toLowerCase();
+    }
+    valine.init({
+      el: '#vcomments',
+      appId: '',
+      appKey: '',
+      notify: 'true',
+      verify: 'true',
+      avatar: 'mp',
+      placeholder: 'Leave your throughs behind~',
+      visitor: 'true',
+      path: path,
+      lang: language,
+    });
+  }
+
+  $(document).ready(function () {
+    initValine();
+  });
+</script>
+
+
+
+
+
+
+</html>
