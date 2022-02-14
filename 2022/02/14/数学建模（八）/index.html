@@ -114,13 +114,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    4k
+                    5.7k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    4 mins.
+                    5 mins.
                 </span>
                 
                 
@@ -202,8 +202,9 @@ toc
 <h1 id="数学规划模型"><a href="#数学规划模型" class="headerlink" title="数学规划模型"></a>数学规划模型</h1><p>数学规划：数学规划三运筹学的一个分支，期用来研究：在给定的条件下（约束条件），如何按照某一衡量指标（目标函数）来寻求计划，管理工作中的最优方案，即求目标函数在一定约束条件下的极值问题！</p>
 <p>数学规划的一般形式</p>
 <div align=center>
-  T
+  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220214210140.png"/>
 </div>
+
 
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>数学规划的分类</p>
 <ol>
@@ -218,8 +219,11 @@ toc
 </ol>
 <h2 id="线性规划问题的求解——matlab"><a href="#线性规划问题的求解——matlab" class="headerlink" title="线性规划问题的求解——matlab"></a>线性规划问题的求解——matlab</h2><p>Matlab中线性规划的标准型</p>
 <div align=center>
-  T
+  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220214211107.png"/>
 </div>
+
+
+
 
 <p>matlab中求解线性规划的命令<br>[x,fval] = linprog[C,A,b,Aeg,beg,lb,ub,x0]</p>
 <pre><code class="matlab">% [x fval] = linprog(c, A, b, Aeq, beq, lb,ub, x0)  
@@ -229,8 +233,9 @@ toc
 % 迭代的初始值为x0（一般不用给）
 </code></pre>
 <div align=center>
-  T
+  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220214212457.png"/>
 </div>
+
 
 
 <h2 id="典型例题"><a href="#典型例题" class="headerlink" title="典型例题"></a>典型例题</h2><ol>
@@ -238,16 +243,63 @@ toc
 <li>投料问题</li>
 </ol>
 <h2 id="整数规划"><a href="#整数规划" class="headerlink" title="整数规划"></a>整数规划</h2><div align=center>
-  T
+  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220214215820.png"/>
 </div>
+
+
+
 
 <p>Matlab 整数规划求解<br>[x,fval] = intlinprog[C,intcon,A,b,Aeg,beg,lb,ub]<br>注：</p>
 <ul>
 <li>intlinprog不能指定初始值</li>
-<li>intcon参数可以指定那些决策变量是整数<pre><code>瑟夫8ii 
-</code></pre>
-</li>
+<li>intcon参数可以指定那些决策变量是整数<br>Matlab 线性0-1规划求解，仍然使用intlinprog函数，只不过是在lb和ub上作文章</li>
 </ul>
+<p>整数规划的例题</p>
+<ol>
+<li>背包问题</li>
+<li>指派问题</li>
+<li>钢管切割问题</li>
+</ol>
+<h2 id="Matlab中的非线性规划的标准型"><a href="#Matlab中的非线性规划的标准型" class="headerlink" title="Matlab中的非线性规划的标准型"></a>Matlab中的非线性规划的标准型</h2><div align=center>
+  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ%E6%88%AA%E5%9B%BE20220214232434.png"/>
+</div>
+
+
+
+<p>非线性规划求解的函数<br>[x,fval] = fmincon(@fun,x0,A,b,Aeq,beq,lb,up,@nonlfun,option)</p>
+<div align=center>
+  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220214232746.png"/>
+</div>
+<div align=center>
+  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220214232803.png"/>
+</div>
+<div align=center>
+  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220214232813.png"/>
+</div>
+
+
+
+
+
+
+<p>非线性规划的例题：</p>
+<ol>
+<li>选址问题</li>
+<li>飞行管理问题</li>
+</ol>
+<h2 id="最大最小化模型"><a href="#最大最小化模型" class="headerlink" title="最大最小化模型"></a>最大最小化模型</h2><div align=center>
+  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ%E6%88%AA%E5%9B%BE20220214233046.png"/>
+</div>
+<div align=center>
+  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220214233058.png"/>
+</div>
+
+
+
+
+<h2 id="多目标规划模型"><a href="#多目标规划模型" class="headerlink" title="多目标规划模型"></a>多目标规划模型</h2><div align=center>
+  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220214233109.png"/>
+</div>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -302,7 +354,7 @@ toc
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B"><span class="toc-number">1.</span> <span class="toc-text">蒙特卡洛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E4%BE%8B%EF%BC%9A%E5%B8%83%E4%B8%B0%E6%8A%95%E9%92%88"><span class="toc-number">1.1.</span> <span class="toc-text">引例：布丰投针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A6%82%E8%BF%B0"><span class="toc-number">1.2.</span> <span class="toc-text">蒙特卡洛概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A81-%E4%B8%89%E9%97%A8%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">应用1 三门问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A82-%E6%A8%A1%E6%8B%9F%E6%8E%92%E9%98%9F%E9%97%AE%E9%A2%98"><span class="toc-number">1.4.</span> <span class="toc-text">应用2 模拟排队问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A83-%E6%9C%89%E7%BA%A6%E6%9D%9F%E7%9A%84%E9%9D%9E%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98"><span class="toc-number">1.5.</span> <span class="toc-text">应用3 有约束的非线性规划问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A84-01%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98"><span class="toc-number">1.6.</span> <span class="toc-text">应用4 01规划问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A85-%E5%AF%BC%E5%BC%B9%E8%BF%BD%E8%B8%AA%E9%97%AE%E9%A2%98"><span class="toc-number">1.7.</span> <span class="toc-text">应用5 导弹追踪问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A86-%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98%EF%BC%88TSP%EF%BC%89"><span class="toc-number">1.8.</span> <span class="toc-text">应用6 旅行商问题（TSP）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E8%A7%84%E5%88%92%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">数学规划模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">2.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98%E7%9A%84%E6%B1%82%E8%A7%A3%E2%80%94%E2%80%94matlab"><span class="toc-number">2.2.</span> <span class="toc-text">线性规划问题的求解——matlab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98"><span class="toc-number">2.3.</span> <span class="toc-text">典型例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92"><span class="toc-number">2.4.</span> <span class="toc-text">整数规划</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B"><span class="toc-number">1.</span> <span class="toc-text">蒙特卡洛</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E4%BE%8B%EF%BC%9A%E5%B8%83%E4%B8%B0%E6%8A%95%E9%92%88"><span class="toc-number">1.1.</span> <span class="toc-text">引例：布丰投针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%92%99%E7%89%B9%E5%8D%A1%E6%B4%9B%E6%A6%82%E8%BF%B0"><span class="toc-number">1.2.</span> <span class="toc-text">蒙特卡洛概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A81-%E4%B8%89%E9%97%A8%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.</span> <span class="toc-text">应用1 三门问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A82-%E6%A8%A1%E6%8B%9F%E6%8E%92%E9%98%9F%E9%97%AE%E9%A2%98"><span class="toc-number">1.4.</span> <span class="toc-text">应用2 模拟排队问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A83-%E6%9C%89%E7%BA%A6%E6%9D%9F%E7%9A%84%E9%9D%9E%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98"><span class="toc-number">1.5.</span> <span class="toc-text">应用3 有约束的非线性规划问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A84-01%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98"><span class="toc-number">1.6.</span> <span class="toc-text">应用4 01规划问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A85-%E5%AF%BC%E5%BC%B9%E8%BF%BD%E8%B8%AA%E9%97%AE%E9%A2%98"><span class="toc-number">1.7.</span> <span class="toc-text">应用5 导弹追踪问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A86-%E6%97%85%E8%A1%8C%E5%95%86%E9%97%AE%E9%A2%98%EF%BC%88TSP%EF%BC%89"><span class="toc-number">1.8.</span> <span class="toc-text">应用6 旅行商问题（TSP）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E8%A7%84%E5%88%92%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">数学规划模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">2.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98%E7%9A%84%E6%B1%82%E8%A7%A3%E2%80%94%E2%80%94matlab"><span class="toc-number">2.2.</span> <span class="toc-text">线性规划问题的求解——matlab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E4%BE%8B%E9%A2%98"><span class="toc-number">2.3.</span> <span class="toc-text">典型例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E6%95%B0%E8%A7%84%E5%88%92"><span class="toc-number">2.4.</span> <span class="toc-text">整数规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Matlab%E4%B8%AD%E7%9A%84%E9%9D%9E%E7%BA%BF%E6%80%A7%E8%A7%84%E5%88%92%E7%9A%84%E6%A0%87%E5%87%86%E5%9E%8B"><span class="toc-number">2.5.</span> <span class="toc-text">Matlab中的非线性规划的标准型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E5%8C%96%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.6.</span> <span class="toc-text">最大最小化模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%9B%AE%E6%A0%87%E8%A7%84%E5%88%92%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.7.</span> <span class="toc-text">多目标规划模型</span></a></li></ol></li></ol>
                 </div>
             </div>
             
