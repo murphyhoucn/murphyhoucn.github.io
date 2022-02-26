@@ -213,23 +213,22 @@ Excel绘制统计图美赛：英文写作和作图比建模更重要一般不直
 </li>
 </ol>
 <ol start="3">
-<li><p>牛顿插值法<br>差商<br>也存在龙格现象</p>
+<li><p>牛顿插值法<br> 差商<br> 也存在龙格现象</p>
 </li>
-<li><p>埃尔米特插值原理</p>
-</li>
-</ol>
-<p>  <strong>分段三次埃尔米特插值</strong><br>  matab函数：p=pchip(x,y,new_x)</p>
+<li><p>埃尔米特插值原理<br> <strong>分段三次埃尔米特插值</strong><br> matab函数：p=pchip(x,y,new_x)</p>
 <pre><code class="bash">x：已知的样本点的横坐标；
 y：已知的样本点的纵坐标；
 new_x:要插入处对应的横坐标；
 </code></pre>
+</li>
+</ol>
 <ol start="5">
 <li>plot()函数<div align=center>
 <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220205195807.png"/>
 </div></li>
 </ol>
 <ol start="6">
-<li>三次样条插值<br>spline(x,y.new_x)</li>
+<li>三次样条插值<br> spline(x,y.new_x)</li>
 </ol>
 <h2 id="n维数据的插值"><a href="#n维数据的插值" class="headerlink" title="n维数据的插值"></a>n维数据的插值</h2><div align=center>
   <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ%E6%88%AA%E5%9B%BE20220205201238.png"  />
@@ -250,7 +249,7 @@ new_x:要插入处对应的横坐标；
 <h1 id="拟合算法"><a href="#拟合算法" class="headerlink" title="拟合算法"></a>拟合算法</h1><p>拟合算法与插值算法的区别：与插值问题不同，在拟合问题中不需要曲线一定经过给定的点。拟合问题的目标是寻找一个函数（曲线），使得该曲线在某种准则下与所有的数据点最为接近，即曲线拟合的最好（最小化损失函数）。</p>
 <p>插值算法：找到的函数经过所有的样本点<br>拟合算法：误差尽量小</p>
 <h2 id="拟合算法讲解"><a href="#拟合算法讲解" class="headerlink" title="拟合算法讲解"></a>拟合算法讲解</h2><ol>
-<li>确定拟合曲线<br>最小二乘法<div align=center>
+<li>确定拟合曲线<br> 最小二乘法<div align=center>
    <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220205204255.png"/>
 </div></li>
 </ol>
@@ -265,7 +264,7 @@ new_x:要插入处对应的横坐标；
   % anonymous_function为匿名函数的表达式。
 </code></pre>
 <ol start="2">
-<li>评判拟合的好坏<br>拟合优度（可决系数）<br>量纲会影响SSE<div align=center>
+<li>评判拟合的好坏<br> 拟合优度（可决系数）<br> 量纲会影响SSE<div align=center>
  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220205205434.png"/>
 </div></li>
 </ol>
@@ -274,9 +273,11 @@ new_x:要插入处对应的横坐标；
   如果有一个线性函数和一个其他函数（例如复杂指数函数），二者比较拟合的好坏时候，直接看SSE即可
 </code></pre>
 <ol start="3">
-<li>线性函数<br>在函数中，参数仅以一次方出现，且不能乘以或除以其他任何参数，并且不能出现参数的复合函数形式<div align=center>
+<li>线性函数<br> 在函数中，参数仅以一次方出现，且不能乘以或除以其他任何参数，并且不能出现参数的复合函数形式<div align=center>
  <img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/QQ截图20220205211638.png"/>
 </div></li>
+</ol>
+<ol start="4">
 <li>matlab计算拟合优度</li>
 </ol>
 <h2 id="曲线拟合工具箱"><a href="#曲线拟合工具箱" class="headerlink" title="曲线拟合工具箱"></a>曲线拟合工具箱</h2><p>Curve Fitting Tool</p>
@@ -372,7 +373,7 @@ new_x:要插入处对应的横坐标；
 <p>假设检验的步骤</p>
 <ol>
 <li>确定原假设（H_0）和备择假设</li>
-<li>在原假设成立的条件下，根据要检验的量构造一个分布<br>标准正态分布，t分布，F分布，卡方分布</li>
+<li>在原假设成立的条件下，根据要检验的量构造一个分布<br> 标准正态分布，t分布，F分布，卡方分布</li>
 <li>画出这个分布的概率密度图</li>
 <li>给一个置信水平Beta（相信H_0成立的概率）</li>
 </ol>
@@ -580,9 +581,9 @@ end
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">41 <p>文章</p></a></li>
-                    <li><a href="/categories">10 <p>分类</p></a></li>
-                    <li><a href="/tags">42 <p>标签</p></a></li>
+                    <li><a href="/">43 <p>文章</p></a></li>
+                    <li><a href="/categories">11 <p>分类</p></a></li>
+                    <li><a href="/tags">47 <p>标签</p></a></li>
                 </ul>
             </div>
             
