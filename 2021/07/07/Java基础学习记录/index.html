@@ -1,0 +1,2548 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Java基础学习记录 - Murphy</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="TriDiamond Obsidian Murphy Blog,"> 
+    <meta name="description" content="Hello,I Am Murphy,Java应该不会是我未来主要用的东西，学习Java主要是想了解一下Android开发。一个假期，花了一段时间刷了狂神的Java视频。感觉但是感觉不积累很多Java编程的经验，做Android开发不是,"> 
+    <meta name="author" content="Murphy Hou"> 
+    <link rel="alternative" href="atom.xml" title="Murphy" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+
+    
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+
+    
+<link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+
+    
+<link rel="stylesheet" href="/css/obsidian.css">
+
+    
+<link rel="stylesheet" href="/css/ball-atom.min.css">
+
+    
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+    
+<meta name="generator" content="Hexo 5.4.1"></head>
+
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none">Murphy</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://murphyhoucn.github.io">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">Java基础学习记录</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url('https://gitee.com/murphyhou/picgo/raw/master/Website/java封面.jpg') ">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="/categories/知识扩展"><b>「
+                    </b>知识扩展<b> 」</b></a>
+                
+                七月 07, 2021
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2021/07/07/Java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" title="Java基础学习记录" class="">Java基础学习记录</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>文章字数</i>
+                    49k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
+                    44 mins.
+                </span>
+                
+                
+                <span id="/2021/07/07/Java基础学习记录/" class="leancloud_visitors" data-flag-title="Java基础学习记录">
+                    <b class="iconfont icon-read"></b> <i>阅读次数</i>
+                    <span class="leancloud-visitors-count">1000000</span>
+                </span>
+                
+                
+            </p>
+            
+            
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" rel="tag">学习记录</a></li></ul>
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <p>Java应该不会是我未来主要用的东西，学习Java主要是想了解一下Android开发。<br>一个假期，花了一段时间刷了<a target="_blank" rel="noopener" href="https://space.bilibili.com/95256449">狂神</a>的Java视频。<br>感觉但是感觉不积累很多Java编程的经验，做Android开发不是很容易啊，就没有再学很多Java的知识点，仅仅是学了Java基础就完了。以后再找时间看看有没有机会再多学一点Java Android开发。</p>
+<span id="more"></span>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><ul>
+<li><p>Java用途</p>
+<ul>
+<li>网站后台</li>
+<li>SaaS云</li>
+<li>app</li>
+<li>大数据平台</li>
+<li>系统</li>
+<li>桌面工具</li>
+</ul>
+</li>
+<li><p>生态</p>
+<ul>
+<li>后端</li>
+<li>全栈</li>
+</ul>
+</li>
+<li><p>95年诞生于Sun公司，Sun后来被Oracle收购</p>
+</li>
+<li><p>封装！</p>
+</li>
+<li><p>TEIOBE网站</p>
+</li>
+<li><p>C：底层</p>
+<ul>
+<li>内存，指针</li>
+</ul>
+</li>
+<li><p>Java摒弃了很多C/C++的问题</p>
+</li>
+<li><p>C++：游戏开发</p>
+</li>
+<li><p>相关学习</p>
+<ul>
+<li>Java基础<ul>
+<li>语法</li>
+<li>面向对象</li>
+<li>GUI</li>
+<li>多线程</li>
+<li>网络编程</li>
+<li>JVM</li>
+<li>JUC</li>
+</ul>
+</li>
+<li>数据库<ul>
+<li>MySQL</li>
+<li>JDMC</li>
+<li>UML</li>
+</ul>
+</li>
+<li>前端<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JS(JavaScript)</li>
+<li>jQurery</li>
+<li>Vue</li>
+</ul>
+</li>
+<li>JavaWeb<ul>
+<li>网站后台</li>
+</ul>
+</li>
+<li>SSM框架<ul>
+<li>MyBatis</li>
+<li>Spring</li>
+<li>SpringMVC</li>
+<li>Git</li>
+</ul>
+</li>
+<li>Linux<ul>
+<li>基础</li>
+<li>Redis</li>
+<li>Nginx</li>
+<li>Docker</li>
+</ul>
+</li>
+<li>SpringBoot<ul>
+<li>微服务</li>
+</ul>
+</li>
+<li>SpringCloud<ul>
+<li>微服务，微服务架构</li>
+</ul>
+</li>
+<li>Hadoop<ul>
+<li>大数据的入门</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="预科"><a href="#预科" class="headerlink" title="预科"></a>预科</h1><ul>
+<li><p>博客</p>
+</li>
+<li><p>markdown</p>
+</li>
+<li><p>计算机</p>
+</li>
+<li><p>硬件</p>
+<ul>
+<li>冯·诺依曼体系结构</li>
+</ul>
+</li>
+<li><p>软件</p>
+<ul>
+<li>系统<ul>
+<li>DOS</li>
+<li>Windows</li>
+<li>Linux</li>
+<li>Unix</li>
+<li>Mac</li>
+<li>Android</li>
+<li>IOS</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Dos命令</p>
+</li>
+</ul>
+<pre><code class="bash"> # 盘符切换
+  C:\Users\DELL&gt;D:
+  
+  D:\&gt;dir
+   驱动器 D 中的卷是 DATA
+   卷的序列号是 90FF-156C
+   
+   
+  # 查看当前目录下的所有文件 dir
+  D:\&gt;dir
+   驱动器 D 中的卷是 DATA
+   卷的序列号是 90FF-156C
+  
+   D:\ 的目录
+  
+  2021/07/02  15:50    &lt;DIR&gt;          !!!Learn
+  2021/07/07  20:46    &lt;DIR&gt;          !!!Learning_Recording
+  2021/06/10  10:20    &lt;DIR&gt;          !!!Master
+  2021/07/06  22:21    &lt;DIR&gt;          !!!Temp
+  2021/06/04  20:42    &lt;DIR&gt;          !!!Temp_Learn
+  2020/03/09  18:06    &lt;DIR&gt;          Adobe Acrobat DC
+  2021/03/28  18:26    &lt;DIR&gt;          AE
+  
+  
+  # 切换目录 cd
+  D:\&gt;cd PS
+  
+  D:\PS&gt;cd ..
+  
+  D:\&gt;cd \d c:
+  文件名、目录名或卷标语法不正确。
+  
+  D:\&gt;cd /d C:   # /d：参数
+  
+  C:\Users\DELL&gt;
+  
+  # 清屏
+  cls
+  
+  #退出
+   exit
+   
+   
+  # IP查看
+  ipconfig
+  ipconfig/all
+  
+  # 打开应用
+  C:\Users\DELL&gt;calc
+  
+  C:\Users\DELL&gt;mspaint
+  
+  C:\Users\DELL&gt;notepad
+  
+  # ping 
+  
+  # 桌面
+  C:\Users\DELL&gt;cd /d C:\Users\DELL\Desktop
+  
+  C:\Users\DELL\Desktop&gt;
+  
+  # 创建文件夹（make dir）
+  md 文件夹名称
+  # 删除文件夹（remove dir）
+  rd 文件夹名称
+  
+  #创建文件
+  cd&gt;文件名
+  #删除文件
+  del 文件名
+</code></pre>
+<ul>
+<li>发展史<ul>
+<li>机器语言：二进制，计算机直接使用</li>
+<li>汇编语言<ul>
+<li>应用：逆向工程，机器人，病毒</li>
+</ul>
+</li>
+<li>高级语言<ul>
+<li>面向过程</li>
+<li>面向对象</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h1><ul>
+<li>72年：C</li>
+<li>82年：C++<ul>
+<li>复杂</li>
+<li>图形领域</li>
+<li>游戏领域</li>
+</ul>
+</li>
+<li>95年：Java<ul>
+<li>语法类似于C</li>
+<li>面向对象</li>
+<li>无指针</li>
+<li>无内存管理</li>
+<li>可移植性</li>
+<li>高性能</li>
+<li>分布式</li>
+<li>动态性</li>
+<li>多线程</li>
+<li>Hadoop：大数据</li>
+<li>Android</li>
+</ul>
+</li>
+<li>三大版本<ul>
+<li>JavaSE 标准版</li>
+<li>JavaME 嵌入式开发（几乎消失了）</li>
+<li>JavaEE 企业级</li>
+</ul>
+</li>
+<li>JDK：Java开发工具</li>
+<li>JRE：Java运行环境</li>
+<li>JVM：Java虚拟机（作用：实现跨平台编译）</li>
+<li>安装JDK8</li>
+</ul>
+<pre><code class="bash">PS C:\Users\DELL&gt; java -version
+  java version &quot;1.8.0_291&quot;
+  Java(TM) SE Runtime Environment (build 1.8.0_291-b10)
+  Java HotSpot(TM) 64-Bit Server VM (build 25.291-b10, mixed mode)
+</code></pre>
+<ul>
+<li><p>安装文件夹下的文件</p>
+<ul>
+<li>bin：可执行文件<ul>
+<li>jav.exe</li>
+<li>javac.exe</li>
+</ul>
+</li>
+<li>include :于C语言相关</li>
+<li>jre</li>
+<li>lib<ul>
+<li>库</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>hello world</p>
+</li>
+</ul>
+<pre><code class="java">    public class Hello //hello是类名要与.java文件名对应
+    &#123;
+        public static void main(String[] args) //public 小写
+        &#123;
+            System.out.print(&quot;hello world!&quot;); //大写System
+        &#125;
+    &#125;
+</code></pre>
+<ul>
+<li><p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210707223016702.png" alt="image-20210707223016702"></p>
+</li>
+<li><p>java 运行机制</p>
+<ul>
+<li>编译型       complie<ul>
+<li>全部翻译——操作系统</li>
+<li>C/C++</li>
+</ul>
+</li>
+<li>解释型<ul>
+<li>边读边翻译——网页</li>
+<li>python</li>
+</ul>
+</li>
+<li>两者区别：时机不同</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210707223710807.png" alt="image-20210707223710807"></p>
+<ul>
+<li>使用IDEA作为集成开发环境</li>
+</ul>
+<h1 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h1><h2 id="1-注释"><a href="#1-注释" class="headerlink" title="1.注释"></a>1.注释</h2><ul>
+<li><p>单行注释</p>
+</li>
+<li><p>多行注释</p>
+</li>
+<li><p>文档注释</p>
+</li>
+</ul>
+<pre><code class="java">package Base_knowledge;
+
+/**
+ * -*- coding : utf-8 -*-
+ * Time       : 2021/7/7 23:49
+ * Author     : MurphyHou
+ * Proj_Name  : JavaSE
+ * File_Name  : Base_knowledge.Hello.java
+ * Software   : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+public class Hello &#123;
+    public static void main(String[] args) &#123;
+        System.out.println(&quot;hello world&quot;);
+
+
+        //单行注释
+
+
+        /*多行注释*/
+        /*
+        这是注释
+        这是注释
+        这是注释
+         */
+
+
+        //JavaDoc:
+        /**
+         * 注释
+         * 注释
+         * 注释
+         */
+    &#125;
+&#125;
+</code></pre>
+<h2 id="2-标识符和关键字"><a href="#2-标识符和关键字" class="headerlink" title="2.标识符和关键字"></a>2.标识符和关键字</h2><ul>
+<li><p>关键字</p>
+<ul>
+<li>类名，变量名，方法</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>标识符</p>
+<ul>
+<li>所有的标识符都应该以字母，美元$，或下划线_开头</li>
+<li>首字母之后是任意的字母，或美元$，或下划线_或数字</li>
+<li>不使用关键字</li>
+<li>注意大小写，A与a不代表同一个变量</li>
+<li>可以用中文作为标识符，但是不建议</li>
+<li>类名也可以用中文，但也不建议</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-数据类型"><a href="#3-数据类型" class="headerlink" title="3.数据类型"></a>3.数据类型</h2><ul>
+<li><p>强类型语言</p>
+<ul>
+<li>要求变量的使用严格符合规定</li>
+<li>所有的变量都必须先定义后才能使用</li>
+<li>高安全性</li>
+<li>速度慢</li>
+<li>强类型语言：C/C++</li>
+<li>弱类型语言：python，JS，VB</li>
+</ul>
+</li>
+<li><p>数据类型</p>
+<ul>
+<li>基本类型<ul>
+<li>数值类型<ul>
+<li>整数类型<ul>
+<li>byte  一个字节</li>
+<li>short  两个字节</li>
+<li>int  四个字节</li>
+<li>long  八个字节</li>
+</ul>
+</li>
+<li>浮点类型<ul>
+<li>float  四个字节</li>
+<li>double 八个字节</li>
+</ul>
+</li>
+<li>字符类型<ul>
+<li>char   两个字节</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Boolean类型<ul>
+<li>占1位，其值只有true和false两个</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">package Base_knowledge;
+
+/**
+ * -*- coding : utf-8 -*-
+ * Time       : 2021/7/8 20:32
+ * Author     : MurphyHou
+ * Proj_Name  : JavaSE
+ * File_Name  : Base_knowledge.Value_type.java
+ * Software   : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+public class Value_type &#123;
+    public static void main(String[] args) &#123;
+        byte a=1;
+        short b=2;
+        int c=3;
+        long d=4L;   //long类型要在数字后面加上l/L
+
+        float e=50.1f;  //float后面加上F/f
+        double f=3.1415926;
+
+        char g=&#39;a&#39;;
+
+        String h=&quot;dwaawdawd&quot;;//String 不是关键词，是一个类
+
+        boolean flag=true;
+        boolean flag1=false;
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">import java.math.BigDecimal;
+
+/**
+ * -*- coding : utf-8 -*-
+ * Time       : 2021/7/8 20:53
+ * Author     : MurphyHou
+ * Proj_Name  : JavaSE
+ * File_Name  : Data_expand.java
+ * Software   : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+public class Data_expand &#123;
+    public static void main(String[] args) &#123;
+        //整数拓展//进制//二进制：0b//十进制//八进制 0//十六进制 0x
+        int n1=10;
+        int n2=010;
+        int n3=0x10;
+        System.out.println(n1);
+        System.out.println(n2);
+        System.out.println(n3);
+        System.out.println(&quot;==================================&quot;);
+        //浮点数拓展
+        //folat 有限 离散 舍入误差  大约  接近但不等于
+        //double
+
+        //最好完全使用浮点数进行比较
+
+        float f=0.1f;
+        double d=1.0/10;
+
+        System.out.println(f==d);
+        System.out.println(f);
+        System.out.println(d);
+
+        float d1=53485468864f;
+        float d2=d1+1;
+
+        System.out.println(d1==d2);
+
+
+        //BigDecimal 数学工具类
+
+
+
+        // 字符类型拓展
+        System.out.println(&quot;==================================&quot;);
+
+        char c1=&#39;a&#39;;
+        char c2=&#39;中&#39;;
+        System.out.println(c1);
+        System.out.println((int)c1); //强制类型转换
+
+        System.out.println(c2);
+        System.out.println((int)c2);
+
+
+        //字符本身就是数字
+        //char 编码：Unicode 2字节  0-65536
+
+        char c3=&#39;\u0061&#39;;
+        System.out.println(c3);  //a
+
+        System.out.println(&quot;==================================&quot;);
+        //转义字符
+        System.out.println(&quot;hello\tworld&quot;);
+        // \t:table
+        // \n:换行
+
+
+        System.out.println(&quot;==================================&quot;);
+
+        String sa=new String(&quot;hello world&quot;);//对象：内存分析
+        String sb=new String(&quot;hello world&quot;);
+
+        System.out.println(sa==sb);
+
+
+        String sc=&quot;hello world&quot;;
+        String sd=&quot;hello world&quot;;
+        System.out.println(sc == sd);
+
+        System.out.println(&quot;==================================&quot;);
+        //布尔值拓展
+        boolean flag=true;
+        if (flag)&#123;
+            System.out.println(&quot;true&quot;);
+        &#125;
+
+        if(flag==true)&#123;
+            System.out.println(&quot;true&quot;);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>引用类型<ul>
+<li>类</li>
+<li>接口</li>
+<li>数组</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-类型转换"><a href="#4-类型转换" class="headerlink" title="4.类型转换"></a>4.类型转换</h2><ul>
+<li>强制类型转换</li>
+<li>自动类型转换</li>
+</ul>
+<pre><code class="java">/**
+ * -*- coding : utf-8 -*-
+ * Time       : 2021/7/8 21:19
+ * Author     : MurphyHou
+ * Proj_Name  : JavaSE
+ * File_Name  : Type_conversion.java
+ * Software   : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+public class Type_conversion &#123;
+    public static void main(String[] args) &#123;
+        //强制类型转换
+        int i=128;
+        byte b =(byte)i;
+
+        System.out.println(i); //128
+        System.out.println(b);  //-128
+
+        //自动类型转换
+        int j=128;
+        double c =i;
+
+        System.out.println(j); //128
+        System.out.println(c);  //-128
+
+        /*
+        不对布尔值进行转换
+        不能把对象类型转换为不相干的类型
+        高容量到低容量：强制转换
+        转换：内存溢出，精度问题
+         */
+    &#125;
+&#125;
+</code></pre>
+<h2 id="5-变量-常量"><a href="#5-变量-常量" class="headerlink" title="5.变量 常量"></a>5.变量 常量</h2><ul>
+<li>变量名</li>
+<li>变量类型</li>
+<li>作用域<ul>
+<li>类变量  static</li>
+<li>实例变量</li>
+<li>局部变量</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">/**
+ * -*- coding : utf-8 -*-
+ * Time       : 2021/7/8 21:33
+ * Author     : MurphyHou
+ * Proj_Name  : JavaSE
+ * File_Name  : Variable.java
+ * Software   : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+//类
+public class Variable &#123;
+    //属性：变量
+
+    //实例变量：从属于对象;不初始化自动会有默认值
+    //数值类型的默认值：0  0.0
+    //布尔值默认值是false
+    //处理基本类型，其他的默认值都是null
+    String name;
+    int age;
+
+    //类变量,从属于类
+    static double salary=2500;
+
+
+// 定义常量
+    static final double PI=3.14;
+    final static double PI1=3.14;
+    //final 是修饰符，不存在先后顺序
+
+
+    //main方法
+    public static void main(String[] args) &#123;
+        //局部变量：定义在方法里的变量，必须声明和初始化
+        //寿命就是在这个方法里
+
+        //变量类型 变量名字=new Variable();
+        Variable variable = new Variable();
+        System.out.println(variable.age);
+        System.out.println(variable.name);
+
+        System.out.println(salary);
+
+
+
+        //定义常量
+
+        final
+    &#125;
+
+    //其他的方法
+    public void add()&#123;
+
+    &#125;
+&#125;
+</code></pre>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210708215409533.png" alt="image-20210708215409533"></p>
+<h2 id="6-运算符"><a href="#6-运算符" class="headerlink" title="6.运算符"></a>6.运算符</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210708215630496.png" alt="image-20210708215630496"></p>
+<pre><code class="java">package Base_knowledge;
+
+/**
+ * -*- coding : utf-8 -*-
+ * Time       : 2021/7/8 21:55
+ * Author     : MurphyHou
+ * Proj_Name  : JavaSE
+ * File_Name  : Base_knowledge.Operator.java
+ * Software   : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+public class Operator &#123;
+    public static void main(String[] args) &#123;
+        //二元运算符
+
+        int a=10;
+        int b=20;
+        int c=30;
+        int d=40;
+
+        System.out.println(a+b);
+        System.out.println(a-b);
+        System.out.println(a/b);
+        System.out.println(a*b);
+
+        long n1=1554687436848656356L;
+        int n2=123;
+        short n3=10;
+        byte n4=8;
+        System.out.println(&quot;==================================&quot;);
+        System.out.println(n1+n2+n3+n4);//long  有long则为long，有double则为double
+        System.out.println(n2+n3+n4);//int  无long则为int
+        System.out.println(n3+n4);//int
+
+        System.out.println(&quot;==================================&quot;);
+        //Math类
+        double pow=Math.pow(2,3);
+        System.out.println(pow);
+
+        System.out.println(&quot;==================================&quot;);
+
+        boolean aaa=true;
+        boolean bbb=false;
+
+        System.out.println(&quot;aaa&amp;&amp;bbb=&quot;+(aaa&amp;&amp;bbb));
+        System.out.println(&quot;aaa||bbb=&quot;+(aaa||bbb));
+        System.out.println(&quot;!(aaa&amp;&amp;bbb)&quot;+!(aaa&amp;&amp;bbb));
+
+        //短路运算
+        System.out.println(&quot;==================================&quot;);
+        int ccc=5;
+        boolean ddd=(ccc&lt;4)&amp;&amp;(ccc++&lt;4);
+        System.out.println(ddd);
+        System.out.println(ccc);
+        System.out.println(&quot;==================================&quot;);
+
+        
+        //字符串连接符   +
+        int num1=10;
+        int num2=20;
+        System.out.println(&quot;&quot;+num1+num2);
+        System.out.println(num1+num2);
+        System.out.println(num1+num2+&quot;&quot;);
+
+    &#125;
+&#125;
+</code></pre>
+<h2 id="7-包机制、JavaDoc"><a href="#7-包机制、JavaDoc" class="headerlink" title="7.包机制、JavaDoc"></a>7.包机制、JavaDoc</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210708223509417.png"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210708223937723.png" alt="image-20210708223937723"></p>
+<h1 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h1><h2 id="1-用户交互-scanner"><a href="#1-用户交互-scanner" class="headerlink" title="1.用户交互 scanner"></a>1.用户交互 scanner</h2><pre><code class="java">java.util.Scanner
+</code></pre>
+<ul>
+<li>Scanner类中的方法</li>
+</ul>
+<pre><code class="markdown">1. next()
+    a.一定要读取到有效字符后才可以结束输入
+    b.对输入有效字符之前遇到的空白，next()方法会自动将其去掉
+    c.只有输入有效字符后才将其后面输入的空白作为分隔符或者结束符
+    d.next()不能得到带有空格的字符串
+2.hasNext()
+
+3. nextLine()
+    a.以ENTER为结束符，也就是说，nextLine()方法输入回车之前的所有字符。
+    b.可以获得空白。
+4.hasNextLine()
+
+5. nextInt()
+6.nextFloat()
+7.
+
+
+</code></pre>
+<pre><code class="java">/**
+ * -*- coding : utf-8 -*-
+ *
+ * @Time : 2021/7/8 23:16
+ * @Author : MurphyHou
+ * @Proj_Name : JavaSE
+ * @File_Name : scanner.java
+ * @Software : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+package Process_Control;
+
+import java.util.Scanner; //导入Scanner包
+
+public class ScannerDemo &#123;
+    public static void main(String[] args) &#123;
+        //创建一个扫描器，用于接收键盘数据
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.println(&quot;=====使用next方式接收=====&quot;);
+
+        //判断用户有没有输入字符串
+        if (scanner.hasNext())&#123;
+            //使用next方式接收
+            String str=scanner.next();
+            System.out.println(&quot;输入的内容：&quot;+str);
+
+            /*
+            =====使用next方式接收=====
+            hello world
+            输入的内容：hello
+             */
+        &#125;
+        System.out.println(&quot;===使用nextLine方式接收===&quot;);
+
+        if (scanner.hasNextLine())
+        &#123;
+            String str1=scanner.nextLine();
+            System.out.println(&quot;输入的内容：&quot;+str1);
+
+            /*
+            ===使用nextLine方式接收===
+            hello world
+            输入的内容：hello world
+             */
+        &#125;
+        scanner.close();//凡是属于IO流的类如果不关闭会一直占用资源，因此用完应该立刻关闭
+    &#125;
+&#125;
+</code></pre>
+<h2 id="2-顺序结构"><a href="#2-顺序结构" class="headerlink" title="2.顺序结构"></a>2.顺序结构</h2><h2 id="3-选择结构"><a href="#3-选择结构" class="headerlink" title="3.选择结构"></a>3.选择结构</h2><p>if-else</p>
+<p>switch-case结构：支持byte，short,int,char,String（JDK7之后）类型</p>
+<h2 id="4-循环结构"><a href="#4-循环结构" class="headerlink" title="4.循环结构"></a>4.循环结构</h2><p>while</p>
+<p>do–while</p>
+<p>for</p>
+<p>for_增强型</p>
+<pre><code class="java">/**
+ * -*- coding : utf-8 -*-
+ *
+ * @Time : 2021/7/9 21:09
+ * @Author : MurphyHou
+ * @Proj_Name : JavaSE
+ * @File_Name : ForStrength.java
+ * @Software : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+package Process_Control;
+
+public class ForStrength &#123;
+    public static void main(String[] args) &#123;
+        int[] num=&#123;10,20,30,40,50,60&#125;;
+        //遍历数组元素
+        for (int x:num)
+        &#123;
+            System.out.println(x);
+        &#125;
+        System.out.println(&quot;=======================&quot;);
+
+        int i;
+
+        for (i=0;i&lt;6;i++)&#123;
+            System.out.println(num[i]);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="5-break-amp-continue"><a href="#5-break-amp-continue" class="headerlink" title="5.break&amp;continue"></a>5.break&amp;continue</h2><p>break:终止循环</p>
+<p>continue：终止某次循环</p>
+<p>goto：无</p>
+<pre><code class="markdown">在C/C++中，goto常被用于跳出多重循环。但goto 语句的使用往往会使程序的可读性降低，所以 Java 不允许 goto 跳转。实际上，自从“goto有害论”提出后，软件开发就不建议使用goto了，但是Java中依然保留了goto这个关键字留作备用，但这个关键字没有任何作用，只是为了将来可能的扩展，防止使用goto作为程序中的标识符。
+　　类似地，Java中的const也只是一个不起作用的保留关键字（不具备C语言中定义常量的作用，Java中要想定义常量使用final关键字），与goto一样防止作为程序中的标识符。
+</code></pre>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>类似于其他语言中的函数</p>
+<h2 id="1-定义及调用"><a href="#1-定义及调用" class="headerlink" title="1.定义及调用"></a>1.定义及调用</h2><pre><code class="markdown">System.out.println()
+    System:类
+    out:对象
+    println():方法
+</code></pre>
+<pre><code class="markdown">1.方法是解决一类问题的步骤的有序组合
+2.方法包含于类或对象中
+3.方法在程序中被创建，在其他地方被引用
+</code></pre>
+<pre><code class="markdown">修饰符 返回值类型 方法名（参数类型 参数名）
+&#123;
+    方法体；
+    
+    return 返回值；
+&#125;
+</code></pre>
+<h2 id="2-方法重载"><a href="#2-方法重载" class="headerlink" title="2.方法重载"></a>2.方法重载</h2><p>重载就是在一个类中，有相同的函数名称，但形参不同的函数</p>
+<pre><code class="markdown">规则
+1.方法的名称相同
+2.参数列表不同
+3.方法的返回值可以相同也可以不同
+4.仅仅返回值不同不足以成为方法的重载
+
+
+实现理论
+方法名称相同，编译器会根据调用方法的参数的个数、参数的类型等去逐个匹配，以选择对应的方法，如果匹配失败，则编译器报错
+</code></pre>
+<h2 id="3-命令行传参数"><a href="#3-命令行传参数" class="headerlink" title="3.命令行传参数"></a>3.命令行传参数</h2><p>运行一个程序的时候再传递给它消息，这需传递命令行参数给main函数实现</p>
+<pre><code class="java">/**
+ * -*- coding : utf-8 -*-
+ *
+ * @Time : 2021/7/9 23:17
+ * @Author : MurphyHou
+ * @Proj_Name : JavaSE
+ * @File_Name : Demo4.java
+ * @Software : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+package Method;
+
+public class Demo4 &#123;
+    public static void main(String[] args) &#123;
+        for (int i = 0; i &lt; args.length; i++) &#123;
+            System.out.println(args[i]);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210709232606771.png" alt="image-20210709232606771"></p>
+<h2 id="4-可变参数"><a href="#4-可变参数" class="headerlink" title="4.可变参数"></a>4.可变参数</h2><pre><code class="markdown">又名不定项参数
+
+JDK1.5之后版本开始支持
+
+在方法的声明中，在指定参数类型后面加一个省略号（...）
+
+一个方法中只能指定一个可变参数，它必须是方法的最后一个参数。
+
+任何普通参数必须在它之前声明
+</code></pre>
+<h2 id="5-递归"><a href="#5-递归" class="headerlink" title="5.递归"></a>5.递归</h2><p>递归头</p>
+<p>递归体</p>
+<pre><code class="java">/**
+ * -*- coding : utf-8 -*-
+ *
+ * @Time : 2021/7/9 23:38
+ * @Author : MurphyHou
+ * @Proj_Name : JavaSE
+ * @File_Name : Recursion.java
+ * @Software : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+package Method;
+
+import java.util.Scanner;
+
+public class Recursion &#123;
+    public static void main(String[] args) &#123;
+        Scanner scanner = new Scanner(System.in);
+
+        int n;
+        n=scanner.nextInt();
+
+        System.out.println(fun(n));
+
+    &#125;
+
+    public static int fun(int n)
+    &#123;
+        if (n==1)&#123;
+            return 1;
+        &#125;
+        else
+        &#123;
+            return n*fun(n-1);
+        &#125;
+
+    &#125;
+&#125;
+</code></pre>
+<h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><h2 id="1-数组创建"><a href="#1-数组创建" class="headerlink" title="1.数组创建"></a>1.数组创建</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210710202406611.png" alt="image-20210710202406611"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210710205715578.png" alt="image-20210710205715578"></p>
+<pre><code class="java">        两句完成
+        int[] numbers; //数组的声明
+        numbers=new int[10];// 创建一个数组
+
+        一句完成
+        int[] numbers=new int[10];//声明并创建
+</code></pre>
+<pre><code class="markdown">java 内存分析
+1.堆
+    存放new的对象和数组
+    可以被所有的线程共享，不会存放别的对象引用
+2.栈
+    存放基本变量类型（会包含这个基本类型的具体数值）
+    引用对象的变量（会存放这个引用在堆里面的具体地址）
+3.方法区
+    可以被所有的线程共享
+    包含了所有的class和static变量
+</code></pre>
+<h2 id="2-初始化"><a href="#2-初始化" class="headerlink" title="2.初始化"></a>2.初始化</h2><h3 id="静态初始化"><a href="#静态初始化" class="headerlink" title="静态初始化"></a>静态初始化</h3><pre><code class="java">/**
+ * -*- coding : utf-8 -*-
+ *
+ * @Time : 2021/7/10 20:35
+ * @Author : MurphyHou
+ * @Proj_Name : JavaSE
+ * @File_Name : Demo02.java
+ * @Software : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+package ArrayDemo;
+
+public class Demo02 &#123;
+    public static void main(String[] args) &#123;
+        // 静态初始化:创建+赋值
+        int[] a = &#123;1,2,3,4,5&#125;;
+
+        int i;
+        for (i=0;i&lt;a.length;i++)
+        &#123;
+            System.out.println(a[i]);
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="动态初始化"><a href="#动态初始化" class="headerlink" title="动态初始化"></a>动态初始化</h3><pre><code class="java">/**
+ * -*- coding : utf-8 -*-
+ *
+ * @Time : 2021/7/10 20:52
+ * @Author : MurphyHou
+ * @Proj_Name : JavaSE
+ * @File_Name : Demo03.java
+ * @Software : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+package ArrayDemo;
+
+public class Demo03 &#123;
+    public static void main(String[] args) &#123;
+        // 动态初始化:声明+创建
+        //动态初始化中包含了默认初始化
+
+        int[] b= new int[10];
+        int i;
+        for (i=0;i&lt;b.length;i++)
+        &#123;
+            System.out.println(b[i]);
+        &#125;
+
+    &#125;
+&#125;
+</code></pre>
+<h3 id="默认初始化"><a href="#默认初始化" class="headerlink" title="默认初始化"></a>默认初始化</h3><p>数组是引用类型，它的元素相当于类的实例变量，因此数组一经分配空间，其中的每个元素也被按照实例变量同样的方式被隐式初始化</p>
+<pre><code class="java">
+</code></pre>
+<p>特点</p>
+<ul>
+<li><p>数组的长度是确定的，数组一旦被创建，其大小是不可以改变的</p>
+</li>
+<li><p>数组中的元素必须是相同的元素</p>
+</li>
+<li><p>数组中的元素可以是任何数组类型，包括基本类型和引用类型</p>
+</li>
+<li><p>数组变量属于引用类型，数组也可以看成是对象，数组中的每个元素相当于该对象的成员变量</p>
+<ul>
+<li>数组本身就是对象，Java中对象是在堆中的，因此数组无论保存原始类型还是其他对象类型，数组对象本身是在堆中的</li>
+</ul>
+</li>
+</ul>
+<p>数组的边界问题：0 ~ length-1</p>
+<h2 id="3-数组使用"><a href="#3-数组使用" class="headerlink" title="3.数组使用"></a>3.数组使用</h2><p>For-Each循环</p>
+<p>数组作方法入参</p>
+<p>数组作返回值</p>
+<pre><code class="java">/**
+ * -*- coding : utf-8 -*-
+ *
+ * @Time : 2021/7/10 21:34
+ * @Author : MurphyHou
+ * @Proj_Name : JavaSE
+ * @File_Name : Demo07.java
+ * @Software : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+package ArrayDemo;
+
+public class Demo07 &#123;
+    public static void main(String[] args) &#123;
+        int[] array=&#123;1,2,3,4,5&#125;;
+
+        int[] rev=reverse(array);
+        for (int i = 0; i &lt; rev.length; i++) &#123;
+            System.out.println(rev[i]);
+        &#125;
+    &#125;
+
+    public static int[] reverse(int[] arr)
+    &#123;
+        int[] re=new int[arr.length];
+        for (int i = 0,j=arr.length-1; i &lt; arr.length; i++,j--) &#123;
+            re[j]=arr[i];
+        &#125;
+        return re;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="4-多维数组"><a href="#4-多维数组" class="headerlink" title="4.多维数组"></a>4.多维数组</h2><h2 id="5-Arrays类"><a href="#5-Arrays类" class="headerlink" title="5.Arrays类"></a>5.Arrays类</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210710215336621.png" alt="image-20210710215336621"></p>
+<h2 id="6-冒泡排序"><a href="#6-冒泡排序" class="headerlink" title="6.冒泡排序"></a>6.冒泡排序</h2><pre><code class="java">/**
+ * -*- coding : utf-8 -*-
+ *
+ * @Time : 2021/7/10 22:23
+ * @Author : MurphyHou
+ * @Proj_Name : JavaSE
+ * @File_Name : Demo10.java
+ * @Software : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+package ArrayDemo;
+
+import java.util.Arrays;
+
+public class Demo10 &#123;
+    public static void main(String[] args) &#123;
+        //冒泡排序
+
+        int[] arr=&#123;5,1,8,1,10,55&#125;;
+
+        arr=sort(arr);
+
+        System.out.println(Arrays.toString(arr));
+
+
+    &#125;
+
+    public static int[] sort(int[] arr)
+    &#123;
+        int temp;
+
+        for (int i = 0; i &lt; arr.length-1; i++)
+        &#123;
+            for (int j = 0; j &lt;arr.length-1-i; j++)
+            &#123;
+                if (arr[j+1]&gt;arr[j])
+                &#123;
+                    temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                &#125;
+
+            &#125;
+        &#125;
+
+        return arr;
+
+
+    &#125;
+
+&#125;
+</code></pre>
+<h2 id="7-稀疏数组"><a href="#7-稀疏数组" class="headerlink" title="7.稀疏数组"></a>7.稀疏数组</h2><h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><h2 id="1-什么是面向对象"><a href="#1-什么是面向对象" class="headerlink" title="1.什么是面向对象"></a>1.什么是面向对象</h2><ul>
+<li>面向过程与面对对象<ul>
+<li>类就是方法+属性</li>
+<li>Object-Oriented Programming</li>
+<li>OOP的本质是：<strong>以类的方式组织代码，以对象的形式封装数据</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210713233828635.png" alt="image-20210713233828635"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210713235138687.png" alt="image-20210713235138687"></p>
+<h2 id="2-方法"><a href="#2-方法" class="headerlink" title="2.方法"></a>2.方法</h2><ul>
+<li>定义<ul>
+<li>修饰符</li>
+<li>返回类型</li>
+<li>break</li>
+<li>return</li>
+<li>方法名</li>
+<li>参数列表</li>
+<li>异常抛出</li>
+</ul>
+</li>
+<li>调用<ul>
+<li>静态方法</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">/**
+ * -*- coding : utf-8 -*-
+ *
+ * @Time : 2021/7/14 21:16
+ * @Author : MurphyHou
+ * @Proj_Name : JavaSE
+ * @File_Name : Student.java
+ * @Software : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+package OOP;
+//学生类
+public class Student &#123;
+    //定义方法
+    //非静态
+    public void say()
+    &#123;
+        System.out.println(&quot;xue sheng shuo hua le00&quot;);
+    &#125;
+
+    // 静态
+    public static void say1()
+    &#123;
+        System.out.println(&quot;xue sheng shuo hua le11&quot;);
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">/**
+ * -*- coding : utf-8 -*-
+ *
+ * @Time : 2021/7/14 21:15
+ * @Author : MurphyHou
+ * @Proj_Name : JavaSE
+ * @File_Name : Demo02.java
+ * @Software : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+package OOP;
+
+public class Demo02 &#123;
+    // 静态方法：static
+    public static void main(String[] args) &#123;
+        Student.say1();//静态方法：类名.方法名，直接调用
+        System.out.println(&quot;=================&quot;);
+
+        //非静态方法的调用
+        //实例化这个类
+        // 对象类型 对象名 = 对象值
+        Student student = new Student();
+        student.say();
+    &#125;
+
+&#125;
+</code></pre>
+<ul>
+<li>非静态方法</li>
+</ul>
+<pre><code class="java">/**
+ * -*- coding : utf-8 -*-
+ *
+ * @Time : 2021/7/14 21:23
+ * @Author : MurphyHou
+ * @Proj_Name : JavaSE
+ * @File_Name : Demo03.java
+ * @Software : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+package OOP;
+
+public class Demo03 &#123;
+    public static void main(String[] args) &#123;
+
+    &#125;
+
+
+
+
+    public void a()&#123; b();&#125;
+    public void b()&#123;&#125;
+
+    public static void c()&#123;d();&#125;
+    public static void d()&#123;&#125;
+
+    //public static void e()&#123;f();&#125;//这句话报错
+    public void f()&#123;&#125;
+
+    //static 是和类一起加载的；
+    //没有static的方法是在类实例化知乎才存在的
+    //
+&#125;
+</code></pre>
+<ul>
+<li>形参和实参</li>
+<li>值传递和引用传递</li>
+</ul>
+<pre><code class="java">/**
+ * -*- coding : utf-8 -*-
+ *
+ * @Time : 2021/7/14 21:32
+ * @Author : MurphyHou
+ * @Proj_Name : JavaSE
+ * @File_Name : Demo05.java
+ * @Software : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+package OOP;
+//值传递
+public class Demo05 &#123;
+    public static void main(String[] args) &#123;
+        int a=11;
+        System.out.println(a);
+
+        Demo05.change(a);//java是值传递
+        System.out.println(a);
+
+    &#125;
+    public static void change(int a)
+    &#123;
+        a=10;
+    &#125;
+&#125;
+</code></pre>
+<pre><code class="java">/**
+ * -*- coding : utf-8 -*-
+ *
+ * @Time : 2021/7/14 21:35
+ * @Author : MurphyHou
+ * @Proj_Name : JavaSE
+ * @File_Name : Demo06.java
+ * @Software : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+package OOP;
+//引用传递
+//一般引用传递是传递对象，但本质上还是值传递
+public class Demo06 &#123;
+    public static void main(String[] args) &#123;
+        Person person = new Person();
+
+        //person是一个对象，指向的是-&gt;Person person = new Person();
+
+        System.out.println(person.name);
+
+        Demo06.change(person);
+        System.out.println(person.name);
+    &#125;
+
+    public static void change(Person person)
+    &#123;
+        person.name=&quot;hello&quot;;
+    &#125;
+
+&#125;
+
+//定义一个类，person类
+//类中有一个属性，name
+class Person&#123;
+    String name;
+&#125;
+</code></pre>
+<ul>
+<li>this关键字</li>
+</ul>
+<h2 id="3-类和对象的创建"><a href="#3-类和对象的创建" class="headerlink" title="3.类和对象的创建"></a>3.类和对象的创建</h2><ul>
+<li>类：类是一种抽象的数据类型，它是对某一类事务整体整体描述/定义，但是并不能代表某一个具体的事物。</li>
+<li>对象：<strong>对象是抽象概念的具体实例</strong></li>
+<li>使用new关键字创建对象；<ul>
+<li>在使用new关键字创建对象时，除了分配内存空间外，还会给创建好的对象进行<strong>默认初始化</strong>以及对类中<strong>构造器</strong>的调用</li>
+</ul>
+</li>
+<li>构造器的种类<ul>
+<li>默认构造<ul>
+<li><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210714223055367.png" alt="image-20210714223055367"></li>
+</ul>
+</li>
+<li>显示构造<ul>
+<li><h2 id="无参构造"><a href="#无参构造" class="headerlink" title="无参构造"></a>无参构造</h2><ul>
+<li><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210728132621474.png" alt="image-20210728132621474"></li>
+</ul>
+</li>
+<li>有参构造<ul>
+<li><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210728133131155.png" alt="image-20210728133131155"></li>
+<li><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210728134042171.png" alt="image-20210728134042171"></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code class="java">/**
+ * -*- coding : utf-8 -*-
+ *
+ * @Time : 2021/7/14 22:27
+ * @Author : MurphyHou
+ * @Proj_Name : JavaSE
+ * @File_Name : Person.java
+ * @Software : IntelliJ IDEA
+ * =======Here We Go!=======
+ */
+
+package OOP.demo02;
+
+public class Person &#123;
+
+    //1.一个类即使什么都不写，他也会存在一个方法，这就是构造方法
+
+
+
+
+
+
+    //2.显示的定义构造器
+
+    String name;
+    //2.1无参数构造
+
+    //构造函数的作用：实例化初始值（默认值）
+
+    public Person()
+    &#123;
+        //无返回值
+        //与类名相同
+    &#125;
+
+    //构造方法的作用
+    /*
+    *1.使用new关键字，本质是在调用构造器
+    *2.用来初始化值
+    * */
+
+
+
+    //2.2有参构造:一旦定义了有参构造，无参构造就必须显示定义
+    public Person(String name0)
+    &#123;
+        this.name=name0;
+    &#125;
+    int age;
+
+    // 快捷键生成构造函数
+    //alt+insert:生成构造函数
+
+    public Person(String name, int age) &#123;
+        this.name = name;
+        this.age = age;
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li><p><strong>构造器</strong>的总结</p>
+<ul>
+<li>类中的构造器也称为<strong>构造方法</strong>，是在进行创建对象的时候必须要调用的。</li>
+<li>构造器的特点<ul>
+<li><strong>必须和类的名字相同</strong></li>
+<li><em><strong>必须没有返回类型</strong></em>，也<strong>不能写void</strong></li>
+</ul>
+</li>
+<li>构造器的作用<ul>
+<li>new本质就是在调用构造方法</li>
+<li>初始化对象的值</li>
+</ul>
+</li>
+<li>注意点<ul>
+<li>定义有参构造后，如果想要使用无参构造，就需要显示的定义一个无参的构造</li>
+</ul>
+</li>
+<li>快捷键：alt+insert</li>
+</ul>
+</li>
+<li><p>创建对象的<strong>内存分析</strong></p>
+</li>
+</ul>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210714230342117.png" alt="image-20210714230342117"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210728135337872.png" alt="image-20210728135337872"></p>
+<p>总结：</p>
+<ul>
+<li>1.类与对象<ul>
+<li>类是一个模板，是抽象的</li>
+<li>对象是一个具体的实例</li>
+</ul>
+</li>
+<li>2.方法<ul>
+<li>定义与调用</li>
+</ul>
+</li>
+<li>3.对象的引用<ul>
+<li>引用类型；（8大基本类型，即除了八大基本类型，其他的都是引用类型）</li>
+<li>对象是通用引用来操作的（对–&gt;栈）</li>
+</ul>
+</li>
+<li>4.对象的属性<ul>
+<li>字段Field/成员变量</li>
+<li>属性的默认初始化：<ul>
+<li>数字：0/0.0</li>
+<li>char：u0000</li>
+<li>boolean:false</li>
+<li>引用类型：null</li>
+</ul>
+</li>
+<li>定义的形式：修饰符 属性类型 属性名 = 属性值；</li>
+</ul>
+</li>
+<li>5.对象的创建和使用<ul>
+<li>必须使用new关键字创造对象，使用构造器 Person per = new Person();</li>
+<li> 对象的属性   per.name</li>
+<li>对象的方法   per.sleep()</li>
+</ul>
+</li>
+<li>6.类<ul>
+<li>静态的属性——属性</li>
+<li>动态的行为——方法</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-面向对象的三大特性"><a href="#4-面向对象的三大特性" class="headerlink" title="4.面向对象的三大特性"></a>4.面向对象的三大特性</h2><h3 id="①-封装"><a href="#①-封装" class="headerlink" title="①.封装"></a>①.封装</h3><p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731143143191.png" alt="image-20210731143143191"></p>
+<ul>
+<li>高内聚：</li>
+<li>低耦合：</li>
+<li>属性私有：get/set<ul>
+<li>属性私有</li>
+<li><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731143727342.png" alt="image-20210731143727342"></li>
+<li>get&amp;set</li>
+<li><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731144338655.png" alt="image-20210731144338655"></li>
+<li>使用快捷键：alt+insert，自动生成get/set方法</li>
+<li>封装的意义在于<ul>
+<li><ol>
+<li>提高程序的安全性，保护数据</li>
+<li>隐藏代码的实现细节</li>
+<li>同一接口</li>
+<li>系统的可维护性增加了</li>
+</ol>
+</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="②-继承"><a href="#②-继承" class="headerlink" title="②.继承"></a>②.继承</h3><p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731145636973.png" alt="image-20210731145636973"></p>
+<ul>
+<li><p>快捷键：ctrl+h:查看继承与派生的树形结构</p>
+</li>
+<li><p>在Java中，所以的类，都直接或间接继承Object</p>
+</li>
+<li><p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731151253217.png" alt="image-20210731151253217"></p>
+</li>
+<li><p>单继承：一个子类只有一个父类；一个父类可有多个子类</p>
+</li>
+<li><p>super</p>
+<ul>
+<li>与this相对</li>
+<li><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731152608389.png" alt="image-20210731152608389"></li>
+<li><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731152904068.png" alt="image-20210731152904068"></li>
+<li><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731153319976.png" alt="image-20210731153319976">+</li>
+<li>super的注意点<ol>
+<li>super调用父类的构造方法，必须在构造方法的第一个；</li>
+<li>super必须只能出现在子类的方法或构造方法中</li>
+<li>super和this不能同时调用构造方法！</li>
+</ol>
+</li>
+<li>this与super<ol>
+<li>代表的对象不同<ol>
+<li>this 本身调用者这个对象</li>
+<li>super 代表父类对象的引用</li>
+</ol>
+</li>
+<li>前提<ol>
+<li>this 没有继承也可以使用</li>
+<li>super 只能在继承条件下才可以使用</li>
+</ol>
+</li>
+<li>构造方法<ol>
+<li>this(); 本类的构造</li>
+<li>super(); 父类的构造</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>方法的重写</p>
+<ul>
+<li><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731153319976.png"></li>
+<li><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731195323051.png" alt="image-20210731195323051"></li>
+<li>快捷键：alt+insert</li>
+<li><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731195714246.png" alt="image-20210731195714246"></li>
+<li>方法重写总结（子类的方向和父类必须要一致；方法体不同）<ul>
+<li>需要就继承关系：子类重写父类的方法！！<ol>
+<li>方法名必须相同</li>
+<li>参数列表必须相同</li>
+<li>修饰符：范围可以扩大<ol>
+<li>范围：public&gt;protected&gt;default&gt;private</li>
+</ol>
+</li>
+<li>抛出的异常：范围可以被缩小，但不能扩大</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>为什么需要重写<ol>
+<li>父类的功能子类不一定需要，或者不一定满足</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="③-多态"><a href="#③-多态" class="headerlink" title="③.多态"></a>③.多态</h3><p>多态可以实现动态编译</p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731200650094.png" alt="image-20210731200650094"></p>
+<ul>
+<li><p>一个对象的实际类型是确定的，可以指向的引用类型是不确定的</p>
+<pre><code class="java">       //一个对象的实际类型是确定的
+        //可以指向的引用类型是不确定的
+        Student s1 = new Student();
+        Person s2 = new Student();//父类的引用指向子类
+        Object s3 = new Student();//父类的引用指向子类
+</code></pre>
+</li>
+<li><p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731202131112.png" alt="image-20210731202131112"><br>子类能调用的方法都是自己的或者继承父类的<br>父类只能调用自己的方法；父类可以指向子类，但不能调用子类的方法</p>
+</li>
+</ul>
+<ul>
+<li><p>多态总结</p>
+<ol>
+<li>多态是方法的多态，属性没有多态</li>
+<li>父类和子类，有关系<ol>
+<li>类型转换异常：ClassCastException</li>
+</ol>
+</li>
+<li>存在条件:继承关系，方法需要重写，父类引用指向子类对象  Father f1 = new Son();<ol>
+<li>static 方法属于类，它不适于实例</li>
+<li>final 常量；</li>
+<li>private 方法</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>instanceof</p>
+<ul>
+<li><p>判断两个类之间是否存在父子关系</p>
+</li>
+<li><p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731221646815.png" alt="image-20210731221646815"></p>
+</li>
+<li><p>System.out.println(x instanceof Y);</p>
+</li>
+<li><p>强制类型转换</p>
+</li>
+<li><pre><code class="java">// 类型之间的转化：
+// 高类型转低类型：强制转换
+// 低类型转高类型：自动转换
+
+//父类：高类型
+//子类：低类型
+
+// 高                 低
+Person s1 = new Student();// 低类型转高类型
+s1.run();
+//student.go(); Person类型是高类型，不能直接调用低类型的方法
+//强制类型转换，Person 转 Student
+
+// 法1
+((Student) s1).go();
+//法2
+Student student=(Student) s1;
+student.go();
+</code></pre>
+</li>
+<li><p>强制类型转换总结</p>
+<ol>
+<li>父类引用指向子类的对象</li>
+<li>把子类转换成父类，向上转型</li>
+<li>把父类转换成子类，需要强制转换；强制类型转换会丢失方法</li>
+<li>方便方法的调用，减小重复的代码，使得代码更简洁</li>
+</ol>
+</li>
+<li><p>static</p>
+<ul>
+<li><pre><code class="java">/*
+ * -*- coding : utf-8 -*-
+ * @Time       : 2021/7/31 22:42
+ * @Author     : MurphyHou
+ * @Proj_Name  : JavaSE
+ * @File_Name  : Student.java
+ * @Software   : IntelliJ IDEA
+ * @Description: static
+ * =======Here We Go!=======
+ */
+
+package OOP.demo11;
+// static 静态的
+// 静态方法
+// 静态属性
+public class Student &#123;
+    private static int age ;
+    private double score;
+
+
+    public void run()
+    &#123;
+        System.out.println(&quot;run&quot;);
+    &#125;
+
+    public static void go()
+    &#123;
+        System.out.println(&quot;go&quot;);
+    &#125;
+
+    public static void main(String[] args) &#123;
+        Student student = new Student();
+
+        System.out.println(Student.age);
+        //System.out.println(Student.score);  //报错：非静态的变量
+        System.out.println(student.age);
+        System.out.println(student.score);
+
+
+        Student.go();
+        go();
+
+        Student student1 = new Student();
+        student1.go();
+        student1.run();
+
+    &#125;
+&#125;
+</code></pre>
+</li>
+<li><p>代码块</p>
+</li>
+<li><pre><code class="java">/*
+ * -*- coding : utf-8 -*-
+ * @Time       : 2021/7/31 22:50
+ * @Author     : MurphyHou
+ * @Proj_Name  : JavaSE
+ * @File_Name  : Person.java
+ * @Software   : IntelliJ IDEA
+ * @Description: 静态代码块
+ * =======Here We Go!=======
+ */
+
+package OOP.demo11;
+
+public class Person &#123;
+
+    &#123;
+        //匿名代码块
+        System.out.println(&quot;匿名代码块&quot;);
+    &#125;
+
+    static &#123;
+        // 静态代码块
+        System.out.println(&quot;静态代码块&quot;);
+    &#125;
+
+    public Person()
+    &#123;
+        //构造方法
+        System.out.println(&quot;构造代码块&quot;);
+    &#125;
+
+    public static void main(String[] args) &#123;
+        Person person1 = new Person();
+        System.out.println(&quot;================&quot;);
+        Person person2 = new Person();
+        
+
+    &#125;
+&#125;
+
+
+
+
+
+静态代码块
+匿名代码块
+构造代码块
+================
+匿名代码块
+构造代码块
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-抽象类和接口"><a href="#5-抽象类和接口" class="headerlink" title="5.抽象类和接口"></a>5.抽象类和接口</h2><h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731230244241.png" alt="image-20210731230244241"></p>
+<ul>
+<li><p>抽象类的特点<br>1.不能new这个抽象类，只能靠子类去实现它</p>
+<p>2.抽象类中可以写很多方法（也就是说，只要类中存在一个抽象方法，那么这个类就不得不变成抽象类）</p>
+<p>3.抽象方法必须在抽象类中</p>
+</li>
+<li><pre><code class="java">/*
+ * -*- coding : utf-8 -*-
+ * @Time       : 2021/7/31 23:03
+ * @Author     : MurphyHou
+ * @Proj_Name  : JavaSE
+ * @File_Name  : Action.java
+ * @Software   : IntelliJ IDEA
+ * @Description: 抽象类
+ * =======Here We Go!=======
+ */
+
+package OOP.demo12;
+//abstract 抽象类
+// 类的继承关键字：extends   单继承
+// 接口继承——可以多继承
+public abstract class Action &#123;
+    // 约束：有人帮我们实现
+    //abstract 抽象方法，只有方法名字，没有方法的实现！
+
+    public abstract void doSomething();
+
+    /*
+    抽象类的特点
+    1.不能new这个抽象类，只能靠子类去实现它
+
+    2.抽象类中可以写很多方法（也就是说，只要类中存在一个抽象方法，那么这个类就不得不变成抽象类）
+
+    3.抽象方法必须在抽象类中
+
+
+     */
+
+    public void run()
+    &#123;
+        System.out.println(&quot;run&quot;);
+    &#125;
+
+
+    public static void main(String[] args) &#123;
+        //new Action(); //不可以！！！
+
+    &#125;
+
+
+
+
+&#125;
+</code></pre>
+<pre><code class="java">  /*
+   * -*- coding : utf-8 -*-
+   * @Time       : 2021/7/31 23:05
+   * @Author     : MurphyHou
+   * @Proj_Name  : JavaSE
+   * @File_Name  : A.java
+   * @Software   : IntelliJ IDEA
+   * @Description: 抽象类
+   * =======Here We Go!=======
+   */
+  
+  package OOP.demo12;
+  // 抽象类的所有方法，继承了他的子类，都必须要实现他的方法，除非，子类也是个abstract
+  public class A extends Action &#123;
+  
+  
+      public  void doSomething()
+      &#123;
+          System.out.println(&quot;子类需要把父类的抽象方法实现&quot;);
+      &#125;
+  
+  
+  
+  &#125;
+</code></pre>
+</li>
+</ul>
+<h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>接口无法自己写方法~！！！只做约束功能！！从而实现了约束和实现分离！！！</p>
+<p>面向接口编程！</p>
+<p> <img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731231519885.png" alt="image-20210731231519885"></p>
+<pre><code class="java">/*
+ * -*- coding : utf-8 -*-
+ * @Time       : 2021/7/31 23:18
+ * @Author     : MurphyHou
+ * @Proj_Name  : JavaSE
+ * @File_Name  : UserService.java
+ * @Software   : IntelliJ IDEA
+ * @Description: 接口
+ * =======Here We Go!=======
+ */
+
+package OOP.demo13;
+
+
+import java.util.SplittableRandom;
+
+    // interfavce :定义接口的关键字
+    // 接口中定义的方法都是抽象的，还需要实现类
+public interface UserService &#123;
+
+    // 接口中的所有定义其实都是抽象的，且 public
+
+    public abstract void run2(); //public abstract 默认格式就是public abstract  不需要再多写一遍
+    void run1();
+    String name(String name0);
+
+
+    void add(String name);
+    void delete(String name);
+    void update(String name);
+    void query(String name);
+
+
+    // 一般来说，接口中不定义属性，只定义方法
+
+    // 接口中定义的属性是 public static final
+    public static final int age1=1;
+    int age2 = 99;
+
+    //int age3;   // 接口中的属性是常量，必须得初始化，否则就报错
+
+
+
+&#125;
+</code></pre>
+<pre><code class="java">/*
+ * -*- coding : utf-8 -*-
+ * @Time       : 2021/7/31 23:27
+ * @Author     : MurphyHou
+ * @Proj_Name  : JavaSE
+ * @File_Name  : TimeService.java
+ * @Software   : IntelliJ IDEA
+ * @Description: 时间业务——接口类
+ * =======Here We Go!=======
+ */
+
+package OOP.demo13;
+
+public interface TimeService &#123;
+
+
+    void timer();
+
+
+&#125;
+</code></pre>
+<pre><code class="java">/*
+ * -*- coding : utf-8 -*-
+ * @Time       : 2021/7/31 23:24
+ * @Author     : MurphyHou
+ * @Proj_Name  : JavaSE
+ * @File_Name  : UserServiceImpl.java
+ * @Software   : IntelliJ IDEA
+ * @Description: 接口的实现类
+ * =======Here We Go!=======
+ */
+
+package OOP.demo13;
+
+// 类可以实现接口  implements + 接口类名。
+// 实现了接口的类，就需要重写接口中的方法
+
+// 使用接口实现了多继承
+public class UserServiceImpl implements UserService, TimeService&#123;
+    @Override
+    public void run2() &#123;
+
+    &#125;
+
+    @Override
+    public void run1() &#123;
+
+    &#125;
+
+    @Override
+    public String name(String name0) &#123;
+        return null;
+    &#125;
+
+    @Override
+    public void add(String name) &#123;
+
+    &#125;
+
+    @Override
+    public void delete(String name) &#123;
+
+    &#125;
+
+    @Override
+    public void update(String name) &#123;
+
+    &#125;
+
+    @Override
+    public void query(String name) &#123;
+
+    &#125;
+
+    @Override
+    public void timer() &#123;
+
+
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>接口作用总结<ol>
+<li>接口是一种约束</li>
+<li>使用接口定义一些方法，让不同的人实现</li>
+<li>接口中的方法都是 public abstract</li>
+<li>接口中的属性都是：public statis final</li>
+<li>接口不能被直接实例化，接口中没有构造方法</li>
+<li>implements 可以实现继承（伪继承）多个接口</li>
+<li>实现了必须要重写（Override）接口类中的方法</li>
+</ol>
+</li>
+</ul>
+<h2 id="6-内部类"><a href="#6-内部类" class="headerlink" title="6.内部类"></a>6.内部类</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731234033967.png" alt="image-20210731234033967"></p>
+<ul>
+<li>成员内部类</li>
+</ul>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210731235821709.png" alt="image-20210731235821709"></p>
+<ul>
+<li>静态内部类</li>
+<li><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210801120112216.png" alt="image-20210801120112216"></li>
+<li>局部内部类</li>
+<li><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210801120727586.png" alt="image-20210801120727586"></li>
+<li>匿名内部类</li>
+<li><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210801120713942.png" alt="image-20210801120713942"></li>
+</ul>
+<h1 id="异常机制"><a href="#异常机制" class="headerlink" title="异常机制"></a>异常机制</h1><h2 id="什么是异常"><a href="#什么是异常" class="headerlink" title="什么是异常"></a>什么是异常</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210801121430149.png" alt="image-20210801121430149"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210801130555595.png" alt="image-20210801130555595"></p>
+<h2 id="异常体系结构"><a href="#异常体系结构" class="headerlink" title="异常体系结构"></a>异常体系结构</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210801130752690.png" alt="image-20210801130752690"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210801130929719.png" alt="image-20210801130929719"></p>
+<p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210801131052862.png" alt="image-20210801131052862"></p>
+<h2 id="Java异常处理机制"><a href="#Java异常处理机制" class="headerlink" title="Java异常处理机制"></a>Java异常处理机制</h2><ul>
+<li><p>抛出异常</p>
+</li>
+<li><p>捕获异常</p>
+</li>
+<li><p>异常的处理的五个关键字</p>
+<ol>
+<li>try:尝试</li>
+<li>catch：捕获</li>
+<li>finally：无论怎么执行，最后一步都走finally</li>
+<li>throw：抛出异常</li>
+<li>throws：抛出异常</li>
+</ol>
+</li>
+</ul>
+<pre><code class="java">  /*
+   * -*- coding : utf-8 -*-
+   * @Time       : 2021/8/1 13:17
+   * @Author     : MurphyHou
+   * @Proj_Name  : JavaSE
+   * @File_Name  : Test.java
+   * @Software   : IntelliJ IDEA
+   * @Description: 异常处理机制
+   * =======Here We Go!=======
+   */
+  
+  package Exception.demo02;
+  
+  public class Test &#123;
+      public static void main(String[] args) &#123;
+          int a = 1;
+          int b = 0;
+          //System.out.println(a/b);
+          
+          
+          try &#123; // try 监控区域
+              System.out.println(a/b);
+          &#125;catch (ArithmeticException e)&#123;// 捕获异常
+              System.out.println(&quot;程序出现异常，变量b不能为0&quot;);
+          &#125;finally &#123;// 无论是否有异常，在最后一步都是执行这一块
+              System.out.println(&quot;finally&quot;);
+          &#125;
+  
+  
+      &#125;
+  &#125;
+</code></pre>
+<pre><code class="java">/*
+ * -*- coding : utf-8 -*-
+ * @Time       : 2021/8/1 13:23
+ * @Author     : MurphyHou
+ * @Proj_Name  : JavaSE
+ * @File_Name  : demo01.java
+ * @Software   : IntelliJ IDEA
+ * @Description: 递归异常
+ * =======Here We Go!=======
+ */
+
+package Exception.demo02;
+
+public class Demo01 &#123;
+    public static void main(String[] args) &#123;
+
+
+        Demo01 demo01 = new Demo01();
+//假设要捕获多个异常：从小到大
+        try&#123;
+            demo01.a();
+        &#125;catch (Error e)&#123;
+            System.out.println(&quot;Error&quot;);
+        &#125;catch (Exception e)&#123;
+            System.out.println(&quot;Exception&quot;);
+        &#125;catch (Throwable e)&#123;
+            System.out.println(&quot;Throwable&quot;);  // 异常体系结构中高等级的要写在后面
+        &#125;finally &#123;
+            System.out.println(&quot;finally&quot;);
+
+        &#125;
+
+    &#125;
+
+    public void a()
+    &#123;
+        b();
+    &#125;
+
+    public void b()
+    &#123;
+        a();
+    &#125;
+&#125;
+</code></pre>
+<ul>
+<li>快捷键：ctrl+alt+t</li>
+<li><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210801133443333.png" alt="image-20210801133443333"></li>
+</ul>
+<pre><code class="java">/*
+ * -*- coding : utf-8 -*-
+ * @Time       : 2021/8/1 13:37
+ * @Author     : MurphyHou
+ * @Proj_Name  : JavaSE
+ * @File_Name  : Demo03.java
+ * @Software   : IntelliJ IDEA
+ * @Description: throw 主动抛出异常
+ * =======Here We Go!=======
+ */
+
+package Exception.demo02;
+
+import jdk.nashorn.internal.runtime.regexp.joni.ScanEnvironment;
+
+public class Demo03 &#123;
+    public static void main(String[] args) &#123;
+
+
+        Demo03 demo03 = new Demo03();
+
+        try &#123;
+            demo03.test(10,0);
+        &#125; catch (ArithmeticException e) &#123;
+            e.printStackTrace();
+        &#125; finally &#123;
+        &#125;
+    &#125;
+
+//假设这个方法中，处理不了这个异常，方法讲抛出异常
+    public void test (int a,int b) throws ArithmeticException &#123;
+        if (b==0)
+        &#123;
+            throw new ArithmeticException(); // 主动抛出异常
+            // throw 一般用在方法中使用
+        &#125;
+        System.out.println(a/b);
+    &#125;
+&#125;
+</code></pre>
+<h2 id="自定义异常"><a href="#自定义异常" class="headerlink" title="自定义异常"></a>自定义异常</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/image/image-20210801142136525.png" alt="image-20210801142136525"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/chengdu.mp3'></li>
+                
+                    
+            </ul>
+            
+                        
+            
+            
+            <div id="vcomments"></div>
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="https://gitee.com/murphyhou/picgo/raw/master/Website/me.jpg" height=300 width=300></img>
+                    <p>MurphyHou</p>
+                    <span>A Future Without Disappointment!</span>
+                    <dl>
+                        
+                        
+                            
+                                <dd>
+                                    <link rel="stylesheet" type="text/css" href="">
+                                    <a href="function link() { [native code] }" target="_blank"><span
+                                    class=" iconfont "></span></a>
+                                </dd>
+                            
+                            
+                            
+                        
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">44 <p>文章</p></a></li>
+                    <li><a href="/categories">11 <p>分类</p></a></li>
+                    <li><a href="/tags">51 <p>标签</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>目录</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%84%E7%A7%91"><span class="toc-number">2.</span> <span class="toc-text">预科</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%A5%E9%97%A8"><span class="toc-number">3.</span> <span class="toc-text">入门</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-number">4.</span> <span class="toc-text">基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%B3%A8%E9%87%8A"><span class="toc-number">4.1.</span> <span class="toc-text">1.注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%A0%87%E8%AF%86%E7%AC%A6%E5%92%8C%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">4.2.</span> <span class="toc-text">2.标识符和关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.3.</span> <span class="toc-text">3.数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">4.4.</span> <span class="toc-text">4.类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%8F%98%E9%87%8F-%E5%B8%B8%E9%87%8F"><span class="toc-number">4.5.</span> <span class="toc-text">5.变量 常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">4.6.</span> <span class="toc-text">6.运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%8C%85%E6%9C%BA%E5%88%B6%E3%80%81JavaDoc"><span class="toc-number">4.7.</span> <span class="toc-text">7.包机制、JavaDoc</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"><span class="toc-number">5.</span> <span class="toc-text">流程控制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%94%A8%E6%88%B7%E4%BA%A4%E4%BA%92-scanner"><span class="toc-number">5.1.</span> <span class="toc-text">1.用户交互 scanner</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84"><span class="toc-number">5.2.</span> <span class="toc-text">2.顺序结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%80%89%E6%8B%A9%E7%BB%93%E6%9E%84"><span class="toc-number">5.3.</span> <span class="toc-text">3.选择结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84"><span class="toc-number">5.4.</span> <span class="toc-text">4.循环结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-break-amp-continue"><span class="toc-number">5.5.</span> <span class="toc-text">5.break&amp;continue</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89%E5%8F%8A%E8%B0%83%E7%94%A8"><span class="toc-number">6.1.</span> <span class="toc-text">1.定义及调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%B9%E6%B3%95%E9%87%8D%E8%BD%BD"><span class="toc-number">6.2.</span> <span class="toc-text">2.方法重载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BC%A0%E5%8F%82%E6%95%B0"><span class="toc-number">6.3.</span> <span class="toc-text">3.命令行传参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0"><span class="toc-number">6.4.</span> <span class="toc-text">4.可变参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%80%92%E5%BD%92"><span class="toc-number">6.5.</span> <span class="toc-text">5.递归</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">7.</span> <span class="toc-text">数组</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E7%BB%84%E5%88%9B%E5%BB%BA"><span class="toc-number">7.1.</span> <span class="toc-text">1.数组创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">7.2.</span> <span class="toc-text">2.初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">7.2.1.</span> <span class="toc-text">静态初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">7.2.2.</span> <span class="toc-text">动态初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">7.2.3.</span> <span class="toc-text">默认初始化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%95%B0%E7%BB%84%E4%BD%BF%E7%94%A8"><span class="toc-number">7.3.</span> <span class="toc-text">3.数组使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="toc-number">7.4.</span> <span class="toc-text">4.多维数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Arrays%E7%B1%BB"><span class="toc-number">7.5.</span> <span class="toc-text">5.Arrays类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-number">7.6.</span> <span class="toc-text">6.冒泡排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84"><span class="toc-number">7.7.</span> <span class="toc-text">7.稀疏数组</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="toc-number">8.</span> <span class="toc-text">面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1"><span class="toc-number">8.1.</span> <span class="toc-text">1.什么是面向对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%96%B9%E6%B3%95"><span class="toc-number">8.2.</span> <span class="toc-text">2.方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">8.3.</span> <span class="toc-text">3.类和对象的创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E5%8F%82%E6%9E%84%E9%80%A0"><span class="toc-number">8.4.</span> <span class="toc-text">无参构造</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7"><span class="toc-number">8.5.</span> <span class="toc-text">4.面向对象的三大特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A0-%E5%B0%81%E8%A3%85"><span class="toc-number">8.5.1.</span> <span class="toc-text">①.封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A1-%E7%BB%A7%E6%89%BF"><span class="toc-number">8.5.2.</span> <span class="toc-text">②.继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%91%A2-%E5%A4%9A%E6%80%81"><span class="toc-number">8.5.3.</span> <span class="toc-text">③.多态</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E5%92%8C%E6%8E%A5%E5%8F%A3"><span class="toc-number">8.6.</span> <span class="toc-text">5.抽象类和接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="toc-number">8.6.1.</span> <span class="toc-text">抽象类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3"><span class="toc-number">8.6.2.</span> <span class="toc-text">接口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%86%85%E9%83%A8%E7%B1%BB"><span class="toc-number">8.7.</span> <span class="toc-text">6.内部类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6"><span class="toc-number">9.</span> <span class="toc-text">异常机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%BC%82%E5%B8%B8"><span class="toc-number">9.1.</span> <span class="toc-text">什么是异常</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-number">9.2.</span> <span class="toc-text">异常体系结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6"><span class="toc-number">9.3.</span> <span class="toc-text">Java异常处理机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8"><span class="toc-number">9.4.</span> <span class="toc-text">自定义异常</span></a></li></ol></li></ol>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2022
+        <span class="gradient-text">
+            Murphy Hou
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.9.3" target="_blank" rel="noopener">v1.4.9.3</a></small>
+        
+        
+    </p>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+ 
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+ 
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+ 
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+  
+<script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+   
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+<script>
+  function initialTyped() {
+    var typedTextEl = $('.typed-text');
+    if (typedTextEl && typedTextEl.length > 0) {
+      var typed = new Typed('.typed-text', {
+        strings: ['Dreams&#39; never sold, blood&#39;s never cold.', '十年饮冰，难凉热血。'],
+        typeSpeed: 90,
+        loop: true,
+        loopCount: Infinity,
+        backSpeed: 20,
+      });
+    }
+  }
+
+  if ($('.article-header') && $('.article-header').length) {
+    $(document).ready(function () {
+      initialTyped();
+    });
+  }
+</script>
+
+ 
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var valine = new Valine();
+
+  function initValine(path) {
+    if (!path) path = window.location.pathname;
+    let language = 'zh-CN';
+    if (!language) {
+      language = 'en';
+    } else {
+      language = language.toLowerCase();
+    }
+    valine.init({
+      el: '#vcomments',
+      appId: '',
+      appKey: '',
+      notify: 'true',
+      verify: 'true',
+      avatar: 'mp',
+      placeholder: 'Leave your throughs behind~',
+      visitor: 'true',
+      path: path,
+      lang: language,
+    });
+  }
+
+  $(document).ready(function () {
+    initValine();
+  });
+</script>
+
+
+
+
+
+
+</html>
