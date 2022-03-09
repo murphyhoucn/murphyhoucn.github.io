@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
-    <meta name="keywords" content="TriDiamond Obsidian Murphy Blog,"> 
+    <meta name="keywords" content="Obsidian Murphy Blog,"> 
     <meta name="description" content="Hello,I Am Murphy,对于大量的素材需要统一命名的时候，一个个命名是很不理智的。用程序解决这个问题效率还是很高的！但是就是这么一个简单的程序还是出现了很多小的问题，之后我也迭代了好几个版本。但是仍旧不能自动化全部解决。
 ,"> 
     <meta name="author" content="Murphy Hou"> 
@@ -454,6 +454,16 @@ for i in fileList:
   
 <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
    
+<script src="/js/busuanzi.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    if ($('span[id^="busuanzi_"]').length) {
+      initialBusuanzi();
+    }
+  });
+</script>
+ 
 <link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
 <link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
 
