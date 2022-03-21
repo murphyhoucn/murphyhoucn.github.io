@@ -103,13 +103,13 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    11k
+                    16k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>阅读约需</i>
-                    10 mins.
+                    15 mins.
                 </span>
                 
                 
@@ -146,6 +146,8 @@
             <p>之前做过简单的英文文本加密，用过凯撒密码这样很简单的加密方式，我想有没有简单易学，但是加密程度更高的加密方式；<br>另外通过这个程序还想学习一下python的GUI开发，做出真正的界面；<br>如果可以与QQ等聊天界面结合起来，将内容直接输入到QQ的消息窗口中去，省去了复制粘贴的麻烦。</p>
 <p>2021年8月我写好了第一版的程序，但是这个效果嘛，Emmmmm……一言难尽。<br>2022年3月的一天下午，厌学了！也是因为好久都没有写过程序了，就看了一些自己的博客，看一下还有什么坑没有填！然后就发现了我之前做的这个半成品，然后花了几个小时的时间，重写了一下，也把UI界面简单做了一下！</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/murphyhoucn/EncryptedChat">murphyhoucn/EncryptedChat</a></p>
+<p><a href="https://murphyhoucn.github.io/2022/03/18/QQ%E8%81%8A%E5%A4%A9%E6%A1%86%E6%B6%88%E6%81%AF%E5%8A%A0%E5%AF%86/">murphyhoucn.github.io</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1KT4y1S7kF?spm_id_from=333.999.0.0">【开源】”加密对话”EncryptedChat_哔哩哔哩_bilibili</a></p>
 <span id="more"></span>
 
 <h1 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h1><ol>
@@ -153,8 +155,25 @@
 <li>做一个简单的UI，其实我之前并没有学过也没用做过GUI的开发，了解一点点QT，这次做这个程序也是现学现卖了。</li>
 <li>消息加密算法，大概率是使用对称加密了，如果是非对称加密的话估计仅靠本地是不太好实现的，得上云了！</li>
 <li>写着玩，能用就行！<h1 id="理论依据"><a href="#理论依据" class="headerlink" title="理论依据"></a>理论依据</h1></li>
-<li>PyQt5是Digia的一套Qt5应用框架与Python的结合，在Python中调用该库，能够实现使用Python做GUI开发，而不必使用C++。</li>
-<li>之前其实没有学过加密算法的相关知识，只是知道几个比较有名的加密算法，在查找了一番后，决定使用AES对称加密算法。对称加密是指加密和解密用的是同一个密钥的加密方式。对称加密的特点是加密计算量小、速度快。AES（Advanced Encryption Standard），高级加密标准，是对称加密的一种，用来代替DES、3DES。AES采用分组密码体制，密钥长度可以是128位16个字节、192位或256位，一共有四种加密模式。</li>
+</ol>
+<h2 id="PyQt5"><a href="#PyQt5" class="headerlink" title="PyQt5"></a>PyQt5</h2><p><a target="_blank" rel="noopener" href="https://pypi.org/project/PyQt5/">PyQt5 · PyPI</a></p>
+<p>Qt is set of cross-platform C++ libraries that implement high-level APIs for accessing many aspects of modern desktop and mobile systems. These include location and positioning services, multimedia, NFC and Bluetooth connectivity, a Chromium based web browser, as well as traditional UI development.</p>
+<p>PyQt5 is a comprehensive set of Python bindings for Qt v5. It is implemented as more than 35 extension modules and enables Python to be used as an alternative application development language to C++ on all supported platforms including iOS and Android.</p>
+<p>PyQt5 may also be embedded in C++ based applications to allow users of those applications to configure or enhance the functionality of those applications.</p>
+<h2 id="Base64"><a href="#Base64" class="headerlink" title="Base64"></a>Base64</h2><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Base64">Base64 - 维基百科，自由的百科全书 (wikipedia.org)</a></p>
+<p><strong>Base64</strong>（基底64）是一种基于64个可打印字符来表示<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BA%8C%E8%BF%9B%E5%88%B6">二进制数据</a>的表示方法。由于一2为64的对数的值是6，所以每6个<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BD%8D%E5%85%83">比特</a>为一个单元，对应某个可打印字符。3个<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AD%97%E8%8A%82">字节</a>相当于24个比特，对应于4个Base64单元，即3个字节可由4个可打印字符来表示。在Base64中的可打印字符包括<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8B%89%E4%B8%81%E5%AD%97%E6%AF%8D">字母</a><code>A-Z</code>、<code>a-z</code>、数字<code>0-9</code>，这样共有62个字符，此外两个可打印符号在不同的系统中而不同。一些如<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Uuencode">uuencode</a>的其他编码方法，和之后<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=BinHex&action=edit&redlink=1">BinHex</a>的版本使用不同的64字符集来代表6个二进制数字，但是不被称为Base64。</p>
+<p>Base64常用于在通常处理文本数据的场合，表示、传输、存储一些二进制数据，包括<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/MIME">MIME</a>的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6">电子邮件</a>及<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/XML">XML</a>的一些复杂数据。</p>
+<h2 id="AES"><a href="#AES" class="headerlink" title="AES"></a>AES</h2><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%AB%98%E7%BA%A7%E5%8A%A0%E5%AF%86%E6%A0%87%E5%87%86">高级加密标准 - 维基百科，自由的百科全书 (wikipedia.org)</a></p>
+<p><strong>高级加密标准</strong>（英语：<strong>A</strong>dvanced <strong>E</strong>ncryption <strong>S</strong>tandard，<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BC%A9%E5%86%99">缩写</a>：AES），又称<strong>Rijndael加密法</strong>（荷兰语发音： [<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Help:%E8%8D%B7%E8%98%AD%E8%AA%9E%E5%9C%8B%E9%9A%9B%E9%9F%B3%E6%A8%99">ˈrɛindaːl]</a>，音似英文的“Rhine doll”），是<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BE%8E%E5%9B%BD%E8%81%94%E9%82%A6%E6%94%BF%E5%BA%9C">美国联邦政府</a>采用的一种<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8D%80%E5%A1%8A%E5%8A%A0%E5%AF%86">区块加密</a>标准。这个标准用来替代原先的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/DES">DES</a>，已经被多方分析且广为全世界所使用。经过五年的甄选流程，高级加密标准由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%BE%8E%E5%9B%BD%E5%9B%BD%E5%AE%B6%E6%A0%87%E5%87%86%E4%B8%8E%E6%8A%80%E6%9C%AF%E7%A0%94%E7%A9%B6%E9%99%A2">美国国家标准与技术研究院</a>（NIST）于2001年11月26日发布于FIPS PUB 197，并在2002年5月26日成为有效的标准。现在，高级加密标准已然成为<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AF%B9%E7%A7%B0%E5%AF%86%E9%92%A5%E5%8A%A0%E5%AF%86">对称密钥加密</a>中最流行的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%BC%94%E7%AE%97%E6%B3%95">算法</a>之一。</p>
+<p>该算法为<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%AF%94%E5%88%A9%E6%97%B6">比利时</a>密码学家Joan Daemen和Vincent Rijmen所设计，结合两位作者的名字，以Rijndael为名投稿高级加密标准的甄选流程。</p>
+<p>严格地说，AES和<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Rijndael">Rijndael</a>加密法并不完全一样（虽然在实际应用中两者可以互换），因为Rijndael加密法可以支持更大范围的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%9D%97%E5%A4%A7%E5%B0%8F">区块</a>和<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AF%86%E9%92%A5%E9%95%BF%E5%BA%A6">密钥长度</a>：AES的区块长度固定为128<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BD%8D%E5%85%83">比特</a>，密钥长度则可以是128，192或256比特；而Rijndael使用的密钥和区块长度均可以是128，192或256比特。加密过程中使用的密钥是由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Rijndael%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E6%96%B9%E6%A1%88">Rijndael密钥生成方案</a>产生。</p>
+<p>大多数AES计算是在一个特别的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%9C%89%E9%99%90%E5%9F%9F">有限域</a>完成的。</p>
+<p>AES加密过程是在一个4×4的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E4%BD%8D%E5%85%83%E7%BB%84">字节</a>矩阵上运作，这个矩阵又称为“体（state）”，其初值就是一个明文区块（矩阵中一个元素大小就是明文区块中的一个Byte）。（Rijndael加密法因支持更大的区块，其矩阵的“列数（Row number）”可视情况增加）加密时，各轮AES加密循环（除最后一轮外）均包含4个步骤：</p>
+<ol>
+<li><code>AddRoundKey</code>—矩阵中的每一个字节都与该次<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%AF%86%E9%91%B0%E6%AC%A1%E5%BA%8F%E8%A1%A8&action=edit&redlink=1">回合密钥</a>（round key）做<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/XOR">XOR运算</a>；每个子密钥由密钥生成方案产生。</li>
+<li><code>SubBytes</code>—透过一个非线性的替换函数，用<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%9F%A5%E6%89%BE%E8%A1%A8">查找表</a>的方式把每个字节替换成对应的字节。</li>
+<li><code>ShiftRows</code>—将矩阵中的每个横列进行循环式移位。</li>
+<li><code>MixColumns</code>—为了充分混合矩阵中各个直行的操作。这个步骤使用线性转换来混合每内联的四个字节。最后一个加密循环中省略<code>MixColumns</code>步骤，而以另一个<code>AddRoundKey</code>取代。</li>
 </ol>
 <h1 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h1><ul>
 <li>Encrpt.py</li>
@@ -508,9 +527,9 @@ class Ui_Form(object):
                     </dl>
                 </div>
                 <ul>
-                    <li><a href="/">50 <p>文章</p></a></li>
+                    <li><a href="/">51 <p>文章</p></a></li>
                     <li><a href="/categories">10 <p>分类</p></a></li>
-                    <li><a href="/tags">60 <p>标签</p></a></li>
+                    <li><a href="/tags">62 <p>标签</p></a></li>
                 </ul>
             </div>
             
@@ -519,7 +538,7 @@ class Ui_Form(object):
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">需求分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E4%BE%9D%E6%8D%AE"><span class="toc-number">2.</span> <span class="toc-text">理论依据</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">3.</span> <span class="toc-text">源代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C"><span class="toc-number">4.</span> <span class="toc-text">结果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">问题</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text">需求分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E4%BE%9D%E6%8D%AE"><span class="toc-number">2.</span> <span class="toc-text">理论依据</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#PyQt5"><span class="toc-number">2.1.</span> <span class="toc-text">PyQt5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Base64"><span class="toc-number">2.2.</span> <span class="toc-text">Base64</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AES"><span class="toc-number">2.3.</span> <span class="toc-text">AES</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">3.</span> <span class="toc-text">源代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C"><span class="toc-number">4.</span> <span class="toc-text">结果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">问题</span></a></li></ol>
                 </div>
             </div>
             
