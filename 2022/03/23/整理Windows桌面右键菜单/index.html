@@ -111,7 +111,7 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    3.6k
+                    3.8k
                 </span>
                 
                 
@@ -182,37 +182,54 @@
 <div align = "center">
 <img src="https://gitee.com/murphyhou/picgo/raw/master/website/image-20220323202900284.png">
 </div>
-2. Win+r，输入regedit，进入编辑注册表
 
+<ol start="2">
+<li>Win+r，输入regedit，进入编辑注册表</li>
+</ol>
 <p>进入如下地址，<code>计算机\HKEY_CLASSES_ROOT\.py</code>，修改什么后缀文件就进入那个后缀的编辑页面。</p>
 <p>新建一个<code>项</code>,命名为<code>ShellNew</code></p>
 <div align = "center">
 <img src="https://gitee.com/murphyhou/picgo/raw/master/website/image-20220323203146020.png"/>
 </div>
-3. 新建一个`字符串值`命名为`FileName`
+
+<ol start="3">
+<li>新建一个<code>字符串值</code>命名为<code>FileName</code></li>
+</ol>
 <div align = "center">
 <img src="https://gitee.com/murphyhou/picgo/raw/master/website/image-20220323203500964.png"/>
 </div>
-4. 对`FileName`右键修改
+
+<ol start="4">
+<li>对<code>FileName</code>右键修改</li>
+</ol>
 <div align = "center">
 <img src="https://gitee.com/murphyhou/picgo/raw/master/website/image-20220323203622053.png"/>
 </div>
-将数值修改为**模板文件**的**绝对路径**
+
+<p>将数值修改为<strong>模板文件</strong>的<strong>绝对路径</strong></p>
 <div align = "center">
 <img src="https://gitee.com/murphyhou/picgo/raw/master/website/image-20220323203744509.png"/>
 </div>
-5. 重复上述操作可以讲其他类型的文件一并加入我新建列表中！
 
+<ol start="5">
+<li>重复上述操作可以讲其他类型的文件一并加入我新建列表中！</li>
+</ol>
 <h1 id="新建项排序"><a href="#新建项排序" class="headerlink" title="新建项排序"></a>新建项排序</h1><p>参考资料：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0648378a2bdd">01 调整Win10桌面右键新建顺序 - 简书 (jianshu.com)</a></p>
 <p><code>计算机\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Discardable\PostSetup\ShellNew</code></p>
 <ol>
-<li>修改自己的文件排序<div align = "center">
-<img src="https://gitee.com/murphyhou/picgo/raw/master/website/image-20220323204351881.png"/>
-</div></li>
-<li>设置权限<div align = "center">
-<img src="https://gitee.com/murphyhou/picgo/raw/master/website/image-20220323204451581.png"/>
-</div></li>
+<li>修改自己的文件排序</li>
 </ol>
+<div align = "center">
+<img src="https://gitee.com/murphyhou/picgo/raw/master/website/image-20220323204351881.png"/>
+</div>
+
+<ol start="2">
+<li>设置权限</li>
+</ol>
+<div align = "center">
+  <img src="https://gitee.com/murphyhou/picgo/raw/master/website/image-20220323204451581.png"/>
+</div>
+
 <div align = "center">
 <img src="https://gitee.com/murphyhou/picgo/raw/master/website/image-20220323204552500.png"/>
 </div>
