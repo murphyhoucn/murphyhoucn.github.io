@@ -88,7 +88,7 @@
             animation-duration: 1.2s;
             background-image: 
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url('https://gitee.com/murphyhou/picgo/raw/master/Website/DEEPLEARN.jpg') ">
+                url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/DEEPLEARN.jpg') ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
@@ -105,7 +105,7 @@
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    55k
+                    54k
                 </span>
                 
                 
@@ -153,15 +153,15 @@
 <p><em><strong>非教程，仅作为记录，复现不能保证成功</strong></em></p>
 <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>信息论小组作业，老师给了一篇论文，用论文中的方法实现一定的功能。</p>
 <p>我首先读了论文，再根据改论文的标题找到了论文的源地址<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.10683">LSPR2106.10683</a>，然后找到了论文中用到的源代码<a target="_blank" rel="noopener" href="https://github.com/JiaxinZhuang/Large-scale-Product-Recognition.Pytorch">LSPR</a></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/%E6%A0%B9%E6%8D%AE%E6%A0%87%E9%A2%98%E6%89%BE%E5%88%B0%E8%AE%BA%E6%96%87%E6%94%B6%E5%BD%95%E5%9C%B0%E5%9D%80-%E5%BA%B7%E5%A5%88%E5%B0%94%E5%A4%A7%E5%AD%A6arvix.png"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/%E4%B8%8B%E8%BD%BD%E6%BA%90%E4%BB%A3%E7%A0%81.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/%E6%A0%B9%E6%8D%AE%E6%A0%87%E9%A2%98%E6%89%BE%E5%88%B0%E8%AE%BA%E6%96%87%E6%94%B6%E5%BD%95%E5%9C%B0%E5%9D%80-%E5%BA%B7%E5%A5%88%E5%B0%94%E5%A4%A7%E5%AD%A6arvix.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/%E4%B8%8B%E8%BD%BD%E6%BA%90%E4%BB%A3%E7%A0%81.png"></p>
 <p>将源代码clone到本地<em><strong>（这里有个问题，我挂了VPN，仍然不能git clone，只有下载zip能下载到本地）</strong></em>。根据作者的说明文档，我对这个程序做了基本的判断：需要深度学习开发环境，用的Python，好像是在Linux系统下跑的程序！</p>
 <p>Linux操作系统对我来说确实有点困难，我觉得先试试在Windows下能不能运行吧，于是就开始折腾之路！</p>
 <h1 id="在Windows下安装深度学习开发环境"><a href="#在Windows下安装深度学习开发环境" class="headerlink" title="在Windows下安装深度学习开发环境"></a>在Windows下安装深度学习开发环境</h1><p>因为论文作者只提供了CUDA和PyTorch的版本，我查看了电脑支持的最大CUDA版本是11.6，但是根据作者提供的，我最终选择了安装了CUDA10.2。</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211121112547170.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121112547170.png"></p>
 <h2 id="PyTorch-1-10"><a href="#PyTorch-1-10" class="headerlink" title="PyTorch 1.10"></a>PyTorch 1.10</h2><p>直接找了官网，找了相关的配置，直接pip下载了</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/pytorch%E7%9A%84%E5%AE%89%E8%A3%85.png"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211121113302674.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/pytorch%E7%9A%84%E5%AE%89%E8%A3%85.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121113302674.png"></p>
 <p>进入python，检查一下pytorch是不是成功安装了</p>
 <pre><code class="python">import torch
 
@@ -169,36 +169,36 @@ x = totch.rand(5,3)
 
 print(x)
 </code></pre>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211120234607835.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211120234607835.png"></p>
 <h2 id="CUDA-10-2"><a href="#CUDA-10-2" class="headerlink" title="CUDA 10.2"></a>CUDA 10.2</h2><p>参考资源:</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1q54y1y7Mf">如何在Win10下轻松安装CUDA和Cudnn</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43848614/article/details/117221384">CUDA 安装 （windows版）</a></p>
 <p>按照网上的教学步骤安装即可</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/%E5%AE%89%E8%A3%85CUDA.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/%E5%AE%89%E8%A3%85CUDA.png"></p>
 <pre><code class="bash">nvcc -V
 </code></pre>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211120235638749.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211120235638749.png"></p>
 <p>跑几个测试看一下</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211120235749266.png"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211120235843604.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211120235749266.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211120235843604.png"></p>
 <h2 id="cuDNN-7-6-5"><a href="#cuDNN-7-6-5" class="headerlink" title="cuDNN 7.6.5"></a>cuDNN 7.6.5</h2><p>参考资料：与CUDA的安装相同相同</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1q54y1y7Mf">如何在Win10下轻松安装CUDA和Cudnn</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43848614/article/details/117221384">CUDA 安装 （windows版）</a></p>
 <p>需要注册nVidia开发者账号才能下载cuDNN</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/CUDnn%E7%9A%84%E5%AE%89%E8%A3%85%E9%9C%80%E8%A6%81NVIDIA%E8%B4%A6%E6%88%B7.png"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/%E4%B8%8B%E8%BD%BDCUDNN.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/CUDnn%E7%9A%84%E5%AE%89%E8%A3%85%E9%9C%80%E8%A6%81NVIDIA%E8%B4%A6%E6%88%B7.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/%E4%B8%8B%E8%BD%BDCUDNN.png"></p>
 <p>下载之后解压，按照视频中的步骤，直接复制到CUDA的安装路径即可</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211121113659274.png"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/%E6%A3%80%E6%9F%A5CUDA%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121113659274.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/%E6%A3%80%E6%9F%A5CUDA%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png"></p>
 <p>最后再检查一下环境变量是不是已经弄好了！</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/%E6%A3%80%E6%9F%A5CUDA%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F2.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/%E6%A3%80%E6%9F%A5CUDA%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F2.png"></p>
 <h2 id="TensorFlow2-3-0"><a href="#TensorFlow2-3-0" class="headerlink" title="TensorFlow2.3.0"></a>TensorFlow2.3.0</h2><p>Python&amp;CUDA&amp;cuDNN&amp;TensorFlow版本对应关系</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/fo40225/tensorflow-windows-wheel">fo40225/tensorflow-windows-wheel: Tensorflow prebuilt binary for Windows (github.com)</a></p>
 <p>Windows-CPU</p>
-<img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/20210131153046629.png" alt="CPU" style="zoom:150%;" />
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/20210131153046629.png" alt="CPU" style="zoom:150%;" />
 
 <p>Windows-GPU</p>
-<img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/20210131153313535.png" alt="GPU" style="zoom:150%;" />
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/20210131153313535.png" alt="GPU" style="zoom:150%;" />
 
 <pre><code class="bash">pip install tensorflow==2.3.0
 
@@ -258,13 +258,13 @@ coreClock: 1.56GHz coreCount: 16 deviceMemorySize: 4.00GiB deviceMemoryBandwidth
 True
 &gt;&gt;&gt;
 </code></pre>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/ceshi.jpg"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/ceshi222.jpg"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/ceshi.jpg"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/ceshi222.jpg"></p>
 <h1 id="在WSL-Ubuntu-20-04-安装深度学习开发环境（失败了）"><a href="#在WSL-Ubuntu-20-04-安装深度学习开发环境（失败了）" class="headerlink" title="在WSL-Ubuntu 20.04 安装深度学习开发环境（失败了）"></a>在WSL-Ubuntu 20.04 安装深度学习开发环境（失败了）</h1><h2 id="CUDA-安装失败"><a href="#CUDA-安装失败" class="headerlink" title="CUDA 安装失败"></a>CUDA 安装失败</h2><p>参考资料：</p>
 <p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/wsl-user-guide/index.html">nVidia官方说明文档</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1FZ4y1p7Qp">Cuda On WSL 2</a></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/dawafg.jpg"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/fafwrh9haiu.jpg"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/dawafg.jpg"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/fafwrh9haiu.jpg"></p>
 <p>原因：可能是CUDA还未适配到WSL的Ubuntu 20.04</p>
 <h1 id="在WSL-Ubuntu-18-04-安装深度学习开发环境"><a href="#在WSL-Ubuntu-18-04-安装深度学习开发环境" class="headerlink" title="在WSL-Ubuntu 18.04 安装深度学习开发环境"></a>在WSL-Ubuntu 18.04 安装深度学习开发环境</h1><p>参考资料：</p>
 <p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda/wsl">GPU in Windows Subsystem for Linux (WSL) | NVIDIA Developer</a></p>
@@ -301,7 +301,7 @@ export LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64:$LD_LIBRARY_PATH
 </code></pre>
 <p>测试CUDA根据视频<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1FZ4y1p7Qp">Cuda On WSL 2</a></p>
 <h2 id="cuDNN-8-0-5"><a href="#cuDNN-8-0-5" class="headerlink" title="cuDNN 8.0.5"></a>cuDNN 8.0.5</h2><p>在Windows系统下下载cuDNN的压缩包，在Ubuntu下用cp命令从Windows移动到Ubuntu</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/tYLIHUWND.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/tYLIHUWND.png"></p>
 <pre><code class="bash">tar -zxvf cudnn-11.0-linux-x64-v8.0.5.39.tgz
 
 # cudnn-11.0-linux-x64-v8.0.5.39.tgz cuDNN压缩包的名称
@@ -314,10 +314,10 @@ sudo cp  cuda/include/cudnn.h /usr/local/cuda-11.0/include/
 sudo chmod a+r /usr/local/cuda-11.0/include/cudnn.h 
 sudo chmod a+r /usr/local/cuda-11.0/lib64/libcudnn*
 </code></pre>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211121140908702.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121140908702.png"></p>
 <h2 id="PyTorch-1-7-1-cu110"><a href="#PyTorch-1-7-1-cu110" class="headerlink" title="PyTorch 1.7.1+cu110"></a>PyTorch 1.7.1+cu110</h2><p>安装了3遍才成功了</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/gawdagwafw.jpg"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/hrgegwe.jpg"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/gawdagwafw.jpg"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/hrgegwe.jpg"></p>
 <pre><code class="bash">murphy-ubuntu@Murphy-DELL:/mnt/c/Users/DELL$ python
 Python 3.6.9 (default, Jan 26 2021, 15:33:00)
 [GCC 8.4.0] on linux
@@ -331,10 +331,10 @@ True
 </code></pre>
 <h2 id="TensorFlow-2-4-0"><a href="#TensorFlow-2-4-0" class="headerlink" title="TensorFlow 2.4.0"></a>TensorFlow 2.4.0</h2><p>直接用pip install tensorflow安装的版本是最新的版本，不能与CUDA和cnDNN匹配，运行的时候不能调用GPU，因此需要根据文档找到合适的版本</p>
 <p>Windows-CPU</p>
-<img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/20210131153046629.png" alt="CPU" style="zoom:150%;" />
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/20210131153046629.png" alt="CPU" style="zoom:150%;" />
 
 <p>Windows-GPU</p>
-<img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/20210131153313535.png" alt="GPU" style="zoom:150%;" />
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/20210131153313535.png" alt="GPU" style="zoom:150%;" />
 
 <pre><code class="bash">murphy-ubuntu@Murphy-DELL:/mnt/c/Users/DELL$ python
 Python 3.6.9 (default, Jan 26 2021, 15:33:00)
@@ -463,29 +463,29 @@ Your kernel may have been built without NUMA support.
 True
 &gt;&gt;&gt;
 </code></pre>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/gaoylkjgybw.jpg"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/gaoylkjgybw.jpg"></p>
 <h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><pre><code class="markdown">  - 因为WSL占据的系统存储太大了，且在系统盘，有点担心，就去卸载一些没用的东西；
   - 因为前几天也弄过把Ubuntu从C盘移动到D盘，当时是不允许我移动，我就随便点了一下，然后我看到了系统的硬盘资源在疯狂占用，我想，居然真的搬移了，我还担心搬过去之后配置好的环境是不是就没了。结果我担心的事情发生了，WSL-Ubuntu直接打不开了，直接完蛋，两天时间白费；
   - 在向旺哥和学长诉苦的时候，我以为我真的搞完蛋了，我就在看之前目录的时候，发现了之前的文件夹还在，打不开，我一看文件大小，20多个GB，但是系统上显示的的确是没有了这部分，我就很纳闷，死马当做活马医，就把D盘的Ubuntu搬到了C盘，心里很忐忑，等到搬过去之后，我测试了一下，救过来了，感谢老天，实在是太险了，两天的时间差点就全白费了。唉！
   - 以后真的不敢这么折腾了，太可怕了！
 </code></pre>
 <p>从C盘移动到D盘时</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211121144321555.png"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211121144358342.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121144321555.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121144358342.png"></p>
 <p>移动到D盘时，所占存储大小</p>
-<img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211121144423968.png" alt="image-20211121144423968" style="zoom:150%;" />
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121144423968.png" alt="image-20211121144423968" style="zoom:150%;" />
 
 <p> 移动到D盘后Ubuntu打不开了，且KALI也受到影响也打不开了，过了一段时间之后KALI能打开了</p>
-<img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211121144528795.png" alt="image-20211121144528795" style="zoom:150%;" />
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121144528795.png" alt="image-20211121144528795" style="zoom:150%;" />
 
 <p>移动到D盘之后C盘的容量扩大了20多GB，但是我看后台的C盘利用率并没有很大，我猜原来的内容没有删掉，我找了找果然这个20多GB还在这里，我就死马当做活马医，把Ubuntu从D盘又搬回了C盘</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211121144603971.png"></p>
-<img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211121144835332.png" alt="image-20211121144835332" style="zoom:150%;" />
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121144603971.png"></p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121144835332.png" alt="image-20211121144835332" style="zoom:150%;" />
 
 <p>最后救活了，不敢手贱了</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/gaergfEFGUNJ.R.jpg"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/gaergfEFGUNJ.R.jpg"></p>
 <p>目前C盘仅有了40多GB，等完成了这个作业在再折腾一下这个WSL搬到非系统盘的方法</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211121145134059.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121145134059.png"></p>
 <h1 id="语义分割Semantic-Segmentation"><a href="#语义分割Semantic-Segmentation" class="headerlink" title="语义分割Semantic Segmentation"></a>语义分割Semantic Segmentation</h1><p>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2003.13328">2003.13328] Strip Pooling: Rethinking Spatial Pooling for Scene Parsing (arxiv.org)</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/Andrew-Qibin/SPNet">https://github.com/Andrew-Qibin/SPNet</a></p>
 <p>[<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/132532190">论文笔记] Strip Pooling（SPNet） - 知乎 (zhihu.com)</a></p>
@@ -511,7 +511,7 @@ True
 <p><strong>核心组件Pyramid Pooling Module</strong></p>
 <p>金字塔池化模块Pyramid Pooling Module由一组不同尺度的池化块组成</p>
 <p><img src="https://github.com/hszhao/semseg/raw/master/figure/pspnet.png" alt="img"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/pspnet.jpg"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/pspnet.jpg"></p>
 <ul>
 <li>（a）Input Image：即自然场景下拍摄的包含不同目标的原始图；</li>
 <li>（b）Feature Map：即通过前面CNN获得的特征图，<strong>这个CNN是预训练的ResNet</strong>；</li>
@@ -527,7 +527,7 @@ True
 </li>
 </ol>
 <p>作者推荐的软硬件环境：</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/hseta35g.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/hseta35g.png"></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/77418807">【资源】常用的语义分割架构结构综述以及代码复现 - 知乎 (zhihu.com)</a></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/97706803">场景解析网络PSPNet——金字塔池化模型 - 知乎 (zhihu.com)</a></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/78760534">CNN基础知识——池化（pooling） - 知乎 (zhihu.com)</a></p>
@@ -549,16 +549,16 @@ True
 <p>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2003.13328">2003.13328] Strip Pooling: Rethinking Spatial Pooling for Scene Parsing (arxiv.org)</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/Andrew-Qibin/SPNet">GitHub - Andrew-Qibin/SPNet: Code for our CVPR2020 paper “Strip Pooling: Rethinking Spatial Pooling for Scene Parsing”</a></p>
 <p>SPM</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/spnet.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/spnet.png"></p>
 <p>MPM</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211225140915981.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211225140915981.png"></p>
 <p>The results reported in our paper are originally based on <a target="_blank" rel="noopener" href="https://github.com/zhanghang1989/PyTorch-Encoding">PyTorch-Encoding</a> but the environment settings are a little bit complicated. To ease use, we reimplement our work based on <a target="_blank" rel="noopener" href="https://github.com/hszhao/semseg">semseg</a>.</p>
 <p>[<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/132532190">论文笔记] Strip Pooling（SPNet） - 知乎 (zhihu.com)</a></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/122571198">CVPR2020-语义分割：Strip Pooling（条纹池化） - 知乎 (zhihu.com)</a></p>
 <p>摘要：</p>
 <p>事实证明，空间池化在捕获用于场景分析等像素级预测任务的远程上下文信息方面非常有效。</p>
 <p>基于条带池化，我们深入了解了空间池化的架构设计：（1）引入了新的条带池化模型，可以使主干网络可以有效地捕捉长距离的依赖关系；（2）提出了一个新颖的、可以将不同的空间池化作为核心的构件块；（3）有组织地在性能上比较了所提出的条带池化和传统的空间池化技术的差别。</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211225112618480.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211225112618480.png"></p>
 <p>因为SPNet是基于semseg的环境，因此我们不仅做了SPNet的实验，而且还做了semseg的作者基于semseg做的一个非常著名的PSPNet的实验。</p>
 <p>由于SPNet与PSPNet的实验过程类似，下面仅记录PSPNet 。</p>
 <h1 id="PSPNet-on-WSL-Ubuntu-18-04"><a href="#PSPNet-on-WSL-Ubuntu-18-04" class="headerlink" title="PSPNet on WSL-Ubuntu 18.04"></a>PSPNet on WSL-Ubuntu 18.04</h1><p><strong>在已经完成”在WSL-Ubuntu 18.04 安装深度学习开发环境”的前提下进行下一步</strong></p>
@@ -585,10 +585,10 @@ export LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:$LD_LIBRARY_PATH
 # 运行该命令，保存环境变量的配置
 source ~/.bashrc
 </code></pre>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219142750500.png"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219144421658.png"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219141854640.png"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219142146181.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219142750500.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219144421658.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219141854640.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219142146181.png"></p>
 <h2 id="cuDNN-8-0-5-1"><a href="#cuDNN-8-0-5-1" class="headerlink" title="cuDNN 8.0.5"></a>cuDNN 8.0.5</h2><p>在nVidia的官网下载cuDNN，到Windows目录下；</p>
 <p>用cp命令移动到wsl /home/目录下；</p>
 <p>运行如下命令</p>
@@ -607,21 +607,21 @@ cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
 # CUDA
 cat /usr/local/cuda/version.txt
 </code></pre>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219143502295.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219143502295.png"></p>
 <h2 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h2><p>在读代码的时候发现，程序的运行需要anaconda环境，于是下载anaconda；</p>
 <p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">Index of /anaconda/archive/ | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/Murphy_2021-12-08_22-02-57.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/Murphy_2021-12-08_22-02-57.png"></p>
 <h2 id="使用conda创建虚拟环境"><a href="#使用conda创建虚拟环境" class="headerlink" title="使用conda创建虚拟环境"></a>使用conda创建虚拟环境</h2><pre><code class="bash"># 创建虚拟环境
 conda create -n pt140 python==3.7
 
 # pt140是虚拟环境的名称，读代码的时候发现，虚拟环境的名字就叫做pt140，于是直接就叫做这个名字，免得再改代码了
 </code></pre>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/Murphy_2021-12-08_23-02-46.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/Murphy_2021-12-08_23-02-46.png"></p>
 <p>激活虚拟环境，可以看到，激活后，在终端出现（pt140）的字样</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219144221905.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219144221905.png"></p>
 <h2 id="在虚拟环境pt140下安装PyTroch"><a href="#在虚拟环境pt140下安装PyTroch" class="headerlink" title="在虚拟环境pt140下安装PyTroch"></a>在虚拟环境pt140下安装PyTroch</h2><p>这一步很可能安装的是CPU版本的pytorch</p>
 <p>在官网直接用命令行下载（这一步是错误的，不要做这一步）</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219144716255.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219144716255.png"></p>
 <h2 id="配置pt140"><a href="#配置pt140" class="headerlink" title="配置pt140"></a>配置pt140</h2><pre><code class="bash"># 创建虚拟环境
 conda create -n pt140 python==3.7
 pip install torch==1.4.0+cu90 torchvision==0.5.0+cu92 -f https://download.pytorch.org/whl/torch_stable.html
@@ -633,11 +633,11 @@ conda install pyaml
 # clone源文件
 git clone https://github.com/hszhao/semseg.git
 </code></pre>
-<h2 id="运行程序-amp-修改代码"><a href="#运行程序-amp-修改代码" class="headerlink" title="运行程序&amp;修改代码"></a>运行程序&amp;修改代码</h2><h3 id="不知道什么错误"><a href="#不知道什么错误" class="headerlink" title="不知道什么错误"></a>不知道什么错误</h3><p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/5dtygR.jpg"></p>
-<h3 id="无法调用GPU，重装了pytorch"><a href="#无法调用GPU，重装了pytorch" class="headerlink" title="无法调用GPU，重装了pytorch"></a>无法调用GPU，重装了pytorch</h3><p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/cjkgrsdh.jpg"></p>
+<h2 id="运行程序-amp-修改代码"><a href="#运行程序-amp-修改代码" class="headerlink" title="运行程序&amp;修改代码"></a>运行程序&amp;修改代码</h2><h3 id="不知道什么错误"><a href="#不知道什么错误" class="headerlink" title="不知道什么错误"></a>不知道什么错误</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/5dtygR.jpg"></p>
+<h3 id="无法调用GPU，重装了pytorch"><a href="#无法调用GPU，重装了pytorch" class="headerlink" title="无法调用GPU，重装了pytorch"></a>无法调用GPU，重装了pytorch</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/cjkgrsdh.jpg"></p>
 <p>在<a target="_blank" rel="noopener" href="https://download.pytorch.org/whl/torch_stable.html">pytorch的这个网站</a>下载whl文件，离线安装</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219162510029.png"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/gear.jpg"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219162510029.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/gear.jpg"></p>
 <pre><code class="python"># testgpu.py
 
 import torch
@@ -648,26 +648,26 @@ print(torch.cuda.device_count())
 print(torch.cuda.get_device_name())
 print(torch.cuda.current_device())
 </code></pre>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219145145564.png"></p>
-<h3 id="代码中用了八个GPU，但是电脑上面只有一个GPU，因此需要将显卡序列改掉"><a href="#代码中用了八个GPU，但是电脑上面只有一个GPU，因此需要将显卡序列改掉" class="headerlink" title="代码中用了八个GPU，但是电脑上面只有一个GPU，因此需要将显卡序列改掉"></a>代码中用了八个GPU，但是电脑上面只有一个GPU，因此需要将显卡序列改掉</h3><p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/shrthhj.jpg"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219145145564.png"></p>
+<h3 id="代码中用了八个GPU，但是电脑上面只有一个GPU，因此需要将显卡序列改掉"><a href="#代码中用了八个GPU，但是电脑上面只有一个GPU，因此需要将显卡序列改掉" class="headerlink" title="代码中用了八个GPU，但是电脑上面只有一个GPU，因此需要将显卡序列改掉"></a>代码中用了八个GPU，但是电脑上面只有一个GPU，因此需要将显卡序列改掉</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/shrthhj.jpg"></p>
 <p>注意，在修改代码的时候，我加了一个注释，这个注释不能是中文的，因为编码问题，程序报错</p>
 <pre><code class="bash"># 需要英文注释
 
 # modify GPU
 </code></pre>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219150250773.png"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219150414672.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219150250773.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219150414672.png"></p>
 <h3 id="读取数据量序列错误"><a href="#读取数据量序列错误" class="headerlink" title="读取数据量序列错误"></a>读取数据量序列错误</h3><p>需要对数据集的list文件进行修改</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219150449817.png"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219150545807.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219150449817.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219150545807.png"></p>
 <h3 id="成功了，但没完全成功"><a href="#成功了，但没完全成功" class="headerlink" title="成功了，但没完全成功"></a>成功了，但没完全成功</h3><p>程序能跑了，但由于显存资源不够，不能完全跑起来</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219150614087.png"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/saraf.jpg"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/ntsrt.jpg"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219150614087.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/saraf.jpg"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/ntsrt.jpg"></p>
 <h1 id="PSPNet-on-Server-Ubuntu-16-04"><a href="#PSPNet-on-Server-Ubuntu-16-04" class="headerlink" title="PSPNet on Server Ubuntu 16.04"></a>PSPNet on Server Ubuntu 16.04</h1><p>自己电脑上面跑不起代码来，于是用实验室服务器重新环境配置，以运行该项目</p>
 <h2 id="数据扩增"><a href="#数据扩增" class="headerlink" title="数据扩增"></a>数据扩增</h2><p>通过程序，对图像加入高斯噪声，变换亮度等操作，将数据集扩增14倍</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/hrfwrg.jpg"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/ategr.jpg"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/hrfwrg.jpg"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/ategr.jpg"></p>
 <pre><code class="python"># -*- coding: utf-8 -*-
 
 import cv2
@@ -778,9 +778,9 @@ for img_name in os.listdir(file_dir):
     #      cv2.GaussianBlur(图像，卷积核，标准差）
     cv2.imwrite(file_dir + img_name[0:-4] + &#39;_blur.jpg&#39;,blur)
 </code></pre>
-<h2 id="Xftp-代码和数据上传到服务器"><a href="#Xftp-代码和数据上传到服务器" class="headerlink" title="Xftp 代码和数据上传到服务器"></a>Xftp 代码和数据上传到服务器</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219151339713.png"></p>
+<h2 id="Xftp-代码和数据上传到服务器"><a href="#Xftp-代码和数据上传到服务器" class="headerlink" title="Xftp 代码和数据上传到服务器"></a>Xftp 代码和数据上传到服务器</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219151339713.png"></p>
 <h2 id="创建集群Platform-for-AI-平台账户"><a href="#创建集群Platform-for-AI-平台账户" class="headerlink" title="创建集群Platform for AI 平台账户"></a>创建集群Platform for AI 平台账户</h2><p>代码将从该平台提交到服务器中</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219151707948.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219151707948.png"></p>
 <h2 id="使用集群上预置的系统环境，提交代码"><a href="#使用集群上预置的系统环境，提交代码" class="headerlink" title="使用集群上预置的系统环境，提交代码"></a>使用集群上预置的系统环境，提交代码</h2><p>程序不能正常运行，需要重新配置一个符合要求的环境</p>
 <h2 id="使用Xshell登陆服务器修改一个符合要求的环境"><a href="#使用Xshell登陆服务器修改一个符合要求的环境" class="headerlink" title="使用Xshell登陆服务器修改一个符合要求的环境"></a>使用Xshell登陆服务器修改一个符合要求的环境</h2><pre><code class="bash"># 1. 使用 ssh 登陆服务器
 
@@ -800,18 +800,18 @@ for img_name in os.listdir(file_dir):
 
 # 9. 保存完之后我们再次查看镜像列表 sudo docker images，此时镜像已经显示了。
 </code></pre>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219153819090.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219153819090.png"></p>
 <h3 id="Xshell上对深度学习镜像环境进行配置"><a href="#Xshell上对深度学习镜像环境进行配置" class="headerlink" title="Xshell上对深度学习镜像环境进行配置"></a>Xshell上对深度学习镜像环境进行配置</h3><pre><code class="bash"># 进入我的镜像环境
 sudo docker run -it ufoym/pytorch15-py37-cuda101:v1.0 /bin/bash
 </code></pre>
-<h3 id="anaconda3-下载"><a href="#anaconda3-下载" class="headerlink" title="anaconda3 下载"></a>anaconda3 下载</h3><p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219163336368.png"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219163412966.png"></p>
+<h3 id="anaconda3-下载"><a href="#anaconda3-下载" class="headerlink" title="anaconda3 下载"></a>anaconda3 下载</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219163336368.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219163412966.png"></p>
 <p>创建conda 虚拟环境 pt140</p>
 <pre><code class="bash"># 创建虚拟环境
 conda create -n pt140 python==3.7
 </code></pre>
 <p>conda设置清华源</p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219163516431.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219163516431.png"></p>
 <pre><code class="bash">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
@@ -830,13 +830,13 @@ conda install opencv
 conda install pillow
 conda install pyaml
 </code></pre>
-<h3 id="CUDA-10-1"><a href="#CUDA-10-1" class="headerlink" title="CUDA 10.1"></a>CUDA 10.1</h3><p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/sjlrioegbauo.jpg"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219211952632.png"></p>
+<h3 id="CUDA-10-1"><a href="#CUDA-10-1" class="headerlink" title="CUDA 10.1"></a>CUDA 10.1</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/sjlrioegbauo.jpg"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219211952632.png"></p>
 <h3 id="cuDNN-8-0-5-2"><a href="#cuDNN-8-0-5-2" class="headerlink" title="cuDNN 8.0.5"></a>cuDNN 8.0.5</h3><p>在Windows上下载,然后用Xftp传到服务器</p>
 <p><strong>docker cp 命令，将服务器上的文件传到镜像环境下(这一步我不会,找学长帮忙给搞得,操作太快了,没看懂)</strong></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fsong/p/11335251.html">传输文件到docker容器 - wakasann - 博客园 (cnblogs.com)</a></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219212238816.png"></p>
-<h3 id="pytorch-1-5-0-cu101"><a href="#pytorch-1-5-0-cu101" class="headerlink" title="pytorch 1.5.0+cu101"></a>pytorch 1.5.0+cu101</h3><p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219212417973.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219212238816.png"></p>
+<h3 id="pytorch-1-5-0-cu101"><a href="#pytorch-1-5-0-cu101" class="headerlink" title="pytorch 1.5.0+cu101"></a>pytorch 1.5.0+cu101</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219212417973.png"></p>
 <h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><pre><code class="bash">ssh登陆服务器
 
 ssh登陆节点服务器
@@ -852,7 +852,7 @@ nvcc -V
 cat /usr/local/cuda/version.txt
 cat /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2
 </code></pre>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219213303346.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219213303346.png"></p>
 <pre><code class="bash"># 激活pt140虚拟环境
 conda activate pt140
 
@@ -867,23 +867,23 @@ torch.cuda.is_available()
 # 问题!!!
 # torch不能调用GPU,找不到解决的方向了
 </code></pre>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219213503637.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219213503637.png"></p>
 <h1 id="将docker-镜像推送到阿里云"><a href="#将docker-镜像推送到阿里云" class="headerlink" title="将docker 镜像推送到阿里云"></a>将docker 镜像推送到阿里云</h1><h2 id="阿里云账户"><a href="#阿里云账户" class="headerlink" title="阿里云账户"></a>阿里云账户</h2><p>注册阿里账户</p>
 <p><a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-shanghai/instances/repositorie">阿里云</a></p>
-<h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211219224624886.png"></p>
+<h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219224624886.png"></p>
 <h2 id="在服务器登陆阿里云"><a href="#在服务器登陆阿里云" class="headerlink" title="在服务器登陆阿里云"></a>在服务器登陆阿里云</h2><pre><code class="bash">sudo docker login --username=murphyhou0928 registry.cn-qingdao.a liyuncs.com
 </code></pre>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/docker%20%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/docker%20%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91.png"></p>
 <h2 id="把镜像修改为阿里云的-docker-仓库路径"><a href="#把镜像修改为阿里云的-docker-仓库路径" class="headerlink" title="把镜像修改为阿里云的 docker 仓库路径"></a>把镜像修改为阿里云的 docker 仓库路径</h2><pre><code class="bash">sudo docker tag aa553d773527 registry.cn-qingdao.aliyuncs.com/murphyhou/pt140:v1.0
 </code></pre>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/tag%20docker%20%E9%95%9C%E5%83%8F%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/tag%20docker%20%E9%95%9C%E5%83%8F%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91.png"></p>
 <h2 id="把镜像推送到阿里云"><a href="#把镜像推送到阿里云" class="headerlink" title="把镜像推送到阿里云"></a>把镜像推送到阿里云</h2><pre><code class="bash">sudo docker push registry.cn-qingdao.aliyuncs.com/murphyhou/pt140:v1.0
 </code></pre>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/%E6%8E%A8%E9%80%81%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E4%BB%93%E5%BA%93.png"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211225103355594.png"></p>
-<h1 id="在Platform-for-AI-平台提交代码"><a href="#在Platform-for-AI-平台提交代码" class="headerlink" title="在Platform for AI 平台提交代码"></a>在Platform for AI 平台提交代码</h1><p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211225103720403.png"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/jhsdagrghq53.png"></p>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/image-20211225103830678.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/%E6%8E%A8%E9%80%81%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E4%BB%93%E5%BA%93.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211225103355594.png"></p>
+<h1 id="在Platform-for-AI-平台提交代码"><a href="#在Platform-for-AI-平台提交代码" class="headerlink" title="在Platform for AI 平台提交代码"></a>在Platform for AI 平台提交代码</h1><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211225103720403.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/jhsdagrghq53.png"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211225103830678.png"></p>
 <h1 id="结果分析工具程序"><a href="#结果分析工具程序" class="headerlink" title="结果分析工具程序"></a>结果分析工具程序</h1><h2 id="图像相似度"><a href="#图像相似度" class="headerlink" title="图像相似度"></a>图像相似度</h2><pre><code class="python">from PIL import Image
  
 # 将图片转化为RGB
@@ -927,7 +927,7 @@ for key, value in dict(counts).items():
     print(key, value)
     x.append(str(value))
 </code></pre>
-<p><img src="https://gitee.com/murphyhou/picgo/raw/master/WSLDLE/rgwFWHEAJRLKNE.jpg"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/rgwFWHEAJRLKNE.jpg"></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"

@@ -92,7 +92,7 @@
             animation-duration: 1.2s;
             background-image: 
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url('https://gitee.com/murphyhou/picgo/raw/master/mcm/brain-2062055_1920.jpg') ">
+                url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/brain-2062055_1920.jpg') ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
@@ -159,12 +159,12 @@
 <p>机器学习正是这样一门学科,它致力于研究如何 通过计算的手段,利用经验来改善系统自身的性能.在计算机系统中，“经验”通常以 “数据”形式存在,</p>
 <p>因此,机器学习所研究的主要内容,是关于在计算机上从数据中产 生“模型”(model)的算法，即“学习算法”(learning algorithm).</p>
 <p>有了学习算法,我 们把经验数据提供给它,它就能基于这些数据产生模型;在面对新的情况时(例如看到一个没剖开的西瓜),模型会给我们提供相应的判断(例如好瓜)．</p>
-<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/2022-02-14_13-13-35-12.png"/>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/2022-02-14_13-13-35-12.png"/>
 
 <p>机器学习：监督学习（supervised learning），无监督学习(unsupervised learning)，强化学习(reinforcement learning)，半监督学习(semi-supervised learning)，主动学习(active learning)</p>
 <h3 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h3><p>监督学习是指从标注数据中学习预测模型的机器学习问题。标注数据表示输入输出的对应关系，预测模型对给定的输入产生响应的输出。监督学习的本质是学习输入到输出的映射统计规律。</p>
 <p>翻译成白话：我们的数据既有输入变量又有输出变量（既有特征 feature 又有标签 label），我们要找到输入变量和输出变量之间的关系。</p>
-<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220214134238920.png"/>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214134238920.png"/>
 
 <p>监督学习根据<strong>输出变量Y的数据类型不同</strong>，又可以分成两种类型： </p>
 <p>（1） 当<strong>输出变量Y取有限个离散值</strong>时，称为<strong>分类问题</strong>。 </p>
@@ -195,14 +195,14 @@
 <blockquote>
 <p>举个例子：如何让电脑玩游戏？以 flappy bird 这款游戏为 例，电脑怎么知道下一步小鸟要采取怎样的行动呢？ 通过不断与环境的交互和试错的过程，最终完成特定目的或使得整体行动收益最大化。<strong>（做对了给奖励，做错了给惩罚）</strong></p>
 </blockquote>
-<h2 id="模型评估的指标（监督学习）"><a href="#模型评估的指标（监督学习）" class="headerlink" title="模型评估的指标（监督学习）"></a>模型评估的指标（监督学习）</h2><h3 id="回归问题的评估指标"><a href="#回归问题的评估指标" class="headerlink" title="回归问题的评估指标"></a>回归问题的评估指标</h3><img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220214135900565.png"/>
+<h2 id="模型评估的指标（监督学习）"><a href="#模型评估的指标（监督学习）" class="headerlink" title="模型评估的指标（监督学习）"></a>模型评估的指标（监督学习）</h2><h3 id="回归问题的评估指标"><a href="#回归问题的评估指标" class="headerlink" title="回归问题的评估指标"></a>回归问题的评估指标</h3><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214135900565.png"/>
 
-<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220214135927666.png"/>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214135927666.png"/>
 
-<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220214140001362.png"/>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214140001362.png"/>
 
 <h3 id="分类问题的评估指标"><a href="#分类问题的评估指标" class="headerlink" title="分类问题的评估指标"></a>分类问题的评估指标</h3><p>混淆矩阵——可以使用matlab自动生成</p>
-<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220214140121030.png"/>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214140121030.png"/>
 
 <p>在此之前，我们需要定义<strong>分类结果中的正类（positive）和负类（negative）</strong>，这里 的正类和负类实际上借用了医学中的阳性（positive）和阴性（negative）的概念，医学 中一般阴性代表正常，而阳性则代表患有疾病。</p>
 <p><strong>在机器学习中，我们通常将更关注的事件定义为正类事件。（生活中我们通常会更关注那些结果不好的情况的出现）</strong></p>
@@ -210,11 +210,11 @@
 <blockquote>
 <p>这种划分正类和负类的标准也不是绝对的，如果你更关注好瓜，那么你也可以把好瓜定义成正类；另外有 时候我们很难去区分结果的好坏，例如我们要对猫和狗的图片进行分类，这时候正类和负类无论怎么定义都行。</p>
 </blockquote>
-<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220214141022387.png"/>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214141022387.png"/>
 
 <p>分类准确率，如果样本不平衡，计算出的结果回存在问题，因此这个指标本身存在问题</p>
 <p>后两个指标，R和P更重要</p>
-<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220214141219859.png"/>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214141219859.png"/>
 
 <blockquote>
 <p>通常来说，<strong>查全率和查准率是负相关关系</strong>的。</p>
@@ -227,12 +227,12 @@
 </ul>
 </blockquote>
 <p> 查全率和查准率的调和平均</p>
-<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220214142331261.png"/>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214142331261.png"/>
 
 <p>ROC曲线和AUC</p>
-<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220214142649880.png"/>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214142649880.png"/>
 
-<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220214143002227.png"/>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214143002227.png"/>
 
 <h2 id="模型的泛化能力"><a href="#模型的泛化能力" class="headerlink" title="模型的泛化能力"></a>模型的泛化能力</h2><blockquote>
 <p>模型的泛化能力(generalization ability)是指由该模型对未知数据的预测能力。</p>
@@ -257,7 +257,7 @@
 <p>每一次用 k-1 个子集 的并集作为训练集，剩下的一个子集作为测试集；</p>
 <p>这样就可以<strong>获得 k 组训练/测试集</strong>， 从而可进行 k 次训练和测试，最终返回的是这 k 次测试的平均结果，<strong>通常 k 取 10，此时称为 10 折交叉验证</strong>。</p>
 </blockquote>
-<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220214144113341.png"/>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214144113341.png"/>
 
 <h2 id="选择最好的模型"><a href="#选择最好的模型" class="headerlink" title="选择最好的模型"></a>选择最好的模型</h2><p>我们可以使用决策树、K 最近邻（KNN）、支持向量机（SVM）等常用的机器 学习模型。那么，我们应该怎样衡量一个模型的好坏呢？</p>
 <blockquote>
@@ -270,9 +270,9 @@
 </code></pre>
 <h2 id="欠拟合和过拟合"><a href="#欠拟合和过拟合" class="headerlink" title="欠拟合和过拟合"></a>欠拟合和过拟合</h2><p>过拟合（overfitting）指的是模型在<strong>训练集上表现的很好</strong>，但是在<strong>测试集上表现的并不理想</strong>，也就是说模型对未知样本的预测表现一般，泛化能力较差。 </p>
 <p>如果模型不仅在训练数据集上的<strong>预测结果不好</strong>，而且在<strong>测试数据集上的表现也不理想</strong>，也就是说两者的表现都很糟糕，那么我们有理由怀疑模型发生了欠拟合（underfitting）现象。</p>
-<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220214150038778.png"/>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214150038778.png"/>
 
-<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220214150154298.png"/>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214150154298.png"/>
 
 <blockquote>
 <p>可能产生过拟合的常见原因： </p>
@@ -295,9 +295,9 @@
 </blockquote>
 <h1 id="常见的机器学习算法的思想"><a href="#常见的机器学习算法的思想" class="headerlink" title="常见的机器学习算法的思想"></a>常见的机器学习算法的思想</h1><p><a target="_blank" rel="noopener" href="https://space.bilibili.com/10781175">五分钟机器学习的个人空间_哔哩哔哩_bilibili</a></p>
 <p><a target="_blank" rel="noopener" href="https://space.bilibili.com/108044200">菊安酱的个人空间_哔哩哔哩_bilibili</a></p>
-<h2 id="K最近邻（KNN）"><a href="#K最近邻（KNN）" class="headerlink" title="K最近邻（KNN）"></a>K最近邻（KNN）</h2><h2 id="决策树（Decision-Tree）"><a href="#决策树（Decision-Tree）" class="headerlink" title="决策树（Decision Tree）"></a>决策树（Decision Tree）</h2><h2 id="支持向量机（SVM）"><a href="#支持向量机（SVM）" class="headerlink" title="支持向量机（SVM）"></a>支持向量机（SVM）</h2><h3 id="线性支持向量机"><a href="#线性支持向量机" class="headerlink" title="线性支持向量机"></a>线性支持向量机</h3><h3 id="非线性支持向量机"><a href="#非线性支持向量机" class="headerlink" title="非线性支持向量机"></a>非线性支持向量机</h3><h2 id="集成学习（ensemble-learning）"><a href="#集成学习（ensemble-learning）" class="headerlink" title="集成学习（ensemble learning）"></a>集成学习（ensemble learning）</h2><h1 id="Matlab中机器学习的应用"><a href="#Matlab中机器学习的应用" class="headerlink" title="Matlab中机器学习的应用"></a>Matlab中机器学习的应用</h1><img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220214151111469.png"/>
+<h2 id="K最近邻（KNN）"><a href="#K最近邻（KNN）" class="headerlink" title="K最近邻（KNN）"></a>K最近邻（KNN）</h2><h2 id="决策树（Decision-Tree）"><a href="#决策树（Decision-Tree）" class="headerlink" title="决策树（Decision Tree）"></a>决策树（Decision Tree）</h2><h2 id="支持向量机（SVM）"><a href="#支持向量机（SVM）" class="headerlink" title="支持向量机（SVM）"></a>支持向量机（SVM）</h2><h3 id="线性支持向量机"><a href="#线性支持向量机" class="headerlink" title="线性支持向量机"></a>线性支持向量机</h3><h3 id="非线性支持向量机"><a href="#非线性支持向量机" class="headerlink" title="非线性支持向量机"></a>非线性支持向量机</h3><h2 id="集成学习（ensemble-learning）"><a href="#集成学习（ensemble-learning）" class="headerlink" title="集成学习（ensemble learning）"></a>集成学习（ensemble learning）</h2><h1 id="Matlab中机器学习的应用"><a href="#Matlab中机器学习的应用" class="headerlink" title="Matlab中机器学习的应用"></a>Matlab中机器学习的应用</h1><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214151111469.png"/>
 
-<img src="https://gitee.com/murphyhou/picgo/raw/master/mcm/image-20220214151243335.png"/>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214151243335.png"/>
 
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
