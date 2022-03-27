@@ -5,13 +5,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>数字图像处理概述 - Murphy</title>
+    <title>记一次上云经历 - Murphy</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Obsidian Murphy Blog,"> 
-    <meta name="description" content="Hello,I Am Murphy,数字图像处理（Digital Image Processing）又称为计算机图像处理，它是指将图像信号转换成数字信号并利用计算机对其进行处理的过程。
-一直对这个方向非常感兴趣，但是我们的培养方案中没,"> 
+    <meta name="description" content="Hello,I Am Murphy,前情提要：之前一直白嫖[码云](MurphyHou (murphyhou) - Gitee.com)的仓库作为图床，然后一看，自己所有的图片都被换成了Gitee的logo，上网上查了一下，原来是码云,"> 
     <meta name="author" content="Murphy Hou"> 
     <link rel="alternative" href="atom.xml" title="Murphy" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -62,7 +61,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="https://murphyhoucn.github.io">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">数字图像处理概述</h3>
+        <h3 class="subtitle">记一次上云经历</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -87,24 +86,24 @@
             animation-duration: 1.2s;
             background-image: 
                 radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-                url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/futuristic-7020072_1920.jpg') ">
+                url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/network-2402637_1280.jpg') ">
         </div>
         <div class="else">
             <p class="animated fadeInDown">
                 
-                <a href="/categories/通信工程"><b>「
-                    </b>通信工程<b> 」</b></a>
+                <a href="/categories/知识扩展"><b>「
+                    </b>知识扩展<b> 」</b></a>
                 
-                三月 16, 2022
+                三月 26, 2022
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2022/03/16/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E6%A6%82%E8%BF%B0/" title="数字图像处理概述" class="">数字图像处理概述</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2022/03/26/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%B8%8A%E4%BA%91%E7%BB%8F%E5%8E%86/" title="记一次上云经历" class="">记一次上云经历</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>文章字数</i>
-                    3.2k
+                    3k
                 </span>
                 
                 
@@ -114,7 +113,7 @@
                 </span>
                 
                 
-                <span id="/2022/03/16/数字图像处理概述/" class="leancloud_visitors" data-flag-title="数字图像处理概述">
+                <span id="/2022/03/26/记一次上云经历/" class="leancloud_visitors" data-flag-title="记一次上云经历">
                     <b class="iconfont icon-read"></b> <i>阅读次数</i>
                     <span class="leancloud-visitors-count">1000000</span>
                 </span>
@@ -123,7 +122,7 @@
             </p>
             
             
-            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag">图像处理</a></li></ul>
+            <ul class="animated fadeInDown post-tags-list" itemprop="keywords"><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/GitHub/" rel="tag">GitHub</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E4%BA%91%E5%AD%98%E5%82%A8/" rel="tag">云存储</a></li><li class="animated fadeInDown post-tags-list-item"><a class="animated fadeInDown post-tags-list-link" href="/tags/%E5%9F%9F%E5%90%8D/" rel="tag">域名</a></li></ul>
             
         </div>
     </div>
@@ -144,80 +143,39 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p>数字图像处理（Digital Image Processing）又称为计算机图像处理，它是指将图像信号转换成数字信号并利用计算机对其进行处理的过程。</p>
-<p>一直对这个方向非常感兴趣，但是我们的培养方案中没有这么课，如果大四有时间的话，打算去蹭一下别专业开的这门课。目前，我是找来了一本书，拿来通读一下，了解一下这么学科是在做什么事情。</p>
-<p>本文仅把第一章的绪论部分整理了一下发表于此，之后比较详细的内容使用手写电子笔记的方式。</p>
+            <p>前情提要：之前一直白嫖[码云](<a target="_blank" rel="noopener" href="https://gitee.com/murphyhou">MurphyHou (murphyhou) - Gitee.com</a>)的仓库作为图床，然后一看，自己所有的图片都被换成了Gitee的logo，上网上查了一下，原来是码云屏蔽了仓库的外链。没办法，转战一个新的图床，Github和Gitee是一个性质的，免费，但也有可能被屏蔽外链，另外还有就是速度太慢了。那就直接消费一把，买云存储吧。</p>
+<p>这应该是第二次用阿里云了，第一次用的时候是使用了阿里云的容器镜像空间配置深度学习，<a target="_blank" rel="noopener" href="https://cosmicdusty.cc/2021/11/21/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B0%9D%E8%AF%95/">第一次深度学习尝试 - Murphy (cosmicdusty.cc)</a></p>
 <span id="more"></span>
 
-<h1 id="图像及其分类"><a href="#图像及其分类" class="headerlink" title="图像及其分类"></a>图像及其分类</h1><h2 id="图像的特点"><a href="#图像的特点" class="headerlink" title="图像的特点"></a>图像的特点</h2><ul>
-<li><p>直观形象</p>
-</li>
-<li><p>易懂信</p>
-</li>
-<li><p>息量大</p>
-</li>
-</ul>
-<h2 id="图像的分类"><a href="#图像的分类" class="headerlink" title="图像的分类"></a>图像的分类</h2><ul>
-<li>按灰度分类</li>
-</ul>
-<p>二值图像：只有黑色和白色两种颜色的图像</p>
-<p>多灰度图像：从白色逐渐过渡到黑色的一系列中间灰度级。打印机输出的图像一般16个灰度级，广播电视图像一般为256个灰度级，医学图像一般为1024个灰度级</p>
-<ul>
-<li>按色彩分类</li>
-</ul>
-<p>单色图像：只有某一谱段的图像，一般为黑白灰度图。</p>
-<p>彩色图像：包括真彩色图像，合成彩色图像，伪彩色图像，假彩色图像等。</p>
-<ul>
-<li>按运动分类</li>
-</ul>
-<p>静态图像：包括静止图像（照片，X光片，遥感图片）和凝固图像（动态图形中的一帧）</p>
-<p>动态图像：有一组静态图像按时间有序排列组成。指标：帧率。</p>
-<ul>
-<li>按时空分布分类</li>
-</ul>
-<p>二维图形</p>
-<p>三维图像</p>
-<h1 id="数字图像处理技术与应用"><a href="#数字图像处理技术与应用" class="headerlink" title="数字图像处理技术与应用"></a>数字图像处理技术与应用</h1><h2 id="数字图像处理的主要内容"><a href="#数字图像处理的主要内容" class="headerlink" title="数字图像处理的主要内容"></a>数字图像处理的主要内容</h2><ul>
-<li>图像获取：把一幅模拟图像转换成适合计算机或者数字设备处理的数字信号。包括摄取图像，光电转换，数字化等步骤。</li>
-<li>图像变换：对原始图像进行某种正交变换，如傅里叶变换，离散余弦变换，沃尔什变换，哈达玛变换，霍特林变换等，将图像的特征再变换域中表现出来。</li>
-<li>图像增强：突出图像中感兴趣的信息，去除或衰减不需要的信息。主要方法有，直方图增强，空域增强，频域增强，伪色彩增强等技术。</li>
-<li>图像复原：去除噪声干扰和模糊，恢复图像原来的面貌。图像噪声包括，随机噪声（随机噪声干扰表现为麻点干扰）和相干噪声（相干噪声干扰表现为网纹干扰）。模糊来自于透镜散焦，相对运动，大气湍流以及云层遮挡等。采取逆滤波，维纳滤波，最小约束二乘方滤波，同态滤波等方法去除。</li>
-<li>图像编码：通过编码对图像进行压缩。图像编码主要方法有去冗余编码，变换编码，小波变换编码，神经忘了编码，模型基编码等。</li>
-<li>图像分析：对图像中感兴趣的目标进行检测和测量，以获得客观信息。图像分析通过边缘检测，区域分割，特征提取等手段。</li>
-<li>图像识别：图像识别方法大致可分为统计识别法，句法（结构）识别法，模糊识别法。统计识别法侧重于图像的特征，可以用Bayes分类器，人工神经网络，支持向量机来实现；句法识别侧重于图像的结构，可以通过句法分析或对应的自动机来实现；模糊识别法主要是讲模糊数学方法引入图像识别，从而简化识别系统的结构。</li>
-<li>图像理解：在图像分析的基础上进一步研究图像中各目标的性质及其相互联系。</li>
-</ul>
-<h2 id="数字预习处理方法"><a href="#数字预习处理方法" class="headerlink" title="数字预习处理方法"></a>数字预习处理方法</h2><ul>
-<li>空域法</li>
-</ul>
-<pre><code class="markdown">空域法把图像看作平面中各个像素组合的集合，然后直接对其进行相应的处理。
-- 邻域处理法：涉及梯度运算，拉普拉斯算子运算，平滑算子运输，卷积运算等；
-- 点处理法：涉及灰度处理，面积，周长，体积重心运算等。
+<h1 id="阿里云SSO"><a href="#阿里云SSO" class="headerlink" title="阿里云SSO"></a>阿里云SSO</h1><h2 id="购买配置"><a href="#购买配置" class="headerlink" title="购买配置"></a>购买配置</h2><p>购买和配置过程比较简单，也我当时也没记录，网上的教程很多，放几个参考教程的链接吧。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/787128">使用阿里云对象存储OSS+PicGo搭建图床-阿里云开发者社区 (aliyun.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/104152479">阿里云OSS PicGo 配置图床教程 超详细 - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/fengxiandada/article/details/123747655">gitee图床用不了，阿里云OSS搭建图床(非常详细)_每天都要加油呀！的博客-CSDN博客</a></p>
+<h2 id="SSO防盗链"><a href="#SSO防盗链" class="headerlink" title="SSO防盗链"></a>SSO防盗链</h2><div align=center>
+    <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20220327092239189.png"/>
+</div>
+
+<h1 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h1><p>从网站最开始的时候只有一个index界面，到套用网页模板，再到现在的时候hexo部署网站，网站已经经历了三次大的变化了。域名也改过两次了，现在的域名太长了，我就想买个域名玩一下。</p>
+<pre><code class="markdown">2020.12：https://murphyhou0928.github.io/  GitHub改名了，这个访问不了了
+2022.01：https://murphyhoucn.github.io/   其实现在还在用这个，只不过是会自己链接到cosmicdusty.cc
+2022.03：https://cosmicdusty.cc/
 </code></pre>
-<ul>
-<li>变换域（频域）法</li>
-</ul>
-<pre><code class="markdown">首先对图像进行正交变换，得到变换系数矩阵，然后再进行各种处理，处理后再逆变换得到空间域，得到处理的结果。
-主要包括滤波，数据压缩，特征提取等。
-</code></pre>
-<h2 id="数字图像处理技术的应用"><a href="#数字图像处理技术的应用" class="headerlink" title="数字图像处理技术的应用"></a>数字图像处理技术的应用</h2><ul>
-<li>计算机图像生成</li>
-<li>图像传输与图像通信</li>
-<li>机器人视觉及图像测量</li>
-<li>办公自动化</li>
-<li>图像跟踪及光学制导</li>
-<li>医学图像处理与材料分析中的图像处理技术</li>
-<li>遥感图像处理和空间探测</li>
-<li>图像变形技术</li>
-</ul>
-<h1 id="数字图像处理系统"><a href="#数字图像处理系统" class="headerlink" title="数字图像处理系统"></a>数字图像处理系统</h1><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F.drawio0316.png" alt="数字图像处理系统"></p>
-<ul>
-<li>图像采集系统：数码摄像机，数码照相机，扫描仪。</li>
-<li>计算机：图像处理软件</li>
-<li>图像输出设备</li>
-</ul>
-<h1 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h1><p>主要使用Matlab和Matlab的工具箱，如：图像处理工具箱（IPT），信号处理工具箱（SPT），神经网络工具箱(NNT)，模糊逻辑工具箱(FLT)，小波工具箱(WT)等。</p>
-<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>《数字图像处理（第二版）》-浙江大学姚敏</p>
+<p>参考教程：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e258a46df9b7">GitHub搭建博客自定义域名 - 简书 (jianshu.com)</a></p>
+<p>几个踩坑的地方。</p>
+<p>大部分教程都是设置的记录类型为“A”，记录值为ping<a target="_blank" rel="noopener" href="https://username.github.io/%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%97%B6%E6%98%BE%E7%A4%BA%E7%9A%84IPV4%E5%9C%B0%E5%9D%80%EF%BC%8C%E6%88%91%E4%B8%80%E5%BC%80%E5%A7%8B%E4%B9%9F%E6%98%AF%E8%BF%99%E6%A0%B7%E8%AE%BE%E7%BD%AE%E7%9A%84%EF%BC%8C%E4%BD%86%E6%98%AFGithub%E4%BC%9A%E7%BB%99%E4%B8%80%E4%B8%AA%E8%AD%A6%E5%91%8A%EF%BC%8C%E8%A6%81%E6%B1%82%E6%88%91%E8%AE%BE%E7%BD%AE%E6%88%90CNAME%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E3%80%82%E5%A6%82%E4%B8%8B%EF%BC%9A">https://username.github.io/博客网站时显示的IPV4地址，我一开始也是这样设置的，但是Github会给一个警告，要求我设置成CNAME类型的域名解析。如下：</a></p>
+<div align=center>
+    <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20220327093537272.png"/>
+</div>
+
+<p>使用Hexo部署网站的时候会出现部署后域名就不能访问了，这时候要在本地建CNAME文件,然后再hexo d。注意目录结构！</p>
+<div align=center>
+    <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20220327094142180.png"/>
+</div>
+
+
+
+<h1 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h1><p>云服务近几年发展的越来越好了，厂商提供的功能也越来越多，体验也不错，另外价格不算贵。未来肯定会接触到越来越多的云体验，所以学会使用云服务还是很重要的。这次只是使用了云存储，希望下一次能用一下云服务器，之前深度学习算是第一次使用。<a target="_blank" rel="noopener" href="https://cosmicdusty.cc/2021/11/21/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B0%9D%E8%AF%95/">第一次深度学习尝试 - Murphy (cosmicdusty.cc)</a></p>
+<p>云服务的设置太多了，需要不断学习，不断使用。</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -272,7 +230,7 @@
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>目录</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%8F%8A%E5%85%B6%E5%88%86%E7%B1%BB"><span class="toc-number">1.</span> <span class="toc-text">图像及其分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">图像的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.2.</span> <span class="toc-text">图像的分类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF%E4%B8%8E%E5%BA%94%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">数字图像处理技术与应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%9A%84%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9"><span class="toc-number">2.1.</span> <span class="toc-text">数字图像处理的主要内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E9%A2%84%E4%B9%A0%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">数字预习处理方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E6%8A%80%E6%9C%AF%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">2.3.</span> <span class="toc-text">数字图像处理技术的应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.</span> <span class="toc-text">数字图像处理系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7"><span class="toc-number">4.</span> <span class="toc-text">工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">5.</span> <span class="toc-text">参考资料</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%98%BF%E9%87%8C%E4%BA%91SSO"><span class="toc-number">1.</span> <span class="toc-text">阿里云SSO</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%AD%E4%B9%B0%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.</span> <span class="toc-text">购买配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SSO%E9%98%B2%E7%9B%97%E9%93%BE"><span class="toc-number">1.2.</span> <span class="toc-text">SSO防盗链</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B4%AD%E4%B9%B0%E5%9F%9F%E5%90%8D"><span class="toc-number">2.</span> <span class="toc-text">购买域名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%84%9F%E5%8F%97"><span class="toc-number">3.</span> <span class="toc-text">感受</span></a></li></ol>
                 </div>
             </div>
             
