@@ -1,0 +1,817 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <link rel="icon" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Murphy">
+  <meta name="keywords" content="Murphy,CosmicDusty,murphy,cosmicdusty,cn">
+  
+    <meta name="description" content="Python开源库提供了大量的imread函数，有没有考虑过它们之间的区别呢？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="新奇的imread">
+<meta property="og:url" content="https://cosmicdusty.cc/post/CV/FancyImread/index.html">
+<meta property="og:site_name" content="MurphyHou">
+<meta property="og:description" content="Python开源库提供了大量的imread函数，有没有考虑过它们之间的区别呢？">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cvpr/lena_std.png">
+<meta property="article:published_time" content="2023-05-03T03:22:34.000Z">
+<meta property="article:modified_time" content="2023-05-07T06:00:23.000Z">
+<meta property="article:author" content="Murphy">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="API">
+<meta property="article:tag" content="OpenCV">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cvpr/lena_std.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>新奇的imread - MurphyHou</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cosmicdusty.cc","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"16d93d5abbd7ea15ec53daed5459ebf7","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JijHNKemeVNog4wF7g9I5TR3","app_key":"FvsKdxHOP2aG5rHrHby5aV0b","server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?16d93d5abbd7ea15ec53daed5459ebf7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CosmicDusty</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/cvpr/lena_std.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="新奇的imread"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Murphy
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-05-03 11:22" pubdate>
+          2023年5月3日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          385 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          4 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">新奇的imread</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>在使用Python进行图像处理时，毫无疑问第一件事就是读取图像。Python开源社区创造了大量的库，为Python的使用带来的很多的便利。就读取图像一事，就有多个库提供了<code>imread</code>方法。但在之前使用时，从来没有对它们之间的异同进行深入地考虑过，都是拿来即用。偶然的一次尝试，发现这些方法之间好像确实存在一些不同。</p>
+<h1 id="opencv-python"><a href="#opencv-python" class="headerlink" title="opencv-python"></a>opencv-python</h1><p><code>imread</code>API定义<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[OpenCV: Image file reading and writing](https://docs.opencv.org/4.0.0/d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56)">[1]</span></a></sup></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs python">retval = cv.imread(filename[, flags])<br><br><span class="hljs-comment"># filename: Name of file to be loaded.</span><br><span class="hljs-comment"># flags: Flag that can take values of cv::ImreadModes</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>使用 <strong><a target="_blank" rel="noopener" href="https://docs.opencv.org/4.0.0/d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56">cv.imread()</a></strong> 函数读取一张图像，图片应该在工作目录中，或者应该提供完整的图像路径。<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[图像入门 (apachecn.org)](https://opencv.apachecn.org/#/docs/4.0.0/2.1-tutorial_py_image_display)">[2]</span></a></sup></p>
+<p>第二个参数是一个 flag，指定了应该读取图像的方式</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.opencv.org/4.0.0/d4/da8/group__imgcodecs.html#gga61d9b0126a3e57d9277ac48327799c80af660544735200cbe942eea09232eb822">cv.IMREAD_COLOR</a>：加载彩色图像，任何图像的透明度都会被忽略，它是默认标志</li>
+<li><a target="_blank" rel="noopener" href="https://docs.opencv.org/4.0.0/d4/da8/group__imgcodecs.html#gga61d9b0126a3e57d9277ac48327799c80ae29981cfc153d3b0cef5c0daeedd2125">cv.IMREAD_GRAYSCALE</a>：以灰度模式加载图像</li>
+<li><a target="_blank" rel="noopener" href="https://docs.opencv.org/4.0.0/d4/da8/group__imgcodecs.html#gga61d9b0126a3e57d9277ac48327799c80aeddd67043ed0df14f9d9a4e66d2b0708">cv.IMREAD_UNCHANGED</a>：加载图像，包括 alpha 通道</li>
+</ul>
+<p>Note</p>
+<ul>
+<li>你可以简单地分别传递整数 1、0 或-1，而不是这三个 flag。</li>
+</ul>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Name: opencv-python</span><br><span class="hljs-comment"># Version: 4.7.0.72</span><br><br><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>img_path = <span class="hljs-string">&#x27;../datasets/lenna/lena_std.jpg&#x27;</span><br>img = cv2.imread(img_path)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(img)) <span class="hljs-comment"># &lt;class &#x27;numpy.ndarray&#x27;&gt;</span><br><span class="hljs-built_in">print</span>(img.shape) <span class="hljs-comment"># (512, 512, 3)</span><br><br>cv2.imshow(<span class="hljs-string">&quot;lenna&quot;</span>, img)<br>cv2.waitKey(<span class="hljs-number">0</span>)<br><br><span class="hljs-built_in">print</span>(img)<br><span class="hljs-comment"># [[[125 137 225]</span><br><span class="hljs-comment"># BGR模式</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p>如何理解(512, 512, 3)？</p>
+<ul>
+<li>直接看这就是一个512×512×3的3d array，从物理意义上说，这张图片拥有三个通道，每个通道的矩阵尺寸是512×512.</li>
+<li>但计算机认为这个3d array是有512个通道，每个通道矩阵的尺寸是512×3.</li>
+</ul>
+</li>
+<li><p>彩色图像 OpenCV 用的 BGR 模式，但是 Matplotlib 显示用的 RGB 模式。因此如果图像用 OpenCV 加载，则 Matplotlib 中彩色图像将无法正常显示。<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[图像入门 (apachecn.org)](https://opencv.apachecn.org/#/docs/4.0.0/2.1-tutorial_py_image_display)">[2]</span></a></sup><sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Extracting a region from an image using slicing in Python, OpenCV - Stack Overflow](https://stackoverflow.com/questions/15072736/extracting-a-region-from-an-image-using-slicing-in-python-opencv/15074748#15074748)">[4]</span></a></sup></p>
+</li>
+<li><p>如何将OpenCV的BGR模式转为RGB模式？</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">img2 = cv2.cvtColor(img , cv2.COLOR_BGR2RGB)<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python">b,g,r = cv2.split(img)<br>img2 = cv2.merge([r,g,b])<br></code></pre></td></tr></table></figure>
+
+<h1 id="matplotlib-pyplot"><a href="#matplotlib-pyplot" class="headerlink" title="matplotlib.pyplot"></a>matplotlib.pyplot</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Name: matplotlib</span><br><span class="hljs-comment"># Version: 3.3.0</span><br><br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><br>img_path = <span class="hljs-string">&#x27;../datasets/lenna/lena_std.jpg&#x27;</span><br>img = plt.imread(img_path)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(img)) <span class="hljs-comment"># &lt;class &#x27;numpy.ndarray&#x27;&gt;</span><br><span class="hljs-built_in">print</span>(img.shape) <span class="hljs-comment"># (512, 512, 3)</span><br><br><span class="hljs-built_in">print</span>(img)<br><span class="hljs-comment"># [[[225 137 125]</span><br><br>plt.imshow(img)<br>plt.show()<br></code></pre></td></tr></table></figure>
+
+<p>后面的几种方法都可以用<code>plt.imshow()</code>方法进行图像的显示。</p>
+<h1 id="matplotlib-image"><a href="#matplotlib-image" class="headerlink" title="matplotlib.image"></a>matplotlib.image</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Name: matplotlib</span><br><span class="hljs-comment"># Version: 3.3.0</span><br><br><span class="hljs-keyword">import</span> matplotlib.image <span class="hljs-keyword">as</span> matimage<br><br>img_path = <span class="hljs-string">&#x27;../datasets/lenna/lena_std.jpg&#x27;</span><br>img = matimage.imread(img_path)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(img)) <span class="hljs-comment"># &lt;class &#x27;numpy.ndarray&#x27;&gt;</span><br><span class="hljs-built_in">print</span>(img.shape) <span class="hljs-comment"># (512, 512, 3)</span><br><br><span class="hljs-built_in">print</span>(img)<br><span class="hljs-comment"># [[[225 137 125]</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="imageio"><a href="#imageio" class="headerlink" title="imageio"></a>imageio</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Name: imageio</span><br><span class="hljs-comment"># Version: 2.27.0</span><br><br><span class="hljs-keyword">import</span> imageio.v2 <span class="hljs-keyword">as</span> imageio<br><br>img_path = <span class="hljs-string">&#x27;../datasets/lenna/lena_std.jpg&#x27;</span><br>img = imageio.imread(img_path)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(img)) <span class="hljs-comment"># &lt;class &#x27;imageio.core.util.Array&#x27;&gt;</span><br><span class="hljs-built_in">print</span>(img.shape) <span class="hljs-comment"># (512, 512, 3)</span><br><br><span class="hljs-built_in">print</span>(img)<br><span class="hljs-comment"># [[[225 137 125]</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="Pillow"><a href="#Pillow" class="headerlink" title="Pillow"></a>Pillow</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Name: Pillow</span><br><span class="hljs-comment"># Version: 9.5.0</span><br><br><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br>img_path = <span class="hljs-string">&#x27;../datasets/lenna/lena_std.jpg&#x27;</span><br>img = Image.<span class="hljs-built_in">open</span>(img_path)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(img)) <span class="hljs-comment"># &lt;class &#x27;PIL.JpegImagePlugin.JpegImageFile&#x27;&gt;</span><br><br>img = np.array(img)<br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(img)) <span class="hljs-comment"># &lt;class &#x27;numpy.ndarray&#x27;&gt;</span><br><span class="hljs-built_in">print</span>(img.shape) <span class="hljs-comment"># (512, 512, 3)</span><br><br><span class="hljs-built_in">print</span>(img)<br><span class="hljs-comment"># [[[225 137 125]</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="skimage"><a href="#skimage" class="headerlink" title="skimage"></a>skimage</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Name: scikit-image</span><br><span class="hljs-comment"># Version: 0.20.0</span><br><br><span class="hljs-keyword">import</span> skimage.io <span class="hljs-keyword">as</span> io<br><br>img_path = <span class="hljs-string">&#x27;../datasets/lenna/lena_std.jpg&#x27;</span><br>img = io.imread(img_path)<br><br><span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(img)) <span class="hljs-comment"># &lt;class &#x27;numpy.ndarray&#x27;&gt;</span><br><span class="hljs-built_in">print</span>(img.shape) <span class="hljs-comment"># (512, 512, 3)</span><br><br><span class="hljs-built_in">print</span>(img)<br><span class="hljs-comment"># [[[225 137 125]</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="scipy"><a href="#scipy" class="headerlink" title="scipy"></a><del>scipy</del></h1><p>scipy中的imread已经被移除了！<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="[SciPy 1.3.0 Release Notes — SciPy v1.10.1 Manual](https://docs.scipy.org/doc/scipy/release.1.3.0.html)">[3]</span></a></sup></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Name: scipy</span><br><span class="hljs-comment"># Version: 1.9.1</span><br><br><span class="hljs-keyword">import</span> scipy.misc <span class="hljs-keyword">as</span> misc<br><br>img_path = <span class="hljs-string">&#x27;../datasets/lenna/lena_std.jpg&#x27;</span><br>img = misc.imread(img_path)<br><br><span class="hljs-comment"># AttributeError: module &#x27;scipy.misc&#x27; has no attribute &#x27;imread&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Name: scipy</span><br><span class="hljs-comment"># Version: 1.9.1</span><br><br><span class="hljs-keyword">import</span> scipy.ndimage <span class="hljs-keyword">as</span> spyimage<br><br>img_path = <span class="hljs-string">&#x27;../datasets/lenna/lena_std.jpg&#x27;</span><br>img = spyimage.imread(img_path)<br><br><span class="hljs-comment"># AttributeError: module &#x27;scipy.ndimage&#x27; has no attribute &#x27;imread&#x27;</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://docs.opencv.org/4.0.0/d4/da8/group__imgcodecs.html#ga288b8b3da0892bd651fce07b3bbd3a56">OpenCV: Image file reading and writing</a>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://opencv.apachecn.org/#/docs/4.0.0/2.1-tutorial_py_image_display">图像入门 (apachecn.org)</a>
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://docs.scipy.org/doc/scipy/release.1.3.0.html">SciPy 1.3.0 Release Notes — SciPy v1.10.1 Manual</a>
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/15072736/extracting-a-region-from-an-image-using-slicing-in-python-opencv/15074748#15074748">Extracting a region from an image using slicing in Python, OpenCV - Stack Overflow</a>
+<a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" class="category-chain-item">计算机视觉</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+        <a href="/tags/API/" class="print-no-link">#API</a>
+      
+        <a href="/tags/OpenCV/" class="print-no-link">#OpenCV</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>新奇的imread</div>
+      <div>https://cosmicdusty.cc/post/CV/FancyImread/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Murphy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年5月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post/Tools/MagicalWebPages/" title="不可错过的网页">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">不可错过的网页</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/Tools/ToolsForME/" title="趁手工具">
+                        <span class="hidden-mobile">趁手工具</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"JijHNKemeVNog4wF7g9I5TR3-gzGzoHsz","appKey":"FvsKdxHOP2aG5rHrHby5aV0b","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a rel="nofollow noopener"><span>Powered by</span></a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span><b>Hexo</b></span></a> <i class="iconfont icon-love"></i> <a rel="nofollow noopener"><span>Themed by</span></a> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span><b>Fluid</b></span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

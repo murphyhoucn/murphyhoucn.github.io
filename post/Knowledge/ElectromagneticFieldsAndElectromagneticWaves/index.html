@@ -1,0 +1,1278 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <link rel="icon" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Murphy">
+  <meta name="keywords" content="Murphy,CosmicDusty,murphy,cosmicdusty,cn">
+  
+    <meta name="description" content="电磁场与电磁波，这门课有点难，难就难在太多公式了！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="电磁场与电磁波">
+<meta property="og:url" content="https://cosmicdusty.cc/post/Knowledge/ElectromagneticFieldsAndElectromagneticWaves/index.html">
+<meta property="og:site_name" content="MurphyHou">
+<meta property="og:description" content="电磁场与电磁波，这门课有点难，难就难在太多公式了！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/maxwell.png">
+<meta property="article:published_time" content="2021-09-19T14:07:00.000Z">
+<meta property="article:modified_time" content="2023-05-05T14:19:46.000Z">
+<meta property="article:author" content="Murphy">
+<meta property="article:tag" content="电子信息">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/maxwell.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>电磁场与电磁波 - MurphyHou</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cosmicdusty.cc","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"16d93d5abbd7ea15ec53daed5459ebf7","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JijHNKemeVNog4wF7g9I5TR3","app_key":"FvsKdxHOP2aG5rHrHby5aV0b","server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?16d93d5abbd7ea15ec53daed5459ebf7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CosmicDusty</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/maxwell.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="电磁场与电磁波"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Murphy
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-09-19 22:07" pubdate>
+          2021年9月19日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          4.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          40 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">电磁场与电磁波</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>电磁场与电磁波，这门课有点难，难就难在太多公式了！<br>前半部分是电磁场部分，与大学物理所学的东西有很多重合的地方，因此老师在讲课的时候，回默认大家的大学物理电磁场学的很好，我的大学物理学的并不好，因此电磁场部分学的很吃力，很多知识点都听不太懂，记不住！<br>后半部分是电磁场部分，知识点不多，记住基本的条件下的电磁波就能理解特殊的条件下的电磁场吧，这一部分问题也是公式太多了，特别是引入的复矢量，对定义的理解一下子就难了起来了！<br>这门课要想学好，得刷题，记忆公式！</p>
+<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/%E7%94%B5%E7%A3%81%E5%AD%A6%E4%B8%AD%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%87%8F.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="电磁学中的基本量"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/1.%20%E7%BB%AA%E8%AE%BA.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="1. 绪论"></p>
+<h1 id="第一章-矢量分析"><a href="#第一章-矢量分析" class="headerlink" title="第一章 矢量分析"></a>第一章 矢量分析</h1><h2 id="矢量加减法"><a href="#矢量加减法" class="headerlink" title="矢量加减法"></a>矢量加减法</h2><hr>
+<hr>
+<h2 id="矢量乘法"><a href="#矢量乘法" class="headerlink" title="矢量乘法"></a>矢量乘法</h2><p>1标量与矢量的乘积</p>
+<ul>
+<li>结果为矢量</li>
+</ul>
+<p>2矢量与矢量的标量积（点乘）</p>
+<ul>
+<li>结果为标量</li>
+<li><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211007180447503.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></li>
+</ul>
+<p>3矢量与矢量的矢量积（叉乘）</p>
+<ul>
+<li>结果为矢量</li>
+<li>结果矢量的方向满足右手螺旋定则</li>
+<li><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211007181904006.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></li>
+</ul>
+<p>4三矢量的乘积</p>
+<ul>
+<li><strong>标量三重积</strong></li>
+<li><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211007181919281.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></li>
+<li><strong>矢量三重积</strong></li>
+<li><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211007181936604.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></li>
+</ul>
+<hr>
+<hr>
+<h2 id="正交坐标系"><a href="#正交坐标系" class="headerlink" title="正交坐标系"></a>正交坐标系</h2><h3 id="直角坐标系"><a href="#直角坐标系" class="headerlink" title="直角坐标系"></a>直角坐标系</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211023202905518.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="圆柱坐标系"><a href="#圆柱坐标系" class="headerlink" title="圆柱坐标系"></a>圆柱坐标系</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/zhuzuobiao.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="球坐标系"><a href="#球坐标系" class="headerlink" title="球坐标系"></a>球坐标系</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/qiuzuobiao.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="坐标转换"><a href="#坐标转换" class="headerlink" title="坐标转换"></a>坐标转换</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028173800846.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211023203518366.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<hr>
+<h2 id="矢量分析的数学基础"><a href="#矢量分析的数学基础" class="headerlink" title="矢量分析的数学基础"></a>矢量分析的数学基础</h2><p>矢量场的散度唯一地确定场中任一点的通量源强度； </p>
+<p>场的旋度唯一地确定场中任一点的旋涡源强度.</p>
+<p>从分量式上可以看出，散度取决于场分量的纵向变化率， </p>
+<p>而旋度取决于场的横向变化率； </p>
+<p>因而，散度和旋度完整地描述了场的分布特性。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs">• 梯度、散度或旋度都是微分运算，它们表示场在某点附近 的变化特性，场中各点的梯度、散度或旋度可能不同。<br><br> • 梯度、散度及旋度描述的是场的点特性或称为微分特性。<br><br> • 函数的连续性是可微的必要条件。因此在场量发生不连续 处，也就不存在前面定义的梯度、散度或旋度。<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/2.%20%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="2. 数学基础"></p>
+<hr>
+<hr>
+<h2 id="标量场的等值面"><a href="#标量场的等值面" class="headerlink" title="标量场的等值面"></a>标量场的等值面</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028203344951.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<hr>
+<h2 id="§1-0-哈密顿算子"><a href="#§1-0-哈密顿算子" class="headerlink" title="§1.0 哈密顿算子"></a>§1.0 哈密顿算子</h2><h3 id="哈密顿算子定义"><a href="#哈密顿算子定义" class="headerlink" title="哈密顿算子定义"></a>哈密顿算子定义</h3><p>性质：矢量性&#x2F;微分性</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211023205250358.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20220108085839928.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20220108085903045.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20220108090051818.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="三种坐标系下散度计算公式"><a href="#三种坐标系下散度计算公式" class="headerlink" title="三种坐标系下散度计算公式"></a>三种坐标系下散度计算公式</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211023205336204.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="三种坐标系下旋度计算公式"><a href="#三种坐标系下旋度计算公式" class="headerlink" title="三种坐标系下旋度计算公式"></a>三种坐标系下旋度计算公式</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211023205512112.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="含两点间距离的微分关系式"><a href="#含两点间距离的微分关系式" class="headerlink" title="含两点间距离的微分关系式"></a>含两点间距离的微分关系式</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028212351539.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<hr>
+<h2 id="§1-1-方向导数与梯度"><a href="#§1-1-方向导数与梯度" class="headerlink" title="§1.1 方向导数与梯度"></a>§1.1 方向导数与梯度</h2><h3 id="方向导数定义—标量"><a href="#方向导数定义—标量" class="headerlink" title="方向导数定义—标量"></a>方向导数定义—标量</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028203417644.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028203445399.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028181825761.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="梯度定义—矢量"><a href="#梯度定义—矢量" class="headerlink" title="梯度定义—矢量"></a>梯度定义—矢量</h3><p>标量场中某点梯度的大小为该点最大的方向导数， 其方向为该点所在等值面的法线方向。</p>
+<p>梯度的方向就是等值面的法线方向</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028204042059.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028181920349.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="梯度的运算规则"><a href="#梯度的运算规则" class="headerlink" title="梯度的运算规则"></a>梯度的运算规则</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028204143782.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<hr>
+<h2 id="§1-2-通量与散度"><a href="#§1-2-通量与散度" class="headerlink" title="§1.2 通量与散度"></a>§1.2 通量与散度</h2><p>矢线（场线）：在矢量场中，若一条曲线上每一点的切线方向与 场矢量在该点的方向重合，则该曲线称为矢线。</p>
+<h3 id="通量定义—标量"><a href="#通量定义—标量" class="headerlink" title="通量定义—标量"></a>通量定义—标量</h3><p>通量：如果在该矢量场中取一曲面S， 通过该曲面的矢线量称为通量。</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211023204050022.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211023204513566.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211023204547206.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="散度定义—标量"><a href="#散度定义—标量" class="headerlink" title="散度定义—标量"></a>散度定义—标量</h3><p>通量反映了封闭面中源的总特性，但没有反映源的分布特性; 若要进一步描述源的分布特性，则要引入散度;</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211023204942460.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="用哈密顿算子表示散度"><a href="#用哈密顿算子表示散度" class="headerlink" title="用哈密顿算子表示散度"></a>用哈密顿算子表示散度</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028171628316.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="散度的物理意义"><a href="#散度的物理意义" class="headerlink" title="散度的物理意义"></a>散度的物理意义</h3><p>散度是 矢量A 通过某点处单位体积的通量 （通量体密度）； </p>
+<p>它反映了 矢量A 在该点的通量源强度；</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/astronomy/image-20211023205204811.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211023205157973.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="散度的运算规则"><a href="#散度的运算规则" class="headerlink" title="散度的运算规则"></a>散度的运算规则</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028170359525.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="散度定理"><a href="#散度定理" class="headerlink" title="散度定理"></a>散度定理</h3><p>矢量场的散度代表其通量的体密度,因此从散度的定义出 发，散度的体积分等于穿过包围该体积封闭面的总通量</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028170424728.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028170446797.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<hr>
+<h2 id="§1-3-环量与旋度"><a href="#§1-3-环量与旋度" class="headerlink" title="§1.3 环量与旋度"></a>§1.3 环量与旋度</h2><p>不是所有的矢量场都由通量源激发。存在另一类不同于通量源的矢量源，它所激发的<strong>矢量场的力线是闭合</strong>的，<strong>它对于任何闭合曲面的通量为零</strong>。但在<strong>场所定义的空间中闭合路径的积分不为零</strong>。</p>
+<h3 id="环量定义—标量"><a href="#环量定义—标量" class="headerlink" title="环量定义—标量"></a>环量定义—标量</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028182520858.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="环量密度—标量"><a href="#环量密度—标量" class="headerlink" title="环量密度—标量"></a>环量密度—标量</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028183020351.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028195932542.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="旋度定义—矢量"><a href="#旋度定义—矢量" class="headerlink" title="旋度定义—矢量"></a>旋度定义—矢量</h3><p>矢量场的环流给出了矢量场与积分回路所围曲面内旋涡源 宏观联系。 </p>
+<p>为了给出空间任意点矢量场与旋涡源的关系，引入 矢量场的旋度。</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028200117309.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="旋度的物理意义"><a href="#旋度的物理意义" class="headerlink" title="旋度的物理意义"></a>旋度的物理意义</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028200211651.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="旋度的计算式"><a href="#旋度的计算式" class="headerlink" title="旋度的计算式"></a>旋度的计算式</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028200346789.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="哈密顿算子表示旋度"><a href="#哈密顿算子表示旋度" class="headerlink" title="哈密顿算子表示旋度"></a>哈密顿算子表示旋度</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028200406863.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028200421254.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="旋度的运算规则"><a href="#旋度的运算规则" class="headerlink" title="旋度的运算规则"></a>旋度的运算规则</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028200500907.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="静电场的是无旋场"><a href="#静电场的是无旋场" class="headerlink" title="静电场的是无旋场"></a>静电场的是无旋场</h3><p>静止点电荷产生的电场的旋度为0</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028201737832.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<hr>
+<h2 id="§1-4-斯托克斯定理"><a href="#§1-4-斯托克斯定理" class="headerlink" title="§1.4 斯托克斯定理"></a>§1.4 斯托克斯定理</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028201425556.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="物理意义"><a href="#物理意义" class="headerlink" title="物理意义"></a>物理意义</h3><p>一个矢量场旋度的面积分等于该矢量沿此曲面周界的曲 线积分。</p>
+<p>斯托克斯定理是闭合曲线积分与曲面积分之间的一个 变换关系式，在电磁理论中也有广泛的应用。</p>
+<hr>
+<hr>
+<h2 id="§1-5-Green定理"><a href="#§1-5-Green定理" class="headerlink" title="§1.5 Green定理"></a>§1.5 Green定理</h2><h3 id="两大定理"><a href="#两大定理" class="headerlink" title="两大定理"></a>两大定理</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028204300698.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="Green定理的应用"><a href="#Green定理的应用" class="headerlink" title="Green定理的应用"></a>Green定理的应用</h3><ul>
+<li><p>将体积V中场的求解问题变换为边界S上场的求解问题。</p>
+</li>
+<li><p>已知其中一个场的分布，就可以用Green定理求解另一 场的分布特性。</p>
+</li>
+</ul>
+<hr>
+<hr>
+<h2 id="§1-6-场论重要公式"><a href="#§1-6-场论重要公式" class="headerlink" title="§1.6 场论重要公式"></a>§1.6 场论重要公式</h2><h3 id="两个重要恒等式"><a href="#两个重要恒等式" class="headerlink" title="两个重要恒等式"></a>两个重要恒等式</h3><p>梯无旋</p>
+<p>旋无散</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028204937243.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="三个坐标系下的拉普拉斯算子"><a href="#三个坐标系下的拉普拉斯算子" class="headerlink" title="三个坐标系下的拉普拉斯算子"></a>三个坐标系下的拉普拉斯算子</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028205000150.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028212501433.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="常用的矢量恒等式"><a href="#常用的矢量恒等式" class="headerlink" title="常用的矢量恒等式"></a>常用的矢量恒等式</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028205027039.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<hr>
+<h2 id="§1-7-亥姆霍兹定理"><a href="#§1-7-亥姆霍兹定理" class="headerlink" title="§1.7 亥姆霍兹定理"></a>§1.7 亥姆霍兹定理</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028210149509.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="矢量场的惟一性定理"><a href="#矢量场的惟一性定理" class="headerlink" title="矢量场的惟一性定理"></a>矢量场的惟一性定理</h3><p>位于某一区域中的矢量场，当其散度、旋度以及边界 上场量的切向分量或法向分量给定后，则该区域中的矢 量场被惟一地确定。</p>
+<p>已知散度和旋度代表产生矢量场的源，可见惟一性定 理表明，矢量场被其源及边界条件共同决定的。</p>
+<hr>
+<hr>
+<h2 id="§1-8-矢量场按源分类"><a href="#§1-8-矢量场按源分类" class="headerlink" title="§1.8 矢量场按源分类"></a>§1.8 矢量场按源分类</h2><h3 id="无旋场"><a href="#无旋场" class="headerlink" title="无旋场"></a>无旋场</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028210518584.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="无散场"><a href="#无散场" class="headerlink" title="无散场"></a>无散场</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028210533779.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="无旋，无散场"><a href="#无旋，无散场" class="headerlink" title="无旋，无散场"></a>无旋，无散场</h3><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028210543512.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="" style="zoom:200%;" />
+
+<h3 id="有旋，有散场"><a href="#有旋，有散场" class="headerlink" title="有旋，有散场"></a>有旋，有散场</h3><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028210550203.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt=""  />
+
+<hr>
+<hr>
+<hr>
+<hr>
+<hr>
+<h1 id="第二章-电磁场基本方程"><a href="#第二章-电磁场基本方程" class="headerlink" title="第二章 电磁场基本方程"></a>第二章 电磁场基本方程</h1><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">2</span>.<span class="hljs-number">0</span> 电荷、电流、电荷守恒定律<br><span class="hljs-attribute">2</span>.<span class="hljs-number">1</span> 静态电磁场的基本定律<br><span class="hljs-attribute">2</span>.<span class="hljs-number">2</span> 法拉第电磁感应定律和全电流定律<br><span class="hljs-attribute">2</span>.<span class="hljs-number">3</span> Maxwell方程组<br><span class="hljs-attribute">2</span>.<span class="hljs-number">4</span> 电磁场的边界条件<br><span class="hljs-attribute">2</span>.<span class="hljs-number">5</span> 坡印廷定理和坡印廷矢量<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211028212835449.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<hr>
+<h2 id="§2-0-电荷、电流，电荷守恒定理"><a href="#§2-0-电荷、电流，电荷守恒定理" class="headerlink" title="§2.0 电荷、电流，电荷守恒定理"></a>§2.0 电荷、电流，电荷守恒定理</h2><p>电荷是产生电场的源</p>
+<p>电流是产生磁场的源</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/%E7%94%B5%E8%8D%B7%E4%B8%8E%E7%94%B5%E6%B5%81.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="电荷与电流"></p>
+<hr>
+<hr>
+<hr>
+<hr>
+<h2 id="§2-1-静态电磁场的基本定律和基本场矢量"><a href="#§2-1-静态电磁场的基本定律和基本场矢量" class="headerlink" title="§2.1 静态电磁场的基本定律和基本场矢量"></a>§2.1 静态电磁场的基本定律和基本场矢量</h2><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">• 库仑定律</span><span class="hljs-literal">-----</span> <span class="hljs-comment">电场强度</span><br><span class="hljs-comment">• 高斯定理</span><span class="hljs-literal">------</span><span class="hljs-comment">电通密度</span><br><span class="hljs-comment">• 比奥—沙伐定律</span><span class="hljs-literal">-------</span><span class="hljs-comment">磁通密度</span><br><span class="hljs-comment">• 磁通连续性原理</span><span class="hljs-literal">-----</span><span class="hljs-comment">安培环路定律</span><span class="hljs-literal">-----</span><span class="hljs-comment">磁场强度</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="库伦定律"><a href="#库伦定律" class="headerlink" title="库伦定律"></a>库伦定律</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211029201951045.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<h3 id="电场强度"><a href="#电场强度" class="headerlink" title="电场强度"></a>电场强度</h3><p>源点：场源所在位置</p>
+<p>场点：场中任意空间位置</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211029203002866.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/%E7%94%B5%E5%9C%BA%E7%B1%BB%E5%9E%8B.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="电场类型"></p>
+<hr>
+<h3 id="真空中的高斯定理"><a href="#真空中的高斯定理" class="headerlink" title="真空中的高斯定理"></a>真空中的高斯定理</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211029210112164.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<h3 id="电场强度的散度"><a href="#电场强度的散度" class="headerlink" title="电场强度的散度"></a>电场强度的散度</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211029210550383.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<h3 id="电通密度"><a href="#电通密度" class="headerlink" title="电通密度"></a>电通密度</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211029211320280.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<h3 id="介质中的高斯定理"><a href="#介质中的高斯定理" class="headerlink" title="介质中的高斯定理"></a>介质中的高斯定理</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211029211333436.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<h3 id="电通密度的散度"><a href="#电通密度的散度" class="headerlink" title="电通密度的散度"></a>电通密度的散度</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211029211430652.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<h3 id="静电场常见问题"><a href="#静电场常见问题" class="headerlink" title="静电场常见问题"></a>静电场常见问题</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/%E9%9D%99%E7%94%B5%E5%9C%BA%E7%9A%84%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="静电场的常见问题"></p>
+<hr>
+<h3 id="安培力定律"><a href="#安培力定律" class="headerlink" title="安培力定律"></a>安培力定律</h3><p>电流相互作用 力公式，称为安培力定律</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030145923231.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<h3 id="毕奥萨法尔定律"><a href="#毕奥萨法尔定律" class="headerlink" title="毕奥萨法尔定律"></a>毕奥萨法尔定律</h3><p>电流在其周围空间中产生磁场，描述磁场分布的基本物理量是<strong>磁通密度 B（矢量）</strong> ，单位为T（特斯拉）。</p>
+<p>磁场的重要特征是对场中的电流磁场力作用，载流回路C_1对载流回路 C_2 的作用力是回路 C_1中的电流 I_1产生的磁场对回路 C_2中的电流 I_2的作用力。</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030152339567.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<h3 id="磁感应强度-磁通密度"><a href="#磁感应强度-磁通密度" class="headerlink" title="磁感应强度&#x2F;磁通密度"></a>磁感应强度&#x2F;磁通密度</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/%E7%A3%81%E9%80%9A%E5%AF%86%E5%BA%A6.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="磁通密度"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/%E5%87%A0%E7%A7%8D%E5%85%B8%E5%9E%8B%E7%94%B5%E6%B5%81%E5%88%86%E5%B8%83%E7%9A%84%E7%A3%81%E6%84%9F%E5%BA%94%E5%BC%BA%E5%BA%A6.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="几种典型电流分布的磁感应强度"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030153647451.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<h3 id="磁通连续性原理"><a href="#磁通连续性原理" class="headerlink" title="磁通连续性原理"></a>磁通连续性原理</h3><p>因为自然界中并不存在任何单独的磁荷, 磁力线总是闭合的。</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030154251192.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<h3 id="磁场强度"><a href="#磁场强度" class="headerlink" title="磁场强度"></a>磁场强度</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030160220426.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<h3 id="安培环路定理"><a href="#安培环路定理" class="headerlink" title="安培环路定理"></a>安培环路定理</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030160532859.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030160241874.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030161653036.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030162224008.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030162852776.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<hr>
+<h2 id="§2-2-法拉第电磁感应定律和全电流定律"><a href="#§2-2-法拉第电磁感应定律和全电流定律" class="headerlink" title="§2.2 法拉第电磁感应定律和全电流定律"></a>§2.2 法拉第电磁感应定律和全电流定律</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs">• 电磁感应定律 —— 揭示时变磁场产生电场<br>• 位移电流 —— 揭示时变电场产生磁场<br>• 重要结论： 在时变情况下，电场与磁场相互激励，形成统一的电磁场。<br><br>2.2.1 电磁感应定律<br>2.2.2 位移电流和全电流定律<br>2.2.3 全电流连续性原理<br></code></pre></td></tr></table></figure>
+
+<h3 id="法拉第电磁感定律"><a href="#法拉第电磁感定律" class="headerlink" title="法拉第电磁感定律"></a>法拉第电磁感定律</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030163915813.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030164322868.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="引起回路中磁通变化的几种情况"><a href="#引起回路中磁通变化的几种情况" class="headerlink" title="引起回路中磁通变化的几种情况"></a>引起回路中磁通变化的几种情况</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/%E5%BC%95%E8%B5%B7%E5%9B%9E%E8%B7%AF%E4%B8%AD%E7%A3%81%E9%80%9A%E5%8F%98%E5%8C%96%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="引起回路中磁通变化的几种情况"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030165732168.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="位移电流于位移电流密度"><a href="#位移电流于位移电流密度" class="headerlink" title="位移电流于位移电流密度"></a>位移电流于位移电流密度</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030170152296.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030170517881.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030170555953.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="全电流连续性原理"><a href="#全电流连续性原理" class="headerlink" title="全电流连续性原理"></a>全电流连续性原理</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030170816398.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030170858420.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030171135109.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="传导电流与位移电流对比"><a href="#传导电流与位移电流对比" class="headerlink" title="传导电流与位移电流对比"></a>传导电流与位移电流对比</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030171617563.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030171628679.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<hr>
+<h2 id="§2-3-麦克斯韦方程组⭐"><a href="#§2-3-麦克斯韦方程组⭐" class="headerlink" title="§2.3 麦克斯韦方程组⭐"></a>§2.3 麦克斯韦方程组⭐</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/123835582">麦克斯韦方程组 - 知乎 (zhihu.com)</a></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/informationtheory/image-20211021195815000.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030172530102.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>全电流定律：磁场强度沿任意闭合曲线的环量，等于穿过以闭合曲线为周界的任意曲面的传导电流和位移电流之和；</p>
+<p>电磁感应定律：电场强度沿任意闭合曲线的环量，等于穿过以闭合曲线为边界的任意曲面磁通量变化率的负值；</p>
+<p>磁通连续性原理：穿过任意闭合曲面的磁感应强度的通量为0；</p>
+<p>高斯定理：穿过任意闭合曲面的电位移的通量等于该闭合曲面所包围的自由电荷的代数和；</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030203138077.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030203149283.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<ul>
+<li>时变电场的激发源除了电荷以外，还有变化的磁场；而时变 磁场的激发源除了传导电流以外，还有变化的电场。电场和 磁场互为激发源，相互激发。</li>
+<li>时变电磁场的电场和磁场不再相互独立，而是相互关联， 构成一个整体 —— 电磁场。电场和磁场分别是电磁场的两 个分量。</li>
+<li>在离开辐射源（如天线）的无源空间中，电荷密度和电流密 度矢量为零，电场和磁场仍然可以相互激发，从而在空间形 成电磁振荡并传播，这就是电磁波。</li>
+</ul>
+<h3 id="本构关系"><a href="#本构关系" class="headerlink" title="本构关系"></a>本构关系</h3><p>在有介质存在时，电场强度矢量和磁感应强度矢量 都与介质的特性有关，因此上述麦克斯韦方程组是不完 备的，还需要再补充描述介质性质的方程：</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030172809099.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="波动方程"><a href="#波动方程" class="headerlink" title="波动方程"></a>波动方程</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030173008632.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030173020672.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="电磁场的位函数——洛伦兹规范"><a href="#电磁场的位函数——洛伦兹规范" class="headerlink" title="电磁场的位函数——洛伦兹规范"></a>电磁场的位函数——洛伦兹规范</h3><h4 id="矢量位函数"><a href="#矢量位函数" class="headerlink" title="矢量位函数"></a>矢量位函数</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030175539599.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="标量位函数"><a href="#标量位函数" class="headerlink" title="标量位函数"></a>标量位函数</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030175601661.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="位函数的非齐次波动方程"><a href="#位函数的非齐次波动方程" class="headerlink" title="位函数的非齐次波动方程"></a>位函数的非齐次波动方程</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030203546162.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030203614589.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="泊松方程"><a href="#泊松方程" class="headerlink" title="泊松方程"></a>泊松方程</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030202824868.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="§2-4-电磁场的边界条件"><a href="#§2-4-电磁场的边界条件" class="headerlink" title="§2.4 电磁场的边界条件"></a>§2.4 电磁场的边界条件</h2><p>• 不同媒质的介电常数ε、磁导率μ、电导率σ不同，在分界面两侧的媒质参数有突变。 </p>
+<p>• 边界上Maxwell方程组的微分失去意义 </p>
+<p>• 从<strong>积分形式的Maxwell方程组</strong>出发推导边界两侧电磁场间的关系。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">2</span>.<span class="hljs-number">4</span>.<span class="hljs-number">1</span> 边界条件的一般表达式<br><span class="hljs-attribute">2</span>.<span class="hljs-number">4</span>.<span class="hljs-number">2</span> 两种常见的情况<br></code></pre></td></tr></table></figure>
+
+<h3 id="边界条件的一般表达式"><a href="#边界条件的一般表达式" class="headerlink" title="边界条件的一般表达式"></a>边界条件的一般表达式</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030204118539.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<h3 id="电场和磁场切向和法向边界条件"><a href="#电场和磁场切向和法向边界条件" class="headerlink" title="电场和磁场切向和法向边界条件"></a>电场和磁场切向和法向边界条件</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030204719454.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="常见情形"><a href="#常见情形" class="headerlink" title="常见情形"></a>常见情形</h3><h4 id="两种理想介质间的边界条件"><a href="#两种理想介质间的边界条件" class="headerlink" title="两种理想介质间的边界条件"></a>两种理想介质间的边界条件</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030205315843.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<h4 id="理想介质与理想导体间的边界条件"><a href="#理想介质与理想导体间的边界条件" class="headerlink" title="理想介质与理想导体间的边界条件"></a>理想介质与理想导体间的边界条件</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030205326976.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<hr>
+<hr>
+<h2 id="§2-5-坡印廷定理和坡印廷矢量"><a href="#§2-5-坡印廷定理和坡印廷矢量" class="headerlink" title="§2.5 坡印廷定理和坡印廷矢量"></a>§2.5 坡印廷定理和坡印廷矢量</h2><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs abnf">⚫电磁场是具有能量的<span class="hljs-comment">;</span><br>⚫时变电磁场中的能量守恒定律——坡印廷定理；<br>⚫坡印廷矢量是描述电磁场能量流动的物理量。<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030210217078.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="坡印廷定理—-表征电磁能量守恒关系的定理"><a href="#坡印廷定理—-表征电磁能量守恒关系的定理" class="headerlink" title="坡印廷定理—-表征电磁能量守恒关系的定理"></a>坡印廷定理—-表征电磁能量守恒关系的定理</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030210740593.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030210751298.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="坡印廷矢量（电磁能流密度矢量）"><a href="#坡印廷矢量（电磁能流密度矢量）" class="headerlink" title="坡印廷矢量（电磁能流密度矢量）"></a>坡印廷矢量（电磁能流密度矢量）</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030211046910.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="场与路的一些对应关系"><a href="#场与路的一些对应关系" class="headerlink" title="场与路的一些对应关系"></a>场与路的一些对应关系</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030211132873.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="§2-6-惟一性定理"><a href="#§2-6-惟一性定理" class="headerlink" title="§2.6 惟一性定理"></a>§2.6 惟一性定理</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030211431129.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211030211506117.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h1 id="第三章-静电场及其边值问题的解法"><a href="#第三章-静电场及其边值问题的解法" class="headerlink" title="第三章 静电场及其边值问题的解法"></a>第三章 静电场及其边值问题的解法</h1><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211107170419954.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>静态场中的电场和磁场是彼此独立存在的。</p>
+<p>静电场：第三章</p>
+<p>恒定电场：第四章</p>
+<p>恒定磁场：第四章</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113170525779.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs">一、静电场基本方程与电位方程<br>二、静电场中的介质<br>三、 静电场中的导体和电容<br>四．静电场的边界条件<br>五．静电场边值问题，惟一性定理<br>六、镜像法<br>七、分离变量法<br></code></pre></td></tr></table></figure>
+
+<h2 id="§3-1-静电场基本方程与电位方程"><a href="#§3-1-静电场基本方程与电位方程" class="headerlink" title="§3.1 静电场基本方程与电位方程"></a>§3.1 静电场基本方程与电位方程</h2><h3 id="静电场的麦克斯韦方程组"><a href="#静电场的麦克斯韦方程组" class="headerlink" title="静电场的麦克斯韦方程组"></a>静电场的麦克斯韦方程组</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211107172617518.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="静电场的无旋性"><a href="#静电场的无旋性" class="headerlink" title="静电场的无旋性"></a>静电场的无旋性</h3><p>静电场中电场力作的功与路径无关, 只取决于始点和终点的位置； </p>
+<p>静电场是保守场, 也称位场；</p>
+<h3 id="电位"><a href="#电位" class="headerlink" title="电位"></a>电位</h3><h4 id="电位参考点"><a href="#电位参考点" class="headerlink" title="电位参考点"></a>电位参考点</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211107173457448.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="四种分布的电位表达式"><a href="#四种分布的电位表达式" class="headerlink" title="四种分布的电位表达式"></a>四种分布的电位表达式</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211107173552128.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="电位差U"><a href="#电位差U" class="headerlink" title="电位差U"></a>电位差U</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211107173829189.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="电位方程——泊松方程与拉普拉斯方程"><a href="#电位方程——泊松方程与拉普拉斯方程" class="headerlink" title="电位方程——泊松方程与拉普拉斯方程"></a>电位方程——泊松方程与拉普拉斯方程</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211107174134725.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112100207352.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="电位的计算"><a href="#电位的计算" class="headerlink" title="电位的计算"></a>电位的计算</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/%E7%94%B5%E4%BD%8D%E7%9A%84%E8%AE%A1%E7%AE%97.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="电位的计算"></p>
+<h2 id="§3-2-静电场中的介质"><a href="#§3-2-静电场中的介质" class="headerlink" title="§3.2 静电场中的介质"></a>§3.2 静电场中的介质</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112103145712.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112103211475.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="介质极化"><a href="#介质极化" class="headerlink" title="介质极化"></a>介质极化</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112103559654.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112104054538.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="极化强度"><a href="#极化强度" class="headerlink" title="极化强度"></a>极化强度</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112104214020.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112104258553.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>这类介质的极化强度与合成的电场强度的方向相同。 极化强度的某一坐标分量仅决定于相应的电场强度的坐标分量。 极化率与电场方向无关，这类介质称为各向同性介质。</p>
+<p>介质的极化率与电场强度的方向有关，也就是极化特性与 电场强度方向有关，因此，这类介质称为各向异性介质。</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112104453482.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="极化强度矢量与束缚电荷密度"><a href="#极化强度矢量与束缚电荷密度" class="headerlink" title="极化强度矢量与束缚电荷密度"></a>极化强度矢量与束缚电荷密度</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112104629429.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112104639931.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="高斯通量定理"><a href="#高斯通量定理" class="headerlink" title="高斯通量定理"></a>高斯通量定理</h3><h4 id="真空高斯定理"><a href="#真空高斯定理" class="headerlink" title="真空高斯定理"></a>真空高斯定理</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112104923072.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="介质高斯定理"><a href="#介质高斯定理" class="headerlink" title="介质高斯定理"></a>介质高斯定理</h4><p>介质中的电通量密度（电位移矢量）的定义！！！</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112110304501.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112105108812.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112105122040.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112105134211.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="介质中高斯定理的应用"><a href="#介质中高斯定理的应用" class="headerlink" title="介质中高斯定理的应用"></a>介质中高斯定理的应用</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112110544257.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112110646088.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><h4 id="电磁场的基本方程与本构关系"><a href="#电磁场的基本方程与本构关系" class="headerlink" title="电磁场的基本方程与本构关系"></a>电磁场的基本方程与本构关系</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112163315649.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="场量"><a href="#场量" class="headerlink" title="场量"></a>场量</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112163450964.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="静电场中的两类基本问题"><a href="#静电场中的两类基本问题" class="headerlink" title="静电场中的两类基本问题"></a>静电场中的两类基本问题</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112163705776.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="§3-3-静电场中的导体和电容"><a href="#§3-3-静电场中的导体和电容" class="headerlink" title="§3.3 静电场中的导体和电容"></a>§3.3 静电场中的导体和电容</h2><h3 id="静电场中的导体——静电平衡"><a href="#静电场中的导体——静电平衡" class="headerlink" title="静电场中的导体——静电平衡"></a>静电场中的导体——静电平衡</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112163911302.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112164726977.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="电容"><a href="#电容" class="headerlink" title="电容"></a>电容</h3><p>电容的决定式</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112165447551.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>电容的定义式：C&#x3D;Q&#x2F;U</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112164819718.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112201919317.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112201935602.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112201950267.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">电容是导体系统的一种基本属性，<br>是描述导体系统 储存电荷能力的物理量。<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112171426848.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs">孤立导体的电容<br>双导体的电容<br>多导体系统的分布电容<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112170910999.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="电容计算的两种方法"><a href="#电容计算的两种方法" class="headerlink" title="电容计算的两种方法"></a>电容计算的两种方法</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112171726394.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112200551760.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="§3-4-静电场的边界条件"><a href="#§3-4-静电场的边界条件" class="headerlink" title="§3.4 静电场的边界条件"></a>§3.4 静电场的边界条件</h2><p><em><strong>转2.4 电磁场的边界条件</strong></em></p>
+<h3 id="场量的边界条件"><a href="#场量的边界条件" class="headerlink" title="场量的边界条件"></a>场量的边界条件</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112202341412.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112202624939.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112203107180.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="两种特殊的电场边界条件"><a href="#两种特殊的电场边界条件" class="headerlink" title="两种特殊的电场边界条件"></a>两种特殊的电场边界条件</h3><h4 id="介质与导体间边界条件"><a href="#介质与导体间边界条件" class="headerlink" title="介质与导体间边界条件"></a>介质与导体间边界条件</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113105328107.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="两种介质间边界条件"><a href="#两种介质间边界条件" class="headerlink" title="两种介质间边界条件"></a>两种介质间边界条件</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113110205940.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113110221050.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="电位φ满足的边界条件"><a href="#电位φ满足的边界条件" class="headerlink" title="电位φ满足的边界条件"></a>电位φ满足的边界条件</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113110342034.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113112201207.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113114435906.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="介质与导体间的电位边界条件"><a href="#介质与导体间的电位边界条件" class="headerlink" title="介质与导体间的电位边界条件"></a>介质与导体间的电位边界条件</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113114455038.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="介质与介质之间的电位边界条件"><a href="#介质与介质之间的电位边界条件" class="headerlink" title="介质与介质之间的电位边界条件"></a>介质与介质之间的电位边界条件</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113114512292.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><strong>边界条件的重要性</strong> 1. 构成边值问题必不可少的条件; 2. 判断不同媒质界面两侧场量的大小、方向及连续、突变</p>
+<h2 id="§3-5-静电场边值问题，惟一性定理"><a href="#§3-5-静电场边值问题，惟一性定理" class="headerlink" title="§3.5 静电场边值问题，惟一性定理"></a>§3.5 静电场边值问题，惟一性定理</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs">一、静电场基本方程与电位方程<br>二、静电场中的介质<br>三、 静电场中的导体和电容<br>四．静电场的边界条件<br>五．静电场边值问题，惟一性定理<br>六．镜像法<br>七．分离变量法<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112212015897.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="静电场边值问题及其分类"><a href="#静电场边值问题及其分类" class="headerlink" title="静电场边值问题及其分类"></a>静电场边值问题及其分类</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112212210823.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112212222736.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112212238340.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="边值问题的解法"><a href="#边值问题的解法" class="headerlink" title="边值问题的解法"></a>边值问题的解法</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112212648119.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="唯一性定理"><a href="#唯一性定理" class="headerlink" title="唯一性定理"></a>唯一性定理</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211112212715704.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="§3-6-镜像法"><a href="#§3-6-镜像法" class="headerlink" title="§3.6 镜像法"></a>§3.6 镜像法</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs">一．镜像法的基本原理<br>二．接地导体平面的镜像<br>三．点电荷对无限大介质平面的镜像<br>四．导体球面的镜像<br>五．导体圆柱面的镜像<br>六．线电流对无限大磁介质平面的镜像<br></code></pre></td></tr></table></figure>
+
+<h3 id="镜像法的基本原理"><a href="#镜像法的基本原理" class="headerlink" title="镜像法的基本原理"></a>镜像法的基本原理</h3><p>非均匀感应电荷产生的电位很难求 解，可以用等效电荷的电位替代</p>
+<p>所谓镜像法是将不均匀电荷分布的作用等效为点电荷 或线电荷的作用。</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113100843410.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113101023703.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113101905218.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="接地导体平面的镜像"><a href="#接地导体平面的镜像" class="headerlink" title="接地导体平面的镜像"></a>接地导体平面的镜像</h3><h4 id="点电荷对无限大接地导体平面的镜像"><a href="#点电荷对无限大接地导体平面的镜像" class="headerlink" title="点电荷对无限大接地导体平面的镜像"></a>点电荷对无限大接地导体平面的镜像</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113102506367.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113103240360.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113103545553.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="线电荷对无限大接地导体平面的镜像"><a href="#线电荷对无限大接地导体平面的镜像" class="headerlink" title="线电荷对无限大接地导体平面的镜像"></a>线电荷对无限大接地导体平面的镜像</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113143947632.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="点电荷对半无限大接地导体角域-导体劈-的镜像"><a href="#点电荷对半无限大接地导体角域-导体劈-的镜像" class="headerlink" title="点电荷对半无限大接地导体角域 (导体劈) 的镜像"></a>点电荷对半无限大接地导体角域 (导体劈) 的镜像</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113144054432.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113144136141.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113144211584.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113144302950.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="点电荷对无限大介质平面的镜像"><a href="#点电荷对无限大介质平面的镜像" class="headerlink" title="点电荷对无限大介质平面的镜像"></a>点电荷对无限大介质平面的镜像</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113150130026.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113150312323.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113150344780.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="导体球面的镜像"><a href="#导体球面的镜像" class="headerlink" title="导体球面的镜像"></a>导体球面的镜像</h3><h4 id="接地导体球"><a href="#接地导体球" class="headerlink" title="接地导体球"></a>接地导体球</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113155100047.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113155256649.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113151757430.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="导体球不接地、不带电荷"><a href="#导体球不接地、不带电荷" class="headerlink" title="导体球不接地、不带电荷"></a>导体球不接地、不带电荷</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113151823382.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113151921860.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="导体球不接地、带电荷"><a href="#导体球不接地、带电荷" class="headerlink" title="导体球不接地、带电荷"></a>导体球不接地、带电荷</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113151938225.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="接地导体球壳"><a href="#接地导体球壳" class="headerlink" title="接地导体球壳"></a>接地导体球壳</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113160307469.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113160327475.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="导体圆柱面的镜像ppt-159"><a href="#导体圆柱面的镜像ppt-159" class="headerlink" title="导体圆柱面的镜像ppt 159"></a>导体圆柱面的镜像ppt 159</h3><h4 id="线电荷对接地导体圆柱面的镜像"><a href="#线电荷对接地导体圆柱面的镜像" class="headerlink" title="线电荷对接地导体圆柱面的镜像"></a>线电荷对接地导体圆柱面的镜像</h4><h4 id="平行圆柱导体的电轴"><a href="#平行圆柱导体的电轴" class="headerlink" title="平行圆柱导体的电轴"></a>平行圆柱导体的电轴</h4><h4 id="半径不同的两平行圆柱导体问题"><a href="#半径不同的两平行圆柱导体问题" class="headerlink" title="半径不同的两平行圆柱导体问题"></a>半径不同的两平行圆柱导体问题</h4><h3 id="线电流对无限大磁介质平面的镜像（矢量位）"><a href="#线电流对无限大磁介质平面的镜像（矢量位）" class="headerlink" title="线电流对无限大磁介质平面的镜像（矢量位）"></a>线电流对无限大磁介质平面的镜像（矢量位）</h3><h3 id="线电流对无限大磁介质平面的镜像（磁场强度）"><a href="#线电流对无限大磁介质平面的镜像（磁场强度）" class="headerlink" title="线电流对无限大磁介质平面的镜像（磁场强度）"></a>线电流对无限大磁介质平面的镜像（磁场强度）</h3><h3 id="镜像法-小结"><a href="#镜像法-小结" class="headerlink" title="镜像法 小结"></a>镜像法 小结</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113161316255.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113161415047.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="§3-7-分离变量法"><a href="#§3-7-分离变量法" class="headerlink" title="§3.7 分离变量法"></a>§3.7 分离变量法</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113161449821.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="0-双曲函数"><a href="#0-双曲函数" class="headerlink" title="0.双曲函数"></a>0.双曲函数</h3><p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8F%8C%E6%9B%B2%E5%87%BD%E6%95%B0/8704306">双曲函数_百度百科 (baidu.com)</a></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113163125398.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113163152889.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">1.</span> 分离变量法解题的基本步骤<br><span class="hljs-bullet">2.</span> 直角坐标系中的分离变量法<br><span class="hljs-bullet">3.</span> 圆柱坐标系中的分离变量法<br><span class="hljs-bullet">4.</span> 球坐标系中的分离变量法<br><span class="hljs-bullet">5.</span> 复变函数法<br></code></pre></td></tr></table></figure>
+
+<h3 id="1-分离变量法解题的基本步骤"><a href="#1-分离变量法解题的基本步骤" class="headerlink" title="1. 分离变量法解题的基本步骤"></a>1. 分离变量法解题的基本步骤</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113162132408.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="2-直角坐标系中的分离变量法"><a href="#2-直角坐标系中的分离变量法" class="headerlink" title="2. 直角坐标系中的分离变量法"></a>2. 直角坐标系中的分离变量法</h3><h4 id="二维拉普拉斯方程"><a href="#二维拉普拉斯方程" class="headerlink" title="二维拉普拉斯方程"></a>二维拉普拉斯方程</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113162155544.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113162208994.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113162223354.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113162238219.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113162254005.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h4 id="三维拉普拉斯方程"><a href="#三维拉普拉斯方程" class="headerlink" title="三维拉普拉斯方程"></a>三维拉普拉斯方程</h4><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113164652716.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113164711143.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="3-圆柱坐标系中的分离变量法"><a href="#3-圆柱坐标系中的分离变量法" class="headerlink" title="3. 圆柱坐标系中的分离变量法"></a>3. 圆柱坐标系中的分离变量法</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113164753029.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="4-球坐标系中的分离变量法"><a href="#4-球坐标系中的分离变量法" class="headerlink" title="4. 球坐标系中的分离变量法"></a>4. 球坐标系中的分离变量法</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113164820879.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="5-复变函数法"><a href="#5-复变函数法" class="headerlink" title="5. 复变函数法"></a>5. 复变函数法</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113164858877.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h1 id="第四章-恒定电场和恒定磁场"><a href="#第四章-恒定电场和恒定磁场" class="headerlink" title="第四章 恒定电场和恒定磁场"></a>第四章 恒定电场和恒定磁场</h1><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs">§4.1 恒定电场<br><br>§4.2 恒定磁场的基本方程和边界条件<br><br>§4.3 恒定磁场的矢量磁位<br><br>§4.4 电感Inductance<br></code></pre></td></tr></table></figure>
+
+<h2 id="§4-1-恒定电场"><a href="#§4-1-恒定电场" class="headerlink" title="§4.1 恒定电场"></a>§4.1 恒定电场</h2><h3 id="1-恒定电场的基本方程-⭐"><a href="#1-恒定电场的基本方程-⭐" class="headerlink" title="1. 恒定电场的基本方程 ⭐"></a>1. 恒定电场的基本方程 ⭐</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113171459132.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211113171749804.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="2-恒定电场的边界条件"><a href="#2-恒定电场的边界条件" class="headerlink" title="2. 恒定电场的边界条件"></a>2. 恒定电场的边界条件</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225219431.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225246330.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225251220.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225258622.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="3-静电比拟法"><a href="#3-静电比拟法" class="headerlink" title="3. 静电比拟法"></a>3. 静电比拟法</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225209261.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225321844.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225327316.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="§4-2-恒定磁场的基本方程和边界条件"><a href="#§4-2-恒定磁场的基本方程和边界条件" class="headerlink" title="§4.2 恒定磁场的基本方程和边界条件"></a>§4.2 恒定磁场的基本方程和边界条件</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225351070.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225359342.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="§4-3-恒定磁场的矢量磁位"><a href="#§4-3-恒定磁场的矢量磁位" class="headerlink" title="§4.3 恒定磁场的矢量磁位"></a>§4.3 恒定磁场的矢量磁位</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225453243.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225459232.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225509219.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="§4-4-电感Inductance"><a href="#§4-4-电感Inductance" class="headerlink" title="§4.4 电感Inductance"></a>§4.4 电感Inductance</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225522839.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225528702.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225532383.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225537311.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225541421.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115225545132.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h1 id="第五章-时变电磁场和平面电磁波"><a href="#第五章-时变电磁场和平面电磁波" class="headerlink" title="第五章 时变电磁场和平面电磁波"></a>第五章 时变电磁场和平面电磁波</h1><h2 id="§5-1-时谐电磁场的复数表示"><a href="#§5-1-时谐电磁场的复数表示" class="headerlink" title="§5.1 时谐电磁场的复数表示"></a>§5.1 时谐电磁场的复数表示</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211205162937027.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211205162954483.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211205163005230.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="§5-2-复数形式Maxwell方程组"><a href="#§5-2-复数形式Maxwell方程组" class="headerlink" title="§5.2 复数形式Maxwell方程组"></a>§5.2 复数形式Maxwell方程组</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211205163116315.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211205163621662.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211205163648286.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload> </p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211205163543134.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="§5-3-复坡印廷矢量和复坡印廷定理"><a href="#§5-3-复坡印廷矢量和复坡印廷定理" class="headerlink" title="§5.3 复坡印廷矢量和复坡印廷定理"></a>§5.3 复坡印廷矢量和复坡印廷定理</h2><p>电磁场是具有能量的，时谐电磁场的能量在空间以电磁波形式传播</p>
+<p>Poynting定理是时变电磁场中能量守恒定律的表达形式</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211205171919922.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211205172934251.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="§5-4-理想介质中的平面波"><a href="#§5-4-理想介质中的平面波" class="headerlink" title="§5.4 理想介质中的平面波"></a>§5.4 理想介质中的平面波</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211205175853218.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="均匀平面波满足一维波动方程"><a href="#均匀平面波满足一维波动方程" class="headerlink" title="均匀平面波满足一维波动方程"></a>均匀平面波满足一维波动方程</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211205184247237.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212220519191.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="均匀平面波是横电磁波（TEM波）"><a href="#均匀平面波是横电磁波（TEM波）" class="headerlink" title="均匀平面波是横电磁波（TEM波）"></a>均匀平面波是横电磁波（TEM波）</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212221810798.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212221903605.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212221515813.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="波动方程的解"><a href="#波动方程的解" class="headerlink" title="波动方程的解"></a>波动方程的解</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212223852001.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212223914162.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="相位常数k"><a href="#相位常数k" class="headerlink" title="相位常数k"></a>相位常数k</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212223629504.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212223653278.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="相速-v"><a href="#相速-v" class="headerlink" title="相速 v"></a>相速 v</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212223737222.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="介质的本质阻抗-η"><a href="#介质的本质阻抗-η" class="headerlink" title="介质的本质阻抗 η"></a>介质的本质阻抗 η</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212223510695.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="§5-5-导电介质中的平面波"><a href="#§5-5-导电介质中的平面波" class="headerlink" title="§5.5 导电介质中的平面波"></a>§5.5 导电介质中的平面波</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115232326569.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115232407405.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="复介电常数和复本质阻抗"><a href="#复介电常数和复本质阻抗" class="headerlink" title="复介电常数和复本质阻抗"></a>复介电常数和复本质阻抗</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115232548361.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="相位常数和衰减系数"><a href="#相位常数和衰减系数" class="headerlink" title="相位常数和衰减系数"></a>相位常数和衰减系数</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115232558326.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="相速和色散现象"><a href="#相速和色散现象" class="headerlink" title="相速和色散现象"></a>相速和色散现象</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115232606654.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="有耗媒质中电磁场表示"><a href="#有耗媒质中电磁场表示" class="headerlink" title="有耗媒质中电磁场表示"></a>有耗媒质中电磁场表示</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115232616032.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115232623694.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="有耗媒质中的坡印廷矢量"><a href="#有耗媒质中的坡印廷矢量" class="headerlink" title="有耗媒质中的坡印廷矢量"></a>有耗媒质中的坡印廷矢量</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115232631980.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="趋肤效应和趋肤深度"><a href="#趋肤效应和趋肤深度" class="headerlink" title="趋肤效应和趋肤深度"></a>趋肤效应和趋肤深度</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115233004769.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115232642053.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115232655844.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115232703840.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115232710784.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="§5-7-电磁波的极化"><a href="#§5-7-电磁波的极化" class="headerlink" title="§5.7 电磁波的极化"></a>§5.7 电磁波的极化</h2><p> <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115232055601.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="极化的概念"><a href="#极化的概念" class="headerlink" title="极化的概念"></a>极化的概念</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115233154484.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115233208237.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115233224588.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="线极化波"><a href="#线极化波" class="headerlink" title="线极化波"></a>线极化波</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115233234040.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="圆极化波"><a href="#圆极化波" class="headerlink" title="圆极化波"></a>圆极化波</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115233243205.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115233250322.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115233300384.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="椭圆极化波"><a href="#椭圆极化波" class="headerlink" title="椭圆极化波"></a>椭圆极化波</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115233307644.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115233315960.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="极化波的分解"><a href="#极化波的分解" class="headerlink" title="极化波的分解"></a>极化波的分解</h3><h3 id="极化波的工程应用"><a href="#极化波的工程应用" class="headerlink" title="极化波的工程应用"></a>极化波的工程应用</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115233412119.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h1 id="第六章-平面电磁波的反射和折射"><a href="#第六章-平面电磁波的反射和折射" class="headerlink" title="第六章 平面电磁波的反射和折射"></a>第六章 平面电磁波的反射和折射</h1><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211211170529332.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>平面波在边界上的反射及透射规律与媒质特性及边界形状有关。</p>
+<p>仅讨论平面波在无限大的平面边界上的反射及透射特性</p>
+<h2 id="§6-1-平面波对平面边界的垂直入射"><a href="#§6-1-平面波对平面边界的垂直入射" class="headerlink" title="§6.1  平面波对平面边界的垂直入射"></a>§6.1  平面波对平面边界的垂直入射</h2><p>入射波 (Incident Wave) </p>
+<p>反射波 (Reflected Wave) —- 一部分能量被反射回来形成 </p>
+<p>透射波 (Transmitted Wave) —- 另一部分能量穿过边界形成</p>
+<p>反射波与折射波的特性由分界面两侧媒质的参数确定。</p>
+<h3 id="•-对理想导体的垂直入射"><a href="#•-对理想导体的垂直入射" class="headerlink" title="• 对理想导体的垂直入射"></a>• 对理想导体的垂直入射</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212161626467.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212161641355.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212161655007.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212161723274.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212161815773.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>驻波</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212162303962.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212162316963.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>•空间各点的电场都随时间t按正弦规律变化，但是波腹和波节点的位置均固定不变。</p>
+<p>•这种波与行波不同，它是驻立不动的，称之为驻波。 </p>
+<p>•驻波就是波腹点和波节点固定不动的电磁波。</p>
+<p><strong>磁场的波腹点是电场的波节点， 磁场的波节点是电场的波腹点。</strong></p>
+<p>面电流</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212162458358.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>功率流密度</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212162932274.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212163002765.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212163108385.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>当均匀平面波垂直入射到理想导体表面时，在表面上发生全 反射，反射波与入射波的迭加在自由空间中形成驻波。</p>
+<p>在理想导体表面上，电场为零，磁场为最大值。</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212163240126.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212163312227.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>YXR——PPT 6.1 P27例题   P31例题</p>
+<h3 id="•-对理想介质的垂直入射"><a href="#•-对理想介质的垂直入射" class="headerlink" title="• 对理想介质的垂直入射"></a>• 对理想介质的垂直入射</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212214859148.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212214916781.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212214928885.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212214936777.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212215313184.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212215736824.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212215806727.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>入射波能量、反射波能量和透射波能量间的关系——坡印廷矢量平均值</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212215941040.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/em/image-20211212215950682.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>区域1中传输的合成场功率等于向区域2透射的功率</p>
+<p>YXR_PPT_P53——例题</p>
+<h3 id="•-对多层边界的垂直入射"><a href="#•-对多层边界的垂直入射" class="headerlink" title="• 对多层边界的垂直入射"></a>• 对多层边界的垂直入射</h3><p>PPT 58页</p>
+<h2 id="§6-2-平面波对平面边界的斜入射"><a href="#§6-2-平面波对平面边界的斜入射" class="headerlink" title="§6.2  平面波对平面边界的斜入射"></a>§6.2  平面波对平面边界的斜入射</h2><h3 id="斜入射的概念"><a href="#斜入射的概念" class="headerlink" title="斜入射的概念"></a>斜入射的概念</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115233634212.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115233641202.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115233650466.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234341011.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234351315.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="垂直极化波的斜入射"><a href="#垂直极化波的斜入射" class="headerlink" title="垂直极化波的斜入射"></a>垂直极化波的斜入射</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234401476.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234407183.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234412864.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234417762.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234425888.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234435648.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234442465.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234456158.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234502661.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234510130.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234517529.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234527346.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="平行极化波的斜入射"><a href="#平行极化波的斜入射" class="headerlink" title="平行极化波的斜入射"></a>平行极化波的斜入射</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234541775.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234547224.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234553207.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234601229.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234608655.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234617419.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234624647.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234630013.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="§6-3-全反射-全折射"><a href="#§6-3-全反射-全折射" class="headerlink" title="§6.3  全反射 全折射"></a>§6.3  全反射 全折射</h2><h3 id="全反射"><a href="#全反射" class="headerlink" title="全反射"></a>全反射</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234036598.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234053341.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234106066.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="全折射"><a href="#全折射" class="headerlink" title="全折射"></a>全折射</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234113487.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234120337.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234130863.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/cec/image-20220115234136186.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%AF%E7%B4%AF/" class="category-chain-item">知识积累</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%B5%E5%AD%90%E4%BF%A1%E6%81%AF/" class="print-no-link">#电子信息</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>电磁场与电磁波</div>
+      <div>https://cosmicdusty.cc/post/Knowledge/ElectromagneticFieldsAndElectromagneticWaves/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Murphy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年9月19日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post/Knowledge/SignalsAndSystems/" title="信号与系统">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">信号与系统</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/Knowledge/InformationTheory/" title="信息论">
+                        <span class="hidden-mobile">信息论</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"JijHNKemeVNog4wF7g9I5TR3-gzGzoHsz","appKey":"FvsKdxHOP2aG5rHrHby5aV0b","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a rel="nofollow noopener"><span>Powered by</span></a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span><b>Hexo</b></span></a> <i class="iconfont icon-love"></i> <a rel="nofollow noopener"><span>Themed by</span></a> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span><b>Fluid</b></span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

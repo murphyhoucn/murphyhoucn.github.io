@@ -1,0 +1,781 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <link rel="icon" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Murphy">
+  <meta name="keywords" content="Murphy,CosmicDusty,murphy,cosmicdusty,cn">
+  
+    <meta name="description" content="举国同庆盛世中华！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="庆国庆的微信头像生成">
+<meta property="og:url" content="https://cosmicdusty.cc/post/Ideas/WeChatAvatarForNationalDay/index.html">
+<meta property="og:site_name" content="MurphyHou">
+<meta property="og:description" content="举国同庆盛世中华！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/portrait.jpg">
+<meta property="article:published_time" content="2021-09-30T13:39:48.000Z">
+<meta property="article:modified_time" content="2023-05-05T14:19:47.000Z">
+<meta property="article:author" content="Murphy">
+<meta property="article:tag" content="open source">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/portrait.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>庆国庆的微信头像生成 - MurphyHou</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cosmicdusty.cc","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"16d93d5abbd7ea15ec53daed5459ebf7","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JijHNKemeVNog4wF7g9I5TR3","app_key":"FvsKdxHOP2aG5rHrHby5aV0b","server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?16d93d5abbd7ea15ec53daed5459ebf7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CosmicDusty</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/portrait.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="庆国庆的微信头像生成"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Murphy
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-09-30 21:39" pubdate>
+          2021年9月30日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          935 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">庆国庆的微信头像生成</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>2021年的国庆节即将到来，国庆的氛围也逐渐上来了。2019年的时候，微信出来一个带国旗的头像的功能，今天看公众号的时候发现今年又有公众号在做国旗头像了，国旗渐变色与头像叠加效果，感觉效果还不错，不过关注公众号什么的太麻烦了，那就自己手撸代码写一个吧！</p>
+<h1 id="项目解析"><a href="#项目解析" class="headerlink" title="项目解析"></a>项目解析</h1><p>Python简单的图像出来PIL库就够了，好像也不需要其他什么东西了！</p>
+<p>国旗下载地址：<a target="_blank" rel="noopener" href="http://www.gov.cn/guoqing/guoqi/index.htm">中华人民共和国国旗_中国政府网 (www.gov.cn)</a></p>
+<ul>
+<li>总共涉及到的是三张图片，一张是五星红旗的图片，一张是自己的头像，还有一张是程序生成的图片；</li>
+<li>图像格式无非是png或者jpg，两者用什么没有特别要求，差别不大；</li>
+<li>比较棘手的问题是国旗和头像的比例问题，微信或QQ等社交平台的头像一般都是正方形的，那就需要把国旗做裁切，裁切为正方形，不能简单地把国旗图像变成正方形，比例变化会导致国旗变形的；</li>
+<li>裁切成方形的国旗与图像不能直接叠加，因为图像本身大小不一样，必须先让两者大小一样的时候才能做叠加，至于将国旗变为头像大小还是头像变成国旗大小，其实效果应该差不多，但是我考虑到了，国旗图像裁切后的大小比头像的大小是要大的，把大的缩放为小的清晰的不会下降，但是将小的图像缩放为大的图像，清晰度是会下降的，因此最后采用了将国旗大小重整为头像大小，然后进行叠加；</li>
+<li>另一个需要处理的问题是，渐变效果的实现，其实做一个嵌套的循环遍历整个图像，然后把颜色变淡应该可以实现渐渐效果；</li>
+<li>最后一步是将两者做叠加，然后保存图像。</li>
+</ul>
+<h1 id="项目完整代码"><a href="#项目完整代码" class="headerlink" title="项目完整代码"></a>项目完整代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><br><span class="hljs-comment"># 读取图片</span><br><br>name=<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入头像名称：&quot;</span>)<br>form=<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入文件格式（jpg/png）：&quot;</span>)<br>portrait = Image.<span class="hljs-built_in">open</span>(<span class="hljs-built_in">str</span>(name)+<span class="hljs-string">&#x27;.&#x27;</span>+<span class="hljs-built_in">str</span>(form))<br><br>The_flag_of_China = Image.<span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;国旗.png&#x27;</span>)<br><br><span class="hljs-comment"># 获取国旗的尺寸</span><br>x,y = The_flag_of_China.size<br><br><span class="hljs-comment"># 关于裁切尺寸的问题具体看下文的关于cut方法的坐标图示。</span><br>cut=(<span class="hljs-number">50</span>, <span class="hljs-number">30</span>, <span class="hljs-number">550</span>, <span class="hljs-number">530</span>)<br>area = The_flag_of_China.crop(cut)<br><br><span class="hljs-comment"># 测试代码：生成裁切后的图像，看一下效果，如果裁切效果不好的话，重新修改上面的cut尺寸（类似反馈doge）！</span><br><span class="hljs-comment"># cut_name=&#x27;flag.png&#x27;</span><br><span class="hljs-comment"># area.save(cut_name)</span><br><br><span class="hljs-comment"># 头像的尺寸</span><br>w,h = portrait.size<br><br><span class="hljs-comment"># 国旗尺寸变成头像尺寸</span><br>area = area.resize((w,h))<br><br><span class="hljs-comment"># 渐变色设置</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(w):<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(h):<br>        pixelcolor = area.getpixel((i, j))<br>        parameter = <span class="hljs-number">260</span>-i//<span class="hljs-number">3</span>   <span class="hljs-comment">#参数都是多次运行程序测试出来的，可以根据需要进行更改</span><br>        <span class="hljs-keyword">if</span> parameter &lt; <span class="hljs-number">0</span>:<br>            parameter=<span class="hljs-number">0</span><br>        pixelcolor = pixelcolor[:-<span class="hljs-number">1</span>] + (parameter,)<br>        area.putpixel((i, j), pixelcolor)  <br><span class="hljs-comment"># //：向下取整做除法</span><br><span class="hljs-comment"># getpixel函数是用来获取图像中某一点的像素的RGB颜色值，getpixel的参数是一个坐标点（x,y）;</span><br><span class="hljs-comment">#putpixel函数是用来在指定位置画一像素，其中(x,y)是坐标，pixelcolor是像素的颜色.</span><br><br><br><span class="hljs-comment"># 粘贴到头像并保存 </span><br>portrait.paste(area,(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>),area)<br>portrait.save(<span class="hljs-built_in">str</span>(name)+<span class="hljs-string">&#x27;_flag.png&#x27;</span>,quality=<span class="hljs-number">100</span>, subsampling=<span class="hljs-number">0</span>)<br></code></pre></td></tr></table></figure>
+
+<p>PS：关于裁切尺寸的问题具体看下文的关于cut方法的坐标图示</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/%E5%9B%BE%E7%A4%BA.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>生成头像效果</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/Murphy.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h1 id="关于项目的思考"><a href="#关于项目的思考" class="headerlink" title="关于项目的思考"></a>关于项目的思考</h1><ul>
+<li><p>使用APP等生成带有国旗的头像应该是一件非常容易的事情，但是如果运行python程序来做这件事的话，让人感觉就是非常复杂了，并且不是所有人都有一个带有python开发环境的电脑，所以，用这段程序用的人应该不会有多少；</p>
+</li>
+<li><p>程序本身没有图像化操作界面，这让使用的人会更少了；</p>
+</li>
+<li><p>程序功能单一，应用范围太窄了，且如果图像格式方面有什么问题的话，估计程序运行的效果不会很好！</p>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/" class="category-chain-item">奇思妙想</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/open-source/" class="print-no-link">#open source</a>
+      
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>庆国庆的微信头像生成</div>
+      <div>https://cosmicdusty.cc/post/Ideas/WeChatAvatarForNationalDay/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Murphy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年9月30日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post/Electronic/ArduinoUno/" title="ArduinoUno">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">ArduinoUno</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/Knowledge/GitCommands/" title="Git常用命令与使用">
+                        <span class="hidden-mobile">Git常用命令与使用</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"JijHNKemeVNog4wF7g9I5TR3-gzGzoHsz","appKey":"FvsKdxHOP2aG5rHrHby5aV0b","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a rel="nofollow noopener"><span>Powered by</span></a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span><b>Hexo</b></span></a> <i class="iconfont icon-love"></i> <a rel="nofollow noopener"><span>Themed by</span></a> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span><b>Fluid</b></span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

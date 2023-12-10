@@ -1,0 +1,1102 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <link rel="icon" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Murphy">
+  <meta name="keywords" content="Murphy,CosmicDusty,murphy,cosmicdusty,cn">
+  
+    <meta name="description" content="这是我第一次使用python进行深度学习，深度学习与人工智能是我一直以来都很感兴趣的方向，也是我未来意向从事的方向。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于SemSeg的马里亚纳海沟遥感图像场景解析">
+<meta property="og:url" content="https://cosmicdusty.cc/post/CV/SceneParsingProject/index.html">
+<meta property="og:site_name" content="MurphyHou">
+<meta property="og:description" content="这是我第一次使用python进行深度学习，深度学习与人工智能是我一直以来都很感兴趣的方向，也是我未来意向从事的方向。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/DEEPLEARN.jpg">
+<meta property="article:published_time" content="2021-11-21T14:17:08.000Z">
+<meta property="article:modified_time" content="2023-10-22T09:51:45.000Z">
+<meta property="article:author" content="Murphy">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="PyTorch">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/DEEPLEARN.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>基于SemSeg的马里亚纳海沟遥感图像场景解析 - MurphyHou</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cosmicdusty.cc","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"16d93d5abbd7ea15ec53daed5459ebf7","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JijHNKemeVNog4wF7g9I5TR3","app_key":"FvsKdxHOP2aG5rHrHby5aV0b","server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?16d93d5abbd7ea15ec53daed5459ebf7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CosmicDusty</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/DEEPLEARN.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="基于SemSeg的马里亚纳海沟遥感图像场景解析"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Murphy
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-11-21 22:17" pubdate>
+          2021年11月21日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          32 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">基于SemSeg的马里亚纳海沟遥感图像场景解析</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>搭建起深度学习的环境，并把程序运行起来。另外，也读了几篇论文，学习了几个网络的结构。</p>
+<p>之前还做过一个使用dlib，PaddlePaddle做图片人物抠图的一个小程序，其中的参数文件是别人使用PaddlePaddle训练好了的了。</p>
+<p>但是目前我对于深度学习所了解的东西太少了，本科期间的培养方案上也没有相关的课程，感觉很迷茫！</p>
+<p><em><strong>非教程，仅作为记录，复现不能保证成功</strong></em></p>
+<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>老师给了数据集和一篇论文，用论文中的方法实现一定的功能。</p>
+<p>我首先读了论文，再根据改论文的标题找到了论文的源地址<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.10683">LSPR2106.10683</a>，然后找到了论文中用到的源代码<a target="_blank" rel="noopener" href="https://github.com/JiaxinZhuang/Large-scale-Product-Recognition.Pytorch">LSPR</a></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/%E6%A0%B9%E6%8D%AE%E6%A0%87%E9%A2%98%E6%89%BE%E5%88%B0%E8%AE%BA%E6%96%87%E6%94%B6%E5%BD%95%E5%9C%B0%E5%9D%80-%E5%BA%B7%E5%A5%88%E5%B0%94%E5%A4%A7%E5%AD%A6arvix.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/%E4%B8%8B%E8%BD%BD%E6%BA%90%E4%BB%A3%E7%A0%81.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>将源代码clone到本地<em><strong>（这里有个问题，我挂了VPN，仍然不能git clone，只有下载zip能下载到本地）</strong></em>。根据作者的说明文档，我对这个程序做了基本的判断：需要深度学习开发环境，用的Python，好像是在Linux系统下跑的程序！</p>
+<p>在学习过程中遇到了一些问题，遂决定更换方法。</p>
+<p>Linux操作系统对我来说确实有点困难，我觉得先试试在Windows下能不能运行吧，于是就开始折腾之路！</p>
+<h1 id="在Windows下安装深度学习开发环境"><a href="#在Windows下安装深度学习开发环境" class="headerlink" title="在Windows下安装深度学习开发环境"></a>在Windows下安装深度学习开发环境</h1><p>因为论文作者只提供了CUDA和PyTorch的版本，我查看了电脑支持的最大CUDA版本是11.6，但是根据作者提供的，我最终选择了安装了CUDA10.2。</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121112547170.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="PyTorch-1-10"><a href="#PyTorch-1-10" class="headerlink" title="PyTorch 1.10"></a>PyTorch 1.10</h2><p>直接找了官网，找了相关的配置，直接pip下载了</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/pytorch%E7%9A%84%E5%AE%89%E8%A3%85.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121113302674.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>进入python，检查一下pytorch是不是成功安装了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> torch<br><br>x = totch.rand(<span class="hljs-number">5</span>,<span class="hljs-number">3</span>)<br><br><span class="hljs-built_in">print</span>(x)<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211120234607835.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="CUDA-10-2"><a href="#CUDA-10-2" class="headerlink" title="CUDA 10.2"></a>CUDA 10.2</h2><p>参考资源:</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1q54y1y7Mf">如何在Win10下轻松安装CUDA和Cudnn</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43848614/article/details/117221384">CUDA 安装 （windows版）</a></p>
+<p>按照网上的教学步骤安装即可</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/%E5%AE%89%E8%A3%85CUDA.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nvcc -V<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211120235638749.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>跑几个测试看一下</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211120235749266.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211120235843604.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="cuDNN-7-6-5"><a href="#cuDNN-7-6-5" class="headerlink" title="cuDNN 7.6.5"></a>cuDNN 7.6.5</h2><p>参考资料：与CUDA的安装相同相同</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1q54y1y7Mf">如何在Win10下轻松安装CUDA和Cudnn</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43848614/article/details/117221384">CUDA 安装 （windows版）</a></p>
+<p>需要注册nVidia开发者账号才能下载cuDNN</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/CUDnn%E7%9A%84%E5%AE%89%E8%A3%85%E9%9C%80%E8%A6%81NVIDIA%E8%B4%A6%E6%88%B7.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/%E4%B8%8B%E8%BD%BDCUDNN.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>下载之后解压，按照视频中的步骤，直接复制到CUDA的安装路径即可</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121113659274.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/%E6%A3%80%E6%9F%A5CUDA%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>最后再检查一下环境变量是不是已经弄好了！</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/%E6%A3%80%E6%9F%A5CUDA%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F2.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="TensorFlow2-3-0"><a href="#TensorFlow2-3-0" class="headerlink" title="TensorFlow2.3.0"></a>TensorFlow2.3.0</h2><p>Python&amp;CUDA&amp;cuDNN&amp;TensorFlow版本对应关系</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/fo40225/tensorflow-windows-wheel">fo40225&#x2F;tensorflow-windows-wheel: Tensorflow prebuilt binary for Windows (github.com)</a></p>
+<p>Windows-CPU</p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/20210131153046629.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="CPU" style="zoom:150%;" />
+
+<p>Windows-GPU</p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/20210131153313535.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="GPU" style="zoom:150%;" />
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install tensorflow==2.3.0<br><br>pip install tensorflow-gpu==2.3.0<br></code></pre></td></tr></table></figure>
+
+<p>注意所有的版本对应，否则会出现各种各样的问题</p>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs bash">Windows PowerShell<br>版权所有 (C) Microsoft Corporation。保留所有权利。<br><br>尝试新的跨平台 PowerShell https://aka.ms/pscore6<br><br>PS C:\Users\DELL&gt; python --version<br>Python 3.8.6<br>PS C:\Users\DELL&gt; nvcc -V<br>nvcc: NVIDIA (R) Cuda compiler driver<br>Copyright (c) 2005-2019 NVIDIA Corporation<br>Built on Wed_Oct_23_19:32:27_Pacific_Daylight_Time_2019<br>Cuda compilation tools, release 10.2, V10.2.89<br>PS C:\Users\DELL&gt; python<br>Python 3.8.6 (tags/v3.8.6:db45529, Sep 23 2020, 15:52:53) [MSC v.1927 64 bit (AMD64)] on win32<br>Type <span class="hljs-string">&quot;help&quot;</span>, <span class="hljs-string">&quot;copyright&quot;</span>, <span class="hljs-string">&quot;credits&quot;</span> or <span class="hljs-string">&quot;license&quot;</span> <span class="hljs-keyword">for</span> more information.<br>&gt;&gt;&gt; import torch<br>&gt;&gt;&gt; <span class="hljs-built_in">print</span>(torch.__version__)<br>1.10.0+cu102<br>&gt;&gt;&gt; import tensorflow as tf<br>2021-11-21 12:17:03.769777: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll<br>&gt;&gt;&gt; <span class="hljs-built_in">print</span>(tf.__version__)<br>2.3.0<br>&gt;&gt;&gt; <span class="hljs-built_in">print</span>(torch.cuda.is_available())<br>True<br>&gt;&gt;&gt; tf.test.is_gpu_available()<br>WARNING:tensorflow:From &lt;stdin&gt;:1: is_gpu_available (from tensorflow.python.framework.test_util) is deprecated and will be removed <span class="hljs-keyword">in</span> a future version.<br>Instructions <span class="hljs-keyword">for</span> updating:<br>Use `tf.config.list_physical_devices(<span class="hljs-string">&#x27;GPU&#x27;</span>)` instead.<br>2021-11-21 12:19:43.396815: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN)to use the following CPU instructions <span class="hljs-keyword">in</span> performance-critical operations:  AVX2<br>To <span class="hljs-built_in">enable</span> them <span class="hljs-keyword">in</span> other operations, rebuild TensorFlow with the appropriate compiler flags.<br>2021-11-21 12:19:43.406420: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x1da756cae50 initialized <span class="hljs-keyword">for</span> platform Host (this does not guarantee that XLA will be used). Devices:<br>2021-11-21 12:19:43.406558: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version<br>2021-11-21 12:19:43.406737: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library nvcuda.dll<br>2021-11-21 12:19:43.406971: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties:<br>pciBusID: 0000:01:00.0 name: NVIDIA GeForce GTX 1650 computeCapability: 7.5<br>coreClock: 1.56GHz coreCount: 16 deviceMemorySize: 4.00GiB deviceMemoryBandwidth: 119.24GiB/s<br>2021-11-21 12:19:43.407083: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll<br>2021-11-21 12:19:43.407208: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll<br>2021-11-21 12:19:43.407387: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll<br>2021-11-21 12:19:43.407520: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll<br>2021-11-21 12:19:43.407593: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll<br>2021-11-21 12:19:43.407740: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll<br>2021-11-21 12:19:43.407894: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll<br>2021-11-21 12:19:43.408023: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0<br>2021-11-21 12:19:45.176360: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1257] Device interconnect StreamExecutor with strength 1 edge matrix:<br>2021-11-21 12:19:45.176465: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1263]      0<br>2021-11-21 12:19:45.176528: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1276] 0:   N<br>2021-11-21 12:19:45.176750: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1402] Created TensorFlow device (/device:GPU:0 with 2905 MB memory) -&gt; physical GPU (device: 0, name: NVIDIA GeForce GTX 1650, pci bus <span class="hljs-built_in">id</span>: 0000:01:00.0, compute capability: 7.5)<br>2021-11-21 12:19:45.179856: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x1da3ed8bce0 initialized <span class="hljs-keyword">for</span> platform CUDA (this does not guarantee that XLA will be used). Devices:<br>2021-11-21 12:19:45.179952: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): NVIDIA GeForce GTX 1650, Compute Capability 7.5<br>True<br>&gt;&gt;&gt;<br></code></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/ceshi.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/ceshi222.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h1 id="在WSL-Ubuntu-20-04-安装深度学习开发环境（失败了）"><a href="#在WSL-Ubuntu-20-04-安装深度学习开发环境（失败了）" class="headerlink" title="在WSL-Ubuntu 20.04 安装深度学习开发环境（失败了）"></a>在WSL-Ubuntu 20.04 安装深度学习开发环境（失败了）</h1><h2 id="CUDA-安装失败"><a href="#CUDA-安装失败" class="headerlink" title="CUDA 安装失败"></a>CUDA 安装失败</h2><p>参考资料：</p>
+<p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/wsl-user-guide/index.html">nVidia官方说明文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1FZ4y1p7Qp">Cuda On WSL 2</a></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/dawafg.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/fafwrh9haiu.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>原因：可能是CUDA还未适配到WSL的Ubuntu 20.04</p>
+<h1 id="在WSL-Ubuntu-18-04-安装深度学习开发环境"><a href="#在WSL-Ubuntu-18-04-安装深度学习开发环境" class="headerlink" title="在WSL-Ubuntu 18.04 安装深度学习开发环境"></a>在WSL-Ubuntu 18.04 安装深度学习开发环境</h1><p>参考资料：</p>
+<p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda/wsl">GPU in Windows Subsystem for Linux (WSL) | NVIDIA Developer</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/wsl-user-guide/index.html">CUDA on WSL :: CUDA Toolkit Documentation (nvidia.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/wsl-user-guide/index.html">nVidia官方说明文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1FZ4y1p7Qp">Cuda On WSL 2</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/350399229">win10的wsl2安装cuda并配置pytorch</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1RJ411X7Uz">WSL Ubuntu修改软件源</a></p>
+<p>重装了Ubuntu 18.04</p>
+<p>切换为WSL2</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wsl --set-version Ubuntu-18.04 2<br></code></pre></td></tr></table></figure>
+
+<h2 id="CUDA-11-0"><a href="#CUDA-11-0" class="headerlink" title="CUDA 11.0"></a>CUDA 11.0</h2><p>下载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-key adv --fetch-keys http://mirrors.aliyun.com/nvidia-cuda/ubuntu1804/x86_64/7fa2af80.pub<br><br>sudo sh -c <span class="hljs-string">&#x27;echo &quot;deb http://mirrors.aliyun.com/nvidia-cuda/ubuntu1804/x86_64 /&quot; &gt; /etc/apt/sources.list.d/cuda.list&#x27;</span><br><br>sudo apt-get update<br><br>sudo apt-get install -y cuda-toolkit-11-0<br></code></pre></td></tr></table></figure>
+
+<p>配置环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo su -<br>vim ~/.bashrc<br></code></pre></td></tr></table></figure>
+
+<p>用vim打开的文档，在最后面添加如下内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> PATH=/usr/local/cuda-11.0/bin:<span class="hljs-variable">$PATH</span><br><span class="hljs-built_in">export</span> LD_LIBRARY_PATH=/usr/local/cuda-11.0/lib64:<span class="hljs-variable">$LD_LIBRARY_PATH</span><br><br><span class="hljs-comment"># cuda-11.0 自己安装版本的名称</span><br></code></pre></td></tr></table></figure>
+
+<p>安装docker</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl https://get.docker.com | sh<br></code></pre></td></tr></table></figure>
+
+<p>测试CUDA根据视频<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1FZ4y1p7Qp">Cuda On WSL 2</a></p>
+<h2 id="cuDNN-8-0-5"><a href="#cuDNN-8-0-5" class="headerlink" title="cuDNN 8.0.5"></a>cuDNN 8.0.5</h2><p>在Windows系统下下载cuDNN的压缩包，在Ubuntu下用cp命令从Windows移动到Ubuntu</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/tYLIHUWND.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">tar -zxvf cudnn-11.0-linux-x64-v8.0.5.39.tgz<br><br><span class="hljs-comment"># cudnn-11.0-linux-x64-v8.0.5.39.tgz cuDNN压缩包的名称</span><br><br><span class="hljs-comment"># 复制</span><br>sudo <span class="hljs-built_in">cp</span> -P cuda/lib64/libcudnn* /usr/local/cuda-11.0/lib64/<br>sudo <span class="hljs-built_in">cp</span>  cuda/include/cudnn.h /usr/local/cuda-11.0/include/<br><br><span class="hljs-comment"># 更改权限</span><br>sudo <span class="hljs-built_in">chmod</span> a+r /usr/local/cuda-11.0/include/cudnn.h <br>sudo <span class="hljs-built_in">chmod</span> a+r /usr/local/cuda-11.0/lib64/libcudnn*<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121140908702.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="PyTorch-1-7-1-cu110"><a href="#PyTorch-1-7-1-cu110" class="headerlink" title="PyTorch 1.7.1+cu110"></a>PyTorch 1.7.1+cu110</h2><p>安装了3遍才成功了</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/gawdagwafw.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/hrgegwe.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">murphy-ubuntu@Murphy-DELL:/mnt/c/Users/DELL$ python<br>Python 3.6.9 (default, Jan 26 2021, 15:33:00)<br>[GCC 8.4.0] on linux<br>Type <span class="hljs-string">&quot;help&quot;</span>, <span class="hljs-string">&quot;copyright&quot;</span>, <span class="hljs-string">&quot;credits&quot;</span> or <span class="hljs-string">&quot;license&quot;</span> <span class="hljs-keyword">for</span> more information.<br>&gt;&gt;&gt; import tensorflow<br>2021-11-21 14:34:29.474127: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0<br>&gt;&gt;&gt; import torch<br>&gt;&gt;&gt; <span class="hljs-built_in">print</span>(torch.cuda.is_available())<br>True<br>&gt;&gt;&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="TensorFlow-2-4-0"><a href="#TensorFlow-2-4-0" class="headerlink" title="TensorFlow 2.4.0"></a>TensorFlow 2.4.0</h2><p>直接用pip install tensorflow安装的版本是最新的版本，不能与CUDA和cnDNN匹配，运行的时候不能调用GPU，因此需要根据文档找到合适的版本</p>
+<p>Windows-CPU</p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/20210131153046629.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="CPU" style="zoom:150%;" />
+
+<p>Windows-GPU</p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/20210131153313535.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="GPU" style="zoom:150%;" />
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs bash">murphy-ubuntu@Murphy-DELL:/mnt/c/Users/DELL$ python<br>Python 3.6.9 (default, Jan 26 2021, 15:33:00)<br>[GCC 8.4.0] on linux<br>Type <span class="hljs-string">&quot;help&quot;</span>, <span class="hljs-string">&quot;copyright&quot;</span>, <span class="hljs-string">&quot;credits&quot;</span> or <span class="hljs-string">&quot;license&quot;</span> <span class="hljs-keyword">for</span> more information.<br>&gt;&gt;&gt; import tensorflow as tf<br>&gt;&gt;&gt; tf.test.is_gpu_available()<br>WARNING:tensorflow:From &lt;stdin&gt;:1: is_gpu_available (from tensorflow.python.framework.test_util) is deprecated and will be removed <span class="hljs-keyword">in</span> a future version.<br>Instructions <span class="hljs-keyword">for</span> updating:<br>Use `tf.config.list_physical_devices(<span class="hljs-string">&#x27;GPU&#x27;</span>)` instead.<br>2021-11-21 14:36:24.495813: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not <span class="hljs-built_in">set</span><br>2021-11-21 14:36:24.496873: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1<br>2021-11-21 14:36:24.498697: E tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:927] could not open file to <span class="hljs-built_in">read</span> NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node<br>Your kernel may have been built without NUMA support.<br>2021-11-21 14:36:24.498759: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties:<br>pciBusID: 0000:01:00.0 name: NVIDIA GeForce GTX 1650 computeCapability: 7.5<br>coreClock: 1.56GHz coreCount: 16 deviceMemorySize: 4.00GiB deviceMemoryBandwidth: 119.24GiB/s<br>2021-11-21 14:36:24.498799: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0<br>2021-11-21 14:36:24.516945: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11<br>2021-11-21 14:36:24.517034: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11<br>2021-11-21 14:36:24.532660: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10<br>2021-11-21 14:36:24.538639: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10<br>2021-11-21 14:36:24.557670: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10<br>2021-11-21 14:36:24.562764: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11<br>2021-11-21 14:36:24.564244: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8<br>2021-11-21 14:36:24.564836: E tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:927] could not open file to <span class="hljs-built_in">read</span> NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node<br>Your kernel may have been built without NUMA support.<br>2021-11-21 14:36:24.565348: E tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:927] could not open file to <span class="hljs-built_in">read</span> NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node<br>Your kernel may have been built without NUMA support.<br>2021-11-21 14:36:24.566200: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0<br>2021-11-21 14:36:24.566892: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0<br>2021-11-21 14:36:26.926735: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:<br>2021-11-21 14:36:26.926810: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0<br>2021-11-21 14:36:26.926840: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N<br>2021-11-21 14:36:26.928867: E tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:927] could not open file to <span class="hljs-built_in">read</span> NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node<br>Your kernel may have been built without NUMA support.<br>2021-11-21 14:36:26.928923: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1489] Could not identify NUMA node of platform GPU <span class="hljs-built_in">id</span> 0, defaulting to 0.  Your kernel may not have been built with NUMA support.<br>2021-11-21 14:36:26.929470: E tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:927] could not open file to <span class="hljs-built_in">read</span> NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node<br>Your kernel may have been built without NUMA support.<br>2021-11-21 14:36:26.929971: E tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:927] could not open file to <span class="hljs-built_in">read</span> NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node<br>Your kernel may have been built without NUMA support.<br>2021-11-21 14:36:26.930033: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/device:GPU:0 with 2875 MB memory) -&gt; physical GPU (device: 0, name: NVIDIA GeForce GTX 1650, pci bus <span class="hljs-built_in">id</span>: 0000:01:00.0, compute capability: 7.5)<br>True<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><code class="hljs bash">murphy-ubuntu@Murphy-DELL:/mnt/c/Users/DELL$ neofetch<br>            .-/+oossssoo+/-.               murphy-ubuntu@Murphy-DELL<br>        `:+ssssssssssssssssss+:`           -------------------------<br>      -+ssssssssssssssssssyyssss+-         OS: Ubuntu 18.04.2 LTS on Windows 10 x86_64<br>    .ossssssssssssssssssdMMMNysssso.       Kernel: 5.10.60.1-microsoft-standard-WSL2<br>   /ssssssssssshdmmNNmmyNMMMMhssssss/      Uptime: 18 mins<br>  +ssssssssshmydMMMMMMMNddddyssssssss+     Packages: 895<br> /sssssssshNMMMyhhyyyyhmNMMMNhssssssss/    Shell: bash 4.4.19<br>.ssssssssdMMMNhsssssssssshNMMMdssssssss.   Terminal: /dev/pts/0<br>+sssshhhyNMMNyssssssssssssyNMMMysssssss+   CPU: Intel i5-9300H (8) @ 2.400GHz<br>ossyNMMMNyMMhsssssssssssssshmmmhssssssso   GPU: Microsoft Corporation Device 008e<br>ossyNMMMNyMMhsssssssssssssshmmmhssssssso   Memory: 94MiB / 12654MiB<br>+sssshhhyNMMNyssssssssssssyNMMMysssssss+<br>.ssssssssdMMMNhsssssssssshNMMMdssssssss.<br> /sssssssshNMMMyhhyyyyhdNMMMNhssssssss/<br>  +sssssssssdmydMMMMMMMMddddyssssssss+<br>   /ssssssssssshdmNNNNmyNMMMMhssssss/<br>    .ossssssssssssssssssdMMMNysssso.<br>      -+sssssssssssssssssyyyssss+-<br>        `:+ssssssssssssssssss+:`<br>            .-/+oossssoo+/-.<br><br>murphy-ubuntu@Murphy-DELL:/mnt/c/Users/DELL$ nvcc -V<br>nvcc: NVIDIA (R) Cuda compiler driver<br>Copyright (c) 2005-2020 NVIDIA Corporation<br>Built on Wed_Jul_22_19:09:09_PDT_2020<br>Cuda compilation tools, release 11.0, V11.0.221<br>Build cuda_11.0_bu.TC445_37.28845127_0<br>murphy-ubuntu@Murphy-DELL:/mnt/c/Users/DELL$ python<br>Python 3.6.9 (default, Jan 26 2021, 15:33:00)<br>[GCC 8.4.0] on linux<br>Type <span class="hljs-string">&quot;help&quot;</span>, <span class="hljs-string">&quot;copyright&quot;</span>, <span class="hljs-string">&quot;credits&quot;</span> or <span class="hljs-string">&quot;license&quot;</span> <span class="hljs-keyword">for</span> more information.<br>&gt;&gt;&gt; import torch<br>&gt;&gt;&gt; import tensorflow as tf<br>2021-11-21 14:38:07.986815: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0<br>&gt;&gt;&gt; <span class="hljs-built_in">print</span>(torch.__version__)<br>1.7.1+cu110<br>&gt;&gt;&gt; <span class="hljs-built_in">print</span>(tf.__version__)<br>2.4.0<br>&gt;&gt;&gt; <span class="hljs-built_in">print</span>(torch.cuda.test_gpu_abailable())<br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line 1, <span class="hljs-keyword">in</span> &lt;module&gt;<br>AttributeError: module <span class="hljs-string">&#x27;torch.cuda&#x27;</span> has no attribute <span class="hljs-string">&#x27;test_gpu_abailable&#x27;</span><br>&gt;&gt;&gt; <span class="hljs-built_in">print</span>(torch.cuda.is_available())<br>True<br>&gt;&gt;&gt; tf.test.is_gpu_available()<br>WARNING:tensorflow:From &lt;stdin&gt;:1: is_gpu_available (from tensorflow.python.framework.test_util) is deprecated and will be removed <span class="hljs-keyword">in</span> a future version.<br>Instructions <span class="hljs-keyword">for</span> updating:<br>Use `tf.config.list_physical_devices(<span class="hljs-string">&#x27;GPU&#x27;</span>)` instead.<br>2021-11-21 14:39:05.764557: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not <span class="hljs-built_in">set</span><br>2021-11-21 14:39:05.764673: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcuda.so.1<br>2021-11-21 14:39:05.765235: E tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:927] could not open file to <span class="hljs-built_in">read</span> NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node<br>Your kernel may have been built without NUMA support.<br>2021-11-21 14:39:05.765340: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1720] Found device 0 with properties:<br>pciBusID: 0000:01:00.0 name: NVIDIA GeForce GTX 1650 computeCapability: 7.5<br>coreClock: 1.56GHz coreCount: 16 deviceMemorySize: 4.00GiB deviceMemoryBandwidth: 119.24GiB/s<br>2021-11-21 14:39:05.765400: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0<br>2021-11-21 14:39:05.767384: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublas.so.11<br>2021-11-21 14:39:05.767443: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcublasLt.so.11<br>2021-11-21 14:39:05.768263: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcufft.so.10<br>2021-11-21 14:39:05.768539: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcurand.so.10<br>2021-11-21 14:39:05.771097: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusolver.so.10<br>2021-11-21 14:39:05.771751: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcusparse.so.11<br>2021-11-21 14:39:05.771888: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudnn.so.8<br>2021-11-21 14:39:05.772427: E tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:927] could not open file to <span class="hljs-built_in">read</span> NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node<br>Your kernel may have been built without NUMA support.<br>2021-11-21 14:39:05.772838: E tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:927] could not open file to <span class="hljs-built_in">read</span> NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node<br>Your kernel may have been built without NUMA support.<br>2021-11-21 14:39:05.772878: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1862] Adding visible gpu devices: 0<br>2021-11-21 14:39:05.772930: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0<br>2021-11-21 14:39:11.938306: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1261] Device interconnect StreamExecutor with strength 1 edge matrix:<br>2021-11-21 14:39:11.938386: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1267]      0<br>2021-11-21 14:39:11.938421: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1280] 0:   N<br>2021-11-21 14:39:11.939059: E tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:927] could not open file to <span class="hljs-built_in">read</span> NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node<br>Your kernel may have been built without NUMA support.<br>2021-11-21 14:39:11.939098: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1489] Could not identify NUMA node of platform GPU <span class="hljs-built_in">id</span> 0, defaulting to 0.  Your kernel may not have been built with NUMA support.<br>2021-11-21 14:39:11.939505: E tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:927] could not open file to <span class="hljs-built_in">read</span> NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node<br>Your kernel may have been built without NUMA support.<br>2021-11-21 14:39:11.939939: E tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:927] could not open file to <span class="hljs-built_in">read</span> NUMA node: /sys/bus/pci/devices/0000:01:00.0/numa_node<br>Your kernel may have been built without NUMA support.<br>2021-11-21 14:39:11.940011: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1406] Created TensorFlow device (/device:GPU:0 with 1951 MB memory) -&gt; physical GPU (device: 0, name: NVIDIA GeForce GTX 1650, pci bus <span class="hljs-built_in">id</span>: 0000:01:00.0, compute capability: 7.5)<br>True<br>&gt;&gt;&gt;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/gaoylkjgybw.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h1 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h1><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">-</span> 因为WSL占据的系统存储太大了，且在系统盘，有点担心，就去卸载一些没用的东西；<br><span class="hljs-bullet">-</span> 因为前几天也弄过把Ubuntu从C盘移动到D盘，当时是不允许我移动，我就随便点了一下，然后我看到了系统的硬盘资源在疯狂占用，我想，居然真的搬移了，我还担心搬过去之后配置好的环境是不是就没了。结果我担心的事情发生了，WSL-Ubuntu直接打不开了，直接完蛋，两天时间白费；<br><span class="hljs-bullet">-</span> 在向旺哥和学长诉苦的时候，我以为我真的搞完蛋了，我就在看之前目录的时候，发现了之前的文件夹还在，打不开，我一看文件大小，20多个GB，但是系统上显示的的确是没有了这部分，我就很纳闷，死马当做活马医，就把D盘的Ubuntu搬到了C盘，心里很忐忑，等到搬过去之后，我测试了一下，救过来了，感谢老天，实在是太险了，两天的时间差点就全白费了。唉！<br><span class="hljs-bullet">-</span> 以后真的不敢这么折腾了，太可怕了！<br></code></pre></td></tr></table></figure>
+
+<p>从C盘移动到D盘时</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121144321555.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121144358342.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>移动到D盘时，所占存储大小</p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121144423968.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20211121144423968" style="zoom:150%;" />
+
+<p> 移动到D盘后Ubuntu打不开了，且KALI也受到影响也打不开了，过了一段时间之后KALI能打开了</p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121144528795.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20211121144528795" style="zoom:150%;" />
+
+<p>移动到D盘之后C盘的容量扩大了20多GB，但是我看后台的C盘利用率并没有很大，我猜原来的内容没有删掉，我找了找果然这个20多GB还在这里，我就死马当做活马医，把Ubuntu从D盘又搬回了C盘</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121144603971.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121144835332.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20211121144835332" style="zoom:150%;" />
+
+<p>最后救活了，不敢手贱了</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/gaergfEFGUNJ.R.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>目前C盘仅有了40多GB，等完成了这个作业在再折腾一下这个WSL搬到非系统盘的方法</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211121145134059.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h1 id="语义分割Semantic-Segmentation"><a href="#语义分割Semantic-Segmentation" class="headerlink" title="语义分割Semantic Segmentation"></a>语义分割Semantic Segmentation</h1><p>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2003.13328">2003.13328] Strip Pooling: Rethinking Spatial Pooling for Scene Parsing (arxiv.org)</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Andrew-Qibin/SPNet">https://github.com/Andrew-Qibin/SPNet</a></p>
+<p>[<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/132532190">论文笔记] Strip Pooling（SPNet） - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuyunfeng/p/10505991.html">比较语义分割的几种结构：FCN，UNET，SegNet，PSPNet和Deeplab - yunfeng_net - 博客园 (cnblogs.com)</a></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>语义分割：给图像的每个像素点标注类别。通常认为这个类别与邻近像素类别有关，同时也和这个像素点归属的整体类别有关。利用图像分类的网络结构,可以利用不同层次的特征向量来满足判定需求。现有算法的主要区别是如何提高这些向量的分辨率，以及如何组合这些向量。</p>
+<h2 id="几种结构"><a href="#几种结构" class="headerlink" title="几种结构"></a>几种结构</h2><ul>
+<li>全卷积网络FCN：上采样提高分割精度，不同特征向量相加。[3]</li>
+<li>UNET：拼接特征向量；编码-解码结构；采用弹性形变的方式，进行数据增广；用边界加权的损失函数分离接触的细胞。[4]</li>
+<li>SegNet：记录池化的位置，反池化时恢复。[3]</li>
+<li>PSPNet：多尺度池化特征向量，上采样后拼接[3]</li>
+<li>Deeplab：池化跨度为1，然后接带孔卷积。</li>
+<li>ICNet：多分辨图像输入，综合不同网络生成结果。</li>
+</ul>
+<h2 id="semseg（Semantic-Segmentation）"><a href="#semseg（Semantic-Segmentation）" class="headerlink" title="semseg（Semantic Segmentation）"></a>semseg（Semantic Segmentation）</h2><p>作者：香港中文大学的博士生Hengshuang Zhao。<a target="_blank" rel="noopener" href="https://hszhao.github.io/">https://hszhao.github.io/</a></p>
+<p>基于PyTorch的语义分割开源库semseg：<a target="_blank" rel="noopener" href="https://github.com/hszhao/semseg">https://github.com/hszhao/semseg</a></p>
+<p>semseg用PyTorch实现的语义分割&#x2F;场景解析开源库。 它可以方便帮助开发者用于各种语义分割数据集的训练和测试。</p>
+<p>该库主要使用ResNet50 &#x2F; 101&#x2F;152作为主干网，也可以很容易地改成其他分类网络结构。</p>
+<blockquote>
+<p>ResNet又名残差神经网络，指的是在传统卷积神经网络中加入残差学习（residual learning）的思想，解决了深层网络中梯度弥散和精度下降（训练集）的问题，使网络能够越来越深，既保证了精度，又控制了速度。</p>
+</blockquote>
+<p>目前已经实现了包括<strong>PSPNet和PSANet</strong>在内的网络，其在2016年ImageNet场景解析挑战赛@ ECCV16，LSUN语义分割挑战赛2017 @ CVPR17和WAD可驾驶区域分割挑战赛2018 @ CVPR18中排名第一。 示例实验数据集包括主流的ADE20K，PASCAL VOC 2012和Cityscapes。</p>
+<p>ps. 该库开发者即PSPNet和PSANet算法的一作。</p>
+<p><strong>核心组件Pyramid Pooling Module</strong></p>
+<p>金字塔池化模块Pyramid Pooling Module由一组不同尺度的池化块组成</p>
+<p><img src="https://github.com/hszhao/semseg/raw/master/figure/pspnet.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/pspnet.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<ul>
+<li>（a）Input Image：即自然场景下拍摄的包含不同目标的原始图；</li>
+<li>（b）Feature Map：即通过前面CNN获得的特征图，<strong>这个CNN是预训练的ResNet</strong>；</li>
+<li>（c）Pyramid Pooling Module：上图中方框POOL表示采用<strong>1x1、2x2、3x3和6x6四种不同尺寸的pooling操作</strong>得到多个尺寸的特征图，并对这些尺寸的特征图再次进行“<strong>1x1的Conv”来减少通道数</strong>。然后采用<strong>双线性插值进行UPSAMPLE</strong>（上采样），即通过上采样来获得金字塔模块前相同尺寸的特征图，并在<strong>通道上进行拼接</strong>；</li>
+<li>（d）Final Prediction：即最终预测结果。</li>
+</ul>
+<ol>
+<li><p>同时支持多线程训练与多进程训练，并且后者非常快（该库比较重视训练）。</p>
+</li>
+<li><p>重新实现的算法取得更好的结果，而且代码结构清晰（说明代码质量高）。</p>
+</li>
+<li><p>所有初始化模型、训练得到的模型和预测的结果都能够下载<a target="_blank" rel="noopener" href="https://drive.google.com/open?id=15wx9vOM0euyizq-M1uINgN0_wjVRf9J3">google drive</a>，方便开发者直接使用或者研究比较。</p>
+</li>
+</ol>
+<p>作者推荐的软硬件环境：</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/hseta35g.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/77418807">【资源】常用的语义分割架构结构综述以及代码复现 - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/97706803">场景解析网络PSPNet——金字塔池化模型 - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/78760534">CNN基础知识——池化（pooling） - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/31852747">你必须要知道CNN模型：ResNet - 知乎 (zhihu.com)</a></p>
+<h2 id="PSPNet"><a href="#PSPNet" class="headerlink" title="PSPNet"></a>PSPNet</h2><p><a target="_blank" rel="noopener" href="https://hszhao.github.io/projects/pspnet/index.html">Pyramid Scene Parsing Network (hszhao.github.io)</a></p>
+<p>作者：香港中文大学的博士生Hengshuang Zhao。<a target="_blank" rel="noopener" href="https://hszhao.github.io/">https://hszhao.github.io/</a></p>
+<p>Pyramid Scene Parsing Network：</p>
+<p>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1612.01105">1612.01105] Pyramid Scene Parsing Network (arxiv.org)</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/hszhao/PSPNet">GitHub - hszhao&#x2F;PSPNet: Pyramid Scene Parsing Network, CVPR2017.</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31347869/article/details/102476128">【实验记录】PSPNet（PyTorch）_yaoyz105-CSDN博客_pspnet pytorch</a></p>
+<p>[<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/115004020">论文笔记] PSPNet：Pyramid Scene Parsing Network - 知乎 (zhihu.com)</a></p>
+<p>摘要：</p>
+<p>本文提出了基于整合全局上下文信息的金字塔池化模块的PSPNet，这种全局的先验信息能够有效地在场景语义分析中获得高质量的结果。</p>
+<p>为了实现准确地场景感知，这需要场景上下文的先验信息。文章发现基于FCN的模型的主要问题是，缺乏合适的策略来利用全局场景的类别信息。 对于典型的复杂场景理解，以前要获得全局图像级别的功能，spatial pyramid pooling被广泛采用，其中空间统计为整体场景解释提供了良好的描述符，SPPNet进一步增强了这个能力。</p>
+<p>本文主要有3个贡献：1、提出了PSPNet，在FCN中嵌入了不同场景的上下文特征；2、我们基于深度监督的损失为deep ResNet开发了有效的优化策略；3、我们构建了一个用于最新场景解析和语义分割的实用系统，其中包括了所有关键的实现细节。</p>
+<h2 id="SPNet"><a href="#SPNet" class="headerlink" title="SPNet"></a>SPNet</h2><p>作者：<a target="_blank" rel="noopener" href="https://github.com/Andrew-Qibin">Andrew-Qibin</a></p>
+<p>Strip Pooling: Rethinking Spatial Pooling for Scene Parsing：</p>
+<p>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2003.13328">2003.13328] Strip Pooling: Rethinking Spatial Pooling for Scene Parsing (arxiv.org)</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Andrew-Qibin/SPNet">GitHub - Andrew-Qibin&#x2F;SPNet: Code for our CVPR2020 paper “Strip Pooling: Rethinking Spatial Pooling for Scene Parsing”</a></p>
+<p>SPM</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/spnet.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>MPM</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211225140915981.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>The results reported in our paper are originally based on <a target="_blank" rel="noopener" href="https://github.com/zhanghang1989/PyTorch-Encoding">PyTorch-Encoding</a> but the environment settings are a little bit complicated. To ease use, we reimplement our work based on <a target="_blank" rel="noopener" href="https://github.com/hszhao/semseg">semseg</a>.</p>
+<p>[<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/132532190">论文笔记] Strip Pooling（SPNet） - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/122571198">CVPR2020-语义分割：Strip Pooling（条纹池化） - 知乎 (zhihu.com)</a></p>
+<p>摘要：</p>
+<p>事实证明，空间池化在捕获用于场景分析等像素级预测任务的远程上下文信息方面非常有效。</p>
+<p>基于条带池化，我们深入了解了空间池化的架构设计：（1）引入了新的条带池化模型，可以使主干网络可以有效地捕捉长距离的依赖关系；（2）提出了一个新颖的、可以将不同的空间池化作为核心的构件块；（3）有组织地在性能上比较了所提出的条带池化和传统的空间池化技术的差别。</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211225112618480.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>因为SPNet是基于semseg的环境，因此我们不仅做了SPNet的实验，而且还做了semseg的作者基于semseg做的一个非常著名的PSPNet的实验。</p>
+<p>由于SPNet与PSPNet的实验过程类似，下面仅记录PSPNet 。</p>
+<h1 id="PSPNet-on-WSL-Ubuntu-18-04"><a href="#PSPNet-on-WSL-Ubuntu-18-04" class="headerlink" title="PSPNet on WSL-Ubuntu 18.04"></a>PSPNet on WSL-Ubuntu 18.04</h1><p><strong>在已经完成”在WSL-Ubuntu 18.04 安装深度学习开发环境”的前提下进行下一步</strong></p>
+<h2 id="卸载-CUDA11-0"><a href="#卸载-CUDA11-0" class="headerlink" title="卸载 CUDA11.0"></a>卸载 CUDA11.0</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012372401/article/details/117251997?spm=1001.2101.3001.6650.1&utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-1.no_search_link">卸载cuda11.0并安装cuda11.1和cudnn_u012372401的博客-CSDN博客_卸载cuda11.1</a></p>
+<p>由于考虑到与pytorch版本的匹配问题，还是决定重装成CUDA10.1</p>
+<p>根据网上的教程是用这一行就可以完成卸载，但是在文件目录下并没有找到这个文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo /usr/local/cuda-11.0/bin/cuda-uninstaller<br></code></pre></td></tr></table></figure>
+
+<p>遂采用如下命令，直接选择删除该文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">rm</span> -rf /usr/local/cuda-11.0<br></code></pre></td></tr></table></figure>
+
+<h2 id="重装CUDA10-1"><a href="#重装CUDA10-1" class="headerlink" title="重装CUDA10.1"></a>重装CUDA10.1</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 下载</span><br>wget https://developer.download.nvidia.com/compute/cuda/10.1/Prod/local_installers/cuda_10.1.243_418.87.00_linux.run<br><span class="hljs-comment"># 安装</span><br>sudo sh cuda_10.1.243_418.87.00_linux.run<br><span class="hljs-comment"># 配置环境变量</span><br>vim ~/.bashrc<br><br><span class="hljs-comment"># 使用vim把cuda的路径放到环境变量中</span><br><span class="hljs-built_in">export</span> PATH=/usr/local/cuda-10.1/bin:<span class="hljs-variable">$PATH</span><br><span class="hljs-built_in">export</span> LD_LIBRARY_PATH=/usr/local/cuda-10.1/lib64:<span class="hljs-variable">$LD_LIBRARY_PATH</span><br><br><br><span class="hljs-comment"># 运行该命令，保存环境变量的配置</span><br><span class="hljs-built_in">source</span> ~/.bashrc<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219142750500.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219144421658.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219141854640.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219142146181.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="cuDNN-8-0-5-1"><a href="#cuDNN-8-0-5-1" class="headerlink" title="cuDNN 8.0.5"></a>cuDNN 8.0.5</h2><p>在nVidia的官网下载cuDNN，到Windows目录下；</p>
+<p>用cp命令移动到wsl &#x2F;home&#x2F;目录下；</p>
+<p>运行如下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 解压</span><br>tar -xzvf cudnn-11.0-linux-x64-v8.0.5.39.tgz<br><span class="hljs-comment">#移动</span><br>sudo <span class="hljs-built_in">cp</span> cuda/include/cudnn*.h /usr/local/cuda/include <br>sudo <span class="hljs-built_in">cp</span> -P cuda/lib64/libcudnn* /usr/local/cuda/lib64<br><span class="hljs-comment">#修改权限</span><br>sudo <span class="hljs-built_in">chmod</span> a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*<br><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="检查-CUDA和cuDNN"><a href="#检查-CUDA和cuDNN" class="headerlink" title="检查 CUDA和cuDNN"></a>检查 CUDA和cuDNN</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m511655654/article/details/88419965?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.not_use_machine_learn_pai&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromBaidu-2.not_use_machine_learn_pai">查看cuda和cudnn版本win&amp;linux_天真不无邪，hello和world-CSDN博客_查看cudnn和cuda版本</a></p>
+<p>运行如下命令，检查</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># cuDNN</span><br><span class="hljs-built_in">cat</span> /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2<br><span class="hljs-comment"># CUDA</span><br><span class="hljs-built_in">cat</span> /usr/local/cuda/version.txt<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219143502295.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="安装Anaconda"><a href="#安装Anaconda" class="headerlink" title="安装Anaconda"></a>安装Anaconda</h2><p>在读代码的时候发现，程序的运行需要anaconda环境，于是下载anaconda；</p>
+<p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/">Index of &#x2F;anaconda&#x2F;archive&#x2F; | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/Murphy_2021-12-08_22-02-57.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="使用conda创建虚拟环境"><a href="#使用conda创建虚拟环境" class="headerlink" title="使用conda创建虚拟环境"></a>使用conda创建虚拟环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建虚拟环境</span><br>conda create -n pt140 python==3.7<br><br><span class="hljs-comment"># pt140是虚拟环境的名称，读代码的时候发现，虚拟环境的名字就叫做pt140，于是直接就叫做这个名字，免得再改代码了</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/Murphy_2021-12-08_23-02-46.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>激活虚拟环境，可以看到，激活后，在终端出现（pt140）的字样</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219144221905.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="在虚拟环境pt140下安装PyTroch"><a href="#在虚拟环境pt140下安装PyTroch" class="headerlink" title="在虚拟环境pt140下安装PyTroch"></a>在虚拟环境pt140下安装PyTroch</h2><p>这一步很可能安装的是CPU版本的pytorch</p>
+<p>在官网直接用命令行下载（这一步是错误的，不要做这一步）</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219144716255.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="配置pt140"><a href="#配置pt140" class="headerlink" title="配置pt140"></a>配置pt140</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建虚拟环境</span><br>conda create -n pt140 python==3.7<br>pip install torch==1.4.0+cu90 torchvision==0.5.0+cu92 -f https://download.pytorch.org/whl/torch_stable.html<br>pip install tensorboardX<br>conda install opencv<br>conda install pillow<br>conda install pyaml<br><br><span class="hljs-comment"># clone源文件</span><br>git <span class="hljs-built_in">clone</span> https://github.com/hszhao/semseg.git<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="运行程序-修改代码"><a href="#运行程序-修改代码" class="headerlink" title="运行程序&amp;修改代码"></a>运行程序&amp;修改代码</h2><h3 id="不知道什么错误"><a href="#不知道什么错误" class="headerlink" title="不知道什么错误"></a>不知道什么错误</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/5dtygR.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="无法调用GPU，重装了pytorch"><a href="#无法调用GPU，重装了pytorch" class="headerlink" title="无法调用GPU，重装了pytorch"></a>无法调用GPU，重装了pytorch</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/cjkgrsdh.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>在<a target="_blank" rel="noopener" href="https://download.pytorch.org/whl/torch_stable.html">pytorch的这个网站</a>下载whl文件，离线安装</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219162510029.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/gear.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># testgpu.py</span><br><br><span class="hljs-keyword">import</span> torch<br><span class="hljs-keyword">import</span> torchvision<br><span class="hljs-built_in">print</span>(torch.__version__)<br><span class="hljs-built_in">print</span>(torch.cuda.is_available())<br><span class="hljs-built_in">print</span>(torch.cuda.device_count())<br><span class="hljs-built_in">print</span>(torch.cuda.get_device_name())<br><span class="hljs-built_in">print</span>(torch.cuda.current_device())<br></code></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219145145564.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="代码中用了八个GPU，但是电脑上面只有一个GPU，因此需要将显卡序列改掉"><a href="#代码中用了八个GPU，但是电脑上面只有一个GPU，因此需要将显卡序列改掉" class="headerlink" title="代码中用了八个GPU，但是电脑上面只有一个GPU，因此需要将显卡序列改掉"></a>代码中用了八个GPU，但是电脑上面只有一个GPU，因此需要将显卡序列改掉</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/shrthhj.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>注意，在修改代码的时候，我加了一个注释，这个注释不能是中文的，因为编码问题，程序报错</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 需要英文注释</span><br><br><span class="hljs-comment"># modify GPU</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219150250773.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219150414672.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="读取数据量序列错误"><a href="#读取数据量序列错误" class="headerlink" title="读取数据量序列错误"></a>读取数据量序列错误</h3><p>需要对数据集的list文件进行修改</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219150449817.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219150545807.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="成功了，但没完全成功"><a href="#成功了，但没完全成功" class="headerlink" title="成功了，但没完全成功"></a>成功了，但没完全成功</h3><p>程序能跑了，但由于显存资源不够，不能完全跑起来</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219150614087.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/saraf.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/ntsrt.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h1 id="PSPNet-on-Server-Ubuntu-16-04"><a href="#PSPNet-on-Server-Ubuntu-16-04" class="headerlink" title="PSPNet on Server Ubuntu 16.04"></a>PSPNet on Server Ubuntu 16.04</h1><p>自己电脑上面跑不起代码来，于是用实验室服务器重新环境配置，以运行该项目</p>
+<h2 id="数据扩增"><a href="#数据扩增" class="headerlink" title="数据扩增"></a>数据扩增</h2><p>通过程序，对图像加入高斯噪声，变换亮度等操作，将数据集扩增14倍</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/hrfwrg.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/ategr.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><br><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> os.path<br><span class="hljs-keyword">import</span> copy<br><br><span class="hljs-comment"># 椒盐噪声</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">SaltAndPepper</span>(<span class="hljs-params">src,percetage</span>):<br>    SP_NoiseImg=src.copy()<br>    SP_NoiseNum=<span class="hljs-built_in">int</span>(percetage*src.shape[<span class="hljs-number">0</span>]*src.shape[<span class="hljs-number">1</span>])<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(SP_NoiseNum):<br>        randR=np.random.randint(<span class="hljs-number">0</span>,src.shape[<span class="hljs-number">0</span>]-<span class="hljs-number">1</span>)<br>        randG=np.random.randint(<span class="hljs-number">0</span>,src.shape[<span class="hljs-number">1</span>]-<span class="hljs-number">1</span>)<br>        randB=np.random.randint(<span class="hljs-number">0</span>,<span class="hljs-number">3</span>)<br>        <span class="hljs-keyword">if</span> np.random.randint(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>)==<span class="hljs-number">0</span>:<br>            SP_NoiseImg[randR,randG,randB]=<span class="hljs-number">0</span><br>        <span class="hljs-keyword">else</span>:<br>            SP_NoiseImg[randR,randG,randB]=<span class="hljs-number">255</span><br>    <span class="hljs-keyword">return</span> SP_NoiseImg<br><br><span class="hljs-comment"># 高斯噪声</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">addGaussianNoise</span>(<span class="hljs-params">image,percetage</span>):<br>    G_Noiseimg = image.copy()<br>    w = image.shape[<span class="hljs-number">1</span>]<br>    h = image.shape[<span class="hljs-number">0</span>]<br>    G_NoiseNum=<span class="hljs-built_in">int</span>(percetage*image.shape[<span class="hljs-number">0</span>]*image.shape[<span class="hljs-number">1</span>])<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(G_NoiseNum):<br>        temp_x = np.random.randint(<span class="hljs-number">0</span>,h)<br>        temp_y = np.random.randint(<span class="hljs-number">0</span>,w)<br>        G_Noiseimg[temp_x][temp_y][np.random.randint(<span class="hljs-number">3</span>)] = np.random.randn(<span class="hljs-number">1</span>)[<span class="hljs-number">0</span>]<br>    <span class="hljs-keyword">return</span> G_Noiseimg<br><br><span class="hljs-comment"># 昏暗</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">darker</span>(<span class="hljs-params">image,percetage=<span class="hljs-number">0.9</span></span>):<br>    image_copy = image.copy()<br>    w = image.shape[<span class="hljs-number">1</span>]<br>    h = image.shape[<span class="hljs-number">0</span>]<br>    <span class="hljs-comment">#get darker</span><br>    <span class="hljs-keyword">for</span> xi <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,w):<br>        <span class="hljs-keyword">for</span> xj <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,h):<br>            image_copy[xj,xi,<span class="hljs-number">0</span>] = <span class="hljs-built_in">int</span>(image[xj,xi,<span class="hljs-number">0</span>]*percetage)<br>            image_copy[xj,xi,<span class="hljs-number">1</span>] = <span class="hljs-built_in">int</span>(image[xj,xi,<span class="hljs-number">1</span>]*percetage)<br>            image_copy[xj,xi,<span class="hljs-number">2</span>] = <span class="hljs-built_in">int</span>(image[xj,xi,<span class="hljs-number">2</span>]*percetage)<br>    <span class="hljs-keyword">return</span> image_copy<br><br><span class="hljs-comment"># 亮度</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">brighter</span>(<span class="hljs-params">image, percetage=<span class="hljs-number">1.5</span></span>):<br>    image_copy = image.copy()<br>    w = image.shape[<span class="hljs-number">1</span>]<br>    h = image.shape[<span class="hljs-number">0</span>]<br>    <span class="hljs-comment">#get brighter</span><br>    <span class="hljs-keyword">for</span> xi <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,w):<br>        <span class="hljs-keyword">for</span> xj <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">0</span>,h):<br>            image_copy[xj,xi,<span class="hljs-number">0</span>] = np.clip(<span class="hljs-built_in">int</span>(image[xj,xi,<span class="hljs-number">0</span>]*percetage),a_max=<span class="hljs-number">255</span>,a_min=<span class="hljs-number">0</span>)<br>            image_copy[xj,xi,<span class="hljs-number">1</span>] = np.clip(<span class="hljs-built_in">int</span>(image[xj,xi,<span class="hljs-number">1</span>]*percetage),a_max=<span class="hljs-number">255</span>,a_min=<span class="hljs-number">0</span>)<br>            image_copy[xj,xi,<span class="hljs-number">2</span>] = np.clip(<span class="hljs-built_in">int</span>(image[xj,xi,<span class="hljs-number">2</span>]*percetage),a_max=<span class="hljs-number">255</span>,a_min=<span class="hljs-number">0</span>)<br>    <span class="hljs-keyword">return</span> image_copy<br><br><span class="hljs-comment"># 旋转</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">rotate</span>(<span class="hljs-params">image, angle, center=<span class="hljs-literal">None</span>, scale=<span class="hljs-number">1.0</span></span>):<br>    (h, w) = image.shape[:<span class="hljs-number">2</span>]<br>    <span class="hljs-comment"># If no rotation center is specified, the center of the image is set as the rotation center</span><br>    <span class="hljs-keyword">if</span> center <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>:<br>        center = (w / <span class="hljs-number">2</span>, h / <span class="hljs-number">2</span>)<br>    m = cv2.getRotationMatrix2D(center, angle, scale)<br>    rotated = cv2.warpAffine(image, m, (w, h))<br>    <span class="hljs-keyword">return</span> rotated<br><br><span class="hljs-comment"># 翻转</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">flip</span>(<span class="hljs-params">image</span>):<br>    flipped_image = np.fliplr(image)<br>    <span class="hljs-keyword">return</span> flipped_image<br>    <br><span class="hljs-comment"># 图片文件夹路径</span><br>file_dir = <span class="hljs-string">r&#x27;D:/Python_Develop/datasets/IT/Demo/output/&#x27;</span> <br><span class="hljs-keyword">for</span> img_name <span class="hljs-keyword">in</span> os.listdir(file_dir):<br>    img_path = file_dir + img_name<br>    img = cv2.imread(img_path)<br>    <span class="hljs-comment"># cv2.imshow(&quot;1&quot;,img)</span><br>    <span class="hljs-comment"># cv2.waitKey(5000)</span><br>    <span class="hljs-comment"># 旋转</span><br>    rotated_90 = rotate(img, <span class="hljs-number">90</span>)<br>    cv2.imwrite(file_dir + img_name[<span class="hljs-number">0</span>:-<span class="hljs-number">4</span>] + <span class="hljs-string">&#x27;_r90.jpg&#x27;</span>, rotated_90)<br>    rotated_180 = rotate(img, <span class="hljs-number">180</span>)<br>    cv2.imwrite(file_dir + img_name[<span class="hljs-number">0</span>:-<span class="hljs-number">4</span>] + <span class="hljs-string">&#x27;_r180.jpg&#x27;</span>, rotated_180)<br><br><span class="hljs-keyword">for</span> img_name <span class="hljs-keyword">in</span> os.listdir(file_dir):<br>    img_path = file_dir + img_name<br>    img = cv2.imread(img_path)<br>    <span class="hljs-comment"># 镜像</span><br>    flipped_img = flip(img)<br>    cv2.imwrite(file_dir +img_name[<span class="hljs-number">0</span>:-<span class="hljs-number">4</span>] + <span class="hljs-string">&#x27;_fli.jpg&#x27;</span>, flipped_img)<br><br>    <span class="hljs-comment"># 增加噪声</span><br>    <span class="hljs-comment"># img_salt = SaltAndPepper(img, 0.3)</span><br>    <span class="hljs-comment"># cv2.imwrite(file_dir + img_name[0:7] + &#x27;_salt.jpg&#x27;, img_salt)</span><br>    img_gauss = addGaussianNoise(img, <span class="hljs-number">0.3</span>)<br>    cv2.imwrite(file_dir + img_name[<span class="hljs-number">0</span>:-<span class="hljs-number">4</span>] + <span class="hljs-string">&#x27;_noise.jpg&#x27;</span>,img_gauss)<br><br>    <span class="hljs-comment">#变亮、变暗</span><br>    img_darker = darker(img)<br>    cv2.imwrite(file_dir + img_name[<span class="hljs-number">0</span>:-<span class="hljs-number">4</span>] + <span class="hljs-string">&#x27;_darker.jpg&#x27;</span>, img_darker)<br>    img_brighter = brighter(img)<br>    cv2.imwrite(file_dir + img_name[<span class="hljs-number">0</span>:-<span class="hljs-number">4</span>] + <span class="hljs-string">&#x27;_brighter.jpg&#x27;</span>, img_brighter)<br><br>    blur = cv2.GaussianBlur(img, (<span class="hljs-number">7</span>, <span class="hljs-number">7</span>), <span class="hljs-number">1.5</span>)<br>    <span class="hljs-comment">#      cv2.GaussianBlur(图像，卷积核，标准差）</span><br>    cv2.imwrite(file_dir + img_name[<span class="hljs-number">0</span>:-<span class="hljs-number">4</span>] + <span class="hljs-string">&#x27;_blur.jpg&#x27;</span>,blur)<br><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="Xftp-代码和数据上传到服务器"><a href="#Xftp-代码和数据上传到服务器" class="headerlink" title="Xftp 代码和数据上传到服务器"></a>Xftp 代码和数据上传到服务器</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219151339713.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="创建集群Platform-for-AI-平台账户"><a href="#创建集群Platform-for-AI-平台账户" class="headerlink" title="创建集群Platform for AI 平台账户"></a>创建集群Platform for AI 平台账户</h2><p>代码将从该平台提交到服务器中</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219151707948.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="使用集群上预置的系统环境，提交代码"><a href="#使用集群上预置的系统环境，提交代码" class="headerlink" title="使用集群上预置的系统环境，提交代码"></a>使用集群上预置的系统环境，提交代码</h2><p>程序不能正常运行，需要重新配置一个符合要求的环境</p>
+<h2 id="使用Xshell登陆服务器修改一个符合要求的环境"><a href="#使用Xshell登陆服务器修改一个符合要求的环境" class="headerlink" title="使用Xshell登陆服务器修改一个符合要求的环境"></a>使用Xshell登陆服务器修改一个符合要求的环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 1. 使用 ssh 登陆服务器</span><br><br><span class="hljs-comment"># 2. 使用 ssh 登陆一台节点服务器</span><br><br><span class="hljs-comment"># 3. sudo docker images 列出服务器上的 dockers 镜像，找到提交任务时使用的镜像</span><br><br><span class="hljs-comment"># 4. sudo docker run -it ufoym/deepo:pytorch-py36-cu90 /bin/bash 使用该命令运行该镜像</span><br><br><span class="hljs-comment"># 5. 然后我们可以在这里继续安装软件，安装方法和正常 ubuntu 系统一样。安装完成后我们需要将镜像重新保存。</span><br><br><span class="hljs-comment"># 6.exit 首先退出容器</span><br><br><span class="hljs-comment"># 7. sudo docker ps -a 找到我们刚刚运行的容器</span><br><br><span class="hljs-comment"># 8. sudo docker commit 3cac363bc174 ufoym/pytorch-py36-cu90:v1.0 将容器重新保存为镜像，命令中 3cac363bc174 为容器的 id，见上图第一列 CONTAINER ID。ufoym/pytorch-py36-cu90:v1.0 是为镜像修改的名字，:v1.0 是镜像版本，可根据需求修改。</span><br><br><span class="hljs-comment"># 9. 保存完之后我们再次查看镜像列表 sudo docker images，此时镜像已经显示了。</span><br><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219153819090.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="Xshell上对深度学习镜像环境进行配置"><a href="#Xshell上对深度学习镜像环境进行配置" class="headerlink" title="Xshell上对深度学习镜像环境进行配置"></a>Xshell上对深度学习镜像环境进行配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 进入我的镜像环境</span><br>sudo docker run -it ufoym/pytorch15-py37-cuda101:v1.0 /bin/bash<br></code></pre></td></tr></table></figure>
+
+<h3 id="anaconda3-下载"><a href="#anaconda3-下载" class="headerlink" title="anaconda3 下载"></a>anaconda3 下载</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219163336368.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219163412966.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p>创建conda 虚拟环境 pt140</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建虚拟环境</span><br>conda create -n pt140 python==3.7<br></code></pre></td></tr></table></figure>
+
+<p>conda设置清华源</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219163516431.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/<br>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/<br>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/<br>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/<br>conda config --<span class="hljs-built_in">set</span> show_channel_urls <span class="hljs-built_in">yes</span><br><br>作者：Ginkgo<br>链接：https://www.jianshu.com/p/7e663bb0d904<br>来源：简书<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。<br></code></pre></td></tr></table></figure>
+
+<p>其他环境的配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install torch==1.4.0+cu90 torchvision==0.5.0+cu92 -f https://download.pytorch.org/whl/torch_stable.html<br>pip install tensorboardX<br>conda install opencv<br>conda install pillow<br>conda install pyaml<br></code></pre></td></tr></table></figure>
+
+<h3 id="CUDA-10-1"><a href="#CUDA-10-1" class="headerlink" title="CUDA 10.1"></a>CUDA 10.1</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/sjlrioegbauo.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219211952632.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="cuDNN-8-0-5-2"><a href="#cuDNN-8-0-5-2" class="headerlink" title="cuDNN 8.0.5"></a>cuDNN 8.0.5</h3><p>在Windows上下载,然后用Xftp传到服务器</p>
+<p><strong>docker cp 命令，将服务器上的文件传到镜像环境下(这一步我不会,找学长帮忙给搞得,操作太快了,没看懂)</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fsong/p/11335251.html">传输文件到docker容器 - wakasann - 博客园 (cnblogs.com)</a></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219212238816.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h3 id="pytorch-1-5-0-cu101"><a href="#pytorch-1-5-0-cu101" class="headerlink" title="pytorch 1.5.0+cu101"></a>pytorch 1.5.0+cu101</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219212417973.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh登陆服务器<br><br>ssh登陆节点服务器<br><br><span class="hljs-comment"># 查看镜像</span><br>sudo docker images<br><br><span class="hljs-comment"># 进入镜像</span><br>sudo docker run -it pt140:2.0<br><br><span class="hljs-comment"># 查看cuda版本</span><br>nvcc -V<br><span class="hljs-built_in">cat</span> /usr/local/cuda/version.txt<br><span class="hljs-built_in">cat</span> /usr/local/cuda/include/cudnn_version.h | grep CUDNN_MAJOR -A 2<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219213303346.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 激活pt140虚拟环境</span><br>conda activate pt140<br><br><span class="hljs-comment"># 进入python</span><br>python<br>import torch<br><br><span class="hljs-comment"># 查看torch版本和GPU调用情况</span><br><span class="hljs-built_in">print</span>(torch.__version__)<br>torch.cuda.is_available()<br><br><span class="hljs-comment"># 问题!!!</span><br><span class="hljs-comment"># torch不能调用GPU,找不到解决的方向了</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219213503637.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h1 id="将docker-镜像推送到阿里云"><a href="#将docker-镜像推送到阿里云" class="headerlink" title="将docker 镜像推送到阿里云"></a>将docker 镜像推送到阿里云</h1><h2 id="阿里云账户"><a href="#阿里云账户" class="headerlink" title="阿里云账户"></a>阿里云账户</h2><p>注册阿里账户</p>
+<p><a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-shanghai/instances/repositorie">阿里云</a></p>
+<h2 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211219224624886.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="在服务器登陆阿里云"><a href="#在服务器登陆阿里云" class="headerlink" title="在服务器登陆阿里云"></a>在服务器登陆阿里云</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo docker login --username=murphyhou0928 registry.cn-qingdao.a liyuncs.com<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/docker%20%E7%99%BB%E5%BD%95%E9%98%BF%E9%87%8C%E4%BA%91.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="把镜像修改为阿里云的-docker-仓库路径"><a href="#把镜像修改为阿里云的-docker-仓库路径" class="headerlink" title="把镜像修改为阿里云的 docker 仓库路径"></a>把镜像修改为阿里云的 docker 仓库路径</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo docker tag aa553d773527 registry.cn-qingdao.aliyuncs.com/murphyhou/pt140:v1.0<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/tag%20docker%20%E9%95%9C%E5%83%8F%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h2 id="把镜像推送到阿里云"><a href="#把镜像推送到阿里云" class="headerlink" title="把镜像推送到阿里云"></a>把镜像推送到阿里云</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo docker push registry.cn-qingdao.aliyuncs.com/murphyhou/pt140:v1.0<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/%E6%8E%A8%E9%80%81%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E4%BB%93%E5%BA%93.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211225103355594.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h1 id="在Platform-for-AI-平台提交代码"><a href="#在Platform-for-AI-平台提交代码" class="headerlink" title="在Platform for AI 平台提交代码"></a>在Platform for AI 平台提交代码</h1><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211225103720403.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/jhsdagrghq53.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/image-20211225103830678.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+<h1 id="结果分析工具程序"><a href="#结果分析工具程序" class="headerlink" title="结果分析工具程序"></a>结果分析工具程序</h1><h2 id="图像相似度"><a href="#图像相似度" class="headerlink" title="图像相似度"></a>图像相似度</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br> <br><span class="hljs-comment"># 将图片转化为RGB</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">make_regalur_image</span>(<span class="hljs-params">img, size=(<span class="hljs-params"><span class="hljs-number">64</span>, <span class="hljs-number">64</span></span>)</span>):<br>    gray_image = img.resize(size).convert(<span class="hljs-string">&#x27;RGB&#x27;</span>)<br>    <span class="hljs-keyword">return</span> gray_image<br> <br><span class="hljs-comment"># 计算直方图</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">hist_similar</span>(<span class="hljs-params">lh, rh</span>):<br>    <span class="hljs-keyword">assert</span> <span class="hljs-built_in">len</span>(lh) == <span class="hljs-built_in">len</span>(rh)<br>    hist = <span class="hljs-built_in">sum</span>(<span class="hljs-number">1</span> - (<span class="hljs-number">0</span> <span class="hljs-keyword">if</span> l == r <span class="hljs-keyword">else</span> <span class="hljs-built_in">float</span>(<span class="hljs-built_in">abs</span>(l-r))/<span class="hljs-built_in">max</span>(l,r))<span class="hljs-keyword">for</span> l, r <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(lh, rh))/<span class="hljs-built_in">len</span>(lh)<br>    <span class="hljs-keyword">return</span> hist<br> <br><span class="hljs-comment"># 计算相似度</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">calc_similar</span>(<span class="hljs-params">li, ri</span>):<br>    calc_sim = hist_similar(li.histogram(), ri.histogram())<br>    <span class="hljs-keyword">return</span> calc_sim<br> <br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br><br>    <span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">151</span>,<span class="hljs-number">209</span>):<br>        patha=<span class="hljs-string">&quot;./validation/&quot;</span>+<span class="hljs-built_in">str</span>(num)+<span class="hljs-string">&quot;.png&quot;</span><br>        pathb=<span class="hljs-string">&quot;./color/&quot;</span>+<span class="hljs-built_in">str</span>(num)+<span class="hljs-string">&quot;.png&quot;</span><br>        image1 = Image.<span class="hljs-built_in">open</span>(patha)<br>        image1 = make_regalur_image(image1)<br>        image2 = Image.<span class="hljs-built_in">open</span>(pathb)<br>        image2 = make_regalur_image(image2)<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;图片&quot;</span>+<span class="hljs-built_in">str</span>(num)+<span class="hljs-string">&quot;的相似度为&quot;</span>,calc_similar(image1, image2))<br> <br> <br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="统计"><a href="#统计" class="headerlink" title="统计"></a>统计</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> pandas<br><span class="hljs-keyword">import</span> numpy<br>results = [<span class="hljs-number">0.5357053546104784</span>,<span class="hljs-number">0.5507430161474265</span>,<span class="hljs-number">0.5285612742106119</span>,<span class="hljs-number">0.603323384344262</span>,<span class="hljs-number">0.6080867770442063</span>,<span class="hljs-number">0.6575597122000112</span>,<span class="hljs-number">0.6114677464392965</span>,<span class="hljs-number">0.8446443289317913</span>,<span class="hljs-number">0.9043420339718073</span>,<span class="hljs-number">0.9041090450680298</span>,<span class="hljs-number">0.9943628311157227</span>,<span class="hljs-number">0.9301581073676269</span>,<span class="hljs-number">0.6554113765607682</span>,<span class="hljs-number">0.4948109783779284</span>,<span class="hljs-number">0.4464763005574544</span>,<span class="hljs-number">0.537724494934082</span>,<span class="hljs-number">0.5748386242222617</span>,<span class="hljs-number">0.6774920940940619</span>,<span class="hljs-number">0.5907715624134954</span>,<span class="hljs-number">0.5808468070438285</span>,<span class="hljs-number">0.5194940567016602</span>,<span class="hljs-number">0.5553396342901941</span>,<span class="hljs-number">0.4472212463045831</span>,<span class="hljs-number">0.5701756034156457</span>,<span class="hljs-number">0.749638084820338</span>,<span class="hljs-number">0.7998814375835139</span>,<span class="hljs-number">0.7819517675158355</span>,<span class="hljs-number">0.7034507667709003</span>,<span class="hljs-number">0.8941413242592676</span>,<span class="hljs-number">0.9030247433871216</span>,<span class="hljs-number">0.9960931142171224</span>,<span class="hljs-number">0.9021762212117513</span>,<span class="hljs-number">0.6966854060271549</span>,<span class="hljs-number">0.5482711791992188</span>,<span class="hljs-number">0.5566729593095879</span>,<span class="hljs-number">0.6602304149091052</span>,<span class="hljs-number">0.6497804211327798</span>,<span class="hljs-number">0.5605064664271656</span>,<span class="hljs-number">0.5285503069638954</span>,<span class="hljs-number">0.7237626953522035</span>,<span class="hljs-number">0.6645485884810058</span>,<span class="hljs-number">0.6430581410725912</span>,<span class="hljs-number">0.6576677958170573</span>,<span class="hljs-number">0.6513833999633789</span>,<span class="hljs-number">0.5016614719713388</span>,<span class="hljs-number">0.6468158204973189</span>,<span class="hljs-number">0.7732410430908203</span>,<span class="hljs-number">1.0</span>,<span class="hljs-number">0.8808919355405141</span>,<span class="hljs-number">0.7832873451527739</span>,<span class="hljs-number">0.6083869868941091</span>,<span class="hljs-number">0.9531558296113718</span>,<span class="hljs-number">0.8561667485859004</span>,<span class="hljs-number">0.8622514783048857</span>,<span class="hljs-number">0.9823717198087157</span>,<span class="hljs-number">0.9268625386919616</span>,<span class="hljs-number">0.801384002484161</span>,<span class="hljs-number">0.768682721808406</span> ]<br>sections = [<span class="hljs-number">0</span>, <span class="hljs-number">0.1</span>, <span class="hljs-number">0.2</span>, <span class="hljs-number">0.3</span>, <span class="hljs-number">0.4</span>, <span class="hljs-number">0.5</span>,<span class="hljs-number">0.6</span>,<span class="hljs-number">0.7</span>,<span class="hljs-number">0.8</span>,<span class="hljs-number">0.9</span>,<span class="hljs-number">1.0</span>]<br>group_names = [<span class="hljs-string">&#x27;0-0.1&#x27;</span>, <span class="hljs-string">&#x27;0.1-0.2&#x27;</span>, <span class="hljs-string">&#x27;0.2-0.3&#x27;</span>, <span class="hljs-string">&#x27;0.3-0.4&#x27;</span>, <span class="hljs-string">&#x27;0.4-0.5&#x27;</span>,<span class="hljs-string">&#x27;0.5-0.6&#x27;</span>,<span class="hljs-string">&#x27;0.6-0.7&#x27;</span>,<span class="hljs-string">&#x27;0.7-0.8&#x27;</span>,<span class="hljs-string">&#x27;0.8-0.9&#x27;</span>,<span class="hljs-string">&#x27;0.9-1.0&#x27;</span>]<br>x=[]<br>cuts = pandas.cut(numpy.array(results), sections, labels=group_names)<br>counts = pandas.value_counts(cuts)<br><span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> <span class="hljs-built_in">dict</span>(counts).items():<br>    <span class="hljs-built_in">print</span>(key, value)<br>    x.append(<span class="hljs-built_in">str</span>(value))<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/wsl/rgwFWHEAJRLKNE.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" class="category-chain-item">计算机视觉</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+        <a href="/tags/PyTorch/" class="print-no-link">#PyTorch</a>
+      
+        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="print-no-link">#深度学习</a>
+      
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>基于SemSeg的马里亚纳海沟遥感图像场景解析</div>
+      <div>https://cosmicdusty.cc/post/CV/SceneParsingProject/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Murphy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年11月21日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post/Astronomy/LearnAstronomy_1/" title="天文学合集笔记（一）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">天文学合集笔记（一）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/Electronic/ESP/" title="ESP">
+                        <span class="hidden-mobile">ESP</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"JijHNKemeVNog4wF7g9I5TR3-gzGzoHsz","appKey":"FvsKdxHOP2aG5rHrHby5aV0b","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a rel="nofollow noopener"><span>Powered by</span></a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span><b>Hexo</b></span></a> <i class="iconfont icon-love"></i> <a rel="nofollow noopener"><span>Themed by</span></a> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span><b>Fluid</b></span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,1019 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <link rel="icon" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Murphy">
+  <meta name="keywords" content="Murphy,CosmicDusty,murphy,cosmicdusty,cn">
+  
+    <meta name="description" content="The ImageNet Large Scale Visual Recognition Challenge (ILSVRC) evaluates algorithms for object detection and image classification at large scale.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ILSVRC论文">
+<meta property="og:url" content="https://cosmicdusty.cc/post/Paper/ILSVRC/index.html">
+<meta property="og:site_name" content="MurphyHou">
+<meta property="og:description" content="The ImageNet Large Scale Visual Recognition Challenge (ILSVRC) evaluates algorithms for object detection and image classification at large scale.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/imagenet_banner.jpeg">
+<meta property="article:published_time" content="2023-05-04T09:41:24.000Z">
+<meta property="article:modified_time" content="2023-05-18T06:57:39.000Z">
+<meta property="article:author" content="Murphy">
+<meta property="article:tag" content="ILSVRC">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/imagenet_banner.jpeg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>ILSVRC论文 - MurphyHou</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cosmicdusty.cc","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"16d93d5abbd7ea15ec53daed5459ebf7","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JijHNKemeVNog4wF7g9I5TR3","app_key":"FvsKdxHOP2aG5rHrHby5aV0b","server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?16d93d5abbd7ea15ec53daed5459ebf7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CosmicDusty</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/imagenet_banner.jpeg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="ILSVRC论文"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Murphy
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-05-04 17:41" pubdate>
+          2023年5月4日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          947 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">ILSVRC论文</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="ILSVRC"><a href="#ILSVRC" class="headerlink" title="ILSVRC"></a>ILSVRC</h1><h2 id="ImageNet"><a href="#ImageNet" class="headerlink" title="ImageNet"></a>ImageNet</h2><iframe width="560" height="315" src="https://www.youtube.com/embed/40riCqvRoMs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<p>一切的起源：CVPR 2009，*<a target="_blank" rel="noopener" href="https://ieeexplore.ieee.org/document/5206848">ImageNet: A large-scale hierarchical image database</a>*</p>
+<blockquote>
+<p><strong>ImageNet</strong> is an image database organized according to the <a target="_blank" rel="noopener" href="http://wordnet.princeton.edu/">WordNet</a> hierarchy (currently only the nouns), in which each node of the hierarchy is depicted by hundreds and thousands of images. The project has been <a target="_blank" rel="noopener" href="https://qz.com/1034972/the-data-that-changed-the-direction-of-ai-research-and-possibly-the-world/">instrumental</a> in advancing computer vision and deep learning research. The data is available for free to researchers for non-commercial use.<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[ImageNet (image-net.org)](https://www.image-net.org/)">[2]</span></a></sup></p>
+</blockquote>
+<p>另外还有一篇2015年的论文，*<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1409.0575">ImageNet Large Scale Visual Recognition Challenge</a>*</p>
+<ul>
+<li>14,192,122 million images, 21841 thousand categories</li>
+</ul>
+<p>ImageNet数据集的出现，直接证明了庞大的数据是可以推动计算机视觉的进步的！</p>
+<h2 id="ILSVRC-1"><a href="#ILSVRC-1" class="headerlink" title="ILSVRC"></a>ILSVRC</h2><p>ILSVRC无论怎么来介绍，都不如<a target="_blank" rel="noopener" href="https://image-net.org/challenges/LSVRC/">ImageNet</a>官方给出的介绍来得直接明了！</p>
+<blockquote>
+<p>The ImageNet Large Scale Visual Recognition Challenge (ILSVRC) evaluates algorithms for object detection and image classification at large scale.<br>One high level motivation is to allow researchers to compare progress in detection across a wider variety of objects – taking advantage of the quite expensive labeling effort.<br>Another motivation is to measure the progress of computer vision for large scale image indexing for retrieval and annotation.<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[ImageNet (image-net.org)](https://www.image-net.org/challenges/LSVRC/)">[1]</span></a></sup></p>
+</blockquote>
+<p>ILSVRC从2010年到2017年，总共举办了八届，但直到2012年AlexNet的横空出世，才使得ILSVRC得到了更多人的关注。在2017年之后，模型在ImageNet数据集上的错误率已经被“刷爆”了，再继续下去也已经没有什么意义了，ImageNet已经完成了它最初的使命了！</p>
+<h1 id="ILSVRC-2010"><a href="#ILSVRC-2010" class="headerlink" title="ILSVRC 2010"></a>ILSVRC 2010</h1><p>2010年只有分类任务</p>
+<blockquote>
+<p><strong>Winner: NEC-UIUC</strong><br>Yuanqing Lin, Fengjun Lv, Shenghuo Zhu, Ming Yang, Timothee Cour, Kai Yu (NEC). LiangLiang Cao, Zhen Li, Min-Hsuan Tsai, Xi Zhou, Thomas Huang (UIUC). Tong Zhang (Rutgers).<br>[<a target="_blank" rel="noopener" href="https://www.image-net.org/static_files/files/ILSVRC2010_NEC-UIUC.pdf">PDF</a>] NB: <em>This is unpublished work. Please contact the authors if you plan to make use of any of the ideas presented.</em></p>
+</blockquote>
+<ul>
+<li>Fast descriptor coding</li>
+<li>Large-scale SVM classification</li>
+</ul>
+<blockquote>
+<p><strong>Honorable mention: XRCE</strong><br>Jorge Sanchez, Florent Perronnin, Thomas Mensink (XRCE)<br>[<a target="_blank" rel="noopener" href="https://www.image-net.org/static_files/files/ILSVRC2010_XRCE.pdf">PDF</a>] NB: <em>This is unpublished work. Please contact the authors if you plan to make use of any of the ideas presented.</em></p>
+</blockquote>
+<ul>
+<li>Fisher Vector</li>
+</ul>
+<h1 id="ILSVRC-2011"><a href="#ILSVRC-2011" class="headerlink" title="ILSVRC 2011"></a>ILSVRC 2011</h1><p>Categorization&amp;Localization</p>
+<blockquote>
+<p>Classification Winners: <a target="_blank" rel="noopener" href="http://www.xrce.xerox.com/Research-Development/Document-Content-Laboratory/Textual-Visual-Pattern-Analysis-TVPA">XRCE</a><br><a target="_blank" rel="noopener" href="http://www.xrce.xerox.com/Research-Development/Document-Content-Laboratory/Textual-Visual-Pattern-Analysis-TVPA/Large-scale-classification-and-retrieval">Florent Perronnin, Jorge Sanchez</a><br>[<a target="_blank" rel="noopener" href="https://www.image-net.org/challenges/LSVRC/2011/ilsvrc11.pdf">PDF</a>] Compressed Fisher vectors for Large Scale Visual Recognition</p>
+</blockquote>
+<blockquote>
+<p>Detection Winners: <a target="_blank" rel="noopener" href="http://koen.me/research/selectivesearch/">University of Amsterdam &amp; University of Trento</a><br><a target="_blank" rel="noopener" href="http://koen.me/research/">Koen van de Sande</a>, Jasper Uijlings<br>Arnold Smeulders, Theo Gevers, Nicu Sebe, Cees Snoek<br>[<a target="_blank" rel="noopener" href="http://koen.me/research/pub/ILSVRC2011-UvATrento-SelectiveSearch.pdf">PDF</a>] Segmentation as Selective Search for Object Recognition</p>
+</blockquote>
+<h1 id="ILSVRC-2012"><a href="#ILSVRC-2012" class="headerlink" title="ILSVRC 2012"></a>ILSVRC 2012</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.image-net.org/challenges/LSVRC/2012/results.html">results</a></p>
+</li>
+<li><p>review [ <a target="_blank" rel="noopener" href="https://www.image-net.org/static_files/files/ilsvrc2012.pdf">slides</a> ]</p>
+</li>
+<li><p>Task 1: Classification: SuperVision [ <a target="_blank" rel="noopener" href="https://www.image-net.org/static_files/files/supervision.pdf">slides</a> ];OXFORD_VGG team [ <a target="_blank" rel="noopener" href="https://www.image-net.org/static_files/files/oxford_vgg.pdf">slides</a> ] </p>
+</li>
+<li><p>Task 2: Classification with localization: SuperVision</p>
+</li>
+<li><p>Task 3: Fine-grained classification: ISI [ <a target="_blank" rel="noopener" href="https://www.image-net.org/static_files/files/isi.pdf">slides</a> ]</p>
+</li>
+</ul>
+<h2 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h2><p>paper: <em><a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf">ImageNet Classification with Deep Convolutional Neural Networks (neurips.cc)</a></em><br>code:</p>
+<ul>
+<li><p><strong>Deep</strong> Convolutional Neural Network</p>
+</li>
+<li><p>No any unsupervised pre-training</p>
+<ul>
+<li>在AlexNet之前，机器学习界还是更关心unsupervised learning</li>
+<li>AlexNet之后，都在做supervised learning</li>
+<li>BERT在自然语言处理任务的兴起后，大家又把注意力放到了unsupervised learning了</li>
+</ul>
+</li>
+<li><p>Computational power</p>
+</li>
+<li><p>next: video?</p>
+</li>
+<li><p><strong>深度神经网络对一张图片进行训练后得到的那个向量，在语义空间内的表示特别好！这是深度学习的一大强项！</strong></p>
+</li>
+<li><p>larger datasets, more powerful models, less overfitting</p>
+</li>
+<li><p>a model with large learning capacity</p>
+</li>
+<li><p>GPU</p>
+</li>
+<li><p>contributions: largest CNN; GPU; solve overfitting; depth!</p>
+</li>
+<li><p>two GTX 580 3GB GPUs(对于这篇文章来说，作者将模型划分到了两个GPU上，虽然工程上的工作量很大，但大家都不怎么care)</p>
+</li>
+<li><p>ImageNet中的图像大小都不一样，作者将其预处理为256×256</p>
+<ul>
+<li>AlexNet没用使用SIFT这种特征提取方法，而是直接对raw RGB图像进行处理，这种端到端（End to End）的工作对后续的工作有重大影响。</li>
+</ul>
+</li>
+<li><p>detail</p>
+<ul>
+<li>SGD; batch size:128; momentum: 0.9; weight decay: 0.0005</li>
+<li>initialized the weight: 0-means Gaussian distribution with standard deviation 0.01</li>
+<li>initialized the biases</li>
+<li>equal learning rate for all layers; initialized the learning rate 0.01</li>
+</ul>
+</li>
+<li><p>上层神经元学到的是“全局”特征，如形状；底层神经元学到的是“局部”特征，如纹理。</p>
+</li>
+</ul>
+<h3 id="Contribution-1-Architecture"><a href="#Contribution-1-Architecture" class="headerlink" title="Contribution 1: Architecture"></a>Contribution 1: Architecture</h3><ul>
+<li><p>ReLU</p>
+<ul>
+<li>Saturating nonlinearities: tanh or sigmoid</li>
+<li>Non-saturating nonlinearities: ReLU, $ f(x) &#x3D; max(0, x)$</li>
+<li><em><a target="_blank" rel="noopener" href="https://www.cs.toronto.edu/~fritz/absps/reluICML.pdf">Rectified Linear Units Improve Restricted Boltzmann Machines (toronto.edu)</a></em></li>
+</ul>
+</li>
+<li><p>Multi GPUs</p>
+<ul>
+<li>太工程了！</li>
+</ul>
+</li>
+<li><p>Local Response Normalization</p>
+<ul>
+<li>现在已经有更好的Normalization技术了</li>
+</ul>
+</li>
+<li><p>Overlapping Pooling</p>
+</li>
+</ul>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230504230831028.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="ILSVRC2012的报告"><sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="[supervision.pdf (image-net.org)](https://www.image-net.org/static_files/files/supervision.pdf)">[3]</span></a></sup></p>
+<ul>
+<li>这么长的网络结构就是将一张图像的像素信息转化成了最终长为1000的向量。这个向量了丰富包含的语义信息（机器看得懂），是深度学习的一大优势所在！</li>
+<li>所以说机器学习就是将看得懂的东西使用模型进行压缩，压缩为机器看到懂得东西，进而进行后续操作。</li>
+<li>后面两个4096的全连接参数量太大了！</li>
+</ul>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230504230927317.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="论文中的模型"></p>
+<ul>
+<li>为了在两个GPU上跑这个模型，Alex用了大量的代码把模型切分为两半边，分别在单个GPU进行训练，搞得这个示意图非常复杂！</li>
+<li>AlexNet用的这个“模型并行”在此之后的很长时间都用的不多！但是<em>（没错，科技是个环，又回来了）</em>，随着GPT和BERT的出现，“模型并行”再次被提起！特别是自然语言处理任务中。</li>
+</ul>
+<h3 id="Contribution-2-reduce-overfitting"><a href="#Contribution-2-reduce-overfitting" class="headerlink" title="Contribution 2: reduce overfitting"></a>Contribution 2: reduce overfitting</h3><ul>
+<li>Data Augmentation<ul>
+<li>将256×256的图像随机抠出几个224×224的区域，扩大了数据量</li>
+<li>PCA，主成分分析，在颜色通道上做一些变换</li>
+</ul>
+</li>
+<li>Dropout<ul>
+<li><em><a target="_blank" rel="noopener" href="http://www.cs.toronto.edu/~nitish/dropout/">www.cs.toronto.edu/~nitish&#x2F;dropout&#x2F;</a></em></li>
+<li>文章对Dropout的理解和现在大家对其的理解已经不一样了，现在大家认为Dropout是一种<strong>正则项</strong></li>
+</ul>
+</li>
+</ul>
+<h1 id="ILSVRC-2013"><a href="#ILSVRC-2013" class="headerlink" title="ILSVRC 2013"></a>ILSVRC 2013</h1><h2 id="ZFNet"><a href="#ZFNet" class="headerlink" title="ZFNet"></a>ZFNet</h2><p>ZF</p>
+<p>Matthew D Zeiler, New York University<br>Rob Fergus, New York University</p>
+<p>The approach is based on a combination of large convolutional networks with a range of different architectures. The choice of architectures was assisted by visualization of model features’ using a deconvolutional network, as described in Zeiler et. al “Adaptive Deconvolutional Networks for Mid and High Level Feature Learning”, ICCV 2011.  </p>
+<p>Each model is trained on a single Nvidia GPU for more than one week. Data is augmented by resizing the images to 256x256 pixels and then selecting random 224x224 pixel crops and horizontal flips from each example. This data augmentation is combined with the Dropout method of Hinton et al. (“Improving neural networks by preventing co-adaptation of feature detectors”), which prevents overfitting in these large networks.</p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1311.2901">[1311.2901] Visualizing and Understanding Convolutional Networks (arxiv.org)</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/shine-lee/p/11563237.html">ZFNet(2013)及可视化的开端 - shine-lee - 博客园 (cnblogs.com)</a></p>
+<h2 id="Clarifai"><a href="#Clarifai" class="headerlink" title="Clarifai"></a>Clarifai</h2><p>马修·泽勒（Matthew Zeiler）利用2013年赢得ImageNet挑战赛时的程序创办了Clarifai公司，目前获得了4000万美元风险投资。<br><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/814047">机器之心独家对话Clarifai创始人：从图像识别到无限可能-阿里云开发者社区 (aliyun.com)</a></p>
+<p>Clarifai</p>
+<p>Matthew Zeiler, Clarifai</p>
+<p>A large deep convolutional network is trained on the original data to classify each of the 1,000 classes. The only preprocessing done to the data is subtracting a per-pixel mean. To augment the amount of training data, the image is downsampled to 256 pixels and a random 224 pixel crop is taken out of the image and randomly flipped horizontally to provide more views of each example. Additionally, the dropout technique of Hinton et al. “Improving neural networks by preventing co-adaptation of feature detectors” was utilized to further prevent overfitting.  </p>
+<p>The architecture contains 65M parameters trained for 10 days on a single Nvidia GPU. By using a novel visualization technique based on the deconvolutional networks of Zeiler et. al, “Adaptive Deconvolutional Networks for Mid and High Level Feature Learning”, it became clearer what makes the model perform, and from this a powerful architecture was chosen. Multiple such models were averaged together to further boost performance.</p>
+<h2 id="OverFeat"><a href="#OverFeat" class="headerlink" title="OverFeat"></a>OverFeat</h2><p><strong>Detection</strong></p>
+<p>OverFeat - NYU</p>
+<p>Pierre Sermanet, David Eigen, Michael Mathieu, Xiang Zhang, Rob Fergus, Yann LeCun</p>
+<p>Our submission is based on an integrated framework for using Convolutional Networks for <strong>classiﬁcation, localization and detection</strong>. We use a multiscale and sliding window approach, efficiently implemented within a ConvNet. This not only improves classiﬁcation performance, but naturally allows the prediction of one or more objects’ bounding boxes within the image. The same basic framework was applied to all three tasks. For the classification task, we vote among different views presented to the network. For localization and detection, each sliding window classification is refined using a regressor trained to predict bounding boxes; we produce final predictions by combining the regressor outputs.</p>
+<h1 id="ILSVRC-2014"><a href="#ILSVRC-2014" class="headerlink" title="ILSVRC 2014"></a>ILSVRC 2014</h1><h2 id="GoogLeNet"><a href="#GoogLeNet" class="headerlink" title="GoogLeNet"></a>GoogLeNet</h2><ul>
+<li>a deep convolutional neural network architecture codenamed Inception</li>
+<li>the main hallmark of this architecture is the improved utilization of the <strong>computing resources</strong> inside the network</li>
+<li>increasing the depth and width of the network while keeping the computational budget constant.</li>
+</ul>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230517202517369.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="inception model"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230517202539308.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="GoogLeNet"></p>
+<h2 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h2><ul>
+<li>AlexNet -deeper-&gt; VGG</li>
+<li>AlexNet中出现的卷积核大小为11×11，7×7和5×5，但在VGG中，这么大的卷积核已经见不到了，取而代之的是3×3的卷积核</li>
+<li>VGG中，使用了3个3x3卷积核来代替7x7卷积核，使用了2个3x3卷积核来代替5*5卷积核，这样做的主要目的是在保证具有相同感知野的条件下，提升了网络的深度，在一定程度上提升了神经网络的效果。</li>
+<li></li>
+</ul>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230517202351878.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="ConvNet configurations"></p>
+<h1 id="ILSVRC-2015"><a href="#ILSVRC-2015" class="headerlink" title="ILSVRC 2015"></a>ILSVRC 2015</h1><ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.image-net.org/challenges/LSVRC/2015/results.php">ILSVRC2015 Results (image-net.org)</a></p>
+</li>
+<li><p>Two main competitions</p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.image-net.org/challenges/LSVRC/2015/index.php#det">Object detection</a> for 200 fully labeled categories.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.image-net.org/challenges/LSVRC/2015/index.php#loc">Object localization</a> for 1000 categories.</p>
+</li>
+</ul>
+</li>
+<li><p>Two taster competitions</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.image-net.org/challenges/LSVRC/2015/index.php#vid">Object detection from video</a> for 30 fully labeled categories.</li>
+<li><a target="_blank" rel="noopener" href="https://www.image-net.org/challenges/LSVRC/2015/index.php#scene">Scene classification</a> for 401 categories. Joint with MIT Places team.</li>
+</ul>
+</li>
+</ul>
+<h2 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h2><p><em>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1512.03385">1512.03385] Deep Residual Learning for Image Recognition (arxiv.org)</a></em></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1PGLj-uKT1w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+
+<h3 id="intro"><a href="#intro" class="headerlink" title="intro"></a>intro</h3><ul>
+<li>deeper neural network are more difficult to train!</li>
+<li>residual learning framework: more layers but lower complexity</li>
+<li>residual: $F(x)&#x3D;H(x)-x$<ul>
+<li>残差连接可以这样理解，如果新加了这些层并不能使模型表现更好的话，就让这个$H(x)-&gt;0$.</li>
+<li>残差连接将模型的复杂度降低了</li>
+</ul>
+</li>
+<li>shortcut connections(这也是很久之前提出的东西)<ul>
+<li>the shortcut connections simply perform <strong>identity mapping</strong></li>
+<li>identity shortcut connections add neither extra parameters nor computational complexity</li>
+</ul>
+</li>
+</ul>
+<h3 id="related-work"><a href="#related-work" class="headerlink" title="related work"></a>related work</h3><ul>
+<li>Resudial Representations</li>
+<li>Shortcut Connections</li>
+</ul>
+<h3 id="exp"><a href="#exp" class="headerlink" title="exp"></a>exp</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230505112627441.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="Architectures for ImageNet"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230505113324320.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="basic block and bottleneck block"></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/349717627">https://zhuanlan.zhihu.com/p/349717627</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sazass/article/details/116864275">https://blog.csdn.net/sazass/article/details/116864275</a></p>
+<p><a target="_blank" rel="noopener" href="http://zh.d2l.ai/chapter_convolutional-modern/resnet.html">http://zh.d2l.ai/chapter_convolutional-modern/resnet.html</a></p>
+<h1 id="ILSVRC-2016"><a href="#ILSVRC-2016" class="headerlink" title="ILSVRC 2016"></a>ILSVRC 2016</h1><h2 id="Trimps-Soushen"><a href="#Trimps-Soushen" class="headerlink" title="Trimps-Soushen"></a>Trimps-Soushen</h2><h2 id="ResNeXt"><a href="#ResNeXt" class="headerlink" title="ResNeXt"></a>ResNeXt</h2><h1 id="ILSVRC-2017"><a href="#ILSVRC-2017" class="headerlink" title="ILSVRC 2017"></a>ILSVRC 2017</h1><h2 id="SENet"><a href="#SENet" class="headerlink" title="SENet"></a>SENet</h2><h1 id="2017"><a href="#2017" class="headerlink" title="2017-"></a>2017-</h1><p>kaggle</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hzhj2007/article/details/87388240">那些年我们一起追过的ILSVRC冠军_hzhj的博客-CSDN博客</a></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk">object detection<br>https:<span class="hljs-regexp">//</span>handong1587.github.io<span class="hljs-regexp">/deep_learning/</span><span class="hljs-number">2015</span><span class="hljs-regexp">/10/</span><span class="hljs-number">09</span>/object-detection.html<br>https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/amusi/</span>awesome-object-detection<br><br><br><br><br></code></pre></td></tr></table></figure>
+<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.image-net.org/challenges/LSVRC/">ImageNet (image-net.org)</a>
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.image-net.org/">ImageNet (image-net.org)</a>
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.image-net.org/static_files/files/supervision.pdf">supervision.pdf (image-net.org)</a>
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span><a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:5" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://github.com/weiaicunzai/pytorch-cifar100">weiaicunzai&#x2F;pytorch-cifar100: Practice on cifar100(ResNet, DenseNet, VGG, GoogleNet, InceptionV3, InceptionV4, Inception-ResNetv2, Xception, Resnet In Resnet, ResNext,ShuffleNet, ShuffleNetv2, MobileNet, MobileNetv2, SqueezeNet, NasNet, Residual Attention Network, SENet, WideResNet) (github.com)</a>[^xx]:<a target="_blank" rel="noopener" href="https://www.kaggle.com/getting-started/149448">ImageNet Winning CNN Architectures (ILSVRC) | Data Science and Machine Learning | Kaggle</a>
+<a href="#fnref:5" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%BA%E6%96%87/" class="category-chain-item">论文</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/ILSVRC/" class="print-no-link">#ILSVRC</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>ILSVRC论文</div>
+      <div>https://cosmicdusty.cc/post/Paper/ILSVRC/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Murphy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年5月4日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post/Knowledge/DockerBeginner/" title="Docker入门">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Docker入门</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/Tools/MagicalWebPages/" title="不可错过的网页">
+                        <span class="hidden-mobile">不可错过的网页</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"JijHNKemeVNog4wF7g9I5TR3-gzGzoHsz","appKey":"FvsKdxHOP2aG5rHrHby5aV0b","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a rel="nofollow noopener"><span>Powered by</span></a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span><b>Hexo</b></span></a> <i class="iconfont icon-love"></i> <a rel="nofollow noopener"><span>Themed by</span></a> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span><b>Fluid</b></span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

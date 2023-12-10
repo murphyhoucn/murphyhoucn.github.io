@@ -1,0 +1,892 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <link rel="icon" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Murphy">
+  <meta name="keywords" content="Murphy,CosmicDusty,murphy,cosmicdusty,cn">
+  
+    <meta name="description" content="整理一下深度学习中用到的数据集。（挖坑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据集整理">
+<meta property="og:url" content="https://cosmicdusty.cc/post/AI/Dataset/index.html">
+<meta property="og:site_name" content="MurphyHou">
+<meta property="og:description" content="整理一下深度学习中用到的数据集。（挖坑">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/background-7024520_1920.jpg">
+<meta property="article:published_time" content="2022-04-08T11:59:16.000Z">
+<meta property="article:modified_time" content="2023-05-31T08:58:04.000Z">
+<meta property="article:author" content="Murphy">
+<meta property="article:tag" content="数据集">
+<meta property="article:tag" content="深度学习">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/background-7024520_1920.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>数据集整理 - MurphyHou</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cosmicdusty.cc","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"16d93d5abbd7ea15ec53daed5459ebf7","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JijHNKemeVNog4wF7g9I5TR3","app_key":"FvsKdxHOP2aG5rHrHby5aV0b","server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?16d93d5abbd7ea15ec53daed5459ebf7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CosmicDusty</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/background-7024520_1920.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="数据集整理"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Murphy
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-04-08 19:59" pubdate>
+          2022年4月8日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          821 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          7 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">数据集整理</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="计算机视觉"><a href="#计算机视觉" class="headerlink" title="计算机视觉"></a>计算机视觉</h1><h2 id="图像分类"><a href="#图像分类" class="headerlink" title="图像分类"></a>图像分类</h2><h3 id="MNIST"><a href="#MNIST" class="headerlink" title="MNIST"></a>MNIST</h3><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/MNIST_database">MNIST database - Wikipedia</a><br><a target="_blank" rel="noopener" href="http://yann.lecun.com/exdb/mnist/">MNIST handwritten digit database, Yann LeCun, Corinna Cortes and Chris Burges</a><br><a target="_blank" rel="noopener" href="https://deepai.org/dataset/mnist">MNIST Dataset | DeepAI</a></p>
+<h3 id="Fashion-MNIST"><a href="#Fashion-MNIST" class="headerlink" title="Fashion-MNIST"></a>Fashion-MNIST</h3><p><a target="_blank" rel="noopener" href="https://github.com/zalandoresearch/fashion-mnist">GitHub - zalandoresearch&#x2F;fashion-mnist: A MNIST-like fashion product database. Benchmark</a><br><a target="_blank" rel="noopener" href="https://www.tensorflow.org/datasets/catalog/fashion_mnist">fashion_mnist | TensorFlow Datasets</a><br><a target="_blank" rel="noopener" href="https://handbook.pytorch.wiki/chapter5/5.3-Fashion-MNIST.html">5.3 Fashion MNIST - Pytorch中文手册</a><br><a target="_blank" rel="noopener" href="https://tensorflow.google.cn/datasets/catalog/fashion_mnist">fashion_mnist | TensorFlow Datasets (google.cn)</a><br><a target="_blank" rel="noopener" href="https://keras.io/api/datasets/fashion_mnist/">Fashion MNIST dataset, an alternative to MNIST (keras.io)</a></p>
+<h3 id="CIFAR-10"><a href="#CIFAR-10" class="headerlink" title="CIFAR - 10"></a>CIFAR - 10</h3><p>   CIFAR-10是一个更接近普适物体的彩色图像数据集。CIFAR-10 是由Hinton 的学生Alex Krizhevsky 和Ilya Sutskever 整理的一个用于识别普适物体的<strong>小型数据集</strong>。一共包含<strong>10 个类别</strong>的RGB 彩色图片：飞机（ airplane ）、汽车（ automobile ）、鸟类（ bird ）、猫（ cat ）、鹿（ deer ）、狗（ dog ）、蛙类（ frog ）、马（ horse ）、船（ ship ）和卡车（ truck ）。<br>         每个图片的尺寸为32 × 32 ，每个类别有6000个图像，数据集中一共有50000 张训练图片和10000 张测试图片。</p>
+<p><a target="_blank" rel="noopener" href="http://www.cs.toronto.edu/~kriz/cifar.html">CIFAR-10 and CIFAR-100 datasets (toronto.edu)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41185868/article/details/82793025">Dataset之CIFAR-10：CIFAR-10数据集简介、下载、使用方法之详细攻略_一个处女座的程序猿的博客-CSDN博客_cifar-10</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/90ce85b2faeb">CIFAR10数据集手动下载和导入 - 简书 (jianshu.com)</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/129081723">CIFAR10数据集的下载及使用 - 知乎 (zhihu.com)</a></p>
+<h3 id="ImageNet"><a href="#ImageNet" class="headerlink" title="ImageNet"></a>ImageNet</h3><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ImageNet">ImageNet - Wikipedia</a><br><a target="_blank" rel="noopener" href="https://image-net.org/index">ImageNet (image-net.org)</a><br><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/ImageNet">ImageNet - 维基百科，自由的百科全书 (wikipedia.org)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/28142670">ImageNet这八年：李飞飞和她改变的AI世界 - 知乎 (zhihu.com)</a></p>
+<p> 在早期的计算机视觉社区，PASCALViSualObjectClasses（VOC）挑战赛（从2005年到2012）是最重要的竞赛之一。在PASCALVOC中是多任务的，包括图像分类，目标检测，语义分割和行为检测。</p>
+<p>​    VOC数据集是目标检测经常用的一个数据集，自2005年起每年举办一次比赛，最开始只有4类，到2007年扩充为20个类，共有两个常用的版本：2007和2012。学术界常用5k的train&#x2F;val 2007和16k的train&#x2F;val 2012作为训练集，test 2007作为测试集，用10k的train&#x2F;val 2007+test 2007和16k的train&#x2F;val 2012作为训练集，test2012作为测试集，分别汇报结果。</p>
+<p>   ImageNetLargeScaleVisualRecognitionChallenge(ILSVRC)已经将一般的目标检测向前推进了一大步。ILSVRC从2010到2017年每年被组织比赛，其中就包含了用ImageNet图像进行检测。ILSVRC中包含了200类视觉目标，图像和目标实例的数量比VOC大两个数量级。例如，ILSVRC-14就包含了517K张图像和534k被标注的目标</p>
+<p>   MS-COCO是目前最具有挑战性的目标检测，从2015年开始，每年都会举办基于MS-COCO数据集的竞赛，其包含的目标种类要少于ILSVRC，但其有更多的目标实例。例如，MS-COCO-17中包含了164k张图像和897K个被标注来自80个类别的目标。相比于VOC和ILSVRC，MS-COCO最大的进步，除了boundingbox的标注，还有单个实例分割的标注，帮助更准确的定位。另外，MS-COCO包含了更多小目标（其面积小于图像的1%）和更加密集的定位目标比VOC和ILSVRC。MS-COCO的这些特征让其目标分布更接近于真实的世界。MS-COCO已经在目标检测社区变为了实际的标杆。</p>
+<p> DOTA是遥感航空图像检测的常用数据集，包含2806张航空图像，尺寸大约为4kx4k，包含15个类别共计188282个实例，其中14个主类，small vehicle 和 large vehicle都是vehicle的子类。其标注方式为四点确定的任意形状和方向的四边形。航空图像区别于传统数据集，有其自己的特点，如：尺度变化性更大；密集的小物体检测；检测目标的不确定性。数据划分为1&#x2F;6验证集，1&#x2F;3测试集，1&#x2F;2训练集。目前发布了训练集和验证集，图像尺寸从800×800到4000×4000不等。</p>
+<h2 id="目标检测"><a href="#目标检测" class="headerlink" title="目标检测"></a>目标检测</h2><h3 id="COCO"><a href="#COCO" class="headerlink" title="COCO"></a>COCO</h3><p><a target="_blank" rel="noopener" href="https://cocodataset.org/">COCO - Common Objects in Context (cocodataset.org)</a></p>
+<h2 id="语义分割"><a href="#语义分割" class="headerlink" title="语义分割"></a>语义分割</h2><h3 id="VOC2012"><a href="#VOC2012" class="headerlink" title="VOC2012"></a>VOC2012</h3><p><a target="_blank" rel="noopener" href="http://host.robots.ox.ac.uk/pascal/VOC/voc2012/">The PASCAL Visual Object Classes Challenge 2012 (VOC2012) (ox.ac.uk)</a></p>
+<h3 id="Cityscapes"><a href="#Cityscapes" class="headerlink" title="Cityscapes"></a>Cityscapes</h3><p><a target="_blank" rel="noopener" href="https://www.cityscapes-dataset.com/">Cityscapes Dataset – Semantic Understanding of Urban Street Scenes (cityscapes-dataset.com)</a></p>
+<h3 id="Mapillary"><a href="#Mapillary" class="headerlink" title="Mapillary"></a>Mapillary</h3><p><a target="_blank" rel="noopener" href="https://www.mapillary.com/dataset/vistas?pKey=829772760972087">Mapillary</a></p>
+<h3 id="KITTI"><a href="#KITTI" class="headerlink" title="KITTI"></a>KITTI</h3><p><a target="_blank" rel="noopener" href="https://www.cvlibs.net/datasets/kitti/eval_scene_flow.php">The KITTI Vision Benchmark Suite (cvlibs.net)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/50925449">语义分割的数据集 - 知乎 (zhihu.com)</a></p>
+<hr>
+<p>作者：知乎用户<br>链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/30626971/answer/1996387512">https://www.zhihu.com/question/30626971/answer/1996387512</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>参考网站<a href="https://link.zhihu.com/?target=https://awesomeopensource.com/project/jsbroks/awesome-dataset-tools">https://awesomeopensource.com/project/jsbroks/awesome-dataset-tools</a></p>
+<p>我觉得写得已经很全面了。</p>
+<h3 id="Awesome-Dataset-Tools"><a href="#Awesome-Dataset-Tools" class="headerlink" title="Awesome Dataset Tools"></a>Awesome Dataset Tools</h3><blockquote>
+<p>A curated list of awesome dataset tools</p>
+</blockquote>
+<ul>
+<li><p><a href="https://link.zhihu.com/?target=https://awesomeopensource.com/project/jsbroks/awesome-dataset-tools%23labeling-tools">Labeling Tools</a></p>
+</li>
+<li><ul>
+<li><a href="https://link.zhihu.com/?target=https://awesomeopensource.com/project/jsbroks/awesome-dataset-tools%23images">Images</a></li>
+<li><a href="https://link.zhihu.com/?target=https://awesomeopensource.com/project/jsbroks/awesome-dataset-tools%23audio">Audio</a></li>
+<li><a href="https://link.zhihu.com/?target=https://awesomeopensource.com/project/jsbroks/awesome-dataset-tools%23time-series">Time Series</a></li>
+<li><a href="https://link.zhihu.com/?target=https://awesomeopensource.com/project/jsbroks/awesome-dataset-tools%23text">Text</a></li>
+</ul>
+</li>
+<li><p><a href="https://link.zhihu.com/?target=https://awesomeopensource.com/project/jsbroks/awesome-dataset-tools%23libraries">Libraries</a></p>
+</li>
+</ul>
+<h2 id="Labeling-Tools"><a href="#Labeling-Tools" class="headerlink" title="Labeling Tools"></a>Labeling Tools</h2><h3 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h3><ol>
+<li><a href="https://link.zhihu.com/?target=https://github.com/opencv/cvat">CVAT</a> - Online, interactive video and image annotation tool for computer vision</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/jsbroks/coco-annotator">COCO Annotator</a> - Web-based image segmentation tool for object detection, localization and keypoints</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/microsoft/VoTT">VoTT</a> - Visual Object Tagging Tool: An electron app for building end to end object detection models from images and videos.</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/scalabel/scalabel">Scalabel</a> - Versatile and scalable tool that supports various kinds of annotations</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/Ericsson/eva">EVA</a> - EVA is a web-based tool for efficient annotation of videos and image sequences and has an additional tracking capabilities</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/l3p-cv/lost">LOST</a> - Design your own smart Image Annotation process in a web-based environment</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/drainingsun/boobs">Boobs</a> - Fast and efficient BBox annotation for your images in YOLO, VOC&#x2F;COCO formats</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/ale152/muvilab">MuViLab</a> - Tool to help you labelling videos for computer vision</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/yanfengliu/turkey">Turkey</a> - Web UI on Amazon Mechanical Turk to crowd-source image <a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=segmentation&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:1996387512%7D">segmentation</a></li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/Secretmapper/react-image-annotation">React Image Annotation</a> - An infinitely customizable image tool built on React</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/springzfx/point-cloud-annotation-tool">Point Cloud Annotation Tool</a> - Annotate 3D boxes in point cloud</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/bit-bots/imagetagger">ImageTagger</a> - Open source online platform for collaborative image labeling</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/jveitchmichaelis/deeplabel">DeepLabel</a> - A cross-platform image annotation tool for machine learning</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/microsoft/VoTT">Visual Object Tagging Tool</a> - An electron app for building end to end Object Detection Models</li>
+<li><a href="https://link.zhihu.com/?target=https://gitlab.com/vgg/via">VGG Image Annotator</a> - Standalone image annotator application packaged as a single HTML file</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/RTIInternational/SMART">SMART</a> - Efficiently build labeled training <a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=datasets&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:1996387512%7D">datasets</a> for supervised machine learning tasks</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/abreheret/PixelAnnotationTool">Pixel Annotation Tool</a> - Uses the algorithm watershed marked of OpenCV to annotate images in directories</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/buni-rock/Pixie">Pixie</a> - GUI annotation tool which provides the bounding box, polygon, and semantic segmentation</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/jaxony/turktool">Turktool</a> - Modern React app for scalable bounding box annotation of images</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/sweppner/labeld">LabelD</a> - Simple image annotation tool to streamlining the overall process</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/commaai/commacoloring">Comma Coloring</a> - Adult coloring book for image segmentation</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/tzutalin/labelImg">LabelImg</a> - Graphical image annotation tool and label object bounding boxes in images</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/lc-soft/LC-Finder">LCs Finder</a> - Image annotation and object detection tool written in C</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/kyamagu/js-segment-annotator">js-segment-annotator</a> - Javascript image annotation tool based on image segmentation</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/cytomine">Cytomine</a> - Analysis of multi-gigapixel images</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/wkentaro/labelme">labelme</a> - Image Polygonal Annotation with Python (polygon, rectangle, circle, line, point and image-level flag annotation)</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/joelb92/SimpleAnnotate">SimpleAnnotate</a> - Open source video and image annotation software for, currently only for OSX</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/cvhciKIT/sloth">Sloth</a> - Labeling image and video data for computer vision research</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/christopher5106/FastAnnotationTool">Fast Annotation Tool</a> - Online platform for collaborative image annotation</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/virajmavani/semi-auto-image-annotation-tool">Anno-Mage</a> - Helps you in annotating images by suggesting you annotations for 80 object classes</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/medtagger/MedTagger">MedTagger</a> - Collaborative framework for annotating medical datasets using crowdsourcing</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/Cartucho/OpenLabeling">OpenLabeling</a> - Labeling in multiple annotation formats</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/AlturosDestinations/Alturos.ImageAnnotation">Alturos.ImageAnnotation</a> - Collaborative tool for labeling image data for <a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=yolo&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:1996387512%7D">yolo</a></li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/AlexeyAB/Yolo_mark">Yolo_mark</a> - GUI for marking bounded boxes of objects in images</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/NaturalIntelligence/imglab">imglab</a> - peedup and simplify image labeling&#x2F; annotation process with multiple supported formats</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/kinhong/OpenLabeler">OpenLabeler</a> - Open source desktop application for annotating objects</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/alexandre01/UltimateLabeling">UltimateLabeling</a> - A <a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=multi-purpose&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:1996387512%7D">multi-purpose</a> Video Labeling GUI with integrated SOTA detector and tracker</li>
+</ol>
+<h3 id="Closed-Source"><a href="#Closed-Source" class="headerlink" title="Closed Source"></a>Closed Source</h3><ol>
+<li><a href="https://link.zhihu.com/?target=https://datatorch.io/">DataTorch</a> - Platform for creating and shareing datasets.</li>
+<li><a href="https://link.zhihu.com/?target=https://labelbox.com/">Labelbox</a> - Platform for data labeling, data management, and data science. Its features include image annotation, bounding boxes, text classification, and more</li>
+<li><a href="https://link.zhihu.com/?target=https://supervise.ly/">Supervise.ly</a> - Image annotation and data management tool that you can use create image and video datasets</li>
+<li><a href="https://link.zhihu.com/?target=https://prodi.gy/">Prodigy</a> - Various machine learning models such as image classification, entity recognition and intent detection</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/ryouchinsa/Rectlabel-support">RectLabel</a> - Label images for bounding box object detection and segmentation</li>
+<li><a href="https://link.zhihu.com/?target=https://lionbridge.ai/services/image-annotation/">Lionbridge AI</a> - Quickly annotate thousands of images and videos with relevant tags</li>
+<li><a href="https://link.zhihu.com/?target=https://www.trainingdata.io/">TrainingData.io</a> - Medical image annotation tool for data labeling. Spports DICOM image format for radiology AI</li>
+<li><a href="https://link.zhihu.com/?target=https://app.spare5.com/fives">Spare5</a> - Crowdsourcing service for tasks such as data and image annotation, language assessment, and more</li>
+<li><a href="https://link.zhihu.com/?target=https://thehive.ai/">Hive</a> - Text and image annotation service that helps you create training datasets</li>
+<li><a href="https://link.zhihu.com/?target=https://www.figure-eight.com/">Figure Eight</a> - Supports audio , [computer vision](<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=computer">https://www.zhihu.com/search?q=computer</a> vision&amp;search_source&#x3D;Entity&amp;hybrid_search_source&#x3D;Entity&amp;hybrid_search_extra&#x3D;{“sourceType”%3A”answer”%2C”sourceId”%3A1996387512}), natural language processing, and other data tasks</li>
+<li><a href="https://link.zhihu.com/?target=https://dataturks.com/">Dataturks</a> - Image segmentation, named [entity recognition](<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=entity">https://www.zhihu.com/search?q=entity</a> recognition&amp;search_source&#x3D;Entity&amp;hybrid_search_source&#x3D;Entity&amp;hybrid_search_extra&#x3D;{“sourceType”%3A”answer”%2C”sourceId”%3A1996387512}) (NER) tagging in documents, and POS tagging</li>
+<li><a href="https://link.zhihu.com/?target=https://playment.io/">Playment</a> - Services offered include bounding <a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=boxes&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:1996387512%7D">boxes</a>, points and lines, polygons, semantic segmentation, and more</li>
+<li><a href="https://link.zhihu.com/?target=https://www.cogitotech.com/">Cogito Tech</a> - Image annotation, content moderation, sentiment <a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=analysis&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:1996387512%7D">analysis</a>, chatbot training</li>
+<li><a href="https://link.zhihu.com/?target=https://oclavi.com/">OCLAVI</a> - Annotate Bounding Box, Polygon, Circle, Point and Cuboidal annotations with precision</li>
+<li><a href="https://link.zhihu.com/?target=https://humansintheloop.org/">Humans in the Loop</a> - Use cases include face recognition, autonomous vehicles, and figure detection</li>
+<li><a href="https://link.zhihu.com/?target=https://workaround.online/">WorkAround</a> - Host and annotate data, manage projects, and build datasets alongside top companies</li>
+<li><a href="https://link.zhihu.com/?target=https://taqadam.io/">TaQadam</a> - On-demand annotation with agents-in-the-loop</li>
+<li><a href="https://link.zhihu.com/?target=https://zillin.io/">Zillin</a> - Image annotation service for classification, object detection and segmentation with API access and georeferenced images support.</li>
+<li><a href="https://link.zhihu.com/?target=https://cloud.annotations.ai/">IBM Cloud Annotations</a> - Simple and collaborative image annotation tool for teams and individuals inside ibm cloud environment.</li>
+<li><a href="https://link.zhihu.com/?target=https://medseg.ai/">MedSeg</a> - Free online medical annotation (segmentation) with AI models.</li>
+<li><a href="https://link.zhihu.com/?target=https://www.mvtec.com/products/deep-learning-tool/">MVTec Deep Learning Tool</a> - Provides labeling functionalities for <a href="https://link.zhihu.com/?target=https://www.mvtec.com/products/halcon/">HALCON</a>‘s deep-learning-based object detection and classification.</li>
+</ol>
+<h3 id="Audio"><a href="#Audio" class="headerlink" title="Audio"></a>Audio</h3><ol>
+<li><a href="https://link.zhihu.com/?target=https://github.com/CrowdCurio/audio-annotator">Audio Annotator</a> - JavaScript interface for annotating and labeling audio files</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/dynilib/dynitag">Dynitag</a> - Web-based collaborative audio annotator tool</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/ritazh/EchoML">EchoML</a> - play, visualize, and annotate your audio files for machine learning</li>
+</ol>
+<h3 id="Closed-Source-1"><a href="#Closed-Source-1" class="headerlink" title="Closed Source"></a>Closed Source</h3><ul>
+<li><a href="https://link.zhihu.com/?target=https://www.figure-eight.com/">Figure Eight</a> - Supports audio , computer vision, natural language processing, and other data tasks</li>
+</ul>
+<h3 id="Time-Series"><a href="#Time-Series" class="headerlink" title="Time Series"></a>Time Series</h3><ol>
+<li><a href="https://link.zhihu.com/?target=https://github.com/baidu/Curve">Curve</a> - An integrated experimental platform for time series data anomaly detection</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/Microsoft/TagAnomaly">TagAnomaly</a> - Anomaly detection analysis and labeling tool, specifically for multiple time series</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/CrowdCurio/time-series-annotator">time-series-annotator</a> - Implements classification tasks for time series.</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/avenix/WDK">WDK</a> - Tools to facilitate the development of activity recognition applications with wearable devices</li>
+</ol>
+<h3 id="Text"><a href="#Text" class="headerlink" title="Text"></a>Text</h3><ol>
+<li><a href="https://link.zhihu.com/?target=https://github.com/nlplab/brat">brat</a> - For all your textual annotation needs</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/chakki-works/doccano">doccano</a> - Open source text annotation tool for machine learning practitioner.</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/inception-project/inception">Inception</a> - A semantic annotation platform offering intelligent annotation assistance</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/Franck-Dernoncourt/NeuroNER">NeuroNER</a> - Named-entity recognition using [neural networks](<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=neural">https://www.zhihu.com/search?q=neural</a> networks&amp;search_source&#x3D;Entity&amp;hybrid_search_source&#x3D;Entity&amp;hybrid_search_extra&#x3D;{“sourceType”%3A”answer”%2C”sourceId”%3A1996387512})</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/jiesutd/YEDDA">YEDDA</a> - For annotating chunk&#x2F;entity&#x2F;event on text, symbol and even emoji</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/CogComp/talen">TALEN</a> - Web-based tool for annotating word sequences</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/webanno/webanno">WebAnno</a> - Web-based annotation tool for a wide range of linguistic annotations</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/keighrim/mae-annotation">MAE</a> - Lightweight, general-purpose natural language annotation tool</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/weitechen/anafora">Anafora</a> - Web-based raw text annotation tool</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/d5555/TagEditor">TagEditor</a> - Label dependencies, parts of speech, Named entities, and text categories</li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/planbrothers/ml-annotate">ML-Annotate</a> - Supports binary, multi-label and multi-class labeling of text</li>
+</ol>
+<h3 id="Closed-Source-2"><a href="#Closed-Source-2" class="headerlink" title="Closed Source"></a>Closed Source</h3><ol>
+<li><a href="https://link.zhihu.com/?target=https://thehive.ai/">Hive</a> - Text and image annotation service that helps you create training datasets</li>
+<li><a href="https://link.zhihu.com/?target=https://www.figure-eight.com/">Figure Eight</a> - Supports audio , computer vision, natural language processing, and other data tasks</li>
+<li><a href="https://link.zhihu.com/?target=https://lighttag.io/">LightTag</a> Text Annotation Tool for Teams.</li>
+</ol>
+<h2 id="Libraries"><a href="#Libraries" class="headerlink" title="Libraries"></a>Libraries</h2><h3 id="Audio-1"><a href="#Audio-1" class="headerlink" title="Audio"></a>Audio</h3><ul>
+<li><a href="https://link.zhihu.com/?target=https://github.com/bmcfee/muda">Muda</a> - Python library for augmenting annotated audio data</li>
+</ul>
+<h1 id="HSI"><a href="#HSI" class="headerlink" title="HSI"></a>HSI</h1><p><a target="_blank" rel="noopener" href="https://archive.ics.uci.edu/ml/datasets.php">https://archive.ics.uci.edu/ml/datasets.php</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/AI/" class="category-chain-item">AI</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" class="print-no-link">#数据集</a>
+      
+        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="print-no-link">#深度学习</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>数据集整理</div>
+      <div>https://cosmicdusty.cc/post/AI/Dataset/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Murphy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年4月8日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post/Tools/HUAWEIMatePadPro/" title="HUAWEI-MatePad-Pro">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">HUAWEI-MatePad-Pro</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/Knowledge/Vim/" title="Vim使用指南">
+                        <span class="hidden-mobile">Vim使用指南</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"JijHNKemeVNog4wF7g9I5TR3-gzGzoHsz","appKey":"FvsKdxHOP2aG5rHrHby5aV0b","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a rel="nofollow noopener"><span>Powered by</span></a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span><b>Hexo</b></span></a> <i class="iconfont icon-love"></i> <a rel="nofollow noopener"><span>Themed by</span></a> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span><b>Fluid</b></span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

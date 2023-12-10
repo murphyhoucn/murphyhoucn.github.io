@@ -1,0 +1,837 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <link rel="icon" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Murphy">
+  <meta name="keywords" content="Murphy,CosmicDusty,murphy,cosmicdusty,cn">
+  
+    <meta name="description" content="这是一个很简单的小程序，这也是我第一次实现自己的想法并写博客记录下来！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="消息记录生成词云">
+<meta property="og:url" content="https://cosmicdusty.cc/post/Ideas/WordCloudsForMessage/index.html">
+<meta property="og:site_name" content="MurphyHou">
+<meta property="og:description" content="这是一个很简单的小程序，这也是我第一次实现自己的想法并写博客记录下来！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/Wordcloud.png">
+<meta property="article:published_time" content="2021-02-11T13:17:02.000Z">
+<meta property="article:modified_time" content="2023-05-05T14:19:47.000Z">
+<meta property="article:author" content="Murphy">
+<meta property="article:tag" content="open source">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="NumPy">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/Wordcloud.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>消息记录生成词云 - MurphyHou</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cosmicdusty.cc","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"16d93d5abbd7ea15ec53daed5459ebf7","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JijHNKemeVNog4wF7g9I5TR3","app_key":"FvsKdxHOP2aG5rHrHby5aV0b","server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?16d93d5abbd7ea15ec53daed5459ebf7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CosmicDusty</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/Wordcloud.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="消息记录生成词云"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Murphy
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-02-11 21:17" pubdate>
+          2021年2月11日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">消息记录生成词云</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>做了这个程序之后，我才发现实现自己的想法对自己很有满足感，然后我逐步去搭建自己的博客网站，并且更迭了很多版本，在做博客网站的时候也学到了很多知识点，回过头来看，这就的我最初的起点！</p>
+<h1 id="关于项目"><a href="#关于项目" class="headerlink" title="关于项目"></a>关于项目</h1><h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><ul>
+<li>寒假的某一天，我躺在沙发上看手机，突然想到了数据分析这个东西，然后我就想，哪里有比较大量的数据，做一做简单的数据分析？</li>
+<li>看这手里的手机，我想到了——聊天数据！</li>
+<li>对于学生来说，比较有把握的说，每个人每天都会打开QQ，微信等社交软件，每天都会产生大量的聊天数据，有没有什么方式，可以做一个东西，分析统计一下聊天数据，将结果比较直观地呈现出来，然后我就想到了——词云。</li>
+<li>确定好做什么东西之后，接下来就是编程语言的选择：当然是Python啦，Python自带了第三方库wordcloud。</li>
+</ul>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li>总的来说这个项目还是非常简单的，主要处理两个问题：<ul>
+<li>一个是怎么获取QQ（微信？）的聊天记录；</li>
+<li>词云的使用<ul>
+<li>jieba：jieba库是优秀的中文分词第三方库；</li>
+<li>wordcloud：wordcloud是优秀的词云展示第三方库，以词语为基本单位，通过图形可视化的方式，更加直观和艺术的展示文本；</li>
+<li>PIL：Python Imaging Library，已经是Python平台事实上的图像处理标准库了；词云的图像需要我们自己输入，涉及到图像处理，因此也需要该库；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="资料查阅"><a href="#资料查阅" class="headerlink" title="资料查阅"></a>资料查阅</h2><ul>
+<li><p>主要查阅一下消息记录怎么导出为txt文件和词云的基本使用方法；</p>
+</li>
+<li><p>词云已经是一个非常成熟且简单的项目了，网上的资源一大堆，简单看一下，<strong>开整</strong>！！！！</p>
+</li>
+</ul>
+<h1 id="项目解析"><a href="#项目解析" class="headerlink" title="项目解析"></a>项目解析</h1><ul>
+<li>QQ消息记录的导出</li>
+</ul>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/xxxxwordcloud_1.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload style="zoom:50%;" />
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/wordcloud_2.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload style="zoom:50%;" />
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/wordcloud_3.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload style="zoom:50%;" />
+</div>
+
+<ul>
+<li><p>打开pycharm（或者其他），建好项目，新建好文件，上号！冲冲冲！！（后记：当时的我还在用集成开发环境，现在的我几乎仅用命令行，或者是命令行+Sublime，这比集成开发环境快了太多了<br>！）</p>
+</li>
+<li><p>第三方库的导入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> jieba<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><span class="hljs-keyword">from</span> wordcloud <span class="hljs-keyword">import</span> WordCloud<br><span class="hljs-comment"># import matplotlib.pyplot as plt</span><br></code></pre></td></tr></table></figure>
+
+
+</li>
+<li><p>需要输入的变量</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">txt_filename=<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;输入导出的聊天记录的txt文件地址：&quot;</span>)<span class="hljs-comment">#聊天记录获取</span><br><span class="hljs-built_in">print</span>()<br>pic_filename=<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;输入背景图片地址：&quot;</span>)<span class="hljs-comment"># 图片获取</span><br><span class="hljs-built_in">print</span>()<br>font_filename=<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;输入字体的地址(如果不知道如何获取地址，可输入该地址:C:\Windows\Fonts\Dengb.ttf)：&quot;</span>)<span class="hljs-comment"># 字体获取</span><br><span class="hljs-comment">#font_filename=r&quot;C:\Windows\Fonts\Dengb.ttf&quot;</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>聊天记录读入和词云外形读入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#聊天记录获取</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span> (txt_filename,<span class="hljs-string">&#x27;r&#x27;</span>,encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>    com_record=f.read()<br><span class="hljs-comment"># 图片获取</span><br>ground=np.array(Image.<span class="hljs-built_in">open</span>(pic_filename))<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>jieba分词</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#用jieba函数实现文件的分词转换</span><br>sep_list=jieba.lcut_for_search(com_record)<span class="hljs-comment">##（结巴有三种方式，全模式、精确模式、搜索引擎模式）</span><br>sep_list=<span class="hljs-string">&quot; &quot;</span>.join(sep_list)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>词云制作</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#词云制作部分</span><br>wc=WordCloud\<br>(<br>    scale=<span class="hljs-number">4</span>,<span class="hljs-comment">#调整图片大小</span><br>    font_path=font_filename,<span class="hljs-comment">#使用的字体库</span><br>    <br>    max_words=<span class="hljs-number">500</span>,  <span class="hljs-comment">#词云显示的最大词数</span><br>    <br>    margin=<span class="hljs-number">2</span>,<span class="hljs-comment">#字体之间的间距</span><br>    mask=ground,<span class="hljs-comment">#背景图片</span><br>    background_color=<span class="hljs-string">&#x27;white&#x27;</span>, <span class="hljs-comment">#背景颜色</span><br><br>    max_font_size=<span class="hljs-number">200</span>,<br>    min_font_size=<span class="hljs-number">1</span>,<br><br>    collocations=<span class="hljs-literal">False</span>, <span class="hljs-comment">#避免重复单词</span><br>    width=<span class="hljs-number">1600</span>,height=<span class="hljs-number">1200</span>, <span class="hljs-comment">#图像宽高，字间距</span><br>    <br>    stopwords=exclude<span class="hljs-comment">#屏蔽的内容</span><br>)<br>wc.generate(sep_list) <span class="hljs-comment">#制作词云</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>文件保存</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">save_file_name=<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;WordCloud将以PNG格式保存，请输入保存的名称：&quot;</span>)<br><span class="hljs-built_in">print</span>()<br>save_file_name=save_file_name.lower()<br>save_file_name=save_file_name+<span class="hljs-string">&quot;.png&quot;</span><br>wc.to_file(save_file_name) <span class="hljs-comment">#保存到当地文件</span><br><span class="hljs-built_in">print</span>()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;WordCloud制作完成！&quot;</span>)<br><span class="hljs-built_in">print</span>()<br>fffff=<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;输入任意字符+回车即可退出：&quot;</span>)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>因为聊天记录中有很多不需要的词语，我们可以将其屏蔽掉</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#用集合实现屏蔽某些单词</span><br>exclude=<span class="hljs-built_in">set</span>()<br>flag=<span class="hljs-literal">True</span><br><span class="hljs-built_in">print</span>()<br>ff=<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;是否需要添加屏蔽的关键词？(Y/N):&quot;</span>)<br>ff=ff.upper()<br><span class="hljs-keyword">if</span> ff==<span class="hljs-string">&#x27;Y&#x27;</span>:<br>    <span class="hljs-keyword">while</span> flag:<br>        <span class="hljs-built_in">print</span>()<br>        ex_in = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入需要屏蔽的关键词（输入QUIT可停止添加屏蔽关键词）：&quot;</span>)<br>        <span class="hljs-keyword">if</span> ex_in == <span class="hljs-string">&quot;QUIT&quot;</span>:<br>            flag = <span class="hljs-literal">False</span><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-comment">#exclude.update(ex_in)</span><br>            exclude.add(ex_in)<br>    <span class="hljs-built_in">print</span>()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;屏蔽关键词集合:&quot;</span>)<br>    <span class="hljs-built_in">print</span>(exclude)<br><span class="hljs-keyword">else</span>:<br>    <span class="hljs-built_in">print</span>()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;屏蔽关键词集合为空&quot;</span>)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>另外，还可以通过pyinstaller将python程序转化成exe文件，通过打包生成的exe文件，包含里该python文件运行的所以第三方库，因此，对于没有python环境的计算机也可以下载使用，非常便利！</p>
+</li>
+<li><p>在资源管理器的带有该py文件的文件夹下，输入 pyinstaller -F 文件名.py,回车键，等待一段时间，会生成exe文件，该exe文件在本文件下的dist文件夹下</p>
+</li>
+</ul>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/wordcloud_5.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="" style="zoom:50%;" />
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/wordcloud_6.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="" style="zoom: 80%;" />
+</div>
+
+
+
+<h1 id="项目完整代码"><a href="#项目完整代码" class="headerlink" title="项目完整代码"></a>项目完整代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Time      : 2021/2/11 12:16</span><br><span class="hljs-comment"># Author    : MurphyHou</span><br><span class="hljs-comment"># Proj_Name : WordCloud</span><br><span class="hljs-comment"># File_Name : wordcloud_demo_1.py</span><br><span class="hljs-comment"># Software  : PyCharm</span><br><span class="hljs-comment"># Here We Go!</span><br><br><span class="hljs-keyword">import</span> jieba<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><span class="hljs-keyword">from</span> wordcloud <span class="hljs-keyword">import</span> WordCloud<br><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;tips：可以先将这个黑黑的框框全屏，然后按住ctrl+鼠标滚轮将文字放大到合适的尺寸&quot;</span>)<br><span class="hljs-built_in">print</span>()<br><span class="hljs-built_in">print</span>()<br><span class="hljs-built_in">print</span>()<br><br>txt_filename=<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;输入导出的聊天记录的txt文件地址：&quot;</span>)<span class="hljs-comment">#聊天记录获取</span><br><span class="hljs-built_in">print</span>()<br><br>pic_filename=<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;输入背景图片地址：&quot;</span>)<span class="hljs-comment"># 图片获取</span><br><span class="hljs-built_in">print</span>()<br><br>font_filename=<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;输入字体的地址(如果不知道如何获取地址，可输入该地址:C:\Windows\Fonts\Dengb.ttf)：&quot;</span>)<span class="hljs-comment"># 字体获取</span><br><span class="hljs-comment">#font_filename=r&quot;C:\Windows\Fonts\Dengb.ttf&quot;</span><br><br><span class="hljs-comment">#聊天记录获取</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span> (txt_filename,<span class="hljs-string">&#x27;r&#x27;</span>,encoding=<span class="hljs-string">&#x27;utf-8&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>    com_record=f.read()<br><br><span class="hljs-comment"># 图片获取</span><br>ground=np.array(Image.<span class="hljs-built_in">open</span>(pic_filename))<br><br><span class="hljs-comment">#用集合实现屏蔽某些单词</span><br>exclude=<span class="hljs-built_in">set</span>()<br>flag=<span class="hljs-literal">True</span><br><span class="hljs-built_in">print</span>()<br><br>ff=<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;是否需要添加屏蔽的关键词？(Y/N):&quot;</span>)<br>ff=ff.upper()<br><span class="hljs-keyword">if</span> ff==<span class="hljs-string">&#x27;Y&#x27;</span>:<br>    <span class="hljs-keyword">while</span> flag:<br>        <span class="hljs-built_in">print</span>()<br>        ex_in = <span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;请输入需要屏蔽的关键词（输入QUIT可停止添加屏蔽关键词）：&quot;</span>)<br>        <span class="hljs-keyword">if</span> ex_in == <span class="hljs-string">&quot;QUIT&quot;</span>:<br>            flag = <span class="hljs-literal">False</span><br>        <span class="hljs-keyword">else</span>:<br>            <span class="hljs-comment">#exclude.update(ex_in)</span><br>            exclude.add(ex_in)<br>    <span class="hljs-built_in">print</span>()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;屏蔽关键词集合:&quot;</span>)<br>    <span class="hljs-built_in">print</span>(exclude)<br><span class="hljs-keyword">else</span>:<br>    <span class="hljs-built_in">print</span>()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;屏蔽关键词集合为空&quot;</span>)<br><br><span class="hljs-comment">#用jieba函数实现文件的分词转换</span><br>sep_list=jieba.lcut_for_search(com_record)<span class="hljs-comment">##（结巴有三种方式，全模式、精确模式、搜索引擎模式）</span><br>sep_list=<span class="hljs-string">&quot; &quot;</span>.join(sep_list)<br><br><span class="hljs-comment">#词云制作部分</span><br>wc=WordCloud\<br>(<br>    scale=<span class="hljs-number">4</span>,<span class="hljs-comment">#调整图片大小</span><br>    font_path=font_filename,<span class="hljs-comment">#使用的字体库</span><br>    max_words=<span class="hljs-number">500</span>,  <span class="hljs-comment">#词云显示的最大词数</span><br>    margin=<span class="hljs-number">2</span>,<span class="hljs-comment">#字体之间的间距</span><br>    mask=ground,<span class="hljs-comment">#背景图片</span><br>    background_color=<span class="hljs-string">&#x27;white&#x27;</span>, <span class="hljs-comment">#背景颜色</span><br><br>    max_font_size=<span class="hljs-number">200</span>,<br>    min_font_size=<span class="hljs-number">1</span>,<br><br>    collocations=<span class="hljs-literal">False</span>, <span class="hljs-comment">#避免重复单词</span><br>    width=<span class="hljs-number">1600</span>,height=<span class="hljs-number">1200</span>, <span class="hljs-comment">#图像宽高，字间距</span><br><br>    stopwords=exclude<span class="hljs-comment">#屏蔽的内容</span><br>)<br><br>wc.generate(sep_list) <span class="hljs-comment">#制作词云</span><br><br>save_file_name=<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;WordCloud将以PNG格式保存，请输入保存的名称：&quot;</span>)<br><span class="hljs-built_in">print</span>()<br><br>save_file_name=save_file_name.lower()<br>save_file_name=save_file_name+<span class="hljs-string">&quot;.png&quot;</span><br>wc.to_file(save_file_name) <span class="hljs-comment">#保存到当地文件</span><br><br><span class="hljs-built_in">print</span>()<br><span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;WordCloud制作完成！&quot;</span>)<br><span class="hljs-built_in">print</span>()<br>fffff=<span class="hljs-built_in">input</span>(<span class="hljs-string">&quot;输入任意字符+回车即可退出：&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h1 id="关于项目的思考"><a href="#关于项目的思考" class="headerlink" title="关于项目的思考"></a>关于项目的思考</h1><ul>
+<li>关于数据分析可不仅仅是做词云这么简单，大数据时代对数据的分析肯定是重要的，不能仅仅局限于表面上的分析，如果能根据数据做用户画像那就更好了；</li>
+<li>孰能生巧，对于第三方库的使用第一次肯定是不熟悉的，经过多几次的使用会更加熟悉的！</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/" class="category-chain-item">奇思妙想</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/open-source/" class="print-no-link">#open source</a>
+      
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+        <a href="/tags/NumPy/" class="print-no-link">#NumPy</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>消息记录生成词云</div>
+      <div>https://cosmicdusty.cc/post/Ideas/WordCloudsForMessage/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Murphy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年2月11日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post/Ideas/GetYourPhotos/" title="悄无声息获取你的照片">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">悄无声息获取你的照片</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/MyLife/Reading2021/" title="2021读书记录">
+                        <span class="hidden-mobile">2021读书记录</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"JijHNKemeVNog4wF7g9I5TR3-gzGzoHsz","appKey":"FvsKdxHOP2aG5rHrHby5aV0b","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a rel="nofollow noopener"><span>Powered by</span></a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span><b>Hexo</b></span></a> <i class="iconfont icon-love"></i> <a rel="nofollow noopener"><span>Themed by</span></a> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span><b>Fluid</b></span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

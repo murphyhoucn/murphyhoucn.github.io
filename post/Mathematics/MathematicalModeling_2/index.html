@@ -1,0 +1,1475 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <link rel="icon" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Murphy">
+  <meta name="keywords" content="Murphy,CosmicDusty,murphy,cosmicdusty,cn">
+  
+    <meta name="description" content="2022美国大学生数学建模竞赛学习准备，清风数学建模课程笔记。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学建模（二）">
+<meta property="og:url" content="https://cosmicdusty.cc/post/Mathematics/MathematicalModeling_2/index.html">
+<meta property="og:site_name" content="MurphyHou">
+<meta property="og:description" content="2022美国大学生数学建模竞赛学习准备，清风数学建模课程笔记。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/math-work-4711302_1920.jpg">
+<meta property="article:published_time" content="2022-02-13T04:50:55.000Z">
+<meta property="article:modified_time" content="2023-05-05T14:19:34.000Z">
+<meta property="article:author" content="Murphy">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="MATLAB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/math-work-4711302_1920.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>数学建模（二） - MurphyHou</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cosmicdusty.cc","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"16d93d5abbd7ea15ec53daed5459ebf7","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JijHNKemeVNog4wF7g9I5TR3","app_key":"FvsKdxHOP2aG5rHrHby5aV0b","server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?16d93d5abbd7ea15ec53daed5459ebf7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CosmicDusty</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/math-work-4711302_1920.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="数学建模（二）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Murphy
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-02-13 12:50" pubdate>
+          2022年2月13日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          11k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          90 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">数学建模（二）</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="2022美赛备战"><a href="#2022美赛备战" class="headerlink" title="2022美赛备战"></a>2022美赛备战</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Nr4y1U7Xg">2022年数学建模美赛备战参考——数学建模清风_哔哩哔哩_bilibili</a></p>
+<h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>MCM（数学建模竞赛）：A,B,C<br>ICM（交叉学科竞赛）：D,E,F</p>
+<p>MCM要求更深的数学功底和变成基础<br>ICM要求写作和逻辑能力</p>
+<p>A：连续型<br>B：离散型<br>C：数据挖掘<br>D：运筹学和网络科学<br>E：环境科学<br>F：政策相关的题目</p>
+<h3 id="EF"><a href="#EF" class="headerlink" title="EF"></a>EF</h3><p>E,F是最简单的题目，题目要求我们自己收集数据，用到的模型：评价类模型，相关性分析，回归分析，拟合；<br>E,F比较开放，题目中的小问比较多，因此需要重视写作，论文的结构要求清晰<br>美赛不需要提交数据和代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">- 世界数据查找网站：https://www.gapminder.org/data/<br>- 国家数据查找：到每个国家的统计局官网<br>- 美赛的题目会给参考文献，可以使用参考文献的数据<br>- 实在找不到数据：根据实际和逻辑，自己编<br></code></pre></td></tr></table></figure>
+<h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><p>D题题目固定，涉及到图论，网络分析，优化问题<br>2020,2021:网络科学<br>matlab:centrality函数<br>python:networkx<br>网络结构可视化软件：gephi——<a target="_blank" rel="noopener" href="https://gephi.org/">https://gephi.org/</a><br>运筹学：排队论，图论，选址优化</p>
+<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>数据挖掘类题目，根据提供的数据分析出结论<br>回归分析，时间序列分析，传统机器学习模型<br>近年来出现了深度学习：2020自然语言处理，2021图像分类<br>深度学习：B站李沐——<a target="_blank" rel="noopener" href="https://space.bilibili.com/1567748478">https://space.bilibili.com/1567748478</a><br>机器学习：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1v64y1B7vJ">https://www.bilibili.com/video/BV1v64y1B7vJ</a></p>
+<h3 id="A-B"><a href="#A-B" class="headerlink" title="A B"></a>A B</h3><p>A——连续<br>问题中的变量因素是连续变化的，如温度，时间等<br>B——离散<br>问题中的变量因素是离散变化的，如数量<br>连续：微分方程<br>离散：差分方程</p>
+<p>A和B可能会出现一道物理题目，涉及到热力学，流体力学，信号处理<br>B题目：可能是离散型优化问题，即组合优化问题——智能算法：遗传算法，模拟退火算法</p>
+<p>A,B,D可能会用到元胞自动机模型（多主体建模），使用Netlogo仿真模拟软件</p>
+<hr>
+<h1 id="常用模型和算法"><a href="#常用模型和算法" class="headerlink" title="常用模型和算法"></a>常用模型和算法</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1B54y1U7rF">数学建模竞赛常考三大模型及十大算法_哔哩哔哩_bilibili</a></p>
+<h2 id="三大模型"><a href="#三大模型" class="headerlink" title="三大模型"></a>三大模型</h2><h3 id="预测模型（中等难度）"><a href="#预测模型（中等难度）" class="headerlink" title="预测模型（中等难度）"></a>预测模型（中等难度）</h3><blockquote>
+<p>神经网络预测、灰色预测、拟合插值预测（线性回归）、时间序列预测、马尔科夫链预测、微分方程预测、Logistic 模型等等。<br>应用领域：人口预测、水资源污染增长预测、病毒蔓延预测、竞赛获胜概率预测、月收入预测、销量预测、经济发展情况预测等在工业、农业、商业等经济领域，以及环境、社会和军事等领域中都有广泛的应用。</p>
+</blockquote>
+<h3 id="优化模型（偏难）"><a href="#优化模型（偏难）" class="headerlink" title="优化模型（偏难）"></a>优化模型（偏难）</h3><blockquote>
+<p>规划模型（目标规划、线性规划、非线性规划、整数规划、动态规划）、图论模型、排队论模型、神经网络模型、现代优化算法（遗传算法、 模拟退火算法、蚁群算法、禁忌搜索算法）等等。<br>应用领域：快递员派送快递的最短路径问题、水资源调度优化问题、高速路 口收费站问题、军事行动避空侦察的时机和路线选择、物流选址问题、商区布局规划等各个领域。</p>
+</blockquote>
+<h3 id="评价模型（偏简单）"><a href="#评价模型（偏简单）" class="headerlink" title="评价模型（偏简单）"></a>评价模型（偏简单）</h3><blockquote>
+<p>模糊综合评价法、层次分析法、聚类分析法、主成分分析评价法、 灰色综合评价法、人工神经网络评价法等等。<br>应用领域：某区域水资源评价、水利工程项目风险评价、城市发展程度评价、足球教练评价、篮球队评价、水生态评价、大坝安全评价、边坡稳定性评价</p>
+</blockquote>
+<h2 id="十大算法"><a href="#十大算法" class="headerlink" title="十大算法"></a>十大算法</h2><ol>
+<li><p>蒙特卡洛算法<br>又称为随精选模拟算法，<br>是通过计算机仿真来解决问题的算法，同时可以通过模拟来检验自己模型的正确性，是比赛时，必用的方法</p>
+</li>
+<li><p>数据处理算法<br>数据拟合，参数估计，插值等：<br>比赛在通常会遇到大量的数据需要处理，而处理数据的关键就在于这些算法，通常使用matlab作为工具</p>
+</li>
+<li><p>规划类问题算法<br>线性规划，整体规划，多元规划，二次规划等规划类问题：<br>建模比赛中大数问题属于最优化问题，很多时候这些问题可以用数学规划算法来解决，通常使用Lindo，Lingo等软件实现</p>
+</li>
+<li><p>图论算法<br>最短路径，网络流，二分图等算法</p>
+</li>
+<li><p>动态规划，回溯搜索，分治算法，分支定界</p>
+</li>
+<li><p>最优化理论三大经典算法<br>模拟退火算法，遗传算法，神经网络</p>
+</li>
+<li><p>网格算法，穷举法</p>
+</li>
+<li><p>连续离散化方法</p>
+</li>
+<li><p>数值分析算法</p>
+</li>
+<li><p>图像处理算法</p>
+</li>
+</ol>
+<hr>
+<h1 id="美赛论文写作"><a href="#美赛论文写作" class="headerlink" title="美赛论文写作"></a>美赛论文写作</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Na411w7c2?p=23">数学建模清风——论文写作方法教程（国赛和美赛）_哔哩哔哩_bilibili</a><br><a target="_blank" rel="noopener" href="https://www.comap.com/undergraduate/contests/mcm/instructions.php">MCM: The Mathematical Contest in Modeling (comap.com)</a></p>
+<p>2022 Contest Dates and Times:</p>
+<p>Registration Deadline: Before 3:00 p.m. EST on Thursday, February 17, 2022.<br>Contest Starts: 5:00 p.m. EST on Thursday, February 17, 2022.<br>Contest Ends: 8:00 p.m. EST on Monday, February 21, 2022.<br>Solution Report Deadline: 9:00 p.m. EST on Monday, February 21, 2022.<br>Contest Results: The results will be posted on or before May 20, 2022.</p>
+<p>2022美赛的关键时间节点报名截止时间 美国东部时间2022年2月17日 15:00之前（星期四） 北京时间2022年2月18日 凌晨4:00之前（星期五）<br>比赛开始时间 美国东部时间2022年2月17日 17:00（星期四） 北京时间2022年2月18日 上午6:00（星期五）<br>比赛截止时间 美国东部时间2022年2月21日 20:00（星期一） 北京时间2022年2月22日 上午9:00（星期二）<br>提交方案截止时间 美国东部时间2022年2月21日 21:00（星期一） 北京时间2022年2月22日 上午10:00（星期二）<br>比赛结果公布时间 美国东部时间2022年5月20日之前发布</p>
+<div align=center>
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213141412720.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<h2 id="Summary-Sheet-摘要页（超级重要）"><a href="#Summary-Sheet-摘要页（超级重要）" class="headerlink" title="Summary Sheet 摘要页（超级重要）"></a>Summary Sheet 摘要页（超级重要）</h2><p>布局</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">开头段（必要）<br>- 3-5行，2-3句话 <br>针对问题1<br>针对问题2<br>针对问题3<br>结尾段（可选）<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">开头段（必要）<br>- 3-5行，2-3句话 <br>Firstly<br>Then<br>Next<br>Finally<br>结尾段（可选）<br></code></pre></td></tr></table></figure>
+
+<p>不能超过一页，读者在不阅读全文的情况下，就能获得必要的信息</p>
+<p>摘要包含的三要素：解决了什么问题，应用了什么方法， 得到了什么结果</p>
+<p>概括全文，行文简洁，突出论文的新见解，新方法和特色，不能有主观性</p>
+<p>摘要是其他部分都写完之后，再来书写（半天时间）</p>
+<ul>
+<li><strong>摘要的开头段</strong></li>
+</ul>
+<p>三句话，三到五行</p>
+<p>第一句话简单交代题目的背景（可选）</p>
+<p>第二句话交代你们所作的事情（最重要）</p>
+<p>第三句话说以先解决这个问题的实际意义（少部分论文有）</p>
+<ul>
+<li><strong>摘要的中间段</strong></li>
+</ul>
+<p>解决了什么问题，应用了什么方法， 得到了什么结果</p>
+<ol>
+<li>解决了什么问题：不单独提出我们要解决的问题，因为后面的两个要素会提到</li>
+<li>应用了什么方法：紧扣题目</li>
+<li>得到了什么结果：<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213143507222.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div></li>
+</ol>
+<ul>
+<li><strong>摘要的结尾段</strong></li>
+</ul>
+<p>介绍论文的亮点，对类似问题进行适当的推广</p>
+<p>如果不会写的话，可以不写结尾段</p>
+<ul>
+<li>不要出现的废话<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213144115302.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div></li>
+<li>论文的标题title和关键词key world</li>
+</ul>
+<p>标题和关键词要求不严格</p>
+<div align=center>
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213144636944.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<h2 id="Contents-目录"><a href="#Contents-目录" class="headerlink" title="Contents 目录"></a>Contents 目录</h2><p>目录快速生成——排版课程</p>
+<h2 id="正文1-Introduction-引言"><a href="#正文1-Introduction-引言" class="headerlink" title="正文1 Introduction 引言"></a>正文1 Introduction 引言</h2><p>引言包含了两到三个小部分</p>
+<ol>
+<li><strong>Problem Background 问题背景</strong></li>
+</ol>
+<p>总结题目所给的背景</p>
+<p>结合自己对赛题的理解，讲背景介绍有侧重的往自己研究的方向去靠</p>
+<ol start="2">
+<li><p><strong>Restatement of the Problem 问题重述</strong></p>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213145515405.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+1和2可以合并为一点
+</li>
+<li><p><strong>Literature Review 文献综述</strong></p>
+</li>
+</ol>
+<p>这部分主要是总结以前的学者针对这个问题已经做的研究。事实上，绝大多数期刊发表的论文都会有文献综述部 分。但在美赛特等奖论文中，只有不到30%的论文有这一部分，不是说这部分不重要，而是这一部分很难写。</p>
+<p>注意：文献综述本身就是一种文体，可以作为论文独立发表，也可以放在论 文中作为独立的一个部分；我们在美赛中写的文献综述不需要达到上面定义写的<br>这么严格的标准。</p>
+<blockquote>
+<p>总结写作特点： 有很多学者都研究过这个问题(红色圈出来的编号就是参考文献的标记)，其中： </p>
+<ul>
+<li><p>某某学者建立了某某模型或者使用了某某方法研究了这个问题； </p>
+</li>
+<li><p>某某学者通过研究了这个问题得到了某某结论。</p>
+</li>
+</ul>
+<p>技巧：文献综述中的文章能直接和你的论文中使用的模型或者得到的结论相互呼应！</p>
+</blockquote>
+<ol start="4">
+<li><strong>Our work 我们的工作</strong></li>
+</ol>
+<blockquote>
+<p>大家如果看特等奖论文的话，会发现很多论文在这 一部分都绘制了一个漂亮的图形来介绍文章的思路，大<br>家可以模仿模仿。</p>
+</blockquote>
+<h2 id="正文2-Assumptions-and-Justifications-模型假设"><a href="#正文2-Assumptions-and-Justifications-模型假设" class="headerlink" title="正文2 Assumptions and Justifications 模型假设"></a>正文2 Assumptions and Justifications 模型假设</h2><p>美赛要求较高</p>
+<div align=center>
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213151907484.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+<h2 id="正文3-Notations-符号说明"><a href="#正文3-Notations-符号说明" class="headerlink" title="正文3 Notations 符号说明"></a>正文3 Notations 符号说明</h2><div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213152534231.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+Glossary——术语汇编
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213152632036.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<h2 id="正文4-5-6-模型的建立与求解-正文最重要的部分"><a href="#正文4-5-6-模型的建立与求解-正文最重要的部分" class="headerlink" title="正文4 5 6 模型的建立与求解(正文最重要的部分)"></a>正文4 5 6 模型的建立与求解(正文最重要的部分)</h2><blockquote>
+<p>模型建立：模型建立是将原问题抽象成用数学语言的表达式，它一定是在先 前的问题分析和模型假设的基础上得来的。因为比赛时间很紧，大多时候我们都是 使用别人已经建立好的模型。这部分一定要将题目问的问题和模型紧密结合起来， 切忌随意套用模型。我们还可以对已有模型的某一方面进行改进或者优化，或者建 立不同的模型解决同一个问题，这样就是论文的创新和亮点。 </p>
+<p>模型求解：把实际问题归结为一定的数学模型后，就要利用数学模型求解所 提出的实际问题了。一般需要借助计算机软件进行求解，例如常用的软件有Matlab, Spss, Lingo, Excel, Stata, Python等。求解完成后，得到的求解结果应该规范准确并且 醒目，若求解结果过长，最好编入附录里。（注意：如果使用智能优化算法或者数值计算方法求解的话，需要简要阐明算法的计算步骤）</p>
+</blockquote>
+<p>每个模型作为一个单独的大标题</p>
+<p>而美赛的命名方式五花八门，有些 论文使用建立的模型的名称命名；有些使用论文要解决 的问题命名；也有些论文使用和国赛一样简单粗暴的方<br>式命名。</p>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213152743785.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<p>可以以要解决的问题命名也可以以求解问题命名</p>
+<blockquote>
+<p>明确题意后，简述基本思路。首先，简要介绍利用的基本原理和基本思 想，再进行构建基本模型，如数学表达式、算法流程图等，要明确说明解题 的思想和思路，有逻辑性、合理性、可行性，需要完整叙述。也可以结合实 际问题，进行改进和完善基本模型，使其能有效、实用解决问题。 </p>
+<p>三点要求： </p>
+<ol>
+<li>必须要有数学模型：即数学公式组成的一套数学结构、或者是一套 数学的解决方案等； </li>
+<li>模型要求表达完整，正确和简明；</li>
+<li>模型要有实用性，要能求解出来，以能够解决问题为原则。</li>
+</ol>
+</blockquote>
+<p>模型求解的注意事项：</p>
+<p>1）国赛中常出优化类问题，如果你用到了启发式算法求解的话，一定要简 要写明算法步骤，并要结合具体的问题来阐明计算的思路。</p>
+<p>2）求解的结果应该在论文中突出的展示出来，有具体答案的问题比较简单， 直接放上数值计算结果即可；如果是开放类问题的话，一定要对结果进行阐明<br>和解释，如果能加上美观整洁的图表就更好了。</p>
+<h2 id="正文-Data-Description-数据描述-不常见"><a href="#正文-Data-Description-数据描述-不常见" class="headerlink" title="正文 Data Description 数据描述(不常见)"></a>正文 Data Description 数据描述(不常见)</h2><blockquote>
+<p>Data Description翻译过来就是数据描述。注意，这部分内容不是必须 的，大家根据自己的需要来进行添加。<br>如果自己收集了数据或者题目给了数据的话，可以先对数据进行一个 简单的介绍，或者将数据可视化，然后再从图形中得到一些直观的结论。<br>这里给大家一些相关的术语的翻译：</p>
+<p> • Data Collection(数据的收集) </p>
+<p>• Data Pre-processing(数据预处理) &#x2F; Data Cleaning(数据清洗) </p>
+<p>• Data Visualization(数据可视化) </p>
+<p>• Descriptive Statistical Analysis of the Data(数据的描述性统计分析) </p>
+<p>​	这部分内容在论文中的<strong>位置也比较灵活</strong>，我们可以将这个内容放到模型的建立与求解中，也有部分论文放在了引言部分，还有的论文将这个内容放到“Model Preparation模型准备”这个部分，这种见得比较少，我们之前 在国赛论文框架中介绍过模型准备的写法。特别的，<strong>如果做的是美赛C题 （C题一般是数据分析类型的题目），我们可以把这个部分单独作为一个大的部分，然后进行数据预处理和数据可视化分析。</strong></p>
+</blockquote>
+<h2 id="正文7-Sensitivity-Analysis-灵敏度分析（重要）-不是很懂"><a href="#正文7-Sensitivity-Analysis-灵敏度分析（重要）-不是很懂" class="headerlink" title="正文7 Sensitivity Analysis 灵敏度分析（重要）(不是很懂)"></a>正文7 Sensitivity Analysis 灵敏度分析（重要）(不是很懂)</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/69059271">数学建模中的灵敏度分析，到底在分析什么？ - 知乎 (zhihu.com)</a></p>
+<blockquote>
+<p>在这个部分中，我介绍了灵敏度分析、误差分析和稳定性检验的写法， 其中稳定性检验和灵敏度分析非常类似，因此大家要掌握的就是前面两种分 析的写法。 </p>
+<p>在美赛的写作中，写的最多的就是灵敏度分析，因此这里我们的标题就直接取得是Sensitivity Analysis; 如果你既要写灵敏度分析，又要写误差分析， 那么你可以把标题改成： Sensitivity Analysis and Error Analysis. 注意： • 误差分析一般翻译为：Error Analysis • 稳定性检验的别称较多，还可以称为稳健型检验或稳健型分析，因此它的翻译也较多，可翻译为：Stability Test、 Robustness Test或者Robustness Analysis</p>
+</blockquote>
+<blockquote>
+<p>模型的分析 ：在建模比赛中模型分析主要有两种，一个是灵敏度(性)分析， 另一个是误差分析。灵敏度分析是研究与分析一个系统（或模型）的状态或输出 变化对系统参数或周围条件变化的敏感程度的方法。其通用的步骤是：控制其他 参数不变的情况下，改变模型中某个重要参数的值，然后观察模型的结果的变化 情况。误差分析是指分析模型中的误差来源，或者估算模型中存在的误差，一般 用于预测问题或者数值计算类问题。 </p>
+<p>模型的检验：模型检验可以分为两种，一种是使用模型之前应该进行的检验，例如层次分析法中一致性检验，灰色预测中的准指数规律的检验，这部分内容应该放在模型的建立部分；另一种是使用了模型后对模型的结果进行检验，数模中 最常见的是稳定性检验(有的论文也称为稳健型检验或稳健型分析)，实际上这里的稳定性检验和前面的灵敏度分析非常类似，等会大家看到例子就明白了。</p>
+</blockquote>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/2022-02-13_15-15-37-29.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/2022-02-13_15-15-37-36.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+<h2 id="正文8-Model-Evaluation-and-Further-Discussion-模型的评价和进一步的讨论"><a href="#正文8-Model-Evaluation-and-Further-Discussion-模型的评价和进一步的讨论" class="headerlink" title="正文8  Model Evaluation and Further Discussion 模型的评价和进一步的讨论"></a>正文8  Model Evaluation and Further Discussion 模型的评价和进一步的讨论</h2><p>该部分可以翻译为模型的评价和进一步的讨论，对应于国赛框架中的模 型的评价、改进与推广部分</p>
+<blockquote>
+<p>我们可以把这个大的部分拆分成三个小部分写： </p>
+<p>（1）Strengths 这里写论文或者模型的优点<br>（2）Weaknesses 这里写缺点：缺点写的个数一般要比优点少<br>（3） Further Discussion 进行进一步的讨论，这里可以写模型的改进和拓展。<br>            模型改进：Model Improvements 模型拓展：Model Extensions<br>        （这里单词写的都是复数形式，如果你只写了一点就改成单数形式）<br>另外，本部分的标题需要根据你的内容进行调整，例如：如果你没有写进一步讨论的话，就直接把标题写成模型的评价Model Evaluation 。</p>
+</blockquote>
+<h2 id="正文9-Conclusion-结论"><a href="#正文9-Conclusion-结论" class="headerlink" title="正文9 Conclusion 结论"></a>正文9 Conclusion 结论</h2><blockquote>
+<p>Conclusion翻译过来就是结论，这个部分在国赛论文几 乎见不到，但在美赛中出现的频率很高。 </p>
+<p>这个部分可以是论文中心思想的重申、研究结果或主要 观点的归纳，也可以是某些启示性的解释或考虑。 </p>
+<p>有些论文把“Model Evaluation and Further Discussion”的 内容放到了结论部分.</p>
+</blockquote>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213155550897.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+<p><strong>注意区分这三个部分！！！！！！</strong></p>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213155712049.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+<h2 id="References-参考文献"><a href="#References-参考文献" class="headerlink" title="References 参考文献"></a>References 参考文献</h2><blockquote>
+<p> 本部分是参考文献，在美赛中，参考文献不要出现中文！ 如果要引用中文论文或者书籍怎么办？请自己翻译</p>
+</blockquote>
+<h2 id="Appendices-附录"><a href="#Appendices-附录" class="headerlink" title="Appendices 附录"></a>Appendices 附录</h2><p>附录中的代码也不要出现中文注释，也就是任何地方都不要出现中文</p>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213155934177.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<h2 id="Article-杂志文章"><a href="#Article-杂志文章" class="headerlink" title="Article 杂志文章"></a>Article 杂志文章</h2><p>美赛有些题目会要求大家给某个杂志写一篇文章(Article)</p>
+<blockquote>
+<p>（1）2020A题 In addition to your technical report, prepare a one- to two-page article for Hook<br>Line and Sinker magazine to help fishermen understand the seriousness of the problem and how your proposed solution(s) will improve their future business prospects.</p>
+<p> 除了你的技术报告，准备一到两页的文章，作为Hook Line and Sinker 的杂 志内容，以帮助渔民了解问题的严重性，以及你的解决方案将如何改善他们未 来的业务前景。<br>（2）2020B题 Finally, write an informative, one- to two-page article describing your model and<br>its results for publication in the vacation magazine: Fun in the Sun, whose readers are mainly non-technical.<br>最后，写一篇内容丰富的一到两页的文章，描述你的模型及其结果，发表<br>在假期杂志上：Fun in the Sun ，读者都是小白，不懂太复杂的模型。</p>
+<p>文章中不要写太过专业的话，确保你的读者能读得懂！</p>
+</blockquote>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213160515523.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213160344273.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<h2 id="Letter-写信"><a href="#Letter-写信" class="headerlink" title="Letter 写信"></a>Letter 写信</h2><div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213160657899.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<h2 id="Memo-备忘录"><a href="#Memo-备忘录" class="headerlink" title="Memo 备忘录"></a>Memo 备忘录</h2><div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213160759139.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213160811182.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+<hr>
+<h1 id="美赛论文排版"><a href="#美赛论文排版" class="headerlink" title="美赛论文排版"></a>美赛论文排版</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ci4y1c7Ld">数学建模清风——论文排版教程_哔哩哔哩_bilibili</a></p>
+<p>LaTex学习成本太大了，因此使用Word进行排版。</p>
+<blockquote>
+<p>优秀论文共同特点： </p>
+<p>（1）整体结构完整，大多数论文都是使用<strong>三级标题式</strong>进行布局； </p>
+<p>（2）论文正文部分排版<strong>紧凑</strong>，没有大段空行，内容看上去翔实； </p>
+<p>（3）表格整洁，一般使用<strong>三线表形式</strong>，<strong>表格上方有对应的标题</strong>； </p>
+<p>（4）图形清晰美观，<strong>下方有对应的标题</strong>，文中要解释图形意义；（表上图下）</p>
+<p>（5）公式编辑规范，大部分论文使用公式编辑器，且带有编号。</p>
+</blockquote>
+<h2 id="Word-基础知识"><a href="#Word-基础知识" class="headerlink" title="Word 基础知识"></a>Word 基础知识</h2><p><strong>F4</strong>键的作用是重复上一步操作，在PPT和Excel中也是同样的作用。</p>
+<p>首行缩进不要打两个空格，应该在开始-段落中设置首行缩进</p>
+<p>Ctrl+Enter：分页符</p>
+<p>Delete：<strong>大多数时候我们删除某个内容使用的都是退格键，但有时候排版的时候，你会发现使用退格键删除后论文的排版格式乱掉了（特别是有表格需要排版的时候用的很多），这时候可以考虑使用删除键。我们以后遇到了再来给大家强调这一点。</strong></p>
+<p>格式刷：先复制需要的格式，然后点击格式刷，点击格式刷一次，只能进行一次格复制，点击两次能进行无数次格式复制</p>
+<p>左对齐，居中对齐，右对齐，两端对齐，分散对齐</p>
+<p>项目符号，编号，多级列表</p>
+<h2 id="样式和多级列表"><a href="#样式和多级列表" class="headerlink" title="样式和多级列表"></a>样式和多级列表</h2><p>引用-目录：插入目录</p>
+<p>论文模板</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">（1）论文的首页是摘要页，论文标题使用三号黑体，摘要两个字使用四号黑体， 关键词两个字使用小四黑体。 <br>（2）论文的正文部分使用小四宋体(中文)和小四Times New Roman字体(西文)， 行距设置为单倍，首行缩进两个字符。 <br>（3）一级标题使用四号黑体，无缩进居中对齐，段前段后6磅，单倍行距，编号 使用“一、二、三、四、”等。<br>（4）二级标题使用小四黑体，无缩进左对齐，段后6磅，单倍行距，编号使用 “1.1 1.2 2.1 2.2 2.3 ”等。 <br>（5）三级标题使用小四黑体，无缩进左对齐，单倍行距，编号使用“3.1.1 3.1.2 5.3.1 5.3.2 ”等。不建议使用三级以上的标题，看起来太长了。 <br>（6）论文中的图片、表格居中对齐，无缩进；表格上方和图片下方的标题使用五号宋体加粗(中文)和五号Times New Roman字体加粗(西文)，无缩进，居中对齐。<br></code></pre></td></tr></table></figure>
+
+<h2 id="表格的制作和排版"><a href="#表格的制作和排版" class="headerlink" title="表格的制作和排版"></a>表格的制作和排版</h2><p>三线表</p>
+<p>使用边框刷子：点顶线：1.5磅；栏目线：0.75磅；底线：1.5磅</p>
+<p>文字：水平居中</p>
+<p>分布行，分布列：把表格的行和列都变成一样大小</p>
+<p>制作三线表的模板</p>
+<p>长表格的处理：excel预处理</p>
+<p>宽表格的处理：excel预处理</p>
+<p>两个并排的独立表格：excel预处理</p>
+<p>有合并单元格的表格：先用excel预处理，断点用白色的边框替代</p>
+<p>Stata的回归结果表格：</p>
+<p>SPSS输出的表格：</p>
+<p>文章或报告的封面：</p>
+<p>自动生成表的标题：选中表格-引用-插入题注</p>
+<p>文章的内容与表格相关联，如：结果请见表2，引用-交叉引用</p>
+<p>Ctrl+A，全选，然后按F9，可以刷新整篇文章</p>
+<p>文字与表格或者图像之间的间距可以设置为0.5行</p>
+<h2 id="图形的制作和排版"><a href="#图形的制作和排版" class="headerlink" title="图形的制作和排版"></a>图形的制作和排版</h2><p>国赛中的图要求简约</p>
+<p>美赛中的图要求美观，吸人眼球</p>
+<p>图片首先设置无缩进，然后居中对齐，再在图片下边写上编号和图片的标题</p>
+<p>（记住：表上图下，即表的标题在上面，图的标题在下 面）</p>
+<p>图片的制作</p>
+<ol>
+<li>matlab或者python</li>
+<li>excel，spss，origin</li>
+<li>展示模型或者算法过程的流程图</li>
+<li>描述问题分析或者建模思路的示意图</li>
+</ol>
+<p>使用PPT绘制思维导图——SmartArt</p>
+<p>Xmind</p>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220213224256653.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+绘制示意图——PPT，Draw.io
+
+<p>绘制带用矢量图的示意图——阿里巴巴矢量图库，Islide矢量图插件，Draw.io</p>
+<p>对图像的加工——PPT等</p>
+<p>流程图的绘制：Draw.io</p>
+<p>物理示意图的绘制：PPT，AxGraph(有水印)</p>
+<p><a target="_blank" rel="noopener" href="https://www.geogebra.org/download">应用下载 – GeoGebra</a></p>
+<p><a target="_blank" rel="noopener" href="https://echarts.apache.org/zh/index.html">Apache ECharts</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.tableau.com/zh-cn">商业智能和分析软件 (tableau.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://powerbi.microsoft.com/zh-cn/">数据可视化 | Microsoft Power BI</a></p>
+<p>社会网络图</p>
+<ul>
+<li>手动：Gelphi，<a target="_blank" rel="noopener" href="https://www.yworks.com/products/yed/download">yEd - Graph Editor (yworks.com)</a></li>
+<li>python的nerworkx包</li>
+</ul>
+<p>地理数据可视化GIS——经纬度可视化</p>
+<ul>
+<li>专业：ArcGIS，MapGIS，supermap</li>
+<li>Tableau，Power BI</li>
+<li>python的folium包</li>
+</ul>
+<p>使用Excel地图数据可视化——中国和美国的地图都有了</p>
+<p>对任意国家的地图进行可视化设计：<a target="_blank" rel="noopener" href="https://pixelmap.amcharts.com/">Pixel Map Generator | amCharts</a>（中国地图有问题）</p>
+<p>图例，用PPT中的<strong>表格</strong></p>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/2022-02-14_00-00-16-30.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+中国以及各个省市的地图：[阿里云 DataV - 数据可视化平台 (aliyun.com)](http://datav.aliyun.com/portal/school/atlas/area_selector)
+
+<h2 id="公式的编辑和排版"><a href="#公式的编辑和排版" class="headerlink" title="公式的编辑和排版"></a>公式的编辑和排版</h2><p>LaTex：<a target="_blank" rel="noopener" href="https://www.latexlive.com/">在线LaTeX公式编辑器-编辑器 (latexlive.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1op4y1D76H">【老湿基】为妈咪叔 LaTeXLive.com 网页程序打call｜侠之大者，为国为民！_哔哩哔哩_bilibili</a></p>
+<p>Word自带的公式编辑器：alt和&#x3D;同时按下</p>
+<p>AxMath：免费部分功能</p>
+<p>MathTpye：收费</p>
+<p>将公式识别为LaTex代码：<a target="_blank" rel="noopener" href="https://mathpix.com/">Mathpix Snip</a>，Mathpix每个月能免费用50次</p>
+<p><a target="_blank" rel="noopener" href="https://www.latexlive.com/">在线LaTeX公式编辑器-编辑器 (latexlive.com)</a>：也可以进行公式的识别</p>
+<p>AxMath：</p>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214004439674.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214004724731.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214005116987.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+<p>公式的自动编号</p>
+<p>行内公式</p>
+<p>行间公式——编号</p>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214005458220.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214010134567.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<p>插入公式时候出现的问题</p>
+<ul>
+<li>公式上浮问题</li>
+</ul>
+<p>选中段落，右键-段落-中文版式-将文本对齐方式改为居中-确定</p>
+<ul>
+<li>公式的间距过大——行内公式</li>
+</ul>
+<p>选中段落，右键-段落-取消勾选下面的这两个框</p>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214010959284.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<ul>
+<li>公式编辑器中不要出现中文</li>
+</ul>
+<h2 id="参考文献的排版"><a href="#参考文献的排版" class="headerlink" title="参考文献的排版"></a>参考文献的排版</h2><blockquote>
+<p>要求：所有引用他人或公开资料(包括网上资料)的成果必须按科技论文的规范 列出参考文献，并在正文引用处予以标注(引用-交叉引用)。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">我这里教给大家三种方案： <br>（1）自己手动设置参考文献（数模论文的参考文献不是很多，而且要求也没有那 么严格，因此推荐大家在数学建模比赛的论文中使用，这样比较节省时间） <br>（2）使用专业的文献管理软件，例如EndNote（需要下载软件并学习额外的操作， 如果你以后不走学术路线的话，可能使用的机会不是很多）<br>（3）Word自带的插入引文功能（插入引文的操作比较繁琐，不推荐大家使用）<br></code></pre></td></tr></table></figure>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214011920164.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214012125588.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+<h2 id="附录的排版"><a href="#附录的排版" class="headerlink" title="附录的排版"></a>附录的排版</h2><div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214012252380.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<p>代码高亮：<a target="_blank" rel="noopener" href="https://highlightcode.com/">代码在线高亮工具 | 将高亮美化的代码一键粘贴到 Word 或 OneNote 中 (highlightcode.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://c.runoob.com/front-end/5536/">代码在线高亮 | 菜鸟工具 (runoob.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://tool.oschina.net/highlight">在线代码着色高亮 (oschina.net)</a></p>
+<p><a target="_blank" rel="noopener" href="http://codeinword.com/">CodeInWord|在word中优雅展现的代码|代码高亮|word中插入代码|代码格式化</a></p>
+<p><a target="_blank" rel="noopener" href="https://paste.ubuntu.com/">Ubuntu Pastebin</a>——支持Matlab</p>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214012659226.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214012756225.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+<h2 id="美赛论文排版要求"><a href="#美赛论文排版要求" class="headerlink" title="美赛论文排版要求"></a>美赛论文排版要求</h2><div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214013552953.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214014713227.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<p>目录过长，目录页超过了一页，可以把显示级别设置为2</p>
+<p>用表格设置并排的图片</p>
+<p>表格的嵌套</p>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214014923651.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<p>英文段字效果</p>
+<div align=center>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214015117427.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+
+
+
+<h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1v64y1B7vJ">数学建模清风第四次直播：利用matlab快速实现机器学习_哔哩哔哩_bilibili</a></p>
+<p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1JtYzyBq00jaKHascLLo2ig">资料</a>——提取码：kkkk</p>
+<h2 id="基本概念和分类"><a href="#基本概念和分类" class="headerlink" title="基本概念和分类"></a>基本概念和分类</h2><p>机器学习：</p>
+<p>书中对于机器学习的一个定义： </p>
+<p>机器学习正是这样一门学科,它致力于研究如何 通过计算的手段,利用经验来改善系统自身的性能.在计算机系统中，“经验”通常以 “数据”形式存在,</p>
+<p>因此,机器学习所研究的主要内容,是关于在计算机上从数据中产 生“模型”(model)的算法，即“学习算法”(learning algorithm).</p>
+<p>有了学习算法,我 们把经验数据提供给它,它就能基于这些数据产生模型;在面对新的情况时(例如看到一个没剖开的西瓜),模型会给我们提供相应的判断(例如好瓜)．</p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/2022-02-14_13-13-35-12.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<p>机器学习：监督学习（supervised learning），无监督学习(unsupervised learning)，强化学习(reinforcement learning)，半监督学习(semi-supervised learning)，主动学习(active learning)</p>
+<h3 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h3><p>监督学习是指从标注数据中学习预测模型的机器学习问题。标注数据表示输入输出的对应关系，预测模型对给定的输入产生响应的输出。监督学习的本质是学习输入到输出的映射统计规律。</p>
+<p>翻译成白话：我们的数据既有输入变量又有输出变量（既有特征 feature 又有标签 label），我们要找到输入变量和输出变量之间的关系。</p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214134238920.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<p>监督学习根据<strong>输出变量Y的数据类型不同</strong>，又可以分成两种类型： </p>
+<p>（1） 当<strong>输出变量Y取有限个离散值</strong>时，称为<strong>分类问题</strong>。 </p>
+<blockquote>
+<p>举例：</p>
+<p>  判断西瓜的好坏（好瓜&#x2F;坏瓜） </p>
+<p> 判断肿瘤的性质（良性&#x2F;恶性） </p>
+<p> 根据鸢尾花的花萼长度、花萼宽度、花瓣长度和花瓣宽度这四个指标来判断它的种类（山鸢尾&#x2F;杂色鸢尾&#x2F;维吉尼亚鸢尾）</p>
+<p>在分类问题中，当Y只取两类时，我们称为二分类问题，</p>
+<p>当分类的类别为多个时， 称为多分类问题。</p>
+</blockquote>
+<p>（2） <strong>输出变量Y为连续型变量</strong>，称为<strong>回归问题</strong>。（此回归非彼回归） </p>
+<blockquote>
+<p>举例： </p>
+<p> 给定房屋的一些信息（户型、是否靠近地铁等），预测房价<br> 给定土地的施肥量，预测农作物的产量</p>
+</blockquote>
+<h3 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h3><p>无监督学习是指从无标注数据中学习预测模型的机器学习问题。无标注数据是自然得到的数据，预测模型表示数据的类别、转换或概率。无监督学习的本质是学习数据中的统计规律或潜在结构。 </p>
+<p>翻译成白话：我们的数据全部都是输入变量，没有输出变量。我们希望得到数据之间隐藏着的结构和规律。</p>
+<p>无监督学习最常见的两种用法：聚类和降维。 </p>
+<blockquote>
+<p>聚类的例子：银行收集了客户的许多个人信息，根据这些个人信息可以将客户划 分到不同的用户群体（例如：贵宾客户、重点客户、普通客户、可能流失的客户等）， 银行可以为不同的用户群体制定出相应的个性化营销方案。 </p>
+<p>降维的例子：输入变量的维度太大（指标个数太多了），我们需要通过降维的方法来构造出少数几个指标，这几个指标能保留原来这些输入变量的绝大部分信息。</p>
+</blockquote>
+<p>注意：有很多同学区分不开<strong>聚类和分类</strong>的概念，事实上你只要知道<strong>监督学习和无监督学习的核心区别就行了（有无输出变量Y）</strong>。</p>
+<p><strong>在分类中，类别是已知的；而在聚类中，类别是不知道的</strong>，我们是通过数据的特征属性将数据划分到某几类中，这几个类代表的含义需要我们自己根据聚类的结果来定义。</p>
+<h3 id="半监督学习"><a href="#半监督学习" class="headerlink" title="半监督学习"></a>半监督学习</h3><p>数据有：输入变量X和<strong>部分</strong>输入变量的输出Y</p>
+<h3 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h3><p>书中的定义：强化学习(reinforcement learning）是指智能系统在与环境的连 续互动中学习最优行为策略的机器学习问题。假设智能系统与环境的互动基于马尔可 夫决策过程（Markov decision process)，智能系统能观测到的是与环境互动得到的 数据序列。强化学习的本质是学习最优的序贯决策。 </p>
+<blockquote>
+<p>举个例子：如何让电脑玩游戏？以 flappy bird 这款游戏为 例，电脑怎么知道下一步小鸟要采取怎样的行动呢？ 通过不断与环境的交互和试错的过程，最终完成特定目的或使得整体行动收益最大化。<strong>（做对了给奖励，做错了给惩罚）</strong></p>
+</blockquote>
+<h2 id="模型评估的指标（监督学习）"><a href="#模型评估的指标（监督学习）" class="headerlink" title="模型评估的指标（监督学习）"></a>模型评估的指标（监督学习）</h2><h3 id="回归问题的评估指标"><a href="#回归问题的评估指标" class="headerlink" title="回归问题的评估指标"></a>回归问题的评估指标</h3><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214135900565.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214135927666.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214140001362.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<h3 id="分类问题的评估指标"><a href="#分类问题的评估指标" class="headerlink" title="分类问题的评估指标"></a>分类问题的评估指标</h3><p>混淆矩阵——可以使用matlab自动生成</p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214140121030.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<p>在此之前，我们需要定义<strong>分类结果中的正类（positive）和负类（negative）</strong>，这里 的正类和负类实际上借用了医学中的阳性（positive）和阴性（negative）的概念，医学 中一般阴性代表正常，而阳性则代表患有疾病。</p>
+<p><strong>在机器学习中，我们通常将更关注的事件定义为正类事件。（生活中我们通常会更关注那些结果不好的情况的出现）</strong></p>
+<p>例如上面的西瓜分类的例子中，如果我们<strong>更关注坏瓜，就定义坏瓜为正类，好瓜为负类。</strong>（有些地方也用 0 和 1 表示分类结果，<strong>一般正类记为 1，负类记为 0</strong>）。</p>
+<blockquote>
+<p>这种划分正类和负类的标准也不是绝对的，如果你更关注好瓜，那么你也可以把好瓜定义成正类；另外有 时候我们很难去区分结果的好坏，例如我们要对猫和狗的图片进行分类，这时候正类和负类无论怎么定义都行。</p>
+</blockquote>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214141022387.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<p>分类准确率，如果样本不平衡，计算出的结果回存在问题，因此这个指标本身存在问题</p>
+<p>后两个指标，R和P更重要</p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214141219859.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<blockquote>
+<p>通常来说，<strong>查全率和查准率是负相关关系</strong>的。</p>
+<p>怎么理解查全率和查准率的关系：（知乎：李韶华的回答） </p>
+<ul>
+<li><p>假设我们的目的是要找到人群中隐藏的坏人（把坏人当成正类）。 如果看重查全率R: <strong>宁可错杀一千个好人，不可漏过一个坏人</strong>。（全部识别成坏人<br>时查全率为1）</p>
+</li>
+<li><p>如果看重查准率 P: <strong>宁可漏过坏人，不可错杀无辜的好人。</strong>（让 FP 尽量小一点，没有充足的证据不会轻易判断一个人是坏人）</p>
+</li>
+</ul>
+</blockquote>
+<p> 查全率和查准率的调和平均</p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214142331261.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<p>ROC曲线和AUC</p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214142649880.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214143002227.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<h2 id="模型的泛化能力"><a href="#模型的泛化能力" class="headerlink" title="模型的泛化能力"></a>模型的泛化能力</h2><blockquote>
+<p>模型的泛化能力(generalization ability)是指由该模型对未知数据的预测能力。</p>
+</blockquote>
+<p>过拟合问题！</p>
+<h2 id="留出法"><a href="#留出法" class="headerlink" title="留出法"></a>留出法</h2><p>我们需要想一个办法，只使 用已有的样本数据来对模型的泛化能力进行一个评价。</p>
+<p>实际上这个办法很容易想到：还是假设我们现在有 100 个西瓜的数据，这些西瓜 的特征数据X以及是否为好瓜Y我们是知道的。</p>
+<blockquote>
+<p>我们只拿出 80 个西瓜来训练我们的“西瓜分类器”，剩下的 20 个西瓜我们假装 不知道它们是好瓜还是坏瓜。接下来，我们把这 20 个西瓜的 X 输入到我们的“西瓜 分类器”中，来得到预测结果，并和这 20 个西瓜的真实类别进行对比来计算分类准<br>确率，这个结果就能反映模型的泛化能力的好坏。</p>
+</blockquote>
+<p>我们将这里的 80 个西瓜称为<strong>训练 集(train set)<strong>，它们用来</strong>训练我们的模型</strong>，得到我们模型中的待估参数；</p>
+<p>剩下的 20 个 西瓜我们不参与模型的训练过程，只用来<strong>最后对模型的好坏进行测试</strong>，因此被称为**测试集(test set)**。</p>
+<p>我们将上面这种对泛化能力进行评估的方法称为<strong>留出法（Hold-Out）</strong>。</p>
+<blockquote>
+<p>（1） 假设我们总共的样本量为N，我们要将其划分为训练集和测试集，这两个集合的划分比例通常设置为：6:4、<strong>7:3</strong> 或 8:2。</p>
+<p>（2） 训练集和测试集的划分既要随机，又要尽可能保持数据分布的一致性（在分类问题中就是类别比例的相似），例如原来 100 个瓜中有 60 个好瓜，40 个坏瓜，那么你按照 8:2 的比例生成训练集和测试集时，尽量保证测试集中的 20 个样本内有 12 个好瓜和 8 个坏瓜。<strong>在分类任务中，保留类别比例</strong><br><strong>的采样方法称为分层采样（stratified sampling）。</strong></p>
+</blockquote>
+<p>留出法的<strong>缺陷</strong>：在留出法中，用于评价模型泛化能力的测试集只是所有样本的一部分，而且这个 结果不是很稳定，对模型的泛化能力的评价依赖于哪些样本点落入训练集，哪些样本点在测试集。</p>
+<h2 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h2><blockquote>
+<p>下面我们介绍一种用的更多的方法：k 折交叉验证（K-fold cross-validation）。 </p>
+<p>我们先将数据集D随机的划分为 k 个大小相似的<strong>互斥子集</strong>。</p>
+<p>每一次用 k-1 个子集 的并集作为训练集，剩下的一个子集作为测试集；</p>
+<p>这样就可以<strong>获得 k 组训练&#x2F;测试集</strong>， 从而可进行 k 次训练和测试，最终返回的是这 k 次测试的平均结果，<strong>通常 k 取 10，此时称为 10 折交叉验证</strong>。</p>
+</blockquote>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214144113341.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<h2 id="选择最好的模型"><a href="#选择最好的模型" class="headerlink" title="选择最好的模型"></a>选择最好的模型</h2><p>我们可以使用决策树、K 最近邻（KNN）、支持向量机（SVM）等常用的机器 学习模型。那么，我们应该怎样衡量一个模型的好坏呢？</p>
+<blockquote>
+<p>我们前面介绍了留出法和交叉验证法，这里面都需要将数据分成训练集和测试集。 因此，我们可以在同一个训练集下，分别对这些模型进行训练，然后将这些模型分别 在测试集上进行预测，并比较不同模型的泛化能力，我们选择泛化能力最好的模型。<br>（该模型在测试集上的表现最好，例如误差最小，具体的评价指标在前面有介绍）</p>
+<p>另外，大多数的模型中都需要设定一些参数(parameter)，参数不同得到的结果可 能有很明显的差异。因此，除了要对模型进行选择外，还需要对模型中的参数进行设 定，这就是机器学习中常说的“参数调节”或简称<strong>“调参”(parameter tuning)<strong>。通常调<br>参依赖于经验，我们后面会介绍</strong>网格搜索</strong>的方法，来自动搜索使模型效果最好的参数。</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">重要！！！！！<br>给定包含 N 个样本的数据集D，在选择模型的过程中，因为需要留出测试集的数 据进行评估测试，所以我们只使用了训练集的数据来训练模型，这会导致测试集的信 息在训练模型的过程中没有被利用到。因此，在模型选择和参数都调整完成后，我们 应该使用完整的数据集 D 来重新训练模型。这个模型在训练过程中使用了所有 N 个样<br>本，这才是我们最终需要的模型。<br></code></pre></td></tr></table></figure>
+
+<h2 id="欠拟合和过拟合"><a href="#欠拟合和过拟合" class="headerlink" title="欠拟合和过拟合"></a>欠拟合和过拟合</h2><p>过拟合（overfitting）指的是模型在<strong>训练集上表现的很好</strong>，但是在<strong>测试集上表现的并不理想</strong>，也就是说模型对未知样本的预测表现一般，泛化能力较差。 </p>
+<p>如果模型不仅在训练数据集上的<strong>预测结果不好</strong>，而且在<strong>测试数据集上的表现也不理想</strong>，也就是说两者的表现都很糟糕，那么我们有理由怀疑模型发生了欠拟合（underfitting）现象。</p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214150038778.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214150154298.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<blockquote>
+<p>可能产生过拟合的常见原因： </p>
+<blockquote>
+<p>（1） 模型中参数设置的过多导致模型过于<strong>复杂</strong> ；</p>
+<p>（2） 训练集的<strong>样本量不够</strong> ；</p>
+<p>（3） 输入了某些完全错误的的特征 </p>
+<p>​			举个极端的例子：样本的编号。现在有 100 个西瓜，编号 1-60 的是好瓜， 编号 61-100 的是坏瓜，如果你把编号作为了输入变量放入了我们的模型， 那么有可能模型会将编号作为一个最重要的识别变量来对西瓜进行分类， 模型会认为只要编号小于等于 60 的都是好瓜，此时在训练集上的误差一 定为 0。。。。。。如果这时候你拿来编号大于 100 的需要判断好坏的瓜，模型 都会认为是坏瓜！</p>
+</blockquote>
+<p>解决过拟合的方法： </p>
+<blockquote>
+<p>（1） 通过前面介绍的交叉验证的方法来选择合适的模型，并对参数进行调节。 </p>
+<p>（2） 扩大样本数量、训练更多的数据</p>
+<p>（3） 对模型中的参数增加<strong>正则化</strong>（即增加惩罚项，参数越多惩罚越大）</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>欠拟合则和过拟合刚好相反，我们可以增加模型的参数、或者选择更加复杂的模 型；也可以从数据中挖掘更多的特征来增加输入的变量，还可以使用一些集成算法（如 装袋法（Bagging），提升法（Boosting））。 </p>
+<p>（注意：有可能模型的输入和输出一点关系都没有，举个极端的例子，你买的西 瓜好坏和你的个人特征没任何关系，例如你的性别身高体重等）</p>
+</blockquote>
+<h1 id="常见的机器学习算法的思想"><a href="#常见的机器学习算法的思想" class="headerlink" title="常见的机器学习算法的思想"></a>常见的机器学习算法的思想</h1><p><a target="_blank" rel="noopener" href="https://space.bilibili.com/10781175">五分钟机器学习的个人空间_哔哩哔哩_bilibili</a></p>
+<p><a target="_blank" rel="noopener" href="https://space.bilibili.com/108044200">菊安酱的个人空间_哔哩哔哩_bilibili</a></p>
+<h2 id="K最近邻（KNN）"><a href="#K最近邻（KNN）" class="headerlink" title="K最近邻（KNN）"></a>K最近邻（KNN）</h2><h2 id="决策树（Decision-Tree）"><a href="#决策树（Decision-Tree）" class="headerlink" title="决策树（Decision Tree）"></a>决策树（Decision Tree）</h2><h2 id="支持向量机（SVM）"><a href="#支持向量机（SVM）" class="headerlink" title="支持向量机（SVM）"></a>支持向量机（SVM）</h2><h3 id="线性支持向量机"><a href="#线性支持向量机" class="headerlink" title="线性支持向量机"></a>线性支持向量机</h3><h3 id="非线性支持向量机"><a href="#非线性支持向量机" class="headerlink" title="非线性支持向量机"></a>非线性支持向量机</h3><h2 id="集成学习（ensemble-learning）"><a href="#集成学习（ensemble-learning）" class="headerlink" title="集成学习（ensemble learning）"></a>集成学习（ensemble learning）</h2><h1 id="Matlab中机器学习的应用"><a href="#Matlab中机器学习的应用" class="headerlink" title="Matlab中机器学习的应用"></a>Matlab中机器学习的应用</h1><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214151111469.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/image-20220214151243335.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+
+
+
+
+
+<h1 id="蒙特卡洛"><a href="#蒙特卡洛" class="headerlink" title="蒙特卡洛"></a>蒙特卡洛</h1><div align=center>
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/QQ截图20220214160645.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+
+
+<h2 id="引例：布丰投针"><a href="#引例：布丰投针" class="headerlink" title="引例：布丰投针"></a>引例：布丰投针</h2><p>通过针与平行线中任意一条相交的概论，计算pi<br>axis：绘制坐标在的框架</p>
+<h2 id="蒙特卡洛概述"><a href="#蒙特卡洛概述" class="headerlink" title="蒙特卡洛概述"></a>蒙特卡洛概述</h2><p> 蒙特卡洛方法又称统计模拟法，是一种随机模拟方法，以概率论和数理统计方法为基础的一种计算方法，是使用随机数来解决很多计算问题的方法。<br> 原理：由大数定理可知，当样本容量足够大的时候，事件的发生频率即其概率<br>蒙特卡洛不是一种算法，而是一种方法，蒙特卡洛没有固定的通用代码。</p>
+<p>蒙特卡洛是枚举的一种变异</p>
+<h2 id="应用1-三门问题"><a href="#应用1-三门问题" class="headerlink" title="应用1 三门问题"></a>应用1 三门问题</h2><p>三门问题（Monty Hall problem）亦称为蒙提霍尔问题、蒙特霍问题或蒙提霍尔悖论，大致出自美国的电视游戏节目Let’s Make a Deal。问题名字来自该节目的主持人蒙提·霍尔（Monty Hall）。参赛者会看见三扇关闭了的门，其中一扇的后面有一辆汽车，选中后面有车的那扇门可赢得该汽车，另外两扇门后面则各藏有一只山羊。当参赛者选定了一扇门，但未去开启它的时候，节目主持人开启剩下两扇门的其中一扇，露出其中一只山羊。主持人其后会问参赛者要不要换另一扇仍然关上的门。问题是：换另一扇门是否会增加参赛者赢得汽车的机率。如果严格按照上述的条件，那么答案是会。不换门的话，赢得汽车的几率是1&#x2F;3。换门的话，赢得汽车的几率是2&#x2F;3。<br>虽然该问题的答案在逻辑上并不自相矛盾，但十分违反直觉。这问题曾引起一阵热烈的讨论。<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ws411j7Mb">李永乐，三门问题</a></p>
+<h2 id="应用2-模拟排队问题"><a href="#应用2-模拟排队问题" class="headerlink" title="应用2 模拟排队问题"></a>应用2 模拟排队问题</h2><p>指数分布</p>
+<div align=center>
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/QQ截图20220214172441.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">normrnd()——正态分布<br>exprnd()——指数分布<br><br>tic<br>代码<br>toc<br>计算代码运行的时间<br></code></pre></td></tr></table></figure>
+
+<h2 id="应用3-有约束的非线性规划问题"><a href="#应用3-有约束的非线性规划问题" class="headerlink" title="应用3 有约束的非线性规划问题"></a>应用3 有约束的非线性规划问题</h2><div align=center>
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/QQ截图20220214174229.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+
+<p>非线性规划——局部最优解，计算时需要初始值<br>全局最优解是计算不出来的！</p>
+<p>把约束条件使用放缩法，计算出每个变量的取值范围</p>
+<p>format long g——计算出的结果，显示更多的小数位数<br>x&#x3D;unifrnd(20,30,n,1):生成[20,30]之间均匀分布的随即数组成的n行1列的向量构成x</p>
+<h2 id="应用4-01规划问题"><a href="#应用4-01规划问题" class="headerlink" title="应用4 01规划问题"></a>应用4 01规划问题</h2><p>unique函数：剔除一个矩阵或者向量的重复值，并将结果按照从小到大的顺序排列</p>
+<p>循环进行超级多次，得到最优解</p>
+<h2 id="应用5-导弹追踪问题"><a href="#应用5-导弹追踪问题" class="headerlink" title="应用5 导弹追踪问题"></a>应用5 导弹追踪问题</h2><p>连续的时间离散化<br>mod(8,3):求余数</p>
+<h2 id="应用6-旅行商问题（TSP）"><a href="#应用6-旅行商问题（TSP）" class="headerlink" title="应用6 旅行商问题（TSP）"></a>应用6 旅行商问题（TSP）</h2><p>n数值过大的时候，可能出现的次数将达到非常大的量级</p>
+<p>randperm函数：随即序列</p>
+<p><a target="_blank" rel="noopener" href="http://www.math.uwaterloo.ca/tsp/">http://www.math.uwaterloo.ca/tsp/</a></p>
+<h1 id="数学规划模型"><a href="#数学规划模型" class="headerlink" title="数学规划模型"></a>数学规划模型</h1><p>数学规划：数学规划三运筹学的一个分支，期用来研究：在给定的条件下（约束条件），如何按照某一衡量指标（目标函数）来寻求计划，管理工作中的最优方案，即求目标函数在一定约束条件下的极值问题！</p>
+<p>数学规划的一般形式</p>
+<div align=center>
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/QQ截图20220214210140.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>数学规划的分类</p>
+<ol>
+<li><p>线性规划<br>目标函数和约束条件是决策变量的线性表达式<br>单纯形法</p>
+</li>
+<li><p>非线性规划<br>目标函数或者约束条件是决策变量的非线性表达式<br>没有通用算法，大多数算法都是选定决策变量的初始值之后，通过一定的搜索方法，寻找最优的决策变量</p>
+</li>
+<li><p>整数规划<br>要求变量取整数的数学规划，分为线性整数规划和非线性整数规划<br>求解线性整数规划问题能求解<br>非线性整数规划——蒙特卡洛模拟</p>
+</li>
+<li><p>0-1 规划<br>重点内容</p>
+</li>
+</ol>
+<h2 id="线性规划问题的求解——matlab"><a href="#线性规划问题的求解——matlab" class="headerlink" title="线性规划问题的求解——matlab"></a>线性规划问题的求解——matlab</h2><p>Matlab中线性规划的标准型</p>
+<div align=center>
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/QQ截图20220214211107.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+
+
+<p>matlab中求解线性规划的命令<br>[x,fval] &#x3D; linprog[C,A,b,Aeg,beg,lb,ub,x0]</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs matlab"><span class="hljs-comment">% [x fval] = linprog(c, A, b, Aeq, beq, lb,ub, x0)  </span><br><span class="hljs-comment">% c是目标函数的系数向量，A是不等式约束Ax&lt;=b的系数矩阵，b是不等式约束Ax&lt;=b的常数项</span><br><span class="hljs-comment">% Aeq是等式约束Aeq x=beq的系数矩阵，beq是等式约束Aeq x=beq的常数项</span><br><span class="hljs-comment">% lb是X的下限，ub是X的上限，X是向量[x1,x2,...xn]&#x27; , 即决策变量。</span><br><span class="hljs-comment">% 迭代的初始值为x0（一般不用给）</span><br></code></pre></td></tr></table></figure>
+
+<div align=center>
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/QQ截图20220214212457.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+
+<h2 id="典型例题"><a href="#典型例题" class="headerlink" title="典型例题"></a>典型例题</h2><ol>
+<li>生产决策问题</li>
+<li>投料问题</li>
+</ol>
+<h2 id="整数规划"><a href="#整数规划" class="headerlink" title="整数规划"></a>整数规划</h2><div align=center>
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/QQ截图20220214215820.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+
+
+<p>Matlab 整数规划求解<br>[x,fval] &#x3D; intlinprog[C,intcon,A,b,Aeg,beg,lb,ub]<br>注：</p>
+<ul>
+<li>intlinprog不能指定初始值</li>
+<li>intcon参数可以指定那些决策变量是整数<br>Matlab 线性0-1规划求解，仍然使用intlinprog函数，只不过是在lb和ub上作文章</li>
+</ul>
+<p>整数规划的例题</p>
+<ol>
+<li>背包问题</li>
+<li>指派问题</li>
+<li>钢管切割问题</li>
+</ol>
+<h2 id="Matlab中的非线性规划的标准型"><a href="#Matlab中的非线性规划的标准型" class="headerlink" title="Matlab中的非线性规划的标准型"></a>Matlab中的非线性规划的标准型</h2><div align=center>
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/QQ%E6%88%AA%E5%9B%BE20220214232434.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+
+<p>非线性规划求解的函数<br>[x,fval] &#x3D; fmincon(@fun,x0,A,b,Aeq,beq,lb,up,@nonlfun,option)</p>
+<div align=center>
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/QQ截图20220214232746.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+<div align=center>
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/QQ截图20220214232803.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+<div align=center>
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/QQ截图20220214232813.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+
+
+
+
+<p>非线性规划的例题：</p>
+<ol>
+<li>选址问题</li>
+<li>飞行管理问题</li>
+</ol>
+<h2 id="最大最小化模型"><a href="#最大最小化模型" class="headerlink" title="最大最小化模型"></a>最大最小化模型</h2><div align=center>
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/QQ%E6%88%AA%E5%9B%BE20220214233046.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+<div align=center>
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/QQ截图20220214233058.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+
+
+<h2 id="多目标规划模型"><a href="#多目标规划模型" class="headerlink" title="多目标规划模型"></a>多目标规划模型</h2><div align=center>
+  <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/mcm/QQ截图20220214233109.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%B0%E5%AD%A6/" class="category-chain-item">数学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%B0%E5%AD%A6/" class="print-no-link">#数学</a>
+      
+        <a href="/tags/MATLAB/" class="print-no-link">#MATLAB</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>数学建模（二）</div>
+      <div>https://cosmicdusty.cc/post/Mathematics/MathematicalModeling_2/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Murphy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年2月13日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post/Mathematics/SummaryOfMCM2022/" title="2022美赛总结">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">2022美赛总结</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/Knowledge/HexoCommands/" title="Hexo命令与目录结构">
+                        <span class="hidden-mobile">Hexo命令与目录结构</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"JijHNKemeVNog4wF7g9I5TR3-gzGzoHsz","appKey":"FvsKdxHOP2aG5rHrHby5aV0b","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a rel="nofollow noopener"><span>Powered by</span></a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span><b>Hexo</b></span></a> <i class="iconfont icon-love"></i> <a rel="nofollow noopener"><span>Themed by</span></a> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span><b>Fluid</b></span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

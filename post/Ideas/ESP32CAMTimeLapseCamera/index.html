@@ -1,0 +1,767 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <link rel="icon" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Murphy">
+  <meta name="keywords" content="Murphy,CosmicDusty,murphy,cosmicdusty,cn">
+  
+    <meta name="description" content="基于ESP32CAM的延时相机。这个项目我很早就已经做了，但是程序有很多BUG，我也不想再花很大的精力来改了，就先这样吧，只把源代码放上了！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ESP32CAM延时相机">
+<meta property="og:url" content="https://cosmicdusty.cc/post/Ideas/ESP32CAMTimeLapseCamera/index.html">
+<meta property="og:site_name" content="MurphyHou">
+<meta property="og:description" content="基于ESP32CAM的延时相机。这个项目我很早就已经做了，但是程序有很多BUG，我也不想再花很大的精力来改了，就先这样吧，只把源代码放上了！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/espcam01-768x766.jpg">
+<meta property="article:published_time" content="2022-10-02T00:33:15.000Z">
+<meta property="article:modified_time" content="2023-05-05T14:19:50.000Z">
+<meta property="article:author" content="Murphy">
+<meta property="article:tag" content="open source">
+<meta property="article:tag" content="ESP">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta property="article:tag" content="Ngrok">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/espcam01-768x766.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>ESP32CAM延时相机 - MurphyHou</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cosmicdusty.cc","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"16d93d5abbd7ea15ec53daed5459ebf7","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JijHNKemeVNog4wF7g9I5TR3","app_key":"FvsKdxHOP2aG5rHrHby5aV0b","server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?16d93d5abbd7ea15ec53daed5459ebf7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CosmicDusty</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/espcam01-768x766.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="ESP32CAM延时相机"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Murphy
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-02 08:33" pubdate>
+          2022年10月2日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          366 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          4 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">ESP32CAM延时相机</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="相机"><a href="#相机" class="headerlink" title="相机"></a>相机</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">/*********</span><br><span class="hljs-comment">  Rui Santos</span><br><span class="hljs-comment">  Complete project details at https://RandomNerdTutorials.com/esp32-cam-take-photo-save-microsd-card</span><br><span class="hljs-comment">  </span><br><span class="hljs-comment">  IMPORTANT!!! </span><br><span class="hljs-comment">   - Select Board &quot;AI Thinker ESP32-CAM&quot;</span><br><span class="hljs-comment">   - GPIO 0 must be connected to GND to upload a sketch</span><br><span class="hljs-comment">   - After connecting GPIO 0 to GND, press the ESP32-CAM on-board RESET button to put your board in flashing mode</span><br><span class="hljs-comment">  </span><br><span class="hljs-comment">  Permission is hereby granted, free of charge, to any person obtaining a copy</span><br><span class="hljs-comment">  of this software and associated documentation files.</span><br><span class="hljs-comment">  The above copyright notice and this permission notice shall be included in all</span><br><span class="hljs-comment">  copies or substantial portions of the Software.</span><br><span class="hljs-comment">*********/</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;esp_camera.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;Arduino.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;FS.h&quot;</span>                <span class="hljs-comment">// SD Card ESP32</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;SD_MMC.h&quot;</span>            <span class="hljs-comment">// SD Card ESP32</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;soc/soc.h&quot;</span>           <span class="hljs-comment">// Disable brownour problems</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;soc/rtc_cntl_reg.h&quot;</span>  <span class="hljs-comment">// Disable brownour problems</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;driver/rtc_io.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;EEPROM.h&gt;</span>            <span class="hljs-comment">// read and write from flash memory</span></span><br><br><span class="hljs-comment">// define the number of bytes you want to access</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> EEPROM_SIZE 1</span><br><br><span class="hljs-comment">// Pin definition for CAMERA_MODEL_AI_THINKER</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> PWDN_GPIO_NUM     32</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> RESET_GPIO_NUM    -1</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> XCLK_GPIO_NUM      0</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> SIOD_GPIO_NUM     26</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> SIOC_GPIO_NUM     27</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y9_GPIO_NUM       35</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y8_GPIO_NUM       34</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y7_GPIO_NUM       39</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y6_GPIO_NUM       36</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y5_GPIO_NUM       21</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y4_GPIO_NUM       19</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y3_GPIO_NUM       18</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y2_GPIO_NUM        5</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> VSYNC_GPIO_NUM    25</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> HREF_GPIO_NUM     23</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> PCLK_GPIO_NUM     22</span><br><br><span class="hljs-type">int</span> pictureNumber = <span class="hljs-number">0</span>;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">setup</span><span class="hljs-params">()</span> &#123;<br>  WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, <span class="hljs-number">0</span>); <span class="hljs-comment">//disable brownout detector</span><br>  pinMode(<span class="hljs-number">33</span>, OUTPUT);<br>  Serial.begin(<span class="hljs-number">115200</span>);<br>  <span class="hljs-comment">//Serial.setDebugOutput(true);</span><br>  <span class="hljs-comment">//Serial.println();</span><br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">take_pictures</span><span class="hljs-params">()</span>&#123;<br>  <span class="hljs-type">camera_config_t</span> config;<br>  config.ledc_channel = LEDC_CHANNEL_0;<br>  config.ledc_timer = LEDC_TIMER_0;<br>  config.pin_d0 = Y2_GPIO_NUM;<br>  config.pin_d1 = Y3_GPIO_NUM;<br>  config.pin_d2 = Y4_GPIO_NUM;<br>  config.pin_d3 = Y5_GPIO_NUM;<br>  config.pin_d4 = Y6_GPIO_NUM;<br>  config.pin_d5 = Y7_GPIO_NUM;<br>  config.pin_d6 = Y8_GPIO_NUM;<br>  config.pin_d7 = Y9_GPIO_NUM;<br>  config.pin_xclk = XCLK_GPIO_NUM;<br>  config.pin_pclk = PCLK_GPIO_NUM;<br>  config.pin_vsync = VSYNC_GPIO_NUM;<br>  config.pin_href = HREF_GPIO_NUM;<br>  config.pin_sscb_sda = SIOD_GPIO_NUM;<br>  config.pin_sscb_scl = SIOC_GPIO_NUM;<br>  config.pin_pwdn = PWDN_GPIO_NUM;<br>  config.pin_reset = RESET_GPIO_NUM;<br>  config.xclk_freq_hz = <span class="hljs-number">20000000</span>;<br>  config.pixel_format = PIXFORMAT_JPEG; <br>  <br>  <span class="hljs-keyword">if</span>(psramFound())&#123;<br>    config.frame_size = FRAMESIZE_UXGA; <span class="hljs-comment">// FRAMESIZE_ + QVGA|CIF|VGA|SVGA|XGA|SXGA|UXGA</span><br>    config.jpeg_quality = <span class="hljs-number">1</span>;<br>    config.fb_count = <span class="hljs-number">2</span>;<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    config.frame_size = FRAMESIZE_SVGA;<br>    config.jpeg_quality = <span class="hljs-number">12</span>;<br>    config.fb_count = <span class="hljs-number">1</span>;<br>  &#125;<br>  <br>  <span class="hljs-comment">// Init Camera</span><br>  <span class="hljs-type">esp_err_t</span> err = esp_camera_init(&amp;config);<br>  <span class="hljs-keyword">if</span> (err != ESP_OK) &#123;<br>    Serial.<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Camera init failed with error 0x%x&quot;</span>, err);<br>    <span class="hljs-keyword">return</span>;<br>  &#125;<br>  <br>  <span class="hljs-comment">//Serial.println(&quot;Starting SD Card&quot;);</span><br>  <span class="hljs-comment">//if(!SD_MMC.begin())&#123;  //保持FLASH常量</span><br>  <span class="hljs-keyword">if</span>(!SD_MMC.begin(<span class="hljs-string">&quot;/sdcard&quot;</span>, <span class="hljs-literal">true</span>))&#123;    <span class="hljs-comment">//保持FLASH不亮</span><br>    Serial.println(<span class="hljs-string">&quot;SD Card Mount Failed&quot;</span>);<br>    <span class="hljs-keyword">return</span>;<br>  &#125;<br>  <br>  <span class="hljs-type">uint8_t</span> cardType = SD_MMC.cardType();<br>  <span class="hljs-keyword">if</span>(cardType == CARD_NONE)&#123;<br>    Serial.println(<span class="hljs-string">&quot;No SD Card attached&quot;</span>);<br>    <span class="hljs-keyword">return</span>;<br>  &#125;<br>  <br>  <span class="hljs-type">camera_fb_t</span> * fb = <span class="hljs-literal">NULL</span>;<br>  <span class="hljs-comment">// Take Picture with Camera</span><br>  fb = esp_camera_fb_get();  <br>  <span class="hljs-keyword">if</span>(!fb) &#123;<br>    Serial.println(<span class="hljs-string">&quot;Camera capture failed&quot;</span>);<br>    <span class="hljs-keyword">return</span>;<br>  &#125;<br>  <span class="hljs-comment">// initialize EEPROM with predefined size</span><br>  EEPROM.begin(EEPROM_SIZE);<br>  pictureNumber = EEPROM.read(<span class="hljs-number">0</span>) + <span class="hljs-number">1</span>;<br><br>  <span class="hljs-comment">// Path where new picture will be saved in SD Card</span><br>  String path = <span class="hljs-string">&quot;/picture&quot;</span> + String(pictureNumber) +<span class="hljs-string">&quot;.jpg&quot;</span>;<br><br>  fs::FS &amp;fs = SD_MMC; <br>  Serial.<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Picture file name: %s\n&quot;</span>, path.c_str());<br>  <br>  File file = fs.open(path.c_str(), FILE_WRITE);<br>  <span class="hljs-keyword">if</span>(!file)&#123;<br>    Serial.println(<span class="hljs-string">&quot;Failed to open file in writing mode&quot;</span>);<br>  &#125; <br>  <span class="hljs-keyword">else</span> &#123;<br>    file.write(fb-&gt;buf, fb-&gt;len); <span class="hljs-comment">// payload (image), payload length</span><br>    Serial.<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Saved file to path: %s\n&quot;</span>, path.c_str());<br>    EEPROM.write(<span class="hljs-number">0</span>, pictureNumber);<br>    EEPROM.commit();<br>  &#125;<br>  file.close();<br>  esp_camera_fb_return(fb); <br>  <br>  <span class="hljs-comment">// Turns off the ESP32-CAM white on-board LED (flash) connected to GPIO 4</span><br>  <span class="hljs-comment">//pinMode(4, OUTPUT);</span><br>  <span class="hljs-comment">//digitalWrite(4, LOW);</span><br>  <span class="hljs-comment">//rtc_gpio_hold_en(GPIO_NUM_4); // 低功耗保持状态</span><br>  <br>  delay(<span class="hljs-number">2000</span>);<br>  Serial.println(<span class="hljs-string">&quot;Going to sleep now&quot;</span>);<br>  <span class="hljs-comment">//delay(2000);</span><br>  <span class="hljs-comment">//esp_deep_sleep_start();</span><br>  <span class="hljs-comment">//Serial.println(&quot;This will never be printed&quot;);</span><br>  Serial.println(<span class="hljs-string">&quot;finished!&quot;</span>);<br>  <br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">loop</span><span class="hljs-params">()</span> &#123;<br>  take_pictures();<br>  digitalWrite(<span class="hljs-number">33</span>, LOW);<span class="hljs-comment">// 亮</span><br>  delay(<span class="hljs-number">100</span>);<br>  digitalWrite(<span class="hljs-number">33</span>, HIGH);<span class="hljs-comment">// 灭</span><br>  delay(<span class="hljs-number">100</span>);<br>  <br>  delay(<span class="hljs-number">5000</span>);<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
+
+<h1 id="延时相机"><a href="#延时相机" class="headerlink" title="延时相机"></a>延时相机</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-comment">// https://www.cnblogs.com/codeit/p/15580267.html</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;esp_camera.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;FS.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;SPI.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;SD.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;SD_MMC.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;time.h&gt;</span> </span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;WiFi.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;string.h&quot;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;WebServer.h&gt;</span></span><br><span class="hljs-comment">// Set web server port number to 80</span><br>WebServer <span class="hljs-title function_">server</span><span class="hljs-params">(<span class="hljs-number">80</span>)</span>; <br><br><br><span class="hljs-type">const</span> <span class="hljs-type">char</span>* ntpServer = <span class="hljs-string">&quot;cn.pool.ntp.org&quot;</span>;  <span class="hljs-comment">//pool.ntp.org为获取时间得接口，可以尝试更多得接口。比如微软的time.windows.com，美国国家标准与技术研究院的time.nist.gov</span><br><span class="hljs-type">const</span> <span class="hljs-type">long</span>  gmtOffset_sec = <span class="hljs-number">8</span>*<span class="hljs-number">60</span>*<span class="hljs-number">60</span>;<span class="hljs-comment">//这里采用UTC计时，中国为东八区，就是 8*60*60</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span>   daylightOffset_sec = <span class="hljs-number">0</span>*<span class="hljs-number">60</span>*<span class="hljs-number">60</span>;<br><br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">tm</span> <span class="hljs-title">timeinfo</span>;</span>  <span class="hljs-comment">//创建一个结构体用于存储时间</span><br><span class="hljs-type">char</span> * path = <span class="hljs-string">&quot;/2020_6_18_TIME_19_0_47.jpg&quot;</span>;<br><span class="hljs-type">char</span> timr_str[<span class="hljs-number">40</span>] = <span class="hljs-string">&quot;test.jpg&quot;</span>;<br><br><span class="hljs-comment">/* </span><br><span class="hljs-comment">    *******************</span><br><span class="hljs-comment">    ***** 网络部分 *****</span><br><span class="hljs-comment">    *******************</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-comment">//以下是WIFI的链接用户名和密码</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ssid <span class="hljs-string">&quot;MERCURY&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> password <span class="hljs-string">&quot;11235813&quot;</span> </span><br><span class="hljs-comment">// 网络链接</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">connectToNetwork</span><span class="hljs-params">()</span>&#123;<br>  WiFi.begin(ssid,password);<br>  WiFi.setAutoReconnect(<span class="hljs-literal">true</span>);<br>  <span class="hljs-keyword">while</span> (WiFi.status()!= WL_CONNECTED) &#123;<br>    delay(<span class="hljs-number">1000</span>);<br>    Serial.println(<span class="hljs-string">&quot;try to connecting ...&quot;</span>);<br>  &#125;<br>  Serial.println(<span class="hljs-string">&quot;Connectedto network&quot;</span>);<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">wifi_connect</span><span class="hljs-params">()</span>&#123;<br>  connectToNetwork();<span class="hljs-comment">//链接到wifi</span><br>  Serial.println(WiFi.macAddress());    <span class="hljs-comment">//打印出mac地址</span><br>  Serial.println(WiFi.localIP());    <span class="hljs-comment">//打印出本地ip地址</span><br>  Serial.println(<span class="hljs-string">&quot;wifi连接成功&quot;</span>);    <span class="hljs-comment">//打印出本地ip地址</span><br>&#125;<br><br><span class="hljs-comment">/* </span><br><span class="hljs-comment">    ***************************</span><br><span class="hljs-comment">    ***** 摄像头初始化参数 *****</span><br><span class="hljs-comment">    ***************************</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-type">static</span> <span class="hljs-type">camera_config_t</span> camera_config = &#123;<br>    .pin_pwdn = <span class="hljs-number">32</span>,<br>    .pin_reset = <span class="hljs-number">-1</span>,<br>    .pin_xclk = <span class="hljs-number">0</span>,<br>    .pin_sscb_sda = <span class="hljs-number">26</span>,<br>    .pin_sscb_scl = <span class="hljs-number">27</span>,<br>    <br>    .pin_d7 = <span class="hljs-number">35</span>,<br>    .pin_d6 = <span class="hljs-number">34</span>,<br>    .pin_d5 = <span class="hljs-number">39</span>,<br>    .pin_d4 = <span class="hljs-number">36</span>,<br>    .pin_d3 = <span class="hljs-number">21</span>,<br>    .pin_d2 = <span class="hljs-number">19</span>,<br>    .pin_d1 = <span class="hljs-number">18</span>,<br>    .pin_d0 = <span class="hljs-number">5</span>,<br>    .pin_vsync = <span class="hljs-number">25</span>,<br>    .pin_href = <span class="hljs-number">23</span>,<br>    .pin_pclk = <span class="hljs-number">22</span>,<br>    <br>    .xclk_freq_hz = <span class="hljs-number">20000000</span>,<br>    .ledc_timer = LEDC_TIMER_0,<br>    .ledc_channel = LEDC_CHANNEL_0,<br>    <br>    .pixel_format = PIXFORMAT_JPEG,  <span class="hljs-comment">//YUV422,GRAYSCALE,RGB565,JPEG</span><br>    .frame_size = FRAMESIZE_UXGA,   <span class="hljs-comment">// FRAMESIZE_ + QVGA|CIF|VGA|SVGA|XGA|SXGA|UXGA</span><br>    <br>    .jpeg_quality = <span class="hljs-number">10</span>, <span class="hljs-comment">//0-63 lower number means higher quality</span><br>    .fb_count = <span class="hljs-number">1</span> <span class="hljs-comment">//if more than one, i2s runs in continuous mode. Use only with JPEG</span><br><br>&#125;;<br><br><span class="hljs-type">esp_err_t</span> <span class="hljs-title function_">camera_init</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-comment">//initialize the camera</span><br>    <span class="hljs-type">esp_err_t</span> err = esp_camera_init(&amp;camera_config);<br>    <span class="hljs-keyword">if</span> (err != ESP_OK) &#123;<br>        Serial.print(<span class="hljs-string">&quot;Camera Init Failed&quot;</span>);<br>        <span class="hljs-keyword">return</span> err;<br>    &#125;<br>    <span class="hljs-type">sensor_t</span> * s = esp_camera_sensor_get();<br>    <span class="hljs-comment">//initial sensors are flipped vertically and colors are a bit saturated</span><br>    <span class="hljs-keyword">if</span> (s-&gt;id.PID == OV2640_PID) &#123;<br>    <span class="hljs-comment">//        s-&gt;set_vflip(s, 1);//flip it back</span><br>    <span class="hljs-comment">//        s-&gt;set_brightness(s, 1);//up the blightness just a bit</span><br>    <span class="hljs-comment">//        s-&gt;set_contrast(s, 1);</span><br>    &#125;<br>    Serial.print(<span class="hljs-string">&quot;Camera Init OK&quot;</span>);<br>    <span class="hljs-keyword">return</span> ESP_OK;<br>&#125;<br><br><span class="hljs-comment">/* </span><br><span class="hljs-comment">    ***************************</span><br><span class="hljs-comment">    ***** SD卡路径操作函数 *****</span><br><span class="hljs-comment">    **** 列出路径，创建路径，删除路径******</span><br><span class="hljs-comment">    ***************************</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-comment">// 列出路径</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">listDir</span><span class="hljs-params">(fs::FS &amp;fs, <span class="hljs-type">const</span> <span class="hljs-type">char</span> * dirname, <span class="hljs-type">uint8_t</span> levels)</span>&#123;<br>    Serial.<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Listing directory: %s\n&quot;</span>, dirname);<br><br>    File root = fs.open(dirname);<br>    <span class="hljs-keyword">if</span>(!root)&#123;<br>        Serial.println(<span class="hljs-string">&quot;Failed to open directory&quot;</span>);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span>(!root.isDirectory())&#123;<br>        Serial.println(<span class="hljs-string">&quot;Not a directory&quot;</span>);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br><br>    File file = root.openNextFile();<br>    <span class="hljs-keyword">while</span>(file)&#123;<br>        <span class="hljs-keyword">if</span>(file.isDirectory())&#123;<br>            Serial.print(<span class="hljs-string">&quot;  DIR : &quot;</span>);<br>            Serial.print (file.name());<br>            <span class="hljs-type">time_t</span> t= file.getLastWrite();<br>            <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">tm</span> * <span class="hljs-title">tmstruct</span> =</span> localtime(&amp;t);<br>            Serial.<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;  LAST WRITE: %d-%02d-%02d %02d:%02d:%02d\n&quot;</span>,(tmstruct-&gt;tm_year)+<span class="hljs-number">1900</span>,( tmstruct-&gt;tm_mon)+<span class="hljs-number">1</span>, tmstruct-&gt;tm_mday,tmstruct-&gt;tm_hour , tmstruct-&gt;tm_min, tmstruct-&gt;tm_sec);<br>            <span class="hljs-keyword">if</span>(levels)&#123;<br>                listDir(fs, file.name(), levels <span class="hljs-number">-1</span>);<br>            &#125;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            Serial.print(<span class="hljs-string">&quot;  FILE: &quot;</span>);<br>            Serial.print(file.name());<br>            Serial.print(<span class="hljs-string">&quot;  SIZE: &quot;</span>);<br>            Serial.print(file.size());<br>            <span class="hljs-type">time_t</span> t= file.getLastWrite();<br>            <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">tm</span> * <span class="hljs-title">tmstruct</span> =</span> localtime(&amp;t);<br>            Serial.<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;  LAST WRITE: %d-%02d-%02d %02d:%02d:%02d\n&quot;</span>,(tmstruct-&gt;tm_year)+<span class="hljs-number">1900</span>,( tmstruct-&gt;tm_mon)+<span class="hljs-number">1</span>, tmstruct-&gt;tm_mday,tmstruct-&gt;tm_hour , tmstruct-&gt;tm_min, tmstruct-&gt;tm_sec);<br>        &#125;<br>        file = root.openNextFile();<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">/* </span><br><span class="hljs-comment">    ***************************</span><br><span class="hljs-comment">    ***** SD卡初始化参数 *****</span><br><span class="hljs-comment">    ***************************</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-type">void</span> <span class="hljs-title function_">sd_init</span><span class="hljs-params">()</span><br>&#123;<br>  <span class="hljs-keyword">if</span>(!SD_MMC.begin())&#123;<br>    Serial.println(<span class="hljs-string">&quot;Card Mount Failed&quot;</span>);<br>    <span class="hljs-keyword">return</span>;<br>  &#125;<br>  <span class="hljs-type">uint8_t</span> cardType = SD_MMC.cardType();<br>  <span class="hljs-keyword">if</span>(cardType == CARD_NONE)&#123;<br>    Serial.println(<span class="hljs-string">&quot;No SD card attached&quot;</span>);<br>    <span class="hljs-keyword">return</span>;<br>  &#125;<br>  Serial.print(<span class="hljs-string">&quot;SD Card Type: &quot;</span>);<br>  <span class="hljs-keyword">if</span>(cardType == CARD_MMC)&#123;<br>    Serial.println(<span class="hljs-string">&quot;MMC&quot;</span>);<br>    &#125; <br>  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(cardType == CARD_SD)&#123;  Serial.println(<span class="hljs-string">&quot;SDSC&quot;</span>);  &#125;<br>  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(cardType == CARD_SDHC)&#123;  Serial.println(<span class="hljs-string">&quot;SDHC&quot;</span>);  &#125; <br>  <span class="hljs-keyword">else</span> &#123;  Serial.println(<span class="hljs-string">&quot;UNKNOWN&quot;</span>);  &#125;<br>  <br>  <span class="hljs-type">uint64_t</span> cardSize = SD_MMC.cardSize() / (<span class="hljs-number">1024</span> * <span class="hljs-number">1024</span>);    <span class="hljs-comment">//获取SD卡大小，大小单位是MB</span><br>  Serial.<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;SD 卡容量大小: %lluMB\n&quot;</span>, cardSize);  <br><br>  <span class="hljs-comment">//***************  调用SD卡的 路径操作函数  **********************************************************************</span><br>  Serial.println(<span class="hljs-string">&quot;现在列出目前SD卡内部根目录下所有的路径：&quot;</span>);<br>  listDir(SD_MMC, <span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-number">0</span>);<br>  &#125;<br><br><span class="hljs-comment">/* </span><br><span class="hljs-comment">    ***************************</span><br><span class="hljs-comment">    ***** 获取当前时间作为返回的函数部分 *****</span><br><span class="hljs-comment">    ***************************</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-type">void</span> <span class="hljs-title function_">get_time_path</span><span class="hljs-params">()</span>  <span class="hljs-comment">//获取目前时间返回字符串</span><br>&#123;<br>  <span class="hljs-built_in">memset</span>(timr_str, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(timr_str));<br>  configTime(gmtOffset_sec, daylightOffset_sec, ntpServer);<br>  <span class="hljs-keyword">if</span>(!getLocalTime(&amp;timeinfo))<br>  &#123;<br>    Serial.println(<span class="hljs-string">&quot;Failed to obtain time&quot;</span>);<br>    <span class="hljs-built_in">sprintf</span>(timr_str, <span class="hljs-string">&quot;/TIME_get_failed.jpg&quot;</span>);<br>  &#125;<br>  <span class="hljs-keyword">else</span><br>  &#123;<br>    <span class="hljs-comment">//Serial.println(&amp;timeinfo, &quot;%A, %B %d %Y %H:%M:%S&quot;);</span><br>    Serial.print(<span class="hljs-string">&quot;现在时间是：&quot;</span>);<br><span class="hljs-comment">//    Serial.print(&quot;年份是：&quot;);Serial.println(timeinfo.tm_year + 1900);</span><br><span class="hljs-comment">//    Serial.print(&quot;月份是：&quot;);Serial.println(timeinfo.tm_mon + 1);</span><br><span class="hljs-comment">//    Serial.print(&quot;号数是：&quot;);Serial.println(timeinfo.tm_mday);</span><br><span class="hljs-comment">//    Serial.print(&quot;小时数是：&quot;);Serial.println(timeinfo.tm_hour );  //中国区</span><br><span class="hljs-comment">//    Serial.print(&quot;分钟数是：&quot;);Serial.println(timeinfo.tm_min);</span><br><span class="hljs-comment">//    Serial.print(&quot;秒数是：&quot;);Serial.println(timeinfo.tm_sec);</span><br>    <br>    <span class="hljs-built_in">sprintf</span>(timr_str, <span class="hljs-string">&quot;/%d_%d_%d_TIME_%d_%d_%d.jpg&quot;</span>,timeinfo.tm_year+<span class="hljs-number">1900</span>,timeinfo.tm_mon + <span class="hljs-number">1</span>,timeinfo.tm_mday,timeinfo.tm_hour,timeinfo.tm_min,timeinfo.tm_sec);<br>    Serial.println(timr_str);<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">/* </span><br><span class="hljs-comment">    ***************************</span><br><span class="hljs-comment">    ***** webserver *****</span><br><span class="hljs-comment">    ***************************</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-type">void</span> <span class="hljs-title function_">handle_OnConnect</span><span class="hljs-params">()</span> &#123;<br><br>  server.send(<span class="hljs-number">200</span>, <span class="hljs-string">&quot;text/html&quot;</span>, SendHTML(timr_str)); <br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">handle_NotFound</span><span class="hljs-params">()</span>&#123;<br>  server.send(<span class="hljs-number">404</span>, <span class="hljs-string">&quot;text/plain&quot;</span>, <span class="hljs-string">&quot;Not found&quot;</span>);<br>&#125;<br><br><br><span class="hljs-type">void</span> <span class="hljs-title function_">webserver_init</span><span class="hljs-params">()</span>&#123;<br>  server.on(<span class="hljs-string">&quot;/&quot;</span>, handle_OnConnect);<br>  server.onNotFound(handle_NotFound);<br><br>  server.begin();<br>  Serial.println(<span class="hljs-string">&quot;HTTP server started&quot;</span>);<br>&#125;<br><br><br><span class="hljs-comment">/* </span><br><span class="hljs-comment">  ***************************</span><br><span class="hljs-comment">  ***** 主函数部分 *****</span><br><span class="hljs-comment">  ***************************</span><br><span class="hljs-comment">*/</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">setup</span><span class="hljs-params">()</span> &#123;<br>  Serial.begin(<span class="hljs-number">115200</span>);<br>  wifi_connect();<br>  camera_init();  <span class="hljs-comment">//摄像头初始化</span><br>  sd_init();  <span class="hljs-comment">//SD卡初始化</span><br>  webserver_init();<br>&#125;<br><br><br><span class="hljs-type">void</span> <span class="hljs-title function_">loop</span><span class="hljs-params">()</span> <br>&#123;<br>  delay(<span class="hljs-number">1000</span>); <span class="hljs-comment">// 1 000 ms</span><br>  get_time_path();<br>  <br>  server.handleClient();<br><br>  <span class="hljs-comment">//拍照并且把图片保存到SD卡当中，而照片名字就保存为目前的时间</span><br>  <span class="hljs-comment">// delay(60000);  // 延时摄影，时间间隔:60 000 ms</span><br>  <span class="hljs-keyword">while</span> (timeinfo.tm_sec == <span class="hljs-number">0</span>)<br>  &#123;<br>    delay(<span class="hljs-number">1000</span>); <span class="hljs-comment">// 1 000 ms</span><br>    get_time_path();<br><br>    <span class="hljs-keyword">if</span> (timeinfo.tm_min == <span class="hljs-number">30</span>) <span class="hljs-comment">// 整点重启</span><br>    &#123;<br>      <br>      Serial.println(<span class="hljs-string">&quot;Resetting ESP&quot;</span>);<br>      ESP.restart(); <span class="hljs-comment">//ESP.reset();</span><br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-comment">// 非整点拍照</span><br>    &#123;<br>      Serial.println(<span class="hljs-string">&quot;即将进行拍照!!!&quot;</span>);<br>      <span class="hljs-type">camera_fb_t</span> * fb = esp_camera_fb_get();<br>      <span class="hljs-comment">// get_time_path();</span><br>      Serial.print(<span class="hljs-string">&quot;存入的图片名称为:&quot;</span>);Serial.println(timr_str);<br>      path = timr_str;    <br>      <span class="hljs-keyword">if</span>(fb == <span class="hljs-literal">NULL</span>)<br>      &#123; <br>        Serial.println( <span class="hljs-string">&quot;get picture failed&quot;</span>);  <span class="hljs-comment">//代表获取图片失败 </span><br>      &#125;<br>      <span class="hljs-keyword">else</span><br>      &#123; <br>          <span class="hljs-comment">//char * path = time_str;</span><br>          fs::FS &amp;fs = SD_MMC;<br>          Serial.<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Writing file: %s\n&quot;</span>, path);<br>          File file = fs.open(path, FILE_WRITE);<br>          <span class="hljs-keyword">if</span> (!file) <br>          &#123;<br>            Serial.println(<span class="hljs-string">&quot;文件创建失败&quot;</span>);<br>          &#125;<br>          <span class="hljs-keyword">else</span><br>          &#123;<br>            file.write(fb-&gt;buf , fb-&gt;len); <span class="hljs-comment">//payload , lengte vd payload</span><br>            Serial.println(<span class="hljs-string">&quot;成功写入照片&quot;</span>);<br>          &#125;<br>          <span class="hljs-comment">//return the frame buffer back to the driver for reuse</span><br>          esp_camera_fb_return(fb);<br>      &#125;  <br>    &#125;<br>  &#125;<span class="hljs-comment">// while 结束</span><br>&#125;<br><br><br><br><br>String <span class="hljs-title function_">SendHTML</span><span class="hljs-params">(<span class="hljs-type">char</span>* timr_str)</span>&#123;<br>  String ptr = <span class="hljs-string">&quot;&lt;!DOCTYPE html&gt; &lt;html&gt;\n&quot;</span>;<br>  ptr +=<span class="hljs-string">&quot;&lt;head&gt;&lt;meta name=\&quot;viewport\&quot; content=\&quot;width=device-width, initial-scale=1.0, user-scalable=no\&quot;&gt;\n&quot;</span>;<br>  ptr +=<span class="hljs-string">&quot;&lt;title&gt;ESP32CAM STATUS&lt;/title&gt;\n&quot;</span>;<br>  ptr +=<span class="hljs-string">&quot;&lt;style&gt;html &#123; font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;&#125;\n&quot;</span>;<br>  ptr +=<span class="hljs-string">&quot;body&#123;margin-top: 50px;&#125; h1 &#123;color: #444444;margin: 50px auto 30px;&#125;\n&quot;</span>;<br>  ptr +=<span class="hljs-string">&quot;p &#123;font-size: 24px;color: #444444;margin-bottom: 10px;&#125;\n&quot;</span>;<br>  ptr +=<span class="hljs-string">&quot;&lt;/style&gt;\n&quot;</span>;<br>  ptr +=<span class="hljs-string">&quot;&lt;/head&gt;\n&quot;</span>;<br>  ptr +=<span class="hljs-string">&quot;&lt;body&gt;\n&quot;</span>;<br>  ptr +=<span class="hljs-string">&quot;&lt;div id=\&quot;webpage\&quot;&gt;\n&quot;</span>;<br>  ptr +=<span class="hljs-string">&quot;&lt;h1&gt;ESP32CAM PIC INFOMATION&lt;/h1&gt;\n&quot;</span>;<br>  <br>  ptr +=<span class="hljs-string">&quot;&lt;p&gt;TIME: &quot;</span>;<br>  ptr +=timr_str;<br><br>  <br>  <span class="hljs-comment">//  ptr +=&quot;&lt;p&gt;Pressure: &quot;;</span><br>  <span class="hljs-comment">//  ptr +=pressure;</span><br>  <span class="hljs-comment">//</span><br>  <span class="hljs-comment">//  ptr +=&quot;&lt;p&gt;Altitude: &quot;;</span><br>  <span class="hljs-comment">//  ptr +=altitude;</span><br><br>  ptr +=<span class="hljs-string">&quot;&lt;/div&gt;\n&quot;</span>;<br>  ptr +=<span class="hljs-string">&quot;&lt;/body&gt;\n&quot;</span>;<br>  ptr +=<span class="hljs-string">&quot;&lt;/html&gt;\n&quot;</span>;<br>  <span class="hljs-keyword">return</span> ptr;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+<h1 id="公网映射监控"><a href="#公网映射监控" class="headerlink" title="公网映射监控"></a>公网映射监控</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;esp_camera.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;WiFi.h&gt;</span></span><br><br><span class="hljs-type">const</span> <span class="hljs-type">char</span>* ssid = <span class="hljs-string">&quot;xxxxxxxx&quot;</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">char</span>* password = <span class="hljs-string">&quot;xxxxxxxxx&quot;</span>;<br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> PWDN_GPIO_NUM     32</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> RESET_GPIO_NUM    -1</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> XCLK_GPIO_NUM      0</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> SIOD_GPIO_NUM     26</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> SIOC_GPIO_NUM     27</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y9_GPIO_NUM       35</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y8_GPIO_NUM       34</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y7_GPIO_NUM       39</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y6_GPIO_NUM       36</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y5_GPIO_NUM       21</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y4_GPIO_NUM       19</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y3_GPIO_NUM       18</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y2_GPIO_NUM        5</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> VSYNC_GPIO_NUM    25</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> HREF_GPIO_NUM     23</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> PCLK_GPIO_NUM     22</span><br><br>WiFiServer <span class="hljs-title function_">server</span><span class="hljs-params">(<span class="hljs-number">80</span>)</span>;<br><span class="hljs-type">bool</span> connected = <span class="hljs-literal">false</span>;<br>WiFiClient live_client;<br><br><br>String index_html = <span class="hljs-string">&quot;&lt;meta charset=\&quot;utf-8\&quot;/&gt;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;&lt;style&gt;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;#content &#123;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;display: flex;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;flex-direction: column;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;justify-content: center;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;align-items: center;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;text-align: center;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;min-height: 100vh;&#125;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;&lt;/style&gt;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;&lt;body bgcolor=\&quot;#000000\&quot;&gt;&lt;div id=\&quot;content\&quot;&gt;&lt;h2 style=\&quot;color:#ffffff\&quot;&gt;Murphy LIVE&lt;/h2&gt;&lt;img src=\&quot;video\&quot;&gt;&lt;/div&gt;&lt;/body&gt;&quot;</span>;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">configCamera</span><span class="hljs-params">()</span>&#123;<br>  <span class="hljs-type">camera_config_t</span> config;<br>  config.ledc_channel = LEDC_CHANNEL_0;<br>  config.ledc_timer = LEDC_TIMER_0;<br>  config.pin_d0 = Y2_GPIO_NUM;<br>  config.pin_d1 = Y3_GPIO_NUM;<br>  config.pin_d2 = Y4_GPIO_NUM;<br>  config.pin_d3 = Y5_GPIO_NUM;<br>  config.pin_d4 = Y6_GPIO_NUM;<br>  config.pin_d5 = Y7_GPIO_NUM;<br>  config.pin_d6 = Y8_GPIO_NUM;<br>  config.pin_d7 = Y9_GPIO_NUM;<br>  config.pin_xclk = XCLK_GPIO_NUM;<br>  config.pin_pclk = PCLK_GPIO_NUM;<br>  config.pin_vsync = VSYNC_GPIO_NUM;<br>  config.pin_href = HREF_GPIO_NUM;<br>  config.pin_sscb_sda = SIOD_GPIO_NUM;<br>  config.pin_sscb_scl = SIOC_GPIO_NUM;<br>  config.pin_pwdn = PWDN_GPIO_NUM;<br>  config.pin_reset = RESET_GPIO_NUM;<br>  config.xclk_freq_hz = <span class="hljs-number">20000000</span>;<br>  config.pixel_format = PIXFORMAT_JPEG;<br><br>  config.frame_size = FRAMESIZE_QVGA;<br>  config.jpeg_quality = <span class="hljs-number">9</span>;<br>  config.fb_count = <span class="hljs-number">1</span>;<br><br>  <span class="hljs-type">esp_err_t</span> err = esp_camera_init(&amp;config);<br>  <span class="hljs-keyword">if</span> (err != ESP_OK) &#123;<br>    Serial.<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Camera init failed with error 0x%x&quot;</span>, err);<br>    <span class="hljs-keyword">return</span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">//continue sending camera frame</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">liveCam</span><span class="hljs-params">(WiFiClient &amp;client)</span>&#123;<br>  <span class="hljs-type">camera_fb_t</span> * fb = esp_camera_fb_get();<br>  <span class="hljs-keyword">if</span> (!fb) &#123;<br>      Serial.println(<span class="hljs-string">&quot;Frame buffer could not be acquired&quot;</span>);<br>      <span class="hljs-keyword">return</span>;<br>  &#125;<br>  client.print(<span class="hljs-string">&quot;--frame\n&quot;</span>);<br>  client.print(<span class="hljs-string">&quot;Content-Type: image/jpeg\n\n&quot;</span>);<br>  client.flush();<br>  client.write(fb-&gt;buf, fb-&gt;len);<br>  client.flush();<br>  client.print(<span class="hljs-string">&quot;\n&quot;</span>);<br>  esp_camera_fb_return(fb);<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">setup</span><span class="hljs-params">()</span> &#123;<br>  Serial.begin(<span class="hljs-number">115200</span>);<br>  WiFi.begin(ssid, password);<br>  Serial.println(<span class="hljs-string">&quot;&quot;</span>);<br>  <span class="hljs-keyword">while</span> (WiFi.status() != WL_CONNECTED) &#123;<br>    delay(<span class="hljs-number">500</span>);<br>    Serial.print(<span class="hljs-string">&quot;.&quot;</span>);<br>  &#125;<br>  Serial.println(<span class="hljs-string">&quot;&quot;</span>);<br>  String IP = WiFi.localIP().toString();<br>  Serial.println(<span class="hljs-string">&quot;IP address: &quot;</span> + IP);<br>  index_html.replace(<span class="hljs-string">&quot;server_ip&quot;</span>, IP);<br>  server.begin();<br>  configCamera();<br>&#125;<br>    <br><span class="hljs-type">void</span> <span class="hljs-title function_">http_resp</span><span class="hljs-params">()</span>&#123;<br>  WiFiClient client = server.available();                           <br>  <span class="hljs-keyword">if</span> (client.connected()) &#123;     <br>      String req = <span class="hljs-string">&quot;&quot;</span>;<br>      <span class="hljs-keyword">while</span>(client.available())&#123;<br>        req += (<span class="hljs-type">char</span>)client.read();<br>      &#125;<br>      Serial.println(<span class="hljs-string">&quot;request &quot;</span> + req);<br>      <span class="hljs-type">int</span> addr_start = req.indexOf(<span class="hljs-string">&quot;GET&quot;</span>) + <span class="hljs-built_in">strlen</span>(<span class="hljs-string">&quot;GET&quot;</span>);<br>      <span class="hljs-type">int</span> addr_end = req.indexOf(<span class="hljs-string">&quot;HTTP&quot;</span>, addr_start);<br>      <span class="hljs-keyword">if</span> (addr_start == <span class="hljs-number">-1</span> || addr_end == <span class="hljs-number">-1</span>) &#123;<br>          Serial.println(<span class="hljs-string">&quot;Invalid request &quot;</span> + req);<br>          <span class="hljs-keyword">return</span>;<br>      &#125;<br>      req = req.substring(addr_start, addr_end);<br>      req.trim();<br>      Serial.println(<span class="hljs-string">&quot;Request: &quot;</span> + req);<br>      client.flush();<br>  <br>      String s;<br>      <span class="hljs-keyword">if</span> (req == <span class="hljs-string">&quot;/&quot;</span>)<br>      &#123;<br>          s = <span class="hljs-string">&quot;HTTP/1.1 200 OK\n&quot;</span>;<br>          s += <span class="hljs-string">&quot;Content-Type: text/html\n\n&quot;</span>;<br>          s += index_html;<br>          s += <span class="hljs-string">&quot;\n&quot;</span>;<br>          client.print(s);<br>          client.stop();<br>      &#125;<br>      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (req == <span class="hljs-string">&quot;/video&quot;</span>)<br>      &#123;<br>          live_client = client;<br>          live_client.print(<span class="hljs-string">&quot;HTTP/1.1 200 OK\n&quot;</span>);<br>          live_client.print(<span class="hljs-string">&quot;Content-Type: multipart/x-mixed-replace; boundary=frame\n\n&quot;</span>);<br>          live_client.flush();<br>          connected = <span class="hljs-literal">true</span>;<br>      &#125;<br>      <span class="hljs-keyword">else</span><br>      &#123;<br>          s = <span class="hljs-string">&quot;HTTP/1.1 404 Not Found\n\n&quot;</span>;<br>          client.print(s);<br>          client.stop();<br>      &#125;<br>    &#125;       <br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">loop</span><span class="hljs-params">()</span> &#123;<br>  http_resp();<br>  <span class="hljs-keyword">if</span>(connected == <span class="hljs-literal">true</span>)&#123;<br>    liveCam(live_client);<br>  &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/" class="category-chain-item">奇思妙想</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/open-source/" class="print-no-link">#open source</a>
+      
+        <a href="/tags/ESP/" class="print-no-link">#ESP</a>
+      
+        <a href="/tags/C-C/" class="print-no-link">#C/C++</a>
+      
+        <a href="/tags/Ngrok/" class="print-no-link">#Ngrok</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>ESP32CAM延时相机</div>
+      <div>https://cosmicdusty.cc/post/Ideas/ESP32CAMTimeLapseCamera/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Murphy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post/Ideas/OpenCVTimeLapseCamera/" title="OpenCV延时相机">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">OpenCV延时相机</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/MyLife/PostgraduateRecommendation2023/" title="2023推免记录">
+                        <span class="hidden-mobile">2023推免记录</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"JijHNKemeVNog4wF7g9I5TR3-gzGzoHsz","appKey":"FvsKdxHOP2aG5rHrHby5aV0b","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a rel="nofollow noopener"><span>Powered by</span></a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span><b>Hexo</b></span></a> <i class="iconfont icon-love"></i> <a rel="nofollow noopener"><span>Themed by</span></a> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span><b>Fluid</b></span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

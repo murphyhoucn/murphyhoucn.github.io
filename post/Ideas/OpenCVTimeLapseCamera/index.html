@@ -1,0 +1,1007 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <link rel="icon" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Murphy">
+  <meta name="keywords" content="Murphy,CosmicDusty,murphy,cosmicdusty,cn">
+  
+    <meta name="description" content="万物皆可拍延时！基于OpenCV使用电脑摄像头拍摄延时。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenCV延时相机">
+<meta property="og:url" content="https://cosmicdusty.cc/post/Ideas/OpenCVTimeLapseCamera/index.html">
+<meta property="og:site_name" content="MurphyHou">
+<meta property="og:description" content="万物皆可拍延时！基于OpenCV使用电脑摄像头拍摄延时。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/OpenCVpicpage.png">
+<meta property="article:published_time" content="2022-10-02T00:33:40.000Z">
+<meta property="article:modified_time" content="2023-05-05T14:19:48.000Z">
+<meta property="article:author" content="Murphy">
+<meta property="article:tag" content="open source">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="OpenCV">
+<meta property="article:tag" content="GUI">
+<meta property="article:tag" content="NumPy">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/OpenCVpicpage.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>OpenCV延时相机 - MurphyHou</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cosmicdusty.cc","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"16d93d5abbd7ea15ec53daed5459ebf7","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JijHNKemeVNog4wF7g9I5TR3","app_key":"FvsKdxHOP2aG5rHrHby5aV0b","server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?16d93d5abbd7ea15ec53daed5459ebf7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CosmicDusty</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/OpenCVpicpage.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="OpenCV延时相机"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Murphy
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-02 08:33" pubdate>
+          2022年10月2日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">OpenCV延时相机</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>这次用的是电脑的摄像头。暑假夏令营的时候买了两个摄像头来参加面试，现在被我闲置了。摄像头也能拍照啊，于是乎我就用摄像头来做延时相机了。这次想法比较简单，但也是遇到了很多的问题，特别是GUI方面。值得注意的是，这次程序我用来很多类与对象的东西，这个东西太难了，一直以来我都是能不能就不用，但这次是硬着头皮上了！</p>
+<h1 id="学习OpenCV"><a href="#学习OpenCV" class="headerlink" title="学习OpenCV"></a>学习OpenCV</h1><table>
+<thead>
+<tr>
+<th>param</th>
+<th>define</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cv2.VideoCapture.get(0)</td>
+<td>视频文件的当前位置（播放）以毫秒为单位</td>
+<td>CV_CAP_PROP_POS_MSEC Current position of the video file in milliseconds or video capture timestamp.</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(1)</td>
+<td>基于以0开始的被捕获或解码的帧索引</td>
+<td>CV_CAP_PROP_POS_FRAMES 0-based index of the frame to be decoded&#x2F;captured next.</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(2)</td>
+<td>视频文件的相对位置（播放）：0&#x3D;电影开始，1&#x3D;影片的结尾。</td>
+<td>CV_CAP_PROP_POS_AVI_RATIO Relative position of the video file: 0 - start of the film, 1 - end of the film.</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(3)</td>
+<td>在视频流的帧的宽度</td>
+<td>CV_CAP_PROP_FRAME_WIDTH Width of the frames in the video stream.</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(4)</td>
+<td>在视频流的帧的高度</td>
+<td>CV_CAP_PROP_FRAME_HEIGHT Height of the frames in the video stream.</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(5)</td>
+<td>帧速率</td>
+<td>CV_CAP_PROP_FPS Frame rate.</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(6)</td>
+<td>编解码的4字-字符代码</td>
+<td>CV_CAP_PROP_FOURCC 4-character code of codec.</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(7)</td>
+<td>视频文件中的帧数</td>
+<td>CV_CAP_PROP_FRAME_COUNT Number of frames in the video file.</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(8)</td>
+<td>返回对象的格式</td>
+<td>CV_CAP_PROP_FORMAT Format of the Mat objects returned by retrieve() .</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(9)</td>
+<td>返回后端特定的值，该值指示当前捕获模式</td>
+<td>CV_CAP_PROP_MODE Backend-specific value indicating the current capture mode.</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(10)</td>
+<td>图像的亮度(仅适用于照相机)</td>
+<td>CV_CAP_PROP_BRIGHTNESS Brightness of the image (only for cameras).</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(11)</td>
+<td>图像的对比度(仅适用于照相机)</td>
+<td>CV_CAP_PROP_CONTRAST Contrast of the image (only for cameras).</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(12)</td>
+<td>图像的饱和度(仅适用于照相机)</td>
+<td>CV_CAP_PROP_SATURATION Saturation of the image (only for cameras).</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(13)</td>
+<td>色调图像(仅适用于照相机)</td>
+<td>CV_CAP_PROP_HUE Hue of the image (only for cameras).</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(14)</td>
+<td>图像增益(仅适用于照相机)（Gain在摄影中表示白平衡提升）</td>
+<td>CV_CAP_PROP_GAIN Gain of the image (only for cameras).</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(15)</td>
+<td>曝光(仅适用于照相机)</td>
+<td>CV_CAP_PROP_EXPOSURE Exposure (only for cameras).</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(16)</td>
+<td>指示是否应将图像转换为RGB布尔标志</td>
+<td>CV_CAP_PROP_CONVERT_RGB Boolean flags indicating whether images should be converted to RGB.</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(17)</td>
+<td>× 暂时不支持</td>
+<td>CV_CAP_PROP_WHITE_BALANCE Currently not supported</td>
+</tr>
+<tr>
+<td>cv2.VideoCapture.get(18)</td>
+<td>立体摄像机的矫正标注（目前只有DC1394 v.2.x后端支持这个功能）</td>
+<td>CV_CAP_PROP_RECTIFICATION Rectification flag for stereo cameras (note: only supported by DC1394 v 2.x backend currently)</td>
+</tr>
+</tbody></table>
+<p><em>Note: 如果查询的视频属性是VideoCapture类不支持的，将会返回0</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Author     : MurphyHou</span><br><span class="hljs-comment"># =======Here We Go!=======</span><br><br><span class="hljs-keyword">import</span> cv2<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">VideoCapture_shuxing</span>():<br>	cap = cv2.VideoCapture(<span class="hljs-number">0</span>)<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_POS_MSEC:&quot;</span> + <span class="hljs-built_in">str</span>(cap.get()))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_POS_MSEC:&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">0</span>)))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_POS_FRAMES:&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">1</span>)))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_POS_AVI_RATIO :&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">2</span>)))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_FRAME_WIDTH :&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">3</span>)))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_FRAME_HEIGHT :&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">4</span>)))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_FPS :&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">5</span>)))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_FOURCC :&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">6</span>)))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_FRAME_COUNT :&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">7</span>)))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_FORMAT :&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">8</span>)))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_MODE :&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">9</span>)))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_BRIGHTNESS :&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">10</span>)))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_CONTRAST  :&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">11</span>)))		<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_SATURATION  :&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">12</span>)))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_HUE :&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">13</span>)))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_GAIN :&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">14</span>)))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_EXPOSURE :&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">15</span>)))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_CONVERT_RGB :&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">16</span>)))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_WHITE_BALANCE :&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">17</span>)))<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;CV_CAP_PROP_RECTIFICATION :&quot;</span> + <span class="hljs-built_in">str</span>(cap.get(<span class="hljs-number">18</span>)))<br>	<br>	cap.release()<br>	cv2.destroyAllWindows()<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&#x27;__main__&#x27;</span>:<br>	VideoCapture_shuxing()<br>   <br><br><br>=================================================<br>(base) PS D:\Develop_Python\Progect\CamTimeLapse&gt; python .\VideoCapture.get_demo01.py<br>CV_CAP_PROP_POS_MSEC:<span class="hljs-number">0.0</span><br>CV_CAP_PROP_POS_FRAMES:<span class="hljs-number">0.0</span><br>CV_CAP_PROP_POS_AVI_RATIO :-<span class="hljs-number">1.0</span><br>CV_CAP_PROP_FRAME_WIDTH :<span class="hljs-number">640.0</span><br>CV_CAP_PROP_FRAME_HEIGHT :<span class="hljs-number">480.0</span><br>CV_CAP_PROP_FPS :<span class="hljs-number">30.0</span><br>CV_CAP_PROP_FOURCC :<span class="hljs-number">22.0</span><br>CV_CAP_PROP_FRAME_COUNT :-<span class="hljs-number">1.0</span><br>CV_CAP_PROP_FORMAT :-<span class="hljs-number">1.0</span><br>CV_CAP_PROP_MODE :<span class="hljs-number">1.0</span><br>CV_CAP_PROP_BRIGHTNESS :<span class="hljs-number">128.0</span><br>CV_CAP_PROP_CONTRAST  :<span class="hljs-number">128.0</span><br>CV_CAP_PROP_SATURATION  :<span class="hljs-number">135.0</span><br>CV_CAP_PROP_HUE :-<span class="hljs-number">1.0</span><br>CV_CAP_PROP_GAIN :<span class="hljs-number">128.0</span><br>CV_CAP_PROP_EXPOSURE :-<span class="hljs-number">1.0</span><br>CV_CAP_PROP_CONVERT_RGB :<span class="hljs-number">1.0</span><br>CV_CAP_PROP_WHITE_BALANCE :<span class="hljs-number">1.0</span><br>CV_CAP_PROP_RECTIFICATION :<span class="hljs-number">1.0</span><br>(base) PS D:\Develop_Python\Progect\CamTimeLapse&gt;<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="v1-0"><a href="#v1-0" class="headerlink" title="v1.0"></a>v1.0</h1><p>实现功能：调用相机捕获一帧照片，并用当前时间进行文件命名保存。</p>
+<p>要点</p>
+<ol>
+<li><p>cv2.VideoCapture().set(propId, value)的使用</p>
+</li>
+<li><p>retval &#x3D; cv2.imwrite(filename, img [, paras])</p>
+<blockquote>
+<p>filename：要保存的文件的路径和名称，包括文件扩展名</p>
+<p>img：要保存的 OpenCV 图像，nparray 多维数组</p>
+<p>paras：不同编码格式的参数，可选项</p>
+<p>cv2.CV_IMWRITE_JPEG_QUALITY：设置 .jpeg&#x2F;.jpg 格式的图片质量，取值为 0-100（默认值 95），数值越大则图片质量越高；<br>cv2.CV_IMWRITE_WEBP_QUALITY：设置 .webp 格式的图片质量，取值为 0-100；<br>cv2.CV_IMWRITE_PNG_COMPRESSION：设置 .png 格式图片的压缩比，取值为 0-9（默认值 3），数值越大则压缩比越大。</p>
+</blockquote>
+</li>
+<li><p>ret, frame &#x3D; cap.read()</p>
+<ul>
+<li>ret 为True 或者False,代表有没有读取到图片</li>
+<li>frame表示截取到一帧的图片</li>
+</ul>
+</li>
+</ol>
+<p>main.p</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Author     : MurphyHou</span><br><span class="hljs-comment"># =======Here We Go!=======</span><br><br>import os<br>import time<br>import cv2<br><br>def takephoto():<br>	<span class="hljs-built_in">cap</span> = cv2.VideoCapture(0)<br>	cap.set(3,1920)<br>	cap.set(4,1080)<br>	<span class="hljs-comment"># print(&quot;CV_CAP_PROP_POS_AVI_RATIO :&quot; + str(cap.get(3)))</span><br>	<span class="hljs-comment"># print(&quot;CV_CAP_PROP_FRAME_WIDTH :&quot; + str(cap.get(4)))</span><br>	ret, frame = cap.read()<br><br>	<span class="hljs-comment"># print(frame)</span><br>	<span class="hljs-keyword">while</span> ret:<br>		<span class="hljs-comment"># frame = cv2.resize(frame, (1920,1080))  # 尺寸更改</span><br>		cv2.imwrite(time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d__%H_%M_%S&#x27;</span>)+<span class="hljs-string">&#x27;.jpg&#x27;</span>, frame,[int(cv2.IMWRITE_JPEG_QUALITY), 100])  <span class="hljs-comment"># 无损保存</span><br>		<span class="hljs-built_in">print</span>(time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d__%H_%M_%S&#x27;</span>)+<span class="hljs-string">&#x27;.jpg&#x27;</span>+<span class="hljs-string">&#x27;-done&#x27;</span>)<br>		<br>		time.sleep(10)  <span class="hljs-comment"># 10s进行一次图像获取</span><br>		ret, frame = cap.read()<br><br>	cap.release()<br>	cv2.destroyAllWindows()<br>	<span class="hljs-built_in">return</span> 0<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&#x27;__main__&#x27;</span>:<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;开始&#x27;</span>)<br>	takephoto()<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="v1-1"><a href="#v1-1" class="headerlink" title="v1.1"></a>v1.1</h1><p>新功能:以日期为分类，建立文件夹</p>
+<p>main.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Author     : MurphyHou</span><br><span class="hljs-comment"># =======Here We Go!=======</span><br><br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">from</span> makeDir <span class="hljs-keyword">import</span> makedir<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">takephoto</span>():<br>	cap = cv2.VideoCapture(<span class="hljs-number">0</span>)<br>	cap.<span class="hljs-built_in">set</span>(<span class="hljs-number">3</span>,<span class="hljs-number">1920</span>)<br>	cap.<span class="hljs-built_in">set</span>(<span class="hljs-number">4</span>,<span class="hljs-number">1080</span>)<br>	<span class="hljs-comment"># print(&quot;CV_CAP_PROP_POS_AVI_RATIO :&quot; + str(cap.get(3)))</span><br>	<span class="hljs-comment"># print(&quot;CV_CAP_PROP_FRAME_WIDTH :&quot; + str(cap.get(4)))</span><br>	ret, frame = cap.read()<br><br>	<span class="hljs-comment"># print(frame)</span><br>	<span class="hljs-keyword">while</span> ret:<br>		makedir()  <span class="hljs-comment"># 以日期为分类，建立文件夹</span><br>		picName = os.getcwd() + <span class="hljs-string">&#x27;\\&#x27;</span> + time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d&#x27;</span>) + <span class="hljs-string">&#x27;\\&#x27;</span> + time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d__%H_%M_%S&#x27;</span>)+<span class="hljs-string">&#x27;.jpg&#x27;</span><br>		cv2.imwrite(picName, frame,[<span class="hljs-built_in">int</span>(cv2.IMWRITE_JPEG_QUALITY), <span class="hljs-number">100</span>])  <span class="hljs-comment"># 无损保存</span><br>		<span class="hljs-built_in">print</span>(time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d__%H_%M_%S&#x27;</span>)+<span class="hljs-string">&#x27;.jpg&#x27;</span>+<span class="hljs-string">&#x27;-done&#x27;</span>)<br>		<br>		time.sleep(<span class="hljs-number">10</span>)<br>		ret, frame = cap.read()<br><br>	cap.release()<br>	cv2.destroyAllWindows()<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&#x27;__main__&#x27;</span>:<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;开始&#x27;</span>)<br>	takephoto()<br></code></pre></td></tr></table></figure>
+
+<p>makeDir.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Author     : MurphyHou</span><br><span class="hljs-comment"># =======Here We Go!=======</span><br><br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">makedir</span>():<br>	flag = <span class="hljs-literal">False</span><br>	<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> os.listdir():<br>		<span class="hljs-keyword">if</span> i == time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d&#x27;</span>):<br>			flag = <span class="hljs-literal">True</span><br>	<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> flag:<br>		os.mkdir(os.getcwd() + <span class="hljs-string">&#x27;\\&#x27;</span> + time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d&#x27;</span>))<br></code></pre></td></tr></table></figure>
+
+<h1 id="v1-2"><a href="#v1-2" class="headerlink" title="v1.2"></a>v1.2</h1><ul>
+<li>修改了程序运行逻辑,使用函数的方式,对摄像头进行调用和释放,保证摄像头只在工作是时候处于激活状态.睡眠状态时,摄像头是关闭状态.</li>
+</ul>
+<p>main.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Author     : MurphyHou</span><br><span class="hljs-comment"># =======Here We Go!=======</span><br><br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">from</span> makeDir <span class="hljs-keyword">import</span> makedir<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">caminit</span>():<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;=======init=======&#x27;</span>)<br>	<span class="hljs-keyword">global</span> cap <br>	cap = cv2.VideoCapture(<span class="hljs-number">1</span>)<br>	cap.<span class="hljs-built_in">set</span>(<span class="hljs-number">3</span>,<span class="hljs-number">1920</span>)<br>	cap.<span class="hljs-built_in">set</span>(<span class="hljs-number">4</span>,<span class="hljs-number">1080</span>)<br>	<span class="hljs-comment"># ret, frame = cap.read()</span><br>	praList = <span class="hljs-built_in">list</span>(cap.read())<br>	<span class="hljs-comment"># print(praList)</span><br>	<span class="hljs-keyword">return</span> praList<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">camrelease</span>():<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;=======rels=======&#x27;</span>)<br>	cap.release()<br>	cv2.destroyAllWindows()<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">takephoto</span>(<span class="hljs-params">praList</span>):<br>	<span class="hljs-keyword">while</span> praList[<span class="hljs-number">0</span>]:<br>		makedir()  <span class="hljs-comment"># 以日期为分类，建立文件夹</span><br>		picName = os.getcwd() + <span class="hljs-string">&#x27;\\&#x27;</span> + time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d&#x27;</span>) + <span class="hljs-string">&#x27;\\&#x27;</span> + time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d__%H_%M_%S&#x27;</span>)+<span class="hljs-string">&#x27;.jpg&#x27;</span><br>		cv2.imwrite(picName, praList[<span class="hljs-number">1</span>],[<span class="hljs-built_in">int</span>(cv2.IMWRITE_JPEG_QUALITY), <span class="hljs-number">100</span>])  <span class="hljs-comment"># 无损保存</span><br>		<span class="hljs-built_in">print</span>(time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d__%H_%M_%S&#x27;</span>)+<span class="hljs-string">&#x27;.jpg&#x27;</span>+<span class="hljs-string">&#x27;-done&#x27;</span>)<br>		praList[<span class="hljs-number">0</span>] = <span class="hljs-literal">False</span><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&#x27;__main__&#x27;</span>:<br>	<br>	<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>		takephoto(caminit())<br>		time.sleep(<span class="hljs-number">1</span>)<br>		camrelease()<br>		time.sleep(<span class="hljs-number">10</span>)<br>		<span class="hljs-built_in">print</span>()<br></code></pre></td></tr></table></figure>
+
+<p>makeDir.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Author     : MurphyHou</span><br><span class="hljs-comment"># =======Here We Go!=======</span><br><br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">makedir</span>():<br>	flag = <span class="hljs-literal">False</span><br>	<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> os.listdir():<br>		<span class="hljs-keyword">if</span> i == time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d&#x27;</span>):<br>			flag = <span class="hljs-literal">True</span><br>	<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> flag:<br>		os.mkdir(os.getcwd() + <span class="hljs-string">&#x27;\\&#x27;</span> + time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d&#x27;</span>))<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="v2-0-程序运行有问题"><a href="#v2-0-程序运行有问题" class="headerlink" title="v2.0 - 程序运行有问题"></a>v2.0 - 程序运行有问题</h1><ul>
+<li>加入了GUI（图形用户接口），但是这个UI做的其实是有问题的，不能实时显示控制台信息！可能需要更改文本框的属性</li>
+</ul>
+<p>main.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Author     : MurphyHou</span><br><span class="hljs-comment"># =======Here We Go!=======</span><br><br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">import</span> cv2<br><br><span class="hljs-keyword">from</span> makeDir <span class="hljs-keyword">import</span> makedir<br><br><span class="hljs-keyword">from</span> GUI <span class="hljs-keyword">import</span> Ui_Form<br><span class="hljs-keyword">import</span> sys<br><span class="hljs-keyword">from</span> PyQt5 <span class="hljs-keyword">import</span> QtWidgets<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">MyPyQT_Form</span>(QtWidgets.QWidget,Ui_Form):<br><br>	<span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, number, option, interval, praList</span>):<br>		<span class="hljs-built_in">super</span>(MyPyQT_Form, self).__init__()<br>		self.setupUi(self)<br><br>		self.number = number<br>		self.option = option<br>		self.interval = interval<br>		self.praList = praList<br>		<br>	<span class="hljs-keyword">def</span> <span class="hljs-title function_">caminit</span>(<span class="hljs-params">self</span>):<br>		self.textEdito.setPlainText(<span class="hljs-string">&#x27;=======init=======&#x27;</span>)<br>		<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;=======init=======&#x27;</span>)<br>		<span class="hljs-keyword">global</span> cap <br>		cap = cv2.VideoCapture(<span class="hljs-built_in">int</span>(self.number))<br>		cap.<span class="hljs-built_in">set</span>(<span class="hljs-number">3</span>,<span class="hljs-number">1920</span>)<br>		cap.<span class="hljs-built_in">set</span>(<span class="hljs-number">4</span>,<span class="hljs-number">1080</span>)<br>		<span class="hljs-comment"># ret, frame = cap.read()</span><br>		self.praList = <span class="hljs-built_in">list</span>(cap.read())<br>		<span class="hljs-comment"># print(praList)</span><br>		<span class="hljs-comment"># return self.praList</span><br><br>	<span class="hljs-keyword">def</span> <span class="hljs-title function_">camrelease</span>(<span class="hljs-params">self</span>):<br>		self.textEdito.setPlainText(<span class="hljs-string">&#x27;=======rels=======&#x27;</span>)<br>		<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;=======rels=======&#x27;</span>)<br>		cap.release()<br>		cv2.destroyAllWindows()<br><br>	<span class="hljs-keyword">def</span> <span class="hljs-title function_">takephoto</span>(<span class="hljs-params">self</span>):<br>		<span class="hljs-keyword">while</span> self.praList[<span class="hljs-number">0</span>]:<br>			makedir()  <span class="hljs-comment"># 以日期为分类，建立文件夹</span><br>			picName = os.getcwd() + <span class="hljs-string">&#x27;\\&#x27;</span> + time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d&#x27;</span>) + <span class="hljs-string">&#x27;\\&#x27;</span> + time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d__%H_%M_%S&#x27;</span>)+<span class="hljs-string">&#x27;.jpg&#x27;</span><br>			cv2.imwrite(picName, self.praList[<span class="hljs-number">1</span>],[<span class="hljs-built_in">int</span>(cv2.IMWRITE_JPEG_QUALITY), <span class="hljs-number">100</span>])  <span class="hljs-comment"># 无损保存</span><br>			<span class="hljs-built_in">print</span>(time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d__%H_%M_%S&#x27;</span>)+<span class="hljs-string">&#x27;.jpg&#x27;</span>+<span class="hljs-string">&#x27;-done&#x27;</span>)<br>			self.textEdito.setPlainText(time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d__%H_%M_%S&#x27;</span>)+<span class="hljs-string">&#x27;.jpg&#x27;</span>+<span class="hljs-string">&#x27;-done&#x27;</span>)<br>			self.praList[<span class="hljs-number">0</span>] = <span class="hljs-literal">False</span><br><br>	<span class="hljs-keyword">def</span> <span class="hljs-title function_">camstart</span>(<span class="hljs-params">self</span>):<br><br>		<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>			my_pyqt_form.caminit()<br>			my_pyqt_form.takephoto()<br>			time.sleep(<span class="hljs-number">1</span>)<br>			my_pyqt_form.camrelease()<br>			time.sleep(<span class="hljs-built_in">int</span>(self.interval))<br>			<span class="hljs-built_in">print</span>()<br>			<br>		<span class="hljs-comment"># for i in range(2):</span><br>		<span class="hljs-comment"># 	my_pyqt_form.caminit()</span><br>		<span class="hljs-comment"># 	my_pyqt_form.takephoto()</span><br>		<span class="hljs-comment"># 	time.sleep(1)</span><br>		<span class="hljs-comment"># 	my_pyqt_form.camrelease()</span><br>		<span class="hljs-comment"># 	time.sleep(int(self.interval))</span><br>		<span class="hljs-comment"># 	print()</span><br><br>	<span class="hljs-comment"># 获取窗口所输入的信息的函数</span><br>	<span class="hljs-keyword">def</span> <span class="hljs-title function_">pushButton1_click</span>(<span class="hljs-params">self</span>):<br><br>		<span class="hljs-comment"># 获取Windows界面输入的内容</span><br>		self.number=self.lineEdit_1.text()<br>		self.option=self.lineEdit_2.text()<br>		self.interval=self.lineEdit_3.text()<br><br>		<span class="hljs-comment"># print(self.number)</span><br>		<span class="hljs-comment"># print(self.option)</span><br>		<span class="hljs-comment"># print(self.interval)</span><br><br>		self.textEditi.setPlainText(<span class="hljs-string">&quot;当前信息：\n&quot;</span>+ <span class="hljs-string">&quot;相机号:&quot;</span> + self.number <br>			+<span class="hljs-string">&#x27;\n&#x27;</span>+ <span class="hljs-string">&quot;模式选择:&quot;</span> + self.option <br>			+<span class="hljs-string">&#x27;\n&#x27;</span>+ <span class="hljs-string">&quot;间隔:&quot;</span> + self.interval +<span class="hljs-string">&#x27;\n&#x27;</span>)<br>		<br>		my_pyqt_form.camstart()<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&#x27;__main__&#x27;</span>:<br>	app = QtWidgets.QApplication(sys.argv)<br>	my_pyqt_form = MyPyQT_Form(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,[])<br><br>	<span class="hljs-comment"># 窗口的打开和关闭</span><br>	my_pyqt_form.show()<br>	sys.exit(app.exec_())<br></code></pre></td></tr></table></figure>
+
+
+
+<p>GUI.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Author     : MurphyHou</span><br><span class="hljs-comment"># =======Here We Go!=======</span><br><br><span class="hljs-keyword">from</span> PyQt5 <span class="hljs-keyword">import</span> QtCore,QtWidgets<br><span class="hljs-keyword">from</span> PyQt5.QtGui <span class="hljs-keyword">import</span> QIcon<br><span class="hljs-keyword">import</span> ctypes<br>ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(<span class="hljs-string">&quot;myappid&quot;</span>)<br><br><span class="hljs-comment"># from PyQt5.QtWidgets import QDesktopWidget,QMainWindow,QApplication</span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Ui_Form</span>(<span class="hljs-title class_ inherited__">object</span>):<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">setupUi</span>(<span class="hljs-params">self, Form</span>):<br>        <span class="hljs-comment"># 建立Windows窗口，并设置合适的大小</span><br><br>        Form.setObjectName(<span class="hljs-string">&quot;Form&quot;</span>)<br>        Form.resize(<span class="hljs-number">1300</span>, <span class="hljs-number">600</span>)<br><br>        Form.setWindowIcon(QIcon(<span class="hljs-string">&quot;ICON.ico&quot;</span>))<br><br>        <span class="hljs-comment"># QRect ( int x, int y, int width, int height )</span><br>        <span class="hljs-comment"># 构造一个以（x，y）为左上角、宽度和高度为width，height的矩形。</span><br>        self.widget = QtWidgets.QWidget(Form)<br>        self.widget.setGeometry(QtCore.QRect(<span class="hljs-number">130</span>, <span class="hljs-number">70</span>, <span class="hljs-number">1000</span>, <span class="hljs-number">400</span>))<br>        self.widget.setObjectName(<span class="hljs-string">&quot;widget&quot;</span>)<br><br><br>        self.verticalLayout = QtWidgets.QVBoxLayout(self.widget)<br>        self.verticalLayout.setContentsMargins(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)<br>        self.verticalLayout.setObjectName(<span class="hljs-string">&quot;verticalLayout&quot;</span>)<br><br>        <span class="hljs-comment"># 界面标题</span><br>        self.formtitle = QtWidgets.QLabel(self.widget)<br>        self.formtitle.setObjectName(<span class="hljs-string">&quot;formtitle&quot;</span>)<br>        self.verticalLayout.addWidget(self.formtitle)<br><br>        <span class="hljs-comment"># 界面脚注</span><br>        self.footer = QtWidgets.QLabel(self.widget)<br>        self.footer.setObjectName(<span class="hljs-string">&quot;footer&quot;</span>)<br>        self.verticalLayout.addWidget(self.footer)<br><br>        self.gridLayout = QtWidgets.QGridLayout()<br>        self.gridLayout.setObjectName(<span class="hljs-string">&quot;gridLayout&quot;</span>)<br><br><br>        <span class="hljs-comment"># int fromRow     // 横坐标</span><br>        <span class="hljs-comment"># int fromColumn  // 纵坐标</span><br>        <span class="hljs-comment"># int rowSpan     // 横向跨越几个单元格</span><br>        <span class="hljs-comment"># int columnSpan  // 纵向跨越几个单元格</span><br><br>        <span class="hljs-comment"># 建立三个单行文本输入框QLineEdit</span><br>        self.lineEdit_1 = QtWidgets.QLineEdit(self.widget)<br>        self.lineEdit_1.setObjectName(<span class="hljs-string">&quot;lineEdit_1&quot;</span>)<br>        self.gridLayout.addWidget(self.lineEdit_1, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)<br><br>        self.lineEdit_2 = QtWidgets.QLineEdit(self.widget)<br>        self.lineEdit_2.setObjectName(<span class="hljs-string">&quot;lineEdit_2&quot;</span>)<br>        self.gridLayout.addWidget(self.lineEdit_2, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)<br><br>        self.lineEdit_3 = QtWidgets.QLineEdit(self.widget)<br>        self.lineEdit_3.setObjectName(<span class="hljs-string">&quot;lineEdit_3&quot;</span>)<br>        self.gridLayout.addWidget(self.lineEdit_3, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)<br><br><br>        <span class="hljs-comment"># 建立三个文本标签框QLabel</span><br>        self.number = QtWidgets.QLabel(self.widget)<br>        self.number.setObjectName(<span class="hljs-string">&quot;number&quot;</span>)<br>        self.gridLayout.addWidget(self.number, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>)<br><br>        self.option = QtWidgets.QLabel(self.widget)<br>        self.option.setObjectName(<span class="hljs-string">&quot;option&quot;</span>)<br>        self.gridLayout.addWidget(self.option, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>)<br>  <br>        self.interval = QtWidgets.QLabel(self.widget)<br>        self.interval.setObjectName(<span class="hljs-string">&quot;interval&quot;</span>)<br>        self.gridLayout.addWidget(self.interval, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>)<br><br><br>        self.verticalLayout.addLayout(self.gridLayout)<br>        <br>        <span class="hljs-comment"># 建立一个用户交互按键QPushButton</span><br>        self.pushButton1 = QtWidgets.QPushButton(self.widget)<br>        self.pushButton1.setObjectName(<span class="hljs-string">&quot;pushButton1&quot;</span>)<br>        self.verticalLayout.addWidget(self.pushButton1)  <span class="hljs-comment"># 待解决：怎么更改这个按键的格式</span><br><br>        <span class="hljs-comment"># 更改格式保存</span><br>        <span class="hljs-comment"># self.verticalLayout.addWidget(self.pushButton1, 4, 2, 1, 1)</span><br>        <span class="hljs-comment"># TypeError: addWidget(self, QWidget, stretch: int = 0, alignment: Union[Qt.Alignment, Qt.AlignmentFlag] = Qt.Alignment()): argument 3 has unexpected type &#x27;int&#x27;</span><br><br>        self.retranslateUi(Form)<br>        self.pushButton1.clicked.connect(Form.pushButton1_click)<br><br>        <span class="hljs-comment"># 设置两个显示文本框</span><br>        self.textEditi = QtWidgets.QTextEdit()<br>        self.textEditi.setObjectName(<span class="hljs-string">&quot;lineEditi&quot;</span>)<br>        self.gridLayout.addWidget(self.textEditi, <span class="hljs-number">0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)<br><br>        self.textEdito = QtWidgets.QTextEdit()<br>        self.textEditi.setObjectName(<span class="hljs-string">&quot;textEdito&quot;</span>)<br>        self.gridLayout.addWidget(self.textEdito, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)<br><br>        QtCore.QMetaObject.connectSlotsByName(Form)<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">retranslateUi</span>(<span class="hljs-params">self, Form</span>):<br>        _translate = QtCore.QCoreApplication.translate<br>        Form.setWindowTitle(_translate(<span class="hljs-string">&quot;Form&quot;</span>, <span class="hljs-string">&quot;CamTimeLapse&quot;</span>))  <span class="hljs-comment">#设置窗口标题</span><br><br>        <span class="hljs-comment"># 设置界面标题</span><br>        self.formtitle.setText(_translate(<span class="hljs-string">&quot;Form&quot;</span>, \<br>            <span class="hljs-string">&quot;&lt;html&gt;\</span><br><span class="hljs-string">                &lt;head/&gt;\</span><br><span class="hljs-string">                    &lt;body&gt;\</span><br><span class="hljs-string">                        &lt;p align=\&quot;center\&quot;&gt;\</span><br><span class="hljs-string">                            &lt;span style=\&quot; font-size:30pt; font-weight:600; font-family: Times New Roman;\&quot;&gt;\</span><br><span class="hljs-string">                                CamTimeLapse\</span><br><span class="hljs-string">                            &lt;/span&gt;\</span><br><span class="hljs-string">                        &lt;/p&gt;\</span><br><span class="hljs-string">                    &lt;/body&gt;\</span><br><span class="hljs-string">            &lt;/html&gt;&quot;</span>))<br><br><br>        self.footer.setText(_translate(<span class="hljs-string">&quot;Form&quot;</span>, \<br>            <span class="hljs-string">&quot;&lt;html&gt;\</span><br><span class="hljs-string">                &lt;head/&gt;\</span><br><span class="hljs-string">                    &lt;body&gt;\</span><br><span class="hljs-string">                        &lt;p align=\&quot;center\&quot;&gt;\</span><br><span class="hljs-string">                            &lt;span style=\&quot; font-size:15pt; font-weight:300; font-family: Times New Roman;\&quot;&gt;\</span><br><span class="hljs-string">                                Designed by Murphy\</span><br><span class="hljs-string">                            &lt;/span&gt;\</span><br><span class="hljs-string">                        &lt;/p&gt;\</span><br><span class="hljs-string">                    &lt;/body&gt;\</span><br><span class="hljs-string">            &lt;/html&gt;&quot;</span>))<br>        <br>        self.number.setText(_translate(<span class="hljs-string">&quot;Form&quot;</span>, <span class="hljs-string">&quot;相机号（0/1/2）&quot;</span>))<br><br>        self.option.setText(_translate(<span class="hljs-string">&quot;Form&quot;</span>, <span class="hljs-string">&quot;时间/数量选择（0/1）&quot;</span>))<br><br>        self.interval.setText(_translate(<span class="hljs-string">&quot;Form&quot;</span>, <span class="hljs-string">&quot;间隔（s）&quot;</span>))<br><br>        self.pushButton1.setText(_translate(<span class="hljs-string">&quot;Form&quot;</span>, <span class="hljs-string">&quot;开始&quot;</span>))<br><br><br>        <br></code></pre></td></tr></table></figure>
+
+
+<p>makeDir.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Author     : MurphyHou</span><br><span class="hljs-comment"># =======Here We Go!=======</span><br><br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">makedir</span>():<br>	flag = <span class="hljs-literal">False</span><br>	<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> os.listdir():<br>		<span class="hljs-keyword">if</span> i == time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d&#x27;</span>):<br>			flag = <span class="hljs-literal">True</span><br>	<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> flag:<br>		os.mkdir(os.getcwd() + <span class="hljs-string">&#x27;\\&#x27;</span> + time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d&#x27;</span>))<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="v2-1-GUI还没改完"><a href="#v2-1-GUI还没改完" class="headerlink" title="v2.1 - GUI还没改完"></a>v2.1 - GUI还没改完</h1><p><a target="_blank" rel="noopener" href="https://maicss.gitbooks.io/pyqt5/content/hello_world.html">Hello World · PyQt5 中文教程 (gitbooks.io)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_47203885/article/details/110676076">pyqt5实现—GUI界面实时显示控制台输出_跌跌撞撞进大坑的博客-CSDN博客_pyqt5 textbrowser实时输出</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41340996/article/details/120270410">【Qt】控制台信息输出到GUI中（在TensorFlow、PySide6环境下，将训练信息实时输出在文本框中）_KyrieLiu52的博客-CSDN博客_qt输出文本框</a></p>
+<h1 id="v3-0"><a href="#v3-0" class="headerlink" title="v3.0"></a>v3.0</h1><ul>
+<li>无GUI</li>
+<li>实现了分别调用两个摄像头的功能</li>
+<li>出现了长时间运行内存会爆掉的问题！</li>
+</ul>
+<h1 id="v3-1"><a href="#v3-1" class="headerlink" title="v3.1"></a>v3.1</h1><ul>
+<li>定时重启，解决长时间运行，内存爆掉的问题（但为什么会出现爆内存的问题没解决）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Author     : MurphyHou</span><br><span class="hljs-comment"># =======Here We Go!=======</span><br><br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">from</span> makeDir <span class="hljs-keyword">import</span> makedir<br><span class="hljs-keyword">import</span> sys<br><br><span class="hljs-keyword">import</span> gc<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">caminit</span>():<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;=======侧面：init=======&#x27;</span>)<br>	<span class="hljs-keyword">global</span> cap<br>	cap = cv2.VideoCapture(<span class="hljs-number">0</span>)<br>	cap.<span class="hljs-built_in">set</span>(<span class="hljs-number">3</span>,<span class="hljs-number">1920</span>)<br>	cap.<span class="hljs-built_in">set</span>(<span class="hljs-number">4</span>,<span class="hljs-number">1080</span>)<br>	<span class="hljs-comment"># ret, frame = cap.read()</span><br>	praList = <span class="hljs-built_in">list</span>(cap.read())<br>	<span class="hljs-comment"># print(praList)</span><br>	<span class="hljs-keyword">return</span> praList<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">camrelease</span>():<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;=======侧面：rels=======&#x27;</span>)<br>	cap.release()<br>	cv2.destroyAllWindows()<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">takephoto</span>(<span class="hljs-params">praList</span>):<br>	<span class="hljs-keyword">while</span> praList[<span class="hljs-number">0</span>]:<br>		makedir()  <span class="hljs-comment"># 以日期为分类，建立文件夹</span><br>		picName = os.getcwd() + <span class="hljs-string">&#x27;\\&#x27;</span> + time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d&#x27;</span>) + <span class="hljs-string">&#x27;\\&#x27;</span> + <span class="hljs-string">&#x27;cemian&#x27;</span> + <span class="hljs-string">&#x27;\\&#x27;</span> + time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d__%H_%M_%S&#x27;</span>)+<span class="hljs-string">&#x27;.jpg&#x27;</span><br>		cv2.imwrite(picName, praList[<span class="hljs-number">1</span>],[<span class="hljs-built_in">int</span>(cv2.IMWRITE_JPEG_QUALITY), <span class="hljs-number">100</span>])  <span class="hljs-comment"># 无损保存</span><br>		<span class="hljs-built_in">print</span>(time.strftime(<span class="hljs-string">&#x27;侧面：&#x27;</span>+<span class="hljs-string">&#x27;%Y_%m_%d__%H_%M_%S&#x27;</span>)+<span class="hljs-string">&#x27;.jpg&#x27;</span>+<span class="hljs-string">&#x27;-done&#x27;</span>)<br>		praList[<span class="hljs-number">0</span>] = <span class="hljs-literal">False</span><br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">caminit2</span>():<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;=======正面：init=======&#x27;</span>)<br>	<span class="hljs-keyword">global</span> cap2<br>	cap2 = cv2.VideoCapture(<span class="hljs-number">2</span>)<br>	cap2.<span class="hljs-built_in">set</span>(<span class="hljs-number">3</span>,<span class="hljs-number">1920</span>)<br>	cap2.<span class="hljs-built_in">set</span>(<span class="hljs-number">4</span>,<span class="hljs-number">1080</span>)<br>	praList = <span class="hljs-built_in">list</span>(cap2.read())<br>	<span class="hljs-comment"># print(praList)</span><br>	<span class="hljs-keyword">return</span> praList<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">camrelease2</span>():<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;=======正面：rels2=======&#x27;</span>)<br>	cap2.release()<br>	cv2.destroyAllWindows()<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">takephoto2</span>(<span class="hljs-params">praList</span>):<br>	<span class="hljs-keyword">while</span> praList[<span class="hljs-number">0</span>]:<br>		makedir()  <span class="hljs-comment"># 以日期为分类，建立文件夹</span><br>		picName = os.getcwd() + <span class="hljs-string">&#x27;\\&#x27;</span> + time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d&#x27;</span>) + <span class="hljs-string">&#x27;\\&#x27;</span> + <span class="hljs-string">&#x27;zhengmian&#x27;</span> + <span class="hljs-string">&#x27;\\&#x27;</span> + time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d__%H_%M_%S&#x27;</span>)+<span class="hljs-string">&#x27;.jpg&#x27;</span><br>		cv2.imwrite(picName, praList[<span class="hljs-number">1</span>],[<span class="hljs-built_in">int</span>(cv2.IMWRITE_JPEG_QUALITY), <span class="hljs-number">100</span>])  <span class="hljs-comment"># 无损保存</span><br>		<span class="hljs-built_in">print</span>(time.strftime(<span class="hljs-string">&#x27;正面：&#x27;</span>+<span class="hljs-string">&#x27;%Y_%m_%d__%H_%M_%S&#x27;</span>)+<span class="hljs-string">&#x27;.jpg&#x27;</span>+<span class="hljs-string">&#x27;-done-2&#x27;</span>)<br>		praList[<span class="hljs-number">0</span>] = <span class="hljs-literal">False</span><br><br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&#x27;__main__&#x27;</span>:<br>	<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br><br>		nowtime = time.strftime(<span class="hljs-string">&#x27;%H_%M_%S&#x27;</span>)<br><br>		<span class="hljs-built_in">print</span>()<br><br>		<span class="hljs-keyword">if</span> nowtime[<span class="hljs-number">3</span>:<span class="hljs-number">5</span>] == <span class="hljs-string">&#x27;00&#x27;</span>:<br>			time.sleep(<span class="hljs-number">60</span>)<br>			<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;restart...&quot;</span>)<br>			os.execl(sys.executable,sys.executable,*sys.argv)<br>		<span class="hljs-keyword">else</span>:<br>			<span class="hljs-comment"># print(&quot;run&quot;)</span><br>			<span class="hljs-comment"># time.sleep(10)</span><br><br>			<span class="hljs-built_in">print</span>()<br>			<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;****************************************&#x27;</span>)<br>			<span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;********************<span class="hljs-subst">&#123;nowtime&#125;</span>********************&#x27;</span>)<br>			<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;****************************************&#x27;</span>)<br>			<span class="hljs-built_in">print</span>()<br><br>			takephoto(caminit())<br>			time.sleep(<span class="hljs-number">1</span>)<br>			camrelease()<br><br>			<span class="hljs-built_in">print</span>()<br>			<br>			takephoto2(caminit2())<br>			time.sleep(<span class="hljs-number">1</span>)<br>			camrelease2()<br><br>			<span class="hljs-keyword">del</span> cap<br>			<span class="hljs-keyword">del</span> cap2<br>			<span class="hljs-keyword">del</span> nowtime<br>			gc.collect()<br><br>			time.sleep(<span class="hljs-number">30</span>)  <span class="hljs-comment"># 实际约60s</span><br>		<br><br></code></pre></td></tr></table></figure>
+
+<h1 id="v4-0"><a href="#v4-0" class="headerlink" title="v4.0"></a>v4.0</h1><ul>
+<li><p>把程序进行了重写，改写了程序运行逻辑，尽可能减少一次循环占用的内存资源</p>
+</li>
+<li><p>比较复杂的功能都封装成了函数</p>
+</li>
+<li><p>使用百度PaddlePaddle深度学习框架，调用一个现成的深度学习的模型实现了抠图功能</p>
+</li>
+<li><p>main.py</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Author     : MurphyHou</span><br><span class="hljs-comment"># =======Here We Go!=======</span><br><br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> sys<br><span class="hljs-keyword">import</span> gc<br><br><span class="hljs-keyword">from</span> makeDir <span class="hljs-keyword">import</span> makedir<br><span class="hljs-keyword">from</span> camInit <span class="hljs-keyword">import</span> caminit<br><span class="hljs-keyword">from</span> takePic <span class="hljs-keyword">import</span> takepic<br><br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">restart</span>(<span class="hljs-params">nowTime</span>):<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;nowTime&#125;</span> : 60s - restart...&quot;</span>)<br>	time.sleep(<span class="hljs-number">60</span>)<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;restart...&quot;</span>)<br>	os.execl(sys.executable,sys.executable,*sys.argv)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">start</span>(<span class="hljs-params">picname</span>):<br>	nowTime = picname[-<span class="hljs-number">24</span>:-<span class="hljs-number">4</span>]<br>	<span class="hljs-comment"># print(nowTime) # 2022_10_08__23_07_05</span><br>	<span class="hljs-comment"># print(nowTime[15:17])</span><br><br>	<span class="hljs-comment"># 创建存储文件夹</span><br>	makedir(picname)<br><br>	<span class="hljs-comment"># 一小时内三次重启三次</span><br>	<span class="hljs-keyword">if</span> nowTime[<span class="hljs-number">15</span>:<span class="hljs-number">17</span>] == <span class="hljs-string">&#x27;00&#x27;</span>:<br>		restart(nowTime[<span class="hljs-number">15</span>:<span class="hljs-number">17</span>])<br>	<span class="hljs-keyword">elif</span> nowTime[<span class="hljs-number">15</span>:<span class="hljs-number">17</span>] == <span class="hljs-string">&#x27;20&#x27;</span>:<br>		restart(nowTime[<span class="hljs-number">15</span>:<span class="hljs-number">17</span>])<br>	<span class="hljs-keyword">elif</span> nowTime[<span class="hljs-number">15</span>:<span class="hljs-number">17</span>] == <span class="hljs-string">&#x27;40&#x27;</span>:<br>		restart(nowTime[<span class="hljs-number">15</span>:<span class="hljs-number">17</span>])<br>	<span class="hljs-keyword">else</span>:<br>		<span class="hljs-comment"># 开始拍照</span><br>		takepic(picname, caminit())<br><br><br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&#x27;__main__&#x27;</span>:<br>	<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>		<span class="hljs-comment"># 设置文件名</span><br>		<span class="hljs-comment"># D:\Develop_Python\Progect\CamTimeLapse\v4.0\2022_10_08\sid\2022_10_08__20_30_46.jpg</span><br>		pwd = os.getcwd()<br>		dirName = time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d&#x27;</span>)<br>		nowTime = time.strftime(<span class="hljs-string">&#x27;%Y_%m_%d__%H_%M_%S&#x27;</span>)<br>		picClass = <span class="hljs-string">&#x27;sid&#x27;</span><br>		fileClass = <span class="hljs-string">&#x27;.jpg&#x27;</span><br>		picName = pwd + <span class="hljs-string">&#x27;\\&#x27;</span> + dirName + <span class="hljs-string">&#x27;\\&#x27;</span> + picClass + <span class="hljs-string">&#x27;\\&#x27;</span> + nowTime + fileClass<br><br>		<span class="hljs-comment"># print(picName)</span><br><br>		<span class="hljs-comment"># print(picName[-24:-4]) # nowTime</span><br>		<span class="hljs-comment"># print(picName[-24:-14]) # dirName</span><br>		<span class="hljs-comment"># print(picName[:-29])</span><br>		<span class="hljs-comment"># print(picName[-28:-25])</span><br><br>		<span class="hljs-comment"># picName = picName.replace(&#x27;sid&#x27;, &#x27;fro&#x27;)</span><br>		<span class="hljs-comment"># print(picName[:-4])</span><br>		<span class="hljs-comment"># time.sleep(10)		</span><br><br><br><br><br><br>		<span class="hljs-comment"># ==================kaishi===================</span><br><br>		<span class="hljs-built_in">print</span>()<br>		<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;**********&#123;start&#125;**********&quot;</span>)<br>		<span class="hljs-built_in">print</span>()<br>		start(picName)<br>		<span class="hljs-built_in">print</span>()<br>		<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;**********&#123;finish&#125;**********&quot;</span>)<br>		<span class="hljs-built_in">print</span>()<br><br>		time.sleep(<span class="hljs-number">30</span>)  <span class="hljs-comment"># 实际约60s</span><br>		<br><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>makeDir.py</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Author     : MurphyHou</span><br><span class="hljs-comment"># =======Here We Go!=======</span><br><br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">makedir</span>(<span class="hljs-params">picname</span>):<br>	flag = <span class="hljs-literal">False</span><br>	<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> os.listdir():<br>		<span class="hljs-comment"># print(i)</span><br>		<span class="hljs-keyword">if</span> i == picname[-<span class="hljs-number">24</span>:-<span class="hljs-number">14</span>]:<br>			flag = <span class="hljs-literal">True</span><br>			<span class="hljs-keyword">break</span><br>	<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> flag:<br>		os.mkdir(picname[:-<span class="hljs-number">29</span>])<br>		os.mkdir(picname[:-<span class="hljs-number">24</span>])<br>		os.mkdir(picname[:-<span class="hljs-number">29</span>] + <span class="hljs-string">&#x27;\\&#x27;</span> + <span class="hljs-string">&#x27;fro&#x27;</span>)<br>		os.mkdir(picname[:-<span class="hljs-number">29</span>] + <span class="hljs-string">&#x27;\\&#x27;</span> + <span class="hljs-string">&#x27;seg&#x27;</span>)<br></code></pre></td></tr></table></figure>
+
+
+<ul>
+<li>camInit.py</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Author     : MurphyHou</span><br><span class="hljs-comment"># =======Here We Go!=======</span><br><br><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">caminit</span>():<br>	<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>):<br>		<span class="hljs-keyword">if</span> i == <span class="hljs-number">0</span>:<br>			<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;=======side:init=======&#x27;</span>)<br>			cap = cv2.VideoCapture(<span class="hljs-number">0</span>)<br>		<span class="hljs-keyword">else</span>:<br>			<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;=======front:init=======&#x27;</span>)<br>			cap = cv2.VideoCapture(<span class="hljs-number">2</span>)<br><br>		<span class="hljs-comment"># 相机参数设置</span><br>		cap.<span class="hljs-built_in">set</span>(<span class="hljs-number">3</span>,<span class="hljs-number">1920</span>)<br>		cap.<span class="hljs-built_in">set</span>(<span class="hljs-number">4</span>,<span class="hljs-number">1080</span>)<br><br>		<span class="hljs-keyword">if</span> i == <span class="hljs-number">0</span>:<br>			praListSide = <span class="hljs-built_in">list</span>(cap.read())<br>			<span class="hljs-comment"># print(praListSide)</span><br>			cap.release()<br>			<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;=======side:rels=======&#x27;</span>)<br>			<span class="hljs-built_in">print</span>()<br>		<span class="hljs-keyword">else</span>:<br>			praListFront = <span class="hljs-built_in">list</span>(cap.read())<br>			<span class="hljs-comment"># print(praListFront)</span><br>			cap.release()<br>			<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;=======front:rels=======&#x27;</span>)<br>			<span class="hljs-built_in">print</span>()<br><br>	praList = np.array([praListSide,praListFront])<br><br>	<span class="hljs-keyword">return</span> praList<br>	<span class="hljs-comment"># print(type(praList))</span><br>	<span class="hljs-comment"># print(praList)</span><br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>takePic.py</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Author     : MurphyHou</span><br><span class="hljs-comment"># =======Here We Go!=======</span><br><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">from</span> handleFigure <span class="hljs-keyword">import</span> handlefigure<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">takepic</span>(<span class="hljs-params">picname, praList</span>):<br>	<span class="hljs-comment"># side:</span><br>	<span class="hljs-comment"># praList[0][0] ret</span><br>	<span class="hljs-comment"># praList[0][1] fra</span><br>	<br>	<span class="hljs-comment"># front </span><br>	<span class="hljs-comment"># praList[1][0] ret</span><br>	<span class="hljs-comment"># praList[1][1] fra</span><br><br>	<span class="hljs-keyword">if</span> praList[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>] == <span class="hljs-literal">True</span>:<br>		cv2.imwrite(picname, praList[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>],[<span class="hljs-built_in">int</span>(cv2.IMWRITE_JPEG_QUALITY), <span class="hljs-number">100</span>])  <span class="hljs-comment"># 无损保存</span><br>		<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;sid:&#x27;</span> + picname[-<span class="hljs-number">24</span>:-<span class="hljs-number">4</span>] + <span class="hljs-string">&#x27; - done&#x27;</span>)<br>	<span class="hljs-keyword">else</span>:<br>		<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;sid:&#x27;</span> + picname[-<span class="hljs-number">24</span>:-<span class="hljs-number">4</span>] + <span class="hljs-string">&#x27; - wrong&#x27;</span>)<br><br><br>	picname = picname.replace(<span class="hljs-string">&#x27;sid&#x27;</span>, <span class="hljs-string">&#x27;fro&#x27;</span>)<br>	<span class="hljs-keyword">if</span> praList[<span class="hljs-number">1</span>][<span class="hljs-number">0</span>] == <span class="hljs-literal">True</span>:<br>		cv2.imwrite(picname, praList[<span class="hljs-number">1</span>][<span class="hljs-number">1</span>],[<span class="hljs-built_in">int</span>(cv2.IMWRITE_JPEG_QUALITY), <span class="hljs-number">100</span>])  <span class="hljs-comment"># 无损保存</span><br>		<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;fro:&#x27;</span> + picname[-<span class="hljs-number">24</span>:-<span class="hljs-number">4</span>] + <span class="hljs-string">&#x27; - done&#x27;</span>)<br>		handlefigure(picname)<br>	<span class="hljs-keyword">else</span>:<br>		<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;fro:&#x27;</span> + picname[-<span class="hljs-number">24</span>:-<span class="hljs-number">4</span>] + <span class="hljs-string">&#x27; - wrong&#x27;</span>)<br><br></code></pre></td></tr></table></figure>
+
+
+<ul>
+<li>handleFigure.py</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Author     : MurphyHou</span><br><span class="hljs-comment"># =======Here We Go!=======</span><br><br><span class="hljs-comment"># pip install  matplotlib</span><br><span class="hljs-comment"># pip install  pillow</span><br><span class="hljs-comment"># pip install  PaddlePaddle</span><br><span class="hljs-comment"># pip install paddlehub</span><br><span class="hljs-comment"># hub install deeplabv3p_xception65_humanseg</span><br><br><br><span class="hljs-comment"># paddle-bfloat           0.1.7</span><br><span class="hljs-comment"># paddle2onnx             1.0.1</span><br><span class="hljs-comment"># paddlefsl               1.1.0</span><br><span class="hljs-comment"># paddlehub               2.3.0</span><br><span class="hljs-comment"># paddlenlp               2.4.0</span><br><span class="hljs-comment"># paddlepaddle            2.3.2</span><br><span class="hljs-comment"># hub install deeplabv3p_xception65_humanseg==1.1.2</span><br><br><br><br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> paddlehub <span class="hljs-keyword">as</span> hub<br><span class="hljs-keyword">import</span> cv2<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">handlefigure</span>(<span class="hljs-params">picname</span>):<br><br>    <span class="hljs-comment"># 加载模型</span><br>    human_seg = hub.Module(name=<span class="hljs-string">&#x27;deeplabv3p_xception65_humanseg&#x27;</span>)<br><br>    img = cv2.imread(picname)<br><br>    picname = picname.replace(<span class="hljs-string">&#x27;fro&#x27;</span>, <span class="hljs-string">&#x27;seg&#x27;</span>)<br><br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;1) 正在提取人体轮廓...&#x27;</span>)<br>    results = human_seg.segmentation(images = [], visualization=<span class="hljs-literal">True</span>, use_gpu=<span class="hljs-literal">False</span>, output_dir = picname[:-<span class="hljs-number">25</span>])<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;2) 提取人体轮廓完成。&#x27;</span>)<br>    <span class="hljs-keyword">for</span> result <span class="hljs-keyword">in</span> results:<br>        <span class="hljs-comment"># print(result[&#x27;save_path&#x27;])</span><br>        oldname = result[<span class="hljs-string">&#x27;save_path&#x27;</span>]<br>    os.renames(oldname, picname[:-<span class="hljs-number">4</span>] + <span class="hljs-string">&#x27;_seg&#x27;</span> + <span class="hljs-string">&#x27;.jpg&#x27;</span>)<br><br><br><span class="hljs-comment"># if __name__==&#x27;__main__&#x27;:</span><br><span class="hljs-comment">#     picname = r&#x27;D:\Develop_Python\Progect\CamTimeLapse\v4.0\2022_10_08\fro\2022_10_08__22_28_49.jpg&#x27;</span><br><span class="hljs-comment">#     handlefigure(picname)</span><br><br><br><br><br><br><br><br><span class="hljs-comment"># 案例学习</span><br><br><span class="hljs-comment"># import paddlehub as hub</span><br><span class="hljs-comment"># import numpy as np</span><br><span class="hljs-comment"># import cv2</span><br><span class="hljs-comment"># import time</span><br><span class="hljs-comment"># from PIL import Image</span><br><br><span class="hljs-comment"># if __name__ == &#x27;__main__&#x27;:</span><br><span class="hljs-comment">#         #第一次运行会自动下载deeplabv3p_xception65_humanseg模型，会慢一点</span><br><span class="hljs-comment">#     human_seg = hub.Module(name=&quot;deeplabv3p_xception65_humanseg&quot;)</span><br><span class="hljs-comment">#     src_img = cv2.imread(&#x27;/Users/luoye/Downloads/WechatIMG281.jpeg&#x27;)</span><br><span class="hljs-comment">#     #visualization默认是false，当设置为true时会生成分割后的图片并保存在humanseg_output目录下</span><br><span class="hljs-comment">#     results = human_seg.segmentation(images=[src_img], visualization=True)</span><br><span class="hljs-comment">#     for result in results:</span><br><span class="hljs-comment">#         image_alpha = result[&#x27;data&#x27;].astype(np.uint8)</span><br><span class="hljs-comment">#         #这里我把背景换成了红色</span><br><span class="hljs-comment">#         img_bg = Image.new(&#x27;RGBA&#x27;, (src_img.shape[1], src_img.shape[0]), (255, 0, 0, 255))</span><br><span class="hljs-comment">#         image_temp = Image.fromarray(cv2.cvtColor(src_img, cv2.COLOR_BGR2RGBA))</span><br><span class="hljs-comment">#         img_bg.paste(image_temp, (0, 0), Image.fromarray(image_alpha))</span><br><br><span class="hljs-comment">#         path = &quot;./&quot; + str(int(time.time_ns() / 1000)) + &quot;.png&quot;</span><br><span class="hljs-comment">#         img_bg.save(path)</span><br><span class="hljs-comment">#         print(&quot;add successful path=&quot; + path)</span><br><br><br><br><br><br><br><span class="hljs-comment">## 官方演示代码</span><br><span class="hljs-comment"># https://www.paddlepaddle.org.cn/hubdetail?name=deeplabv3p_xception65_humanseg&amp;en_category=ImageSegmentation</span><br><br><span class="hljs-comment"># import paddlehub as hub</span><br><span class="hljs-comment"># import cv2</span><br><br><span class="hljs-comment"># human_seg = hub.Module(name=&quot;deeplabv3p_xception65_humanseg&quot;)</span><br><span class="hljs-comment"># result = human_seg.segmentation(images=[cv2.imread(&#x27;/PATH/TO/IMAGE&#x27;)])</span><br><br><span class="hljs-comment">## API</span><br><span class="hljs-comment"># def segmentation(images=None,</span><br><span class="hljs-comment">#                 paths=None,</span><br><span class="hljs-comment">#                 batch_size=1,</span><br><span class="hljs-comment">#                 use_gpu=False,</span><br><span class="hljs-comment">#                 visualization=False,</span><br><span class="hljs-comment">#                 output_dir=&#x27;humanseg_output&#x27;)</span><br><br><br><span class="hljs-comment">## 参数</span><br><span class="hljs-comment"># images (list[numpy.ndarray]): 图片数据，ndarray.shape 为 [H, W, C]，BGR格式；</span><br><span class="hljs-comment"># paths (list[str]): 图片的路径；</span><br><span class="hljs-comment"># batch_size (int): batch 的大小；</span><br><span class="hljs-comment"># use_gpu (bool): 是否使用 GPU；</span><br><span class="hljs-comment"># visualization (bool): 是否将识别结果保存为图片文件；</span><br><span class="hljs-comment"># output_dir (str): 图片的保存路径。</span><br><br><span class="hljs-comment">##返回</span><br><span class="hljs-comment"># res (list[dict]): 识别结果的列表，列表中每一个元素为 dict，关键字有 &#x27;save_path&#x27;, &#x27;data&#x27;，对应的取值为：</span><br>    <span class="hljs-comment"># save_path (str, optional): 可视化图片的保存路径（仅当visualization=True时存在）；</span><br>    <span class="hljs-comment"># data (numpy.ndarray): 人像分割结果，仅包含Alpha通道，取值为0-255 (0为全透明，255为不透明)，也即取值越大的像素点越可能为人体，取值越小的像素点越可能为背景。</span><br></code></pre></td></tr></table></figure>
+
+
+<ul>
+<li>findCamID.py</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># -*- coding : utf-8 -*-</span><br><span class="hljs-comment"># Author     : MurphyHou</span><br><span class="hljs-comment"># =======Here We Go!=======</span><br><br><span class="hljs-keyword">import</span> cv2<br><span class="hljs-keyword">import</span> time<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">findcamid</span>():<br>	cap = cv2.VideoCapture(<span class="hljs-number">0</span>)<br>	<span class="hljs-comment"># cap = cv2.VideoCapture(1)</span><br>	<span class="hljs-comment"># cap = cv2.VideoCapture(2)</span><br><br>	<span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>		ret, frame = cap.read()<br>		<span class="hljs-comment"># frame = cv2.flip(frame,1)   #镜像操作</span><br>		cv2.imshow(<span class="hljs-string">&quot;video&quot;</span>, frame)<br>		key = cv2.waitKey(<span class="hljs-number">50</span>)<br>		<span class="hljs-comment">#print(key)</span><br>		<span class="hljs-keyword">if</span> key  == <span class="hljs-built_in">ord</span>(<span class="hljs-string">&#x27;q&#x27;</span>):<br>			<span class="hljs-keyword">break</span><br>	cv2.destroyAllWindows()<br><br><span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&#x27;__main__&#x27;</span>:<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;开始&#x27;</span>)<br>	findcamid()<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/676bef32e655">OpenCV VideoCapture.get()参数详解 - 简书 (jianshu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhouzongzong/article/details/92830076">【OpenCV + Python】ret, frame &#x3D; cap.read()返回值含义&amp;视频读取_胖子工作室的博客-CSDN博客_cap.read</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.kancloud.cn/aollo/aolloopencv/269602">说明 · OpenCV-Python初学自码 · 看云 (kancloud.cn)</a></p>
+<p><a target="_blank" rel="noopener" href="https://opencv.apachecn.org/#/">python-opencv 中文文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_47965042/article/details/113359922">OpenCV的VideoCapture类的get、set参数列表_EmbedDebugger的博客-CSDN博客_videocapture参数</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/youcans/article/details/121169014">【OpenCV 例程300篇】02. 图像的保存（cv2.imwrite）_YouCans的博客-CSDN博客_cv2.imwrite</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/babybin/article/details/122044565">python获取所有可用摄像头(id + 名称)可用于opencv_babybin的博客-CSDN博客_python 获取摄像头列表</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/" class="category-chain-item">奇思妙想</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/open-source/" class="print-no-link">#open source</a>
+      
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+        <a href="/tags/OpenCV/" class="print-no-link">#OpenCV</a>
+      
+        <a href="/tags/GUI/" class="print-no-link">#GUI</a>
+      
+        <a href="/tags/NumPy/" class="print-no-link">#NumPy</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>OpenCV延时相机</div>
+      <div>https://cosmicdusty.cc/post/Ideas/OpenCVTimeLapseCamera/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Murphy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post/AI/MachineLearning/" title="机器学习">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">机器学习</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/Ideas/ESP32CAMTimeLapseCamera/" title="ESP32CAM延时相机">
+                        <span class="hidden-mobile">ESP32CAM延时相机</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"JijHNKemeVNog4wF7g9I5TR3-gzGzoHsz","appKey":"FvsKdxHOP2aG5rHrHby5aV0b","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a rel="nofollow noopener"><span>Powered by</span></a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span><b>Hexo</b></span></a> <i class="iconfont icon-love"></i> <a rel="nofollow noopener"><span>Themed by</span></a> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span><b>Fluid</b></span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

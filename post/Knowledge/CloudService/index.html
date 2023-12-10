@@ -1,0 +1,868 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <link rel="icon" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Murphy">
+  <meta name="keywords" content="Murphy,CosmicDusty,murphy,cosmicdusty,cn">
+  
+    <meta name="description" content="使用云服务真是有一种别样的体验啊！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="云服务">
+<meta property="og:url" content="https://cosmicdusty.cc/post/Knowledge/CloudService/index.html">
+<meta property="og:site_name" content="MurphyHou">
+<meta property="og:description" content="使用云服务真是有一种别样的体验啊！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/network-2402637_1280.jpg">
+<meta property="article:published_time" content="2022-03-26T01:34:51.000Z">
+<meta property="article:modified_time" content="2023-12-03T03:26:10.000Z">
+<meta property="article:author" content="Murphy">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="域名">
+<meta property="article:tag" content="云服务">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/network-2402637_1280.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>云服务 - MurphyHou</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cosmicdusty.cc","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"16d93d5abbd7ea15ec53daed5459ebf7","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JijHNKemeVNog4wF7g9I5TR3","app_key":"FvsKdxHOP2aG5rHrHby5aV0b","server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?16d93d5abbd7ea15ec53daed5459ebf7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CosmicDusty</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/network-2402637_1280.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="云服务"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Murphy
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-03-26 09:34" pubdate>
+          2022年3月26日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          22 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">云服务</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>前情提要：之前一直白嫖[码云](<a target="_blank" rel="noopener" href="https://gitee.com/murphyhou">MurphyHou (murphyhou) - Gitee.com</a>)的仓库作为图床，然后一看，自己所有的图片都被换成了Gitee的logo，上网上查了一下，原来是码云屏蔽了仓库的外链。没办法，转战一个新的图床，Github和Gitee是一个性质的，免费，但也有可能被屏蔽外链，另外还有就是速度太慢了。那就直接消费一把，买云存储吧。</p>
+<p>这应该是第二次用阿里云了，第一次用的时候是使用了阿里云的容器镜像空间配置深度学习。</p>
+<p>白嫖阿里云之我是个学生。</p>
+<p>阿里云开发者成长计划面向全年龄段开发者提供免费体验、免费学习、免费实践支持，帮助开发者轻松掌握云上技能。飞天加速，赋能数字经济时代的云计算技术人才。</p>
+<h1 id="阿里云OSS"><a href="#阿里云OSS" class="headerlink" title="阿里云OSS"></a>阿里云OSS</h1><table>
+<thead>
+<tr>
+<th align="center">中文</th>
+<th align="center">英文</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">存储空间</td>
+<td align="center">Bucket</td>
+<td align="center">存储空间是您用于存储对象（Object）的容器，所有的对象都必须隶属于某个存储空间。</td>
+</tr>
+<tr>
+<td align="center">对象&#x2F;文件</td>
+<td align="center">Object</td>
+<td align="center">对象是 OSS 存储数据的基本单元，也被称为OSS的文件。对象由元信息（Object Meta）、用户数据（Data）和文件名（Key）组成。对象由存储空间内部唯一的Key来标识。</td>
+</tr>
+<tr>
+<td align="center">地域</td>
+<td align="center">Region</td>
+<td align="center">地域表示 OSS 的数据中心所在物理位置。您可以根据费用、请求来源等综合选择数据存储的地域。详情请查看<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/31837.htm#concept-zt4-cvy-5db">OSS已经开通的Region</a>。</td>
+</tr>
+<tr>
+<td align="center">访问域名</td>
+<td align="center">Endpoint</td>
+<td align="center">Endpoint 表示OSS对外服务的访问域名。OSS以HTTP RESTful API的形式对外提供服务，当访问不同地域的时候，需要不同的域名。通过内网和外网访问同一个地域所需要的域名也是不同的。具体的内容请参见<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/31837.htm#concept-zt4-cvy-5db">各个Region对应的Endpoint</a>。</td>
+</tr>
+<tr>
+<td align="center">访问密钥</td>
+<td align="center">AccessKey</td>
+<td align="center">AccessKey，简称 AK，指的是访问身份验证中用到的AccessKeyId 和AccessKeySecret。OSS通过使用AccessKeyId 和AccessKeySecret对称加密的方法来验证某个请求的发送者身份。AccessKeyId用于标识用户，AccessKeySecret是用户用于加密签名字符串和OSS用来验证签名字符串的密钥，其中AccessKeySecret 必须保密。</td>
+</tr>
+</tbody></table>
+<h2 id="购买配置"><a href="#购买配置" class="headerlink" title="购买配置"></a>购买配置</h2><p>购买和配置过程比较简单，也我当时也没记录，网上的教程很多，放几个参考教程的链接吧。</p>
+<p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/787128">使用阿里云对象存储OSS+PicGo搭建图床-阿里云开发者社区 (aliyun.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/104152479">阿里云OSS PicGo 配置图床教程 超详细 - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/fengxiandada/article/details/123747655">gitee图床用不了，阿里云OSS搭建图床(非常详细)_每天都要加油呀！的博客-CSDN博客</a></p>
+<h2 id="OSS防盗链"><a href="#OSS防盗链" class="headerlink" title="OSS防盗链"></a>OSS防盗链</h2><div align=center>
+    <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20220327092239189.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<h1 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h1><p>从网站最开始的时候只有一个index界面，到套用网页模板，再到现在的时候hexo部署网站，网站已经经历了三次大的变化了。域名也改过两次了，现在的域名太长了，我就想买个域名玩一下。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">2020.12：https://murphyhou0928.github.io/  GitHub改名了，这个访问不了了<br>2022.01：https://murphyhoucn.github.io/   其实现在还在用这个，只不过是会自己链接到cosmicdusty.cc<br>2022.03：https://cosmicdusty.cc/<br></code></pre></td></tr></table></figure>
+
+<p>参考教程：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e258a46df9b7">GitHub搭建博客自定义域名 - 简书 (jianshu.com)</a></p>
+<p>几个踩坑的地方。</p>
+<p>大部分教程都是设置的记录类型为“A”，记录值为ping<code>https://username.github.io/</code>博客网站时显示的IPV4地址，我一开始也是这样设置的，但是Github会给一个警告，要求我设置成CNAME类型的域名解析。如下：</p>
+<div align=center>
+    <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20220327093537272.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+<p>使用Hexo部署网站的时候会出现部署后域名就不能访问了，这时候要在本地建CNAME文件,然后再hexo d。注意目录结构！</p>
+<div align=center>
+    <img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20220327094142180.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+</div>
+
+
+
+<h1 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h1><p>云服务近几年发展的越来越好了，厂商提供的功能也越来越多，体验也不错，另外价格不算贵。未来肯定会接触到越来越多的云体验，所以学会使用云服务还是很重要的。这次只是使用了云存储，希望下一次能用一下云服务器。</p>
+<p>云服务的设置太多了，需要不断学习，不断使用。</p>
+<p><strong>挖坑</strong>：博客迁移到云服务器上，放弃使用Github Pages，Github方便简单，但是网络环境太差了。</p>
+<h1 id="（白嫖）阿里云ECS初体验"><a href="#（白嫖）阿里云ECS初体验" class="headerlink" title="（白嫖）阿里云ECS初体验"></a>（白嫖）阿里云ECS初体验</h1><p>  之前使用Linux主要通过向日葵远程控制家里的CentOS物理机&#x2F;使用学校实验室的服务器&#x2F;使用WSL，其实还没有真正去尝试买一台云服务器玩一玩。趁着自己还是个学生，能白嫖就白嫖，在<a target="_blank" rel="noopener" href="https://developer.aliyun.com/plan/grow-up">开发者成长计划 (aliyun.com)</a>看到了学生专享，跟着教程做了一遍，做一个测试，领取了两周的ECS服务器。对于初学者来说，没有什么大问题，唯一的限制就是服务器的地域，北方的可以选择乌兰察布，南方的可以选择河源。</p>
+<p>  进入阿里云控制台之后，可以查看实例的信息和状态，选择重置实例密码（记住），就可以开始使用云服务了。</p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20220817085945382.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<p>使用XShell或Terminal连接服务器<code>ssh name@ip</code>，我感觉Terminal更轻便，更无感，就像真的在对自己的电脑进行操作。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">PS C:\Users\DELL&gt; ssh root@xx.xx.xx.xx<br>root@xx.xxx.xx.xx<span class="hljs-string">&#x27;s password:</span><br><span class="hljs-string">Last login: Wed Aug 17 08:35:46 2022 from 211.64.159.164</span><br><span class="hljs-string"></span><br><span class="hljs-string">Welcome to Alibaba Cloud Elastic Compute Service !</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Conda-环境"><a href="#Conda-环境" class="headerlink" title="Conda 环境"></a>Conda 环境</h2><p><a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda — conda documentation</a></p>
+<p>下载，安装，配置环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget -c https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@iZ0jlftcfs16k3ahu5mu80Z ~]<span class="hljs-comment"># cat /root/.bashrc</span><br><span class="hljs-comment"># .bashrc</span><br><br><span class="hljs-comment"># User specific aliases and functions</span><br><br><span class="hljs-built_in">alias</span> <span class="hljs-built_in">rm</span>=<span class="hljs-string">&#x27;rm -i&#x27;</span><br><span class="hljs-built_in">alias</span> <span class="hljs-built_in">cp</span>=<span class="hljs-string">&#x27;cp -i&#x27;</span><br><span class="hljs-built_in">alias</span> <span class="hljs-built_in">mv</span>=<span class="hljs-string">&#x27;mv -i&#x27;</span><br><br><span class="hljs-comment"># Source global definitions</span><br><span class="hljs-keyword">if</span> [ -f /etc/bashrc ]; <span class="hljs-keyword">then</span><br>        . /etc/bashrc<br><span class="hljs-keyword">fi</span><br><br><span class="hljs-comment"># 使用Vim配置环境变量，就能在命令行中调用conda</span><br><span class="hljs-built_in">export</span> PATH=/root/miniconda3/bin:<span class="hljs-variable">$PATH</span><br><br><span class="hljs-comment"># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;</span><br><span class="hljs-comment"># !! Contents within this block are managed by &#x27;conda init&#x27; !!</span><br>__conda_setup=<span class="hljs-string">&quot;<span class="hljs-subst">$(&#x27;/root/miniconda3/bin/conda&#x27; &#x27;shell.bash&#x27; &#x27;hook&#x27; 2&gt; /dev/null)</span>&quot;</span><br><span class="hljs-keyword">if</span> [ $? -eq 0 ]; <span class="hljs-keyword">then</span><br>    <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-variable">$__conda_setup</span>&quot;</span><br><span class="hljs-keyword">else</span><br>    <span class="hljs-keyword">if</span> [ -f <span class="hljs-string">&quot;/root/miniconda3/etc/profile.d/conda.sh&quot;</span> ]; <span class="hljs-keyword">then</span><br>        . <span class="hljs-string">&quot;/root/miniconda3/etc/profile.d/conda.sh&quot;</span><br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-built_in">export</span> PATH=<span class="hljs-string">&quot;/root/miniconda3/bin:<span class="hljs-variable">$PATH</span>&quot;</span><br>    <span class="hljs-keyword">fi</span><br><span class="hljs-keyword">fi</span><br><span class="hljs-built_in">unset</span> __conda_setup<br><span class="hljs-comment"># &lt;&lt;&lt; conda initialize &lt;&lt;&lt;</span><br><br></code></pre></td></tr></table></figure>
+
+<h2 id="阿里云ECS使用体验"><a href="#阿里云ECS使用体验" class="headerlink" title="阿里云ECS使用体验"></a>阿里云ECS使用体验</h2><p>首先请容许我先自我介绍一下，我是一名通信工程专业的本科生，计算机和云技术令我着迷，云服务也是未来科技和国家发展的一个非常重要的一环，我选择主动拥抱这项技术，学习使用云服务使其成为自己趁手的工具。第一次接触到阿里云的飞天加速计划·高校学生在家实践</p>
+<p>大部分人初次使用ECS可能都是在建立自己的博客网站，我很久之前就使用了GitHub Page+阿里云OSS搭建了自己的博客网站，并且也在阿里云购买了域名，未来为了个人网站的发展，我可能再使用阿里云ECS重新构建自己的博客网站。本次我领取的两周的ECS服务主要是为了熟悉Linux操作，实现在Linux运行自己的开发和服务。我未来的学习和工作方向要求我要能够熟练使用Linux，我自学过一些Linux的基本操作，但平时接触更多的还是Windows，我在家里部署了一个CentOS的主机，但是由于家里并没有公网的IP，每次调用远程Linux的时候还需要借助第三方软件，这就给一些操作带来了很多不便。阿里云ECS的连接可以通过XShell，大家公认这是最好的软件，但是我是追求极致简洁的人，我更喜欢直接用Windows的Terminal中的Powershell直接进行ssh连接，仅通过一个窗口便可实现所有的操作。</p>
+<h2 id="后续"><a href="#后续" class="headerlink" title="后续"></a>后续</h2><p>体验期限只有两周，这两周的课还特别多，也没有体验很多，要写一篇使用报告才能再领取一个月，但是由于在忙一些事，也没来得及写。</p>
+<p>之后打算续费一下，但是一年280+太贵了，遂放弃。</p>
+<p>趁一个活动，花了9毛钱买了一个月的1核1G的ECS云服务器。（这一个月的服务器不知道用来干什么了）</p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20220907123005561.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<p>问了同学用的什么云服务器，答：腾讯云。不能在阿里云这一棵树上吊着，于是我去看了腾讯云的活动，首单只要60+，算是非常便宜了！直接买一年，以后的Linux学习和开发就用这个了！</p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20220907122818536.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+
+
+<p>华为云页面有点乱，不知道怎么购买，下次再逮着华为云薅羊毛&#x2F;doge。</p>
+<p>三大云服务厂商，性能应该都是不差的，但是在网页端或APP端的体验不太一样，总的来说是阿里云的最好，功能最全面。腾讯云居然没有APP，只有微信小程序，体验差一点。华为云因为还没有用过，什么体验还不好说。</p>
+<p>还有一点！Linux的发行版本我也从CentOS转到了Ubuntu！第一次接触到Linux是Ubuntu，但是之后看鸟哥的书，就开始主学CentOS，家里的Linux物理机也是CentOS，在WSL上面用的也是Ubuntu，从GitHub上面的开源项目来说，遇到的更多的是Ubuntu，所以未来学习和应用可能一直在Ubuntu上吧。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mimosa2008/article/details/102838028">CentOS怎样查看系统信息_apple@随风的博客-CSDN博客_centos查看系统信息</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-system-contents.html">Linux 系统目录结构 | 菜鸟教程 (runoob.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-tree.html">Linux tree命令 | 菜鸟教程 (runoob.com)</a></p>
+<h1 id="腾讯云轻量应用服务器"><a href="#腾讯云轻量应用服务器" class="headerlink" title="腾讯云轻量应用服务器"></a>腾讯云轻量应用服务器</h1><p>之前白嫖了阿里云的云服务器，用着上瘾了，于是想买一个长期的，一直用着。</p>
+<p>前情提要：<a href="https://cosmicdusty.cc/post/%EF%BC%88%E7%99%BD%E5%AB%96%EF%BC%89%E9%98%BF%E9%87%8C%E4%BA%91ECS%E5%88%9D%E4%BD%93%E9%AA%8C">（白嫖）阿里云ECS初体验|Murphy</a></p>
+<p>这个服务器是用来干什么呢?之前有相关把GitHub Pages用国内的云服务替代掉，但是又感觉没什么很大的必要，只是访问速度快一些罢了。所以，这个需求先放一下，这次的服务器先用来熟悉Linux的操作吧，这段时间是打算在Linux环境下学习一下PyTorch的使用，找了一个很不错的教程。</p>
+<h2 id="登陆"><a href="#登陆" class="headerlink" title="登陆"></a>登陆</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) PS C:\Users\DELL&gt; ssh ubuntu@43.143.179.75<br>ubuntu@43.143.179.75<span class="hljs-string">&#x27;s password:</span><br><span class="hljs-string">Welcome to Ubuntu 20.04 LTS (GNU/Linux 5.4.0-121-generic x86_64)</span><br><span class="hljs-string"></span><br><span class="hljs-string"> * Documentation:  https://help.ubuntu.com</span><br><span class="hljs-string"> * Management:     https://landscape.canonical.com</span><br><span class="hljs-string"> * Support:        https://ubuntu.com/advantage</span><br><span class="hljs-string"></span><br><span class="hljs-string">  System information as of Thu 08 Sep 2022 09:07:31 AM CST</span><br><span class="hljs-string"></span><br><span class="hljs-string">  System load:  0.08               Processes:             126</span><br><span class="hljs-string">  Usage of /:   10.0% of 39.31GB   Users logged in:       0</span><br><span class="hljs-string">  Memory usage: 13%                IPv4 address for eth0: 10.0.8.15</span><br><span class="hljs-string">  Swap usage:   0%</span><br><span class="hljs-string"></span><br><span class="hljs-string">  =&gt; There is 1 zombie process.</span><br><span class="hljs-string"></span><br><span class="hljs-string"> * Super-optimized for small spaces - read how we shrank the memory</span><br><span class="hljs-string">   footprint of MicroK8s to make it the smallest full K8s around.</span><br><span class="hljs-string"></span><br><span class="hljs-string">   https://ubuntu.com/blog/microk8s-memory-optimisation</span><br><span class="hljs-string">New release &#x27;</span>22.04.1 LTS<span class="hljs-string">&#x27; available.</span><br><span class="hljs-string">Run &#x27;</span>do-release-upgrade<span class="hljs-string">&#x27; to upgrade to it.</span><br><span class="hljs-string"></span><br><span class="hljs-string"></span><br><span class="hljs-string">Last login: Wed Sep  7 12:06:31 2022 from 211.64.159.160</span><br><span class="hljs-string">To run a command as administrator (user &quot;root&quot;), use &quot;sudo &lt;command&gt;&quot;.</span><br><span class="hljs-string">See &quot;man sudo_root&quot; for details.</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="自动断开"><a href="#自动断开" class="headerlink" title="自动断开"></a>自动断开</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lxyoucan/article/details/114274326">腾讯云主机ssh自动断开解决办法_ITKEY_的博客-CSDN博客_clientaliveinterval</a></p>
+<h1 id="阿里云SLA赔偿"><a href="#阿里云SLA赔偿" class="headerlink" title="阿里云SLA赔偿"></a>阿里云SLA赔偿</h1><p>2023.11.12阿里云发生故障，阿里巴巴业务几乎都受到了影响，常用业务几乎全线崩塌！</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/629942630">(11 封私信) 如何看待阿里云 2023 年 11 月 12 日发生的故障？ - 知乎 (zhihu.com)</a></p>
+</blockquote>
+<p>我那天也没上博客网站，所以对我并没有造成什么影响。因为阿里云这次故障OSS服务受到了很大的影响，所以阿里云也给我进行了补偿，这一点阿里巴巴作为一个大企业做的太有魄力了。阿里云通过短信和邮件的方式把赔付情况基于了说明，但是短信我没怎么在意直接忽略掉了，邮件因为在笔记本电脑上，而笔记本那段时间一直没有开，所以也没看到。后来查看邮件的时候，才发现了阿里云的邮件！阿里云赔付的代金券有效期是半年，挺不错的。我直接续费了一年的域名，75-50，爽了。</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20231203112042458.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20231203112042458"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%AF%E7%B4%AF/" class="category-chain-item">知识积累</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+      
+        <a href="/tags/%E5%9F%9F%E5%90%8D/" class="print-no-link">#域名</a>
+      
+        <a href="/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1/" class="print-no-link">#云服务</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>云服务</div>
+      <div>https://cosmicdusty.cc/post/Knowledge/CloudService/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Murphy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年3月26日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post/Knowledge/Vim/" title="Vim使用指南">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Vim使用指南</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/Tools/OrganizeTheWindowsDesktopRightclickMenu/" title="整理Windows桌面右键菜单">
+                        <span class="hidden-mobile">整理Windows桌面右键菜单</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"JijHNKemeVNog4wF7g9I5TR3-gzGzoHsz","appKey":"FvsKdxHOP2aG5rHrHby5aV0b","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a rel="nofollow noopener"><span>Powered by</span></a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span><b>Hexo</b></span></a> <i class="iconfont icon-love"></i> <a rel="nofollow noopener"><span>Themed by</span></a> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span><b>Fluid</b></span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

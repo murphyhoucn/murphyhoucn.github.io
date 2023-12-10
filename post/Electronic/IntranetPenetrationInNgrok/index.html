@@ -1,0 +1,776 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <link rel="icon" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Murphy">
+  <meta name="keywords" content="Murphy,CosmicDusty,murphy,cosmicdusty,cn">
+  
+    <meta name="description" content="使用ESP32CAM实现视频流功能，使用Ngrok服务将私有IP映射到公网这样就可以在外网用公网IP（域名）实现对私有ip的访问。该项目目前实现地并不完善，还有一点遗憾，在文章最后写下了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ngrok内网穿透实现远程监控">
+<meta property="og:url" content="https://cosmicdusty.cc/post/Electronic/IntranetPenetrationInNgrok/index.html">
+<meta property="og:site_name" content="MurphyHou">
+<meta property="og:description" content="使用ESP32CAM实现视频流功能，使用Ngrok服务将私有IP映射到公网这样就可以在外网用公网IP（域名）实现对私有ip的访问。该项目目前实现地并不完善，还有一点遗憾，在文章最后写下了。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/ngrok.png">
+<meta property="article:published_time" content="2022-04-27T06:25:16.000Z">
+<meta property="article:modified_time" content="2023-10-22T09:52:06.000Z">
+<meta property="article:author" content="Murphy">
+<meta property="article:tag" content="ESP">
+<meta property="article:tag" content="内网穿透">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/ngrok.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Ngrok内网穿透实现远程监控 - MurphyHou</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cosmicdusty.cc","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"16d93d5abbd7ea15ec53daed5459ebf7","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JijHNKemeVNog4wF7g9I5TR3","app_key":"FvsKdxHOP2aG5rHrHby5aV0b","server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?16d93d5abbd7ea15ec53daed5459ebf7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CosmicDusty</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/ngrok.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Ngrok内网穿透实现远程监控"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Murphy
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-04-27 14:25" pubdate>
+          2022年4月27日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          339 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          3 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Ngrok内网穿透实现远程监控</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="使用ESP32CAM实现视频流功能"><a href="#使用ESP32CAM实现视频流功能" class="headerlink" title="使用ESP32CAM实现视频流功能"></a>使用ESP32CAM实现视频流功能</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br></pre></td><td class="code"><pre><code class="hljs C"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;esp_camera.h&quot;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;WiFi.h&gt;</span></span><br><br><span class="hljs-type">const</span> <span class="hljs-type">char</span>* ssid = <span class="hljs-string">&quot;MERCURY&quot;</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">char</span>* password = <span class="hljs-string">&quot;11235813&quot;</span>;<br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> PWDN_GPIO_NUM     32</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> RESET_GPIO_NUM    -1</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> XCLK_GPIO_NUM      0</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> SIOD_GPIO_NUM     26</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> SIOC_GPIO_NUM     27</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y9_GPIO_NUM       35</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y8_GPIO_NUM       34</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y7_GPIO_NUM       39</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y6_GPIO_NUM       36</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y5_GPIO_NUM       21</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y4_GPIO_NUM       19</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y3_GPIO_NUM       18</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> Y2_GPIO_NUM        5</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> VSYNC_GPIO_NUM    25</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> HREF_GPIO_NUM     23</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> PCLK_GPIO_NUM     22</span><br><br>WiFiServer <span class="hljs-title function_">server</span><span class="hljs-params">(<span class="hljs-number">80</span>)</span>;<br><span class="hljs-type">bool</span> connected = <span class="hljs-literal">false</span>;<br>WiFiClient live_client;<br><br><br>String index_html = <span class="hljs-string">&quot;&lt;meta charset=\&quot;utf-8\&quot;/&gt;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;&lt;style&gt;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;#content &#123;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;display: flex;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;flex-direction: column;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;justify-content: center;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;align-items: center;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;text-align: center;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;min-height: 100vh;&#125;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;&lt;/style&gt;\n&quot;</span> \<br>                    <span class="hljs-string">&quot;&lt;body bgcolor=\&quot;#000000\&quot;&gt;&lt;div id=\&quot;content\&quot;&gt;&lt;h2 style=\&quot;color:#ffffff\&quot;&gt;Murphy LIVE&lt;/h2&gt;&lt;img src=\&quot;video\&quot;&gt;&lt;/div&gt;&lt;/body&gt;&quot;</span>;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">configCamera</span><span class="hljs-params">()</span>&#123;<br>  <span class="hljs-type">camera_config_t</span> config;<br>  config.ledc_channel = LEDC_CHANNEL_0;<br>  config.ledc_timer = LEDC_TIMER_0;<br>  config.pin_d0 = Y2_GPIO_NUM;<br>  config.pin_d1 = Y3_GPIO_NUM;<br>  config.pin_d2 = Y4_GPIO_NUM;<br>  config.pin_d3 = Y5_GPIO_NUM;<br>  config.pin_d4 = Y6_GPIO_NUM;<br>  config.pin_d5 = Y7_GPIO_NUM;<br>  config.pin_d6 = Y8_GPIO_NUM;<br>  config.pin_d7 = Y9_GPIO_NUM;<br>  config.pin_xclk = XCLK_GPIO_NUM;<br>  config.pin_pclk = PCLK_GPIO_NUM;<br>  config.pin_vsync = VSYNC_GPIO_NUM;<br>  config.pin_href = HREF_GPIO_NUM;<br>  config.pin_sscb_sda = SIOD_GPIO_NUM;<br>  config.pin_sscb_scl = SIOC_GPIO_NUM;<br>  config.pin_pwdn = PWDN_GPIO_NUM;<br>  config.pin_reset = RESET_GPIO_NUM;<br>  config.xclk_freq_hz = <span class="hljs-number">20000000</span>;<br>  config.pixel_format = PIXFORMAT_JPEG;<br><br>  config.frame_size = FRAMESIZE_QVGA;<br>  config.jpeg_quality = <span class="hljs-number">9</span>;<br>  config.fb_count = <span class="hljs-number">1</span>;<br><br>  <span class="hljs-type">esp_err_t</span> err = esp_camera_init(&amp;config);<br>  <span class="hljs-keyword">if</span> (err != ESP_OK) &#123;<br>    Serial.<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Camera init failed with error 0x%x&quot;</span>, err);<br>    <span class="hljs-keyword">return</span>;<br>  &#125;<br>&#125;<br><br><span class="hljs-comment">//continue sending camera frame</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">liveCam</span><span class="hljs-params">(WiFiClient &amp;client)</span>&#123;<br>  <span class="hljs-type">camera_fb_t</span> * fb = esp_camera_fb_get();<br>  <span class="hljs-keyword">if</span> (!fb) &#123;<br>      Serial.println(<span class="hljs-string">&quot;Frame buffer could not be acquired&quot;</span>);<br>      <span class="hljs-keyword">return</span>;<br>  &#125;<br>  client.print(<span class="hljs-string">&quot;--frame\n&quot;</span>);<br>  client.print(<span class="hljs-string">&quot;Content-Type: image/jpeg\n\n&quot;</span>);<br>  client.flush();<br>  client.write(fb-&gt;buf, fb-&gt;len);<br>  client.flush();<br>  client.print(<span class="hljs-string">&quot;\n&quot;</span>);<br>  esp_camera_fb_return(fb);<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">setup</span><span class="hljs-params">()</span> &#123;<br>  Serial.begin(<span class="hljs-number">115200</span>);<br>  WiFi.begin(ssid, password);<br>  Serial.println(<span class="hljs-string">&quot;&quot;</span>);<br>  <span class="hljs-keyword">while</span> (WiFi.status() != WL_CONNECTED) &#123;<br>    delay(<span class="hljs-number">500</span>);<br>    Serial.print(<span class="hljs-string">&quot;.&quot;</span>);<br>  &#125;<br>  Serial.println(<span class="hljs-string">&quot;&quot;</span>);<br>  String IP = WiFi.localIP().toString();<br>  Serial.println(<span class="hljs-string">&quot;IP address: &quot;</span> + IP);<br>  index_html.replace(<span class="hljs-string">&quot;server_ip&quot;</span>, IP);<br>  server.begin();<br>  configCamera();<br>&#125;<br>    <br><span class="hljs-type">void</span> <span class="hljs-title function_">http_resp</span><span class="hljs-params">()</span>&#123;<br>  WiFiClient client = server.available();                           <br>  <span class="hljs-keyword">if</span> (client.connected()) &#123;     <br>      String req = <span class="hljs-string">&quot;&quot;</span>;<br>      <span class="hljs-keyword">while</span>(client.available())&#123;<br>        req += (<span class="hljs-type">char</span>)client.read();<br>      &#125;<br>      Serial.println(<span class="hljs-string">&quot;request &quot;</span> + req);<br>      <span class="hljs-type">int</span> addr_start = req.indexOf(<span class="hljs-string">&quot;GET&quot;</span>) + <span class="hljs-built_in">strlen</span>(<span class="hljs-string">&quot;GET&quot;</span>);<br>      <span class="hljs-type">int</span> addr_end = req.indexOf(<span class="hljs-string">&quot;HTTP&quot;</span>, addr_start);<br>      <span class="hljs-keyword">if</span> (addr_start == <span class="hljs-number">-1</span> || addr_end == <span class="hljs-number">-1</span>) &#123;<br>          Serial.println(<span class="hljs-string">&quot;Invalid request &quot;</span> + req);<br>          <span class="hljs-keyword">return</span>;<br>      &#125;<br>      req = req.substring(addr_start, addr_end);<br>      req.trim();<br>      Serial.println(<span class="hljs-string">&quot;Request: &quot;</span> + req);<br>      client.flush();<br>  <br>      String s;<br>      <span class="hljs-keyword">if</span> (req == <span class="hljs-string">&quot;/&quot;</span>)<br>      &#123;<br>          s = <span class="hljs-string">&quot;HTTP/1.1 200 OK\n&quot;</span>;<br>          s += <span class="hljs-string">&quot;Content-Type: text/html\n\n&quot;</span>;<br>          s += index_html;<br>          s += <span class="hljs-string">&quot;\n&quot;</span>;<br>          client.print(s);<br>          client.stop();<br>      &#125;<br>      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (req == <span class="hljs-string">&quot;/video&quot;</span>)<br>      &#123;<br>          live_client = client;<br>          live_client.print(<span class="hljs-string">&quot;HTTP/1.1 200 OK\n&quot;</span>);<br>          live_client.print(<span class="hljs-string">&quot;Content-Type: multipart/x-mixed-replace; boundary=frame\n\n&quot;</span>);<br>          live_client.flush();<br>          connected = <span class="hljs-literal">true</span>;<br>      &#125;<br>      <span class="hljs-keyword">else</span><br>      &#123;<br>          s = <span class="hljs-string">&quot;HTTP/1.1 404 Not Found\n\n&quot;</span>;<br>          client.print(s);<br>          client.stop();<br>      &#125;<br>    &#125;       <br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">loop</span><span class="hljs-params">()</span> &#123;<br>  http_resp();<br>  <span class="hljs-keyword">if</span>(connected == <span class="hljs-literal">true</span>)&#123;<br>    liveCam(live_client);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="使用Ngrok服务将私有IP映射到公网"><a href="#使用Ngrok服务将私有IP映射到公网" class="headerlink" title="使用Ngrok服务将私有IP映射到公网"></a>使用Ngrok服务将私有IP映射到公网</h1><ol>
+<li>注册ngrok，得到个人token</li>
+</ol>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20220628141555266.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<ol>
+<li>下载合适的<a target="_blank" rel="noopener" href="https://ngrok.com/download">ngrok - download</a>版本到本地计算机，本地计算机需要和ESP32CAM在同一个局域网内。</li>
+<li>进入命令行</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs bash">Microsoft Windows [版本 10.0.19044.1766]<br>(c) Microsoft Corporation。保留所有权利。<br><br>C:\Users\DELL&gt;d:<br>D:\&gt;<span class="hljs-built_in">cd</span> D:\Develop_Arduino\ESP32CAM\ngrok<br>D:\Develop_Arduino\ESP32CAM\ngrok&gt;ngrok.exe<br>NAME:<br>  ngrok - tunnel <span class="hljs-built_in">local</span> ports to public URLs and inspect traffic                                                                                                                                                                                 USAGE:<br>  ngrok [<span class="hljs-built_in">command</span>] [flags]                                                                                                                                                                                                                       DESCRIPTION:<br>  ngrok exposes <span class="hljs-built_in">local</span> networked services behinds NATs and firewalls to the<br>  public internet over a secure tunnel. Share <span class="hljs-built_in">local</span> websites, build/test<br>  webhook consumers and self-host personal services.<br>  Detailed <span class="hljs-built_in">help</span> <span class="hljs-keyword">for</span> each <span class="hljs-built_in">command</span> is available with <span class="hljs-string">&#x27;ngrok help &lt;command&gt;&#x27;</span>.<br>  Open http://localhost:4040 <span class="hljs-keyword">for</span> ngrok<span class="hljs-string">&#x27;s web interface to inspect traffic.                                                                                                                                                                      Author:</span><br><span class="hljs-string">  ngrok - &lt;support@ngrok.com&gt;                                                                                                                                                                                                                   TERMS OF SERVICE: https://ngrok.com/tos                                                                                                                                                                                                         EXAMPLES:</span><br><span class="hljs-string">  ngrok http 80                    # secure public URL for port 80 web server</span><br><span class="hljs-string">  ngrok http --subdomain=baz 8080  # port 8080 available at baz.ngrok.io</span><br><span class="hljs-string">  ngrok http foo.dev:80            # tunnel to host:port instead of localhost</span><br><span class="hljs-string">  ngrok http https://localhost     # expose a local https server</span><br><span class="hljs-string">  ngrok tcp 22                     # tunnel arbitrary TCP traffic to port 22</span><br><span class="hljs-string">  ngrok tls --hostname=foo.com 443 # TLS traffic for foo.com to port 443</span><br><span class="hljs-string">  ngrok start foo bar baz          # start tunnels from the configuration file                                                                                                                                                                  COMMANDS:</span><br><span class="hljs-string">  api                            use ngrok agent as an api client</span><br><span class="hljs-string">  completion                     generates shell completion code for bash or zsh</span><br><span class="hljs-string">  config                         update or migrate ngrok&#x27;</span>s configuration file<br>  credits                        prints author and licensing information<br>  diagnose                       diagnose connection issues<br>  <span class="hljs-built_in">help</span>                           Help about any <span class="hljs-built_in">command</span><br>  http                           start an HTTP tunnel<br>  service                        run and control an ngrok service on a target operating system<br>  start                          start tunnels by name from the configuration file<br>  tcp                            start a TCP tunnel<br>  tls                            start a TLS tunnel<br>  tunnel                         start a tunnel <span class="hljs-keyword">for</span> use with a tunnel-group backend<br>  update                         update ngrok to the latest version<br>  version                        <span class="hljs-built_in">print</span> the version string<br><br>OPTIONS:<br>  -h, --<span class="hljs-built_in">help</span>      <span class="hljs-built_in">help</span> <span class="hljs-keyword">for</span> ngrok<br>  -v, --version   version <span class="hljs-keyword">for</span> ngrok<br><br>D:\Develop_Arduino\ESP32CAM\ngrok&gt;ngrok authtoken &lt;your token&gt;<br>Authtoken saved to configuration file: C:\Users\DELL\AppData\Local/ngrok/ngrok.yml<br><br>D:\Develop_Arduino\ESP32CAM\ngrok&gt;ngrok http 192.168.1.103:80<br></code></pre></td></tr></table></figure>
+
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20220628142256442.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<p>浏览器访问该域名，便可实现在外网访问私网的ESP32CAM。</p>
+<p>需要注意的是，当该命令行关闭，则ngrok服务就结束了，所以这并不能长时间地将ESP32CAM推到公网。有长久使用计划地话，我的想法是改造废弃手机，将安卓手机刷成Linux，让Ngrok服务在手机上一直跑着，则这个问题就可以得到解决。</p>
+<p>目前我并没有实现我的这个想法，手头没有合适的手机，有一个安卓5.1的手机，Termux和AidLux在这台老手机上不能正常运行，安卓版本太低了，想买一个二手手机，只跑整个一个服务又觉得不怎么值当的，所以该想法目前是搁置状态，之后有机会的话在尝试着实现一下。</p>
+<p>还有一个安全性问题，映射到公网意味者任何人都可以访问， 因此还需要做一个后台，限制非法访问，这个目前还没想好应该怎么做。</p>
+<p>项目来源自Arduino社区：<a target="_blank" rel="noopener" href="https://create.arduino.cc/projecthub/CiferTech/how-to-access-esp32-cam-worldwide-using-ngrok-210aa0">How to Access ESP32-CAM Worldwide using ngrok - Arduino Project Hub</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%B5%E5%AD%90%E7%94%B5%E8%B7%AF/" class="category-chain-item">电子电路</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/ESP/" class="print-no-link">#ESP</a>
+      
+        <a href="/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" class="print-no-link">#内网穿透</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Ngrok内网穿透实现远程监控</div>
+      <div>https://cosmicdusty.cc/post/Electronic/IntranetPenetrationInNgrok/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Murphy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年4月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post/Knowledge/PythonDevelopmentEnvironment/" title="Python编程环境">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python编程环境</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/Tools/HUAWEIMatePadPro/" title="HUAWEI-MatePad-Pro">
+                        <span class="hidden-mobile">HUAWEI-MatePad-Pro</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"JijHNKemeVNog4wF7g9I5TR3-gzGzoHsz","appKey":"FvsKdxHOP2aG5rHrHby5aV0b","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a rel="nofollow noopener"><span>Powered by</span></a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span><b>Hexo</b></span></a> <i class="iconfont icon-love"></i> <a rel="nofollow noopener"><span>Themed by</span></a> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span><b>Fluid</b></span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

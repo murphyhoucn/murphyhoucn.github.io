@@ -1,0 +1,791 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <link rel="icon" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Murphy">
+  <meta name="keywords" content="Murphy,CosmicDusty,murphy,cosmicdusty,cn">
+  
+    <meta name="description" content="ESP32控制舵机实现自动开关灯">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ESP32控制舵机实现自动开关灯">
+<meta property="og:url" content="https://cosmicdusty.cc/post/Ideas/ESP32ControlsServo/index.html">
+<meta property="og:site_name" content="MurphyHou">
+<meta property="og:description" content="ESP32控制舵机实现自动开关灯">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/MD_2022-09-07_19-26-59.png">
+<meta property="article:published_time" content="2022-09-06T14:41:13.000Z">
+<meta property="article:modified_time" content="2023-05-05T14:19:49.000Z">
+<meta property="article:author" content="Murphy">
+<meta property="article:tag" content="open source">
+<meta property="article:tag" content="ESP">
+<meta property="article:tag" content="C&#x2F;C++">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/MD_2022-09-07_19-26-59.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>ESP32控制舵机实现自动开关灯 - MurphyHou</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cosmicdusty.cc","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"16d93d5abbd7ea15ec53daed5459ebf7","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JijHNKemeVNog4wF7g9I5TR3","app_key":"FvsKdxHOP2aG5rHrHby5aV0b","server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?16d93d5abbd7ea15ec53daed5459ebf7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CosmicDusty</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/MD_2022-09-07_19-26-59.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="ESP32控制舵机实现自动开关灯"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Murphy
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-09-06 22:41" pubdate>
+          2022年9月6日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          492 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          5 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">ESP32控制舵机实现自动开关灯</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>这是第四次把电子制作捡起来又放下，捡起来是因为刚刚搬了校区，感觉可以收拾一下宿舍，实现自动化开关电灯；放下是因为只完成了电路部分的制作，机械方面自己没有知识储备，自己做不出来了。😅😥😭</p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>这次项目其实很简单，B站上也有很多相似的项目。ESP32驱动舵机，舵机固定在电灯开关上，从而实现开灯。将ESP32通过Blinker接入天猫精灵，从而实现了语音唤醒功能。</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20220907201340790.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20220907201340790"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/demo_bb.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="demo_bb"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/demo_pcb.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="demo_pcb"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/demo_%E5%9B%BE%E7%A4%BA.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="demo_图示"></p>
+<h1 id="制作"><a href="#制作" class="headerlink" title="制作"></a>制作</h1><h2 id="版本1-网页端"><a href="#版本1-网页端" class="headerlink" title="版本1 - 网页端"></a>版本1 - 网页端</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;ESP32Servo.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;WiFi.h&gt;</span></span><br><br>Servo myservo;  <span class="hljs-comment">// 定义Servo对象来控制</span><br><span class="hljs-type">int</span> pos = <span class="hljs-number">90</span>;    <span class="hljs-comment">// 角度存储变量</span><br><br><br><span class="hljs-comment">// WIFI信息</span><br><span class="hljs-type">const</span> <span class="hljs-type">char</span>* ssid = <span class="hljs-string">&quot;ssid&quot;</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">char</span>* password = <span class="hljs-string">&quot;passwrod&quot;</span>;<br><br><span class="hljs-comment">// Set web server port number to 80</span><br>WiFiServer <span class="hljs-title function_">server</span><span class="hljs-params">(<span class="hljs-number">80</span>)</span>;<br><br><span class="hljs-comment">// 变量来存储HTTP请求</span><br>String header;<br><br><span class="hljs-comment">// 用于存储当前输出状态的辅助变量</span><br>String output26State = <span class="hljs-string">&quot;off&quot;</span>;<br>String output27State = <span class="hljs-string">&quot;off&quot;</span>;<br><br><span class="hljs-comment">// 配置输出引脚号</span><br><span class="hljs-type">const</span> <span class="hljs-type">int</span> output26 = <span class="hljs-number">26</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> output27 = <span class="hljs-number">27</span>;<br><br><span class="hljs-comment">// 设置静态IP信息（配置信息前需要对将要接入的wifi网段有了解）</span><br>IPAddress <span class="hljs-title function_">local_IP</span><span class="hljs-params">(<span class="hljs-number">192</span>, <span class="hljs-number">168</span>, <span class="hljs-number">1</span>, <span class="hljs-number">111</span>)</span>;<br><span class="hljs-comment">// 设置静态IP网关</span><br>IPAddress <span class="hljs-title function_">gateway</span><span class="hljs-params">(<span class="hljs-number">192</span>, <span class="hljs-number">168</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>)</span>;<br><br>IPAddress <span class="hljs-title function_">subnet</span><span class="hljs-params">(<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)</span>;<br>IPAddress <span class="hljs-title function_">primaryDNS</span><span class="hljs-params">(<span class="hljs-number">8</span>, <span class="hljs-number">8</span>, <span class="hljs-number">8</span>, <span class="hljs-number">8</span>)</span>;   <span class="hljs-comment">//optional</span><br>IPAddress <span class="hljs-title function_">secondaryDNS</span><span class="hljs-params">(<span class="hljs-number">8</span>, <span class="hljs-number">8</span>, <span class="hljs-number">4</span>, <span class="hljs-number">4</span>)</span>; <span class="hljs-comment">//optional</span><br><br><span class="hljs-type">void</span> <span class="hljs-title function_">kaideng</span><span class="hljs-params">()</span>&#123;<br>  myservo.write(pos);<br>  delay(<span class="hljs-number">2000</span>);<br>  myservo.write(pos+<span class="hljs-number">45</span>);<br>  delay(<span class="hljs-number">1000</span>);<br>  myservo.write(pos);<br>  delay(<span class="hljs-number">2000</span>);<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">guandeng</span><span class="hljs-params">()</span>&#123;<br>  myservo.write(pos);<br>  delay(<span class="hljs-number">2000</span>);<br>  myservo.write(pos<span class="hljs-number">-45</span>);<br>  delay(<span class="hljs-number">1000</span>);<br>  myservo.write(pos);<br>  delay(<span class="hljs-number">2000</span>);<br>&#125;<br><br><br><span class="hljs-type">void</span> <span class="hljs-title function_">setup</span><span class="hljs-params">()</span> &#123;<br>  <br>  myservo.attach(<span class="hljs-number">16</span>);  <span class="hljs-comment">// 控制线 GPIO16</span><br>  <br>  Serial.begin(<span class="hljs-number">115200</span>);<br>  <span class="hljs-comment">// Initialize the output variables as outputs</span><br>  pinMode(output26, OUTPUT);<br>  pinMode(output27, OUTPUT);<br>  <span class="hljs-comment">// Set outputs to LOW</span><br>  digitalWrite(output26, LOW);<br>  digitalWrite(output27, LOW);<br><br>  <span class="hljs-comment">// Configures static IP address</span><br>  <span class="hljs-keyword">if</span> (!WiFi.config(local_IP, gateway, subnet, primaryDNS, secondaryDNS)) &#123;<br>    Serial.println(<span class="hljs-string">&quot;STA Failed to configure&quot;</span>);<br>  &#125;<br>  <br>  <span class="hljs-comment">// Connect to Wi-Fi network with SSID and password</span><br>  Serial.print(<span class="hljs-string">&quot;Connecting to &quot;</span>);<br>  Serial.println(ssid);<br>  WiFi.begin(ssid, password);<br>  <span class="hljs-keyword">while</span> (WiFi.status() != WL_CONNECTED) &#123;<br>    delay(<span class="hljs-number">500</span>);<br>    Serial.print(<span class="hljs-string">&quot;.&quot;</span>);<br>  &#125;<br>  <span class="hljs-comment">// Print local IP address and start web server</span><br>  Serial.println(<span class="hljs-string">&quot;&quot;</span>);<br>  Serial.println(<span class="hljs-string">&quot;WiFi connected.&quot;</span>);<br>  Serial.println(<span class="hljs-string">&quot;IP address: &quot;</span>);<br>  Serial.println(WiFi.localIP());<br>  server.begin();<br>&#125;<br><br><br><br><span class="hljs-type">void</span> <span class="hljs-title function_">loop</span><span class="hljs-params">()</span>&#123;<br>  WiFiClient client = server.available();   <span class="hljs-comment">// Listen for incoming clients</span><br><br>  <span class="hljs-keyword">if</span> (client) &#123;                             <span class="hljs-comment">// If a new client connects,</span><br>    Serial.println(<span class="hljs-string">&quot;New Client.&quot;</span>);          <span class="hljs-comment">// print a message out in the serial port</span><br>    String currentLine = <span class="hljs-string">&quot;&quot;</span>;                <span class="hljs-comment">// make a String to hold incoming data from the client</span><br>    <span class="hljs-keyword">while</span> (client.connected()) &#123;            <span class="hljs-comment">// loop while the client&#x27;s connected</span><br>      <span class="hljs-keyword">if</span> (client.available()) &#123;             <span class="hljs-comment">// if there&#x27;s bytes to read from the client,</span><br>        <span class="hljs-type">char</span> c = client.read();             <span class="hljs-comment">// read a byte, then</span><br>        Serial.write(c);                    <span class="hljs-comment">// print it out the serial monitor</span><br>        header += c;<br>        <span class="hljs-keyword">if</span> (c == <span class="hljs-string">&#x27;\n&#x27;</span>) &#123;                    <span class="hljs-comment">// if the byte is a newline character</span><br>          <span class="hljs-comment">// if the current line is blank, you got two newline characters in a row.</span><br>          <span class="hljs-comment">// that&#x27;s the end of the client HTTP request, so send a response:</span><br>          <span class="hljs-keyword">if</span> (currentLine.length() == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-comment">// HTTP headers always start with a response code (e.g. HTTP/1.1 200 OK)</span><br>            <span class="hljs-comment">// and a content-type so the client knows what&#x27;s coming, then a blank line:</span><br>            client.println(<span class="hljs-string">&quot;HTTP/1.1 200 OK&quot;</span>);<br>            client.println(<span class="hljs-string">&quot;Content-type:text/html&quot;</span>);<br>            client.println(<span class="hljs-string">&quot;Connection: close&quot;</span>);<br>            client.println();<br>            <br>            <span class="hljs-comment">// turns the GPIOs on and off</span><br>            <span class="hljs-keyword">if</span> (header.indexOf(<span class="hljs-string">&quot;GET /26/on&quot;</span>) &gt;= <span class="hljs-number">0</span>) &#123;<br>              Serial.println(<span class="hljs-string">&quot;GPIO 26 on&quot;</span>);<br>              output26State = <span class="hljs-string">&quot;on&quot;</span>;<br>              digitalWrite(output26, HIGH);<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (header.indexOf(<span class="hljs-string">&quot;GET /26/off&quot;</span>) &gt;= <span class="hljs-number">0</span>) &#123;<br>              Serial.println(<span class="hljs-string">&quot;GPIO 26 off&quot;</span>);<br>              output26State = <span class="hljs-string">&quot;off&quot;</span>;<br>              digitalWrite(output26, LOW);<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (header.indexOf(<span class="hljs-string">&quot;GET /27/on&quot;</span>) &gt;= <span class="hljs-number">0</span>) &#123;<br>              Serial.println(<span class="hljs-string">&quot;GPIO 27 on&quot;</span>);<br>              output27State = <span class="hljs-string">&quot;on&quot;</span>;<br>              digitalWrite(output27, HIGH);<br>            &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (header.indexOf(<span class="hljs-string">&quot;GET /27/off&quot;</span>) &gt;= <span class="hljs-number">0</span>) &#123;<br>              Serial.println(<span class="hljs-string">&quot;GPIO 27 off&quot;</span>);<br>              output27State = <span class="hljs-string">&quot;off&quot;</span>;<br>              digitalWrite(output27, LOW);<br>            &#125;<br><br>            <span class="hljs-comment">// 访问显示页面</span><br>            client.println(<span class="hljs-string">&quot;&lt;!DOCTYPE html&gt;&lt;html&gt;&quot;</span>);          <br>            client.println(<span class="hljs-string">&quot;&lt;head&gt;&lt;meta name=\&quot;viewport\&quot; content=\&quot;width=device-width, initial-scale=1\&quot;&gt;&quot;</span>);<br>            client.println(<span class="hljs-string">&quot;&lt;meta charset=\&quot;UTF-8\&quot;&gt;&quot;</span>);<br>            client.println(<span class="hljs-string">&quot;&lt;link rel=\&quot;icon\&quot; href=\&quot;data:,\&quot;&gt;&quot;</span>);<br>            <span class="hljs-comment">// CSS to style the on/off buttons </span><br>            <span class="hljs-comment">// Feel free to change the background-color and font-size attributes to fit your preferences</span><br>            client.println(<span class="hljs-string">&quot;&lt;style&gt;html &#123; font-family: Helvetica; display: inline-block; margin: 0px auto; text-align: center;&#125;&quot;</span>);<br>            client.println(<span class="hljs-string">&quot;.button &#123; background-color: #4CAF50; border: none; color: white; padding: 16px 40px;&quot;</span>);<br>            client.println(<span class="hljs-string">&quot;text-decoration: none; font-size: 30px; margin: 2px; cursor: pointer;&#125;&quot;</span>);<br>            client.println(<span class="hljs-string">&quot;.button2 &#123;background-color: #555555;&#125;&lt;/style&gt;&lt;/head&gt;&quot;</span>);<br>            <br>            <span class="hljs-comment">// Web Page Heading</span><br>            client.println(<span class="hljs-string">&quot;&lt;body&gt;&lt;h1&gt;ESP32 Web Server&lt;/h1&gt;&quot;</span>);<br>            <br>            <span class="hljs-comment">// Display current state, and ON/OFF buttons for GPIO 26  </span><br>            client.println(<span class="hljs-string">&quot;&lt;p&gt;GPIO 26 - 状态 &quot;</span> + output26State + <span class="hljs-string">&quot;&lt;/p&gt;&quot;</span>);<br>            <span class="hljs-comment">// If the output26State is off, it displays the ON button       </span><br>            <span class="hljs-keyword">if</span> (output26State==<span class="hljs-string">&quot;off&quot;</span>) &#123;<br>              client.println(<span class="hljs-string">&quot;&lt;p&gt;&lt;a href=\&quot;/26/on\&quot;&gt;&lt;button class=\&quot;button\&quot;&gt;开&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;&quot;</span>);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>              client.println(<span class="hljs-string">&quot;&lt;p&gt;&lt;a href=\&quot;/26/off\&quot;&gt;&lt;button class=\&quot;button button2\&quot;&gt;关&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;&quot;</span>);<br>            &#125; <br>               <br>            <span class="hljs-comment">// Display current state, and ON/OFF buttons for GPIO 27  </span><br>            client.println(<span class="hljs-string">&quot;&lt;p&gt;GPIO 27 - 状态 &quot;</span> + output27State + <span class="hljs-string">&quot;&lt;/p&gt;&quot;</span>);<br>            <span class="hljs-comment">// If the output27State is off, it displays the ON button       </span><br>            <span class="hljs-keyword">if</span> (output27State==<span class="hljs-string">&quot;off&quot;</span>) &#123;<br>              client.println(<span class="hljs-string">&quot;&lt;p&gt;&lt;a href=\&quot;/27/on\&quot;&gt;&lt;button class=\&quot;button\&quot;&gt;开&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;&quot;</span>);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>              client.println(<span class="hljs-string">&quot;&lt;p&gt;&lt;a href=\&quot;/27/off\&quot;&gt;&lt;button class=\&quot;button button2\&quot;&gt;关&lt;/button&gt;&lt;/a&gt;&lt;/p&gt;&quot;</span>);<br>            &#125;<br>            client.println(<span class="hljs-string">&quot;&lt;/body&gt;&lt;/html&gt;&quot;</span>);<br>            <br>            <span class="hljs-comment">// The HTTP response ends with another blank line</span><br>            client.println();<br>            <span class="hljs-comment">// Break out of the while loop</span><br>            <span class="hljs-keyword">break</span>;<br>          &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// if you got a newline, then clear currentLine</span><br>            currentLine = <span class="hljs-string">&quot;&quot;</span>;<br>          &#125;<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (c != <span class="hljs-string">&#x27;\r&#x27;</span>) &#123;  <span class="hljs-comment">// if you got anything else but a carriage return character,</span><br>          currentLine += c;      <span class="hljs-comment">// add it to the end of the currentLine</span><br>        &#125;<br>      &#125;<br>    &#125;<br>    <span class="hljs-comment">// Clear the header variable</span><br>    header = <span class="hljs-string">&quot;&quot;</span>;<br>    <span class="hljs-comment">// Close the connection</span><br>    <br><br>            <br>    client.stop();<br>    Serial.println(<span class="hljs-string">&quot;Client disconnected.&quot;</span>);<br>    Serial.println(<span class="hljs-string">&quot;&quot;</span>);<br>  &#125;<br>  <span class="hljs-keyword">if</span> (digitalRead(output26) == HIGH)&#123;kaideng(); Serial.println(<span class="hljs-string">&quot;已开灯&quot;</span>);&#125;<br>  <span class="hljs-keyword">if</span> (digitalRead(output27) == HIGH)&#123;guandeng();Serial.println(<span class="hljs-string">&quot;已关灯&quot;</span>);&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="版本2-接入天猫精灵"><a href="#版本2-接入天猫精灵" class="headerlink" title="版本2 - 接入天猫精灵"></a>版本2 - 接入天猫精灵</h2><p>使用点灯科技Blinker</p>
+<p>参考资料：</p>
+<p><a target="_blank" rel="noopener" href="https://diandeng.tech/home">点灯科技 (diandeng.tech)</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/blinker-iot">blinker (github.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/blinker-iot/blinker-library">blinker-iot&#x2F;blinker-library: An IoT Solution,Blinker library for embedded hardware. Works with Arduino, ESP8266, ESP32. (github.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/blinker-iot/blinker-library/releases/tag/0.3.7">Release upgrade v0.3.7 · blinker-iot&#x2F;blinker-library (github.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV187411w7yk?p=1">基本功能展示_哔哩哔哩_bilibili</a></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">// 天猫精灵控制舵机实现开关灯</span><br><span class="hljs-comment">// 5V-红线</span><br><span class="hljs-comment">// gnd-棕线</span><br><span class="hljs-comment">// GPIO16-橙</span><br><br><span class="hljs-comment">// ssd1306</span><br><span class="hljs-comment">// 3.3v-vcc</span><br><span class="hljs-comment">// gnd-gnd</span><br><span class="hljs-comment">// GPIO21-scl</span><br><span class="hljs-comment">// GPIO22-sda</span><br><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> BLINKER_WIFI</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> BLINKER_ALIGENIE_MULTI_OUTLET</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;Blinker.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;ESP32Servo.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;Wire.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;SSD1306.h&quot;</span> </span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> SDA 21</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> SCL 22</span><br><span class="hljs-comment">// SSD 引脚设置</span><br>SSD1306 <span class="hljs-title function_">display</span><span class="hljs-params">(<span class="hljs-number">0x3c</span>, SDA, SCL)</span>;<br><br><br>Servo myservo;  <span class="hljs-comment">// 定义Servo对象来控制</span><br><span class="hljs-type">int</span> pos = <span class="hljs-number">90</span>;    <span class="hljs-comment">// 角度存储变量</span><br><br><br><span class="hljs-comment">// 定义开关灯函数</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">kaideng</span><span class="hljs-params">()</span>&#123;<br>  myservo.write(pos);<br>  delay(<span class="hljs-number">2000</span>);<br>  myservo.write(pos+<span class="hljs-number">45</span>);<br>  delay(<span class="hljs-number">1000</span>);<br>  myservo.write(pos);<br>  delay(<span class="hljs-number">2000</span>);<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">guandeng</span><span class="hljs-params">()</span>&#123;<br>  myservo.write(pos);<br>  delay(<span class="hljs-number">2000</span>);<br>  myservo.write(pos<span class="hljs-number">-45</span>);<br>  delay(<span class="hljs-number">1000</span>);<br>  myservo.write(pos);<br>  delay(<span class="hljs-number">2000</span>);<br>&#125;<br><br><br><span class="hljs-type">char</span> auth[] = <span class="hljs-string">&quot;从点灯科技获取&quot;</span>;<br><span class="hljs-type">char</span> ssid[] = <span class="hljs-string">&quot;ssid&quot;</span>;<br><span class="hljs-type">char</span> pswd[] = <span class="hljs-string">&quot;pswd&quot;</span>;<br><br><span class="hljs-type">bool</span> oState[<span class="hljs-number">5</span>] = &#123; <span class="hljs-literal">false</span> &#125;;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">aligeniePowerState</span><span class="hljs-params">(<span class="hljs-type">const</span> String &amp; state, <span class="hljs-type">uint8_t</span> num)</span><br>&#123;<br>    BLINKER_LOG(<span class="hljs-string">&quot;need set outlet: &quot;</span>, num, <span class="hljs-string">&quot;, power state: &quot;</span>, state);<br><br>    <span class="hljs-keyword">if</span> (state == BLINKER_CMD_ON) &#123;<br>        digitalWrite(LED_BUILTIN, HIGH);<br><br>        BlinkerAliGenie.powerState(<span class="hljs-string">&quot;on&quot;</span>, num);<br>        kaideng();<br>        BlinkerAliGenie.print();<br><br>        oState[num] = <span class="hljs-literal">true</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (state == BLINKER_CMD_OFF) &#123;<br>        digitalWrite(LED_BUILTIN, LOW);<br><br>        BlinkerAliGenie.powerState(<span class="hljs-string">&quot;off&quot;</span>, num);<br>        guandeng();<br>        BlinkerAliGenie.print();<br><br>        oState[num] = <span class="hljs-literal">true</span>;<br><br>        <span class="hljs-keyword">if</span> (num == <span class="hljs-number">0</span>)<br>        &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">uint8_t</span> o_num = <span class="hljs-number">0</span>; o_num &lt; <span class="hljs-number">5</span>; o_num++)<br>            &#123;<br>                oState[o_num] = <span class="hljs-literal">false</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">aligenieQuery</span><span class="hljs-params">(<span class="hljs-type">int32_t</span> queryCode, <span class="hljs-type">uint8_t</span> num)</span><br>&#123;<br>    BLINKER_LOG(<span class="hljs-string">&quot;AliGenie Query outlet: &quot;</span>, num,<span class="hljs-string">&quot;, codes: &quot;</span>, queryCode);<br><br>    <span class="hljs-keyword">switch</span> (queryCode)<br>    &#123;<br>        <span class="hljs-keyword">case</span> BLINKER_CMD_QUERY_ALL_NUMBER :<br>            BLINKER_LOG(<span class="hljs-string">&quot;AliGenie Query All&quot;</span>);<br>            BlinkerAliGenie.powerState(oState[num] ? <span class="hljs-string">&quot;on&quot;</span> : <span class="hljs-string">&quot;off&quot;</span>, num);<br>            BlinkerAliGenie.print();<br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">case</span> BLINKER_CMD_QUERY_POWERSTATE_NUMBER :<br>            BLINKER_LOG(<span class="hljs-string">&quot;AliGenie Query Power State&quot;</span>);<br>            BlinkerAliGenie.powerState(oState[num] ? <span class="hljs-string">&quot;on&quot;</span> : <span class="hljs-string">&quot;off&quot;</span>, num);<br>            BlinkerAliGenie.print();<br>            <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">default</span> :<br>            BlinkerAliGenie.powerState(oState[num] ? <span class="hljs-string">&quot;on&quot;</span> : <span class="hljs-string">&quot;off&quot;</span>, num);<br>            BlinkerAliGenie.print();<br>            <span class="hljs-keyword">break</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">dataRead</span><span class="hljs-params">(<span class="hljs-type">const</span> String &amp; data)</span><br>&#123;<br>    BLINKER_LOG(<span class="hljs-string">&quot;Blinker readString: &quot;</span>, data);<br><br>    Blinker.vibrate();<br>    <br>    <span class="hljs-type">uint32_t</span> BlinkerTime = millis();<br>    <br>    Blinker.print(<span class="hljs-string">&quot;millis&quot;</span>, BlinkerTime);<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">setup</span><span class="hljs-params">()</span><br>&#123;<br>    Serial.begin(<span class="hljs-number">115200</span>);<br>    BLINKER_DEBUG.stream(Serial);<br><br>    pinMode(LED_BUILTIN, OUTPUT);<br>    digitalWrite(LED_BUILTIN, LOW);<br><br>    Blinker.begin(auth, ssid, pswd);<br>    Blinker.attachData(dataRead);<br>    <br>    BlinkerAliGenie.attachPowerState(aligeniePowerState);<br>    BlinkerAliGenie.attachQuery(aligenieQuery);<br><br>    <span class="hljs-comment">// 设置舵机信号线</span><br>    myservo.attach(<span class="hljs-number">16</span>);  <span class="hljs-comment">// GPIO16</span><br>    ssdinit();<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">ssdinit</span><span class="hljs-params">()</span>&#123;<br><br>  <span class="hljs-comment">// 设置OLED显示的内容</span><br>  <span class="hljs-comment">// 128*64</span><br>  display.init();<br> <br>  display.setFont(ArialMT_Plain_10);<br>  display.drawString(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;Hello World&quot;</span>);<br> <br>  display.setFont(ArialMT_Plain_16);<br>  display.drawString(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-string">&quot;Hello World&quot;</span>);<br> <br>  display.setFont(ArialMT_Plain_24);<br>  display.drawString(<span class="hljs-number">0</span>, <span class="hljs-number">25</span>, <span class="hljs-string">&quot;Hello World&quot;</span>);<br> <br>  display.display();<br>&#125;<br>  <br><span class="hljs-type">void</span> <span class="hljs-title function_">loop</span><span class="hljs-params">()</span><br>&#123;<br>    Blinker.run();<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="放弃"><a href="#放弃" class="headerlink" title="放弃"></a>放弃</h1><p>不知道怎么固定到电灯的开关上，考虑使用化学胶水或热熔胶，但均具有不可复用性，方案被否决。于是想学一下3D建模！</p>
+<p>软件：Autodesk Fusion 360</p>
+<p>参考教程：</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Fb4y1R7wQ">如何正当免费地获取Fusion 360建模软件_哔哩哔哩_bilibili</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1xf4y127ay?vd_source=6d46640a443a49f050af078d1f65143e">Autodesk Fusion 360 一小时入门 （录播）_哔哩哔哩_bilibili</a></p>
+<p>建模太无聊了，暂时先放弃！脱实向虚，我还是继续写程序去吧！</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/li6727975/article/details/42040767">Fritzing添加新的元件库的方法_飘飘花吹雪的博客-CSDN博客_fritzing元件库不见了</a></p>
+<p><a target="_blank" rel="noopener" href="https://forum.fritzing.org/t/fritzing-part-of-an-esp32/5355/3">https://forum.fritzing.org/t/fritzing-part-of-an-esp32/5355/3</a></p>
+<p><em>其余参考资料在正文中</em></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/" class="category-chain-item">奇思妙想</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/open-source/" class="print-no-link">#open source</a>
+      
+        <a href="/tags/ESP/" class="print-no-link">#ESP</a>
+      
+        <a href="/tags/C-C/" class="print-no-link">#C/C++</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>ESP32控制舵机实现自动开关灯</div>
+      <div>https://cosmicdusty.cc/post/Ideas/ESP32ControlsServo/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Murphy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年9月6日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post/AI/LearnPyTorch/" title="学习PyTorch">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">学习PyTorch</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/Knowledge/PythonDevelopmentEnvironment/" title="Python编程环境">
+                        <span class="hidden-mobile">Python编程环境</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"JijHNKemeVNog4wF7g9I5TR3-gzGzoHsz","appKey":"FvsKdxHOP2aG5rHrHby5aV0b","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a rel="nofollow noopener"><span>Powered by</span></a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span><b>Hexo</b></span></a> <i class="iconfont icon-love"></i> <a rel="nofollow noopener"><span>Themed by</span></a> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span><b>Fluid</b></span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

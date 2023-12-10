@@ -1,0 +1,830 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <link rel="icon" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Murphy">
+  <meta name="keywords" content="Murphy,CosmicDusty,murphy,cosmicdusty,cn">
+  
+    <meta name="description" content="原生Python与Conda中的Python。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python编程环境">
+<meta property="og:url" content="https://cosmicdusty.cc/post/Knowledge/PythonDevelopmentEnvironment/index.html">
+<meta property="og:site_name" content="MurphyHou">
+<meta property="og:description" content="原生Python与Conda中的Python。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/code-7198654_1920.jpg">
+<meta property="article:published_time" content="2022-07-31T05:38:44.000Z">
+<meta property="article:modified_time" content="2023-02-15T12:38:12.000Z">
+<meta property="article:author" content="Murphy">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Conda">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/code-7198654_1920.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Python编程环境 - MurphyHou</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cosmicdusty.cc","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"16d93d5abbd7ea15ec53daed5459ebf7","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JijHNKemeVNog4wF7g9I5TR3","app_key":"FvsKdxHOP2aG5rHrHby5aV0b","server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?16d93d5abbd7ea15ec53daed5459ebf7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CosmicDusty</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/code-7198654_1920.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Python编程环境"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Murphy
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-31 13:38" pubdate>
+          2022年7月31日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Python编程环境</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>之前在Windows上面进行程序写作和运行的时候，使用的都是原生的Python和pip，但自从开始学习深度学习时，发现很多项目都是在Conda环境下进行的，于是我也在Windows上下载了Conda，我选择的时Miniconda。</p>
+<p>这就出现了一个问题，在命令行中运行python是调用的什么呢？两者会不会出现什么冲突?</p>
+<h1 id="Windows-下同时安装了Python和Conda"><a href="#Windows-下同时安装了Python和Conda" class="headerlink" title="Windows 下同时安装了Python和Conda"></a>Windows 下同时安装了Python和Conda</h1><p><em>首先吐槽一下微软，目前Windows下的CMD还没有被powershell完全替代掉，一部分命令在powershell上面并不能运行。另外，在Windows Terminal上，powershell的代码高亮做的很好但是不能显示当前的python环境；CMD上面没有代码高亮，但是能显示python环境。所以两者都不算完美。</em></p>
+<p>更新：<br>这个问题可以解决，在Terminal中运行<code>conda init powershell</code>,然后重启Terminal之后就可以了！<br>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_49641239/article/details/110248262">解决Powershell前面没有base，无法激活虚拟环境问题</a></p>
+<h2 id="CMD与Powershell"><a href="#CMD与Powershell" class="headerlink" title="CMD与Powershell"></a>CMD与Powershell</h2><p>​	命令提示符是在操作系统中，提示进行命令输入的一种工作提示符。在不同的操作系统环境下，命令提示符各不相同。 在windows环境下，命令行程序为cmd.exe，是一个32位的命令行程序，微软Windows系统基于Windows上的命令解释程序，类似于微软的DOS操作系统。输入一些命令，cmd.exe可以执行，比如输入shutdown -s就会在30秒后关机。总之，它非常有用。打开方法：开始-所有程序-附件 或 开始-寻找-输入：cmd&#x2F;cmd.exe 回车。它也可以执行BAT文件。</p>
+<p>​	PowerShell 是一种跨平台的任务自动化和配置管理框架，由命令行管理程序和脚本语言组成。 与大多数接受并返回文本的 shell 不同，PowerShell 构建在 .NET 公共语言运行时 (CLR) 的基础之上，接受并返回 .NET 对象。 这一根本上的改变引入了全新的自动化工具和方法。</p>
+<p>最浅显的区别就是：CMD写的BAT脚本我们看作是面向过程的，直白点说就是你是从计算机执行的流程来编写脚本的。而PowerShell则是面向对象的,是一种站在使用者的角度进行脚本的编写.</p>
+<p>功能上：</p>
+<p>CMD只能执行基本的任务，本身并没有集成太多的功能,大多依赖于第三方的程序,比如PING命令，其实是一个单独的应用程序，而不是CMD本身的一条命令。</p>
+<p>PowerShell因为是基于.NET面向对象的,而且本身就内置了非常多的命令。使得它不管从功能上还是性能上都要比CMD要强大得多。</p>
+<p>可以这么说，CMD能办的事,PowerShell基本都就能办，但PowerShell能办的事,CMD遥不可及。</p>
+<p>目前唯一CMD比PowerShell强的一点就是所有版本的Windows中都自带有CMD，包括XP和2003这些很老的操作系统，而PowerShell要在XP和2003里用起来，就需要使用安装包安装.但这不熟于技术范畴，只是目前的环境造就了这个优势，而且不久的将来，这个微弱的优势也将不复存在，因为新版本的Windows中都已经内置了PowerShell了。</p>
+<p><code>where python</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">C:\Users\DELL&gt;<span class="hljs-built_in">where</span> python<br>D:\Miniconda\python.exe     //自己下载的Miniconda<br>D:\Python\Python3.8.6\python.exe     //自己下载的原生Python<br>C:\Users\DELL\AppData\Local\Microsoft\WindowsApps\python.exe     //在Microsoft Store 下载的Python3.7 即使卸载了也删不掉，并且也用不了，不管了。<br><br>C:\Users\DELL&gt;<span class="hljs-built_in">where</span> python3<br>C:\Users\DELL\AppData\Local\Microsoft\WindowsApps\python3.exe  //在Microsoft Store 下载的Python3.7 即使卸载了也删不掉，并且也用不了，不管了。<br></code></pre></td></tr></table></figure>
+
+<p>可以看到，我的计算机中有两个Python(不管MS store中下载的那个)。</p>
+<p>在命令行中直接进入Python环境，系统选择的是哪个python呢?</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">C:\Users\DELL&gt;python<br>Python 3.8.5 (default, Sep  3 2020, 21:29:08) [MSC v.1916 64 bit (AMD64)] :: Anaconda, Inc. on win32<br><br>Warning:<br>This Python interpreter is <span class="hljs-keyword">in</span> a conda environment, but the environment has<br>not been activated.  Libraries may fail to load.  To activate this environment<br>please see https://conda.io/activation<br><br>Type <span class="hljs-string">&quot;help&quot;</span>, <span class="hljs-string">&quot;copyright&quot;</span>, <span class="hljs-string">&quot;credits&quot;</span> or <span class="hljs-string">&quot;license&quot;</span> <span class="hljs-keyword">for</span> more information.<br>&gt;&gt;&gt;<br></code></pre></td></tr></table></figure>
+
+<p>可以看到，Terminal调用的是Miniconda的环境。</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20220731141445938.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20220731141445938"></p>
+<p>在配置环境变量时，可以选择Python和Conda的先后顺序，Terminal默认调用的是位于前面的那个环境。</p>
+<p><strong>只是偶尔使用python写一下小程序的话，我感觉电脑上只需要配置python的环境就可以了。但是如果要进行复杂的程序开发的话，比如深度学习之类的，我感觉使用conda比python要更好。</strong></p>
+<p><strong>未来我可能会只选择使用Conda！！！</strong></p>
+<h1 id="Conda虚拟环境的切换"><a href="#Conda虚拟环境的切换" class="headerlink" title="Conda虚拟环境的切换"></a>Conda虚拟环境的切换</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs bash">C:\Users\DELL&gt;conda <span class="hljs-built_in">env</span> list<br><span class="hljs-comment"># conda environments:</span><br><span class="hljs-comment">#</span><br>base                  *  D:\Miniconda<br>aipy38                   D:\Miniconda\envs\aipy38<br><br><br>C:\Users\DELL&gt;conda info<br><br>     active environment : None<br>            shell level : 0<br>       user config file : C:\Users\DELL\.condarc<br> populated config files :<br>          conda version : 4.9.2<br>    conda-build version : not installed<br>         python version : 3.8.5.final.0<br>       virtual packages : __cuda=11.6=0<br>                          __win=0=0<br>                          __archspec=1=x86_64<br>       base environment : D:\Miniconda  (writable)<br>           channel URLs : https://repo.anaconda.com/pkgs/main/win-64<br>                          https://repo.anaconda.com/pkgs/main/noarch<br>                          https://repo.anaconda.com/pkgs/r/win-64<br>                          https://repo.anaconda.com/pkgs/r/noarch<br>                          https://repo.anaconda.com/pkgs/msys2/win-64<br>                          https://repo.anaconda.com/pkgs/msys2/noarch<br>          package cache : D:\Miniconda\pkgs<br>                          C:\Users\DELL\.conda\pkgs<br>                          C:\Users\DELL\AppData\Local\conda\conda\pkgs<br>       envs directories : D:\Miniconda\envs<br>                          C:\Users\DELL\.conda\envs<br>                          C:\Users\DELL\AppData\Local\conda\conda\envs<br>               platform : win-64<br>             user-agent : conda/4.9.2 requests/2.25.1 CPython/3.8.5 Windows/10 Windows/10.0.19041<br>          administrator : False<br>             netrc file : None<br>           offline mode : False<br></code></pre></td></tr></table></figure>
+
+<p>Conda比原生python的好处在于，conda可以建立很多虚拟环境，实现库隔离！</p>
+<p><em>Terminal-CMD</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br></pre></td><td class="code"><pre><code class="hljs bash">C:\Users\DELL&gt;conda activate base<br><br>(base) C:\Users\DELL&gt;pip -V<br>pip 20.2.4 from D:\Miniconda\lib\site-packages\pip (python 3.8)<br><br>(base) C:\Users\DELL&gt;conda deactivate<br><br><br><br>C:\Users\DELL&gt;conda activate aipy38<br><br>(aipy38) C:\Users\DELL&gt;pip -V<br>pip 21.2.2 from D:\Miniconda\envs\aipy38\lib\site-packages\pip (python 3.8)<br><br>(aipy38) C:\Users\DELL&gt;pip list<br>Package                      Version<br>---------------------------- -------------------<br>absl-py                      1.0.0<br>argon2-cffi                  21.3.0<br>argon2-cffi-bindings         21.2.0<br>asttokens                    2.0.5<br>astunparse                   1.6.3<br>attrs                        21.4.0<br>backcall                     0.2.0<br>beautifulsoup4               4.10.0<br>bleach                       4.1.0<br>cachetools                   5.0.0<br>certifi                      2021.10.8<br>cffi                         1.15.0<br>chardet                      3.0.4<br>colorama                     0.4.4<br>cycler                       0.11.0<br>d2l                          0.17.4<br>d2lzh                        1.0.0<br>debugpy                      1.5.1<br>decorator                    5.1.1<br>defusedxml                   0.7.1<br>entrypoints                  0.4<br>executing                    0.8.3<br>flatbuffers                  2.0<br>gast                         0.5.3<br>google-auth                  2.6.2<br>google-auth-oauthlib         0.4.6<br>google-pasta                 0.2.0<br>grpcio                       1.45.0<br>h5py                         3.6.0<br>idna                         2.6<br>importlib-metadata           4.11.3<br>importlib-resources          5.4.0<br>ipykernel                    6.9.2<br>ipython                      8.1.1<br>ipython-genutils             0.2.0<br>ipywidgets                   7.7.0<br>jedi                         0.18.1<br>Jinja2                       3.0.3<br>jsonschema                   4.4.0<br>jupyter                      1.0.0<br>jupyter-client               7.1.2<br>jupyter-console              6.4.3<br>jupyter-core                 4.9.2<br>jupyterlab-pygments          0.1.2<br>jupyterlab-widgets           1.1.0<br>keras                        2.8.0<br>Keras-Preprocessing          1.1.2<br>kiwisolver                   1.4.0<br>libclang                     13.0.0<br>Markdown                     3.3.6<br>MarkupSafe                   2.1.1<br>matplotlib                   3.4.0<br>matplotlib-inline            0.1.3<br>mccabe                       0.6.1<br>mistune                      0.8.4<br>nbclient                     0.5.13<br>nbconvert                    6.4.4<br>nbformat                     5.2.0<br>nest-asyncio                 1.5.4<br>notebook                     6.4.10<br>numpy                        1.22.2<br>oauthlib                     3.2.0<br>opt-einsum                   3.3.0<br>packaging                    21.3<br>pandas                       1.2.4<br>pandocfilters                1.5.0<br>parso                        0.8.3<br>pickleshare                  0.7.5<br>Pillow                       9.0.1<br>pip                          21.2.2<br>prometheus-client            0.13.1<br>prompt-toolkit               3.0.28<br>protobuf                     3.20.0<br>psutil                       5.9.0<br>pure-eval                    0.2.2<br>pyasn1                       0.4.8<br>pyasn1-modules               0.2.8<br>pycparser                    2.21<br>Pygments                     2.11.2<br>pyparsing                    3.0.7<br>pyrsistent                   0.18.1<br>python-dateutil              2.8.2<br>pytz                         2022.1<br>pywin32                      303<br>pywinpty                     2.0.5<br>pyzmq                        22.3.0<br>qtconsole                    5.2.2<br>QtPy                         2.0.1<br>requests                     2.25.1<br>requests-oauthlib            1.3.1<br>rsa                          4.8<br>scipy                        1.8.0<br>Send2Trash                   1.8.0<br>setuptools                   58.0.4<br>six                          1.16.0<br>soupsieve                    2.3.1<br>stack-data                   0.2.0<br>tensorboard                  2.8.0<br>tensorboard-data-server      0.6.1<br>tensorboard-plugin-wit       1.8.1<br>tensorflow                   2.8.0<br>tensorflow-io-gcs-filesystem 0.24.0<br>termcolor                    1.1.0<br>terminado                    0.13.3<br>testpath                     0.6.0<br>tf-estimator-nightly         2.8.0.dev2021122109<br>toml                         0.10.2<br>torch                        1.8.1+cu111<br>torchaudio                   0.8.1<br>torchvision                  0.9.1+cu111<br>tornado                      6.1<br>traitlets                    5.1.1<br>typing_extensions            4.1.1<br>urllib3                      1.22<br>wcwidth                      0.2.5<br>webencodings                 0.5.1<br>Werkzeug                     2.1.1<br>wheel                        0.37.1<br>widgetsnbextension           3.6.0<br>wincertstore                 0.2<br>wrapt                        1.12.1<br>zipp                         3.7.0<br><br>(aipy38) C:\Users\DELL&gt;conda deactivate<br><br>C:\Users\DELL&gt;<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="PyCharm-中选择Python解释器"><a href="#PyCharm-中选择Python解释器" class="headerlink" title="PyCharm 中选择Python解释器"></a>PyCharm 中选择Python解释器</h1><p>因为我现在写的一些小程序都比较小，一般都只用VSCode和Terminal就能解决，不太常用PyCharm了。</p>
+<p>可以看一下网上别人写的这一部分：<a target="_blank" rel="noopener" href="https://blog.csdn.net/JUST__Tw/article/details/107799000">Pycharm创建项目时，解释器如何选择_TaoWei_001的博客-CSDN博客_pycharm怎么选择解释器</a></p>
+<h1 id="conda下的Python"><a href="#conda下的Python" class="headerlink" title="conda下的Python"></a>conda下的Python</h1><p>一直以来都是在使用原生的Python，只有在WSL上面跑深度学习和在远程服务器上面跑深度学习这两次用到过了Anaconda，之前不用Anaconda是因为我觉得这个集和太大了，很多不需要的东西，但在使用过后我才知道，conda还是挺好用的，特别是配置开发环境的时候，使用env可以创建一个环境，做到库隔离，这个真的是太有用了！</p>
+<p>这次跟着李沐老师学习深度学习，在Windows上面配置了conda，使用的是Miniconda，体积比较小，nice！</p>
+<h2 id="Conda"><a href="#Conda" class="headerlink" title="Conda"></a>Conda</h2><p>Conda是一个开源跨平台语言无关的包管理与环境管理系统。由“连续统分析”（Continuum Analytics）基于BSD许可证发布。</p>
+<p>Conda允许用户方便地安装不同版本的二进制软件包与该计算平台需要的所有库。还允许用户在不同版本的包之间切换、从一个软件仓库下载包并安装。 </p>
+<p>Conda是用Python语言开发，但能管理其他编程语言的项目（如R语言），包括多语言项目。Conda可安装Python语言的包，类似于其他基于Python的跨平台包管理器（如wheel（页面存档备份，存于互联网档案馆）或pip）。</p>
+<p>一些基于Conda的工具软件：</p>
+<ul>
+<li>Bioconda，用于计算生物学</li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Anaconda_(Python%E5%8F%91%E8%A1%8C%E7%89%88)">Anaconda</a></li>
+<li>Miniconda</li>
+<li>Anaconda Repository</li>
+</ul>
+<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2><p>Anaconda则是一个打包的集合，里面预装好了conda、某个版本的python、众多packages、科学计算工具等等，就是把很多常用的不常用的库都给你装好了。</p>
+<p><strong>Anaconda</strong>是<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Red_Hat_Enterprise_Linux">Red Hat Enterprise Linux</a>、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/CentOS">CentOS</a>、<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Fedora_(%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1)">Fedora</a>等操作系统的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%AE%89%E8%A3%9D%E7%AE%A1%E7%90%86%E7%A8%8B%E5%BC%8F&action=edit&redlink=1">安装管理程序</a>。它以<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Python">Python</a>及<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/C">C</a>语言写成，以图形的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/PyGTK">PyGTK</a>和文字的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=Python-newt&action=edit&redlink=1">python-newt</a>接口写成。它可以用来自动安装配置，使用户能够以最小的监督运行。</p>
+<p>Anaconda<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%AE%89%E8%A3%9D%E7%AE%A1%E7%90%86%E7%A8%8B%E5%BC%8F&action=edit&redlink=1">安装管理程序</a>应用在<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Red_Hat_Enterprise_Linux">RHEL</a>，Fedora和其他一些项目，Anaconda提供纯文字模式和GUI模式，用户可以安装在各种各样的系统。</p>
+<h2 id="Miniconda"><a href="#Miniconda" class="headerlink" title="Miniconda"></a>Miniconda</h2><p>Miniconda，顾名思义，它只包含最基本的内容——python与conda，以及相关的必须依赖项，对于空间要求严格的用户，Miniconda是一种选择。就只包含最基本的东西，其他的库得自己装。</p>
+<ul>
+<li>基本操作：</li>
+</ul>
+<blockquote>
+<p>升级全部库：  conda upgrade –all<br>升级一个包  conda update packagename<br>安装包：conda install packagename<br>也可以安装多个包：   conda installl numpy pandas scipy<br>安装固定版本的包：conda install numpy &#x3D;1.10<br>移除一个包：conda remove packagename<br>查看所有包：conda list </p>
+</blockquote>
+<ul>
+<li>管理python环境：</li>
+</ul>
+<blockquote>
+<p>创建虚拟环境：<strong>conda create -n</strong> env_name list of packagenaem<br>eg:  <strong>conda create -n</strong> env_name pandas<br>指定python版本：<strong>conda create -n</strong> env_name python2 &#x3D; 2.7 pandas<br>激活环境： <strong>activate</strong> env_name<br>退出环境 :  <strong>deactivate</strong>  env_name<br>删除虚拟环境：<strong>conda env remove -n</strong> env_name<br>显示所有虚拟环境：<strong>conda env list</strong> </p>
+<p>conda 创建的虚拟环境是在anaconda或miniconda安装目录下的envs下，所以使用pycharm，只要在特定项目配置运行环境就可以了</p>
+</blockquote>
+<h2 id="Miniconda安装"><a href="#Miniconda安装" class="headerlink" title="Miniconda安装"></a>Miniconda安装</h2><p><a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda — Conda documentation</a></p>
+<p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/">Index of &#x2F;anaconda&#x2F;miniconda&#x2F; | 清华大学开源软件镜像站 | Tsinghua Open Source Mirror</a></p>
+<p>我安装的版本是：Miniconda3-py38_4.9.2-Windows-x86_64</p>
+<p>安装过程比较简单，基本上是一路Next到底，最后配置一下环境就好！</p>
+<p>参考教程：<a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_41805096/article/details/108501099">windows下安装miniconda详细教程_JessieZeng aaa的博客-CSDN博客_windows安装miniconda</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_18668137/article/details/80807829">conda、miniconda、anaconda的区别以及在pycharm中选择conda的虚拟环境_bboysky45的博客-CSDN博客_miniconda</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_41805096/article/details/108501099">windows下安装miniconda详细教程_JessieZeng aaa的博客-CSDN博客_windows安装miniconda</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Conda">Conda - 维基百科，自由的百科全书 (wikipedia.org)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Anaconda">Anaconda - 维基百科，自由的百科全书 (wikipedia.org)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_48885539/article/details/106924767">cmd和PowerShell的区别_孤独的代码的博客-CSDN博客_powershell和cmd区别</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/390464588">CMD和Powershell区别 - 知乎 (zhihu.com)</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%AF%E7%B4%AF/" class="category-chain-item">知识积累</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+        <a href="/tags/Conda/" class="print-no-link">#Conda</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Python编程环境</div>
+      <div>https://cosmicdusty.cc/post/Knowledge/PythonDevelopmentEnvironment/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Murphy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月31日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post/Ideas/ESP32ControlsServo/" title="ESP32控制舵机实现自动开关灯">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">ESP32控制舵机实现自动开关灯</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/Electronic/IntranetPenetrationInNgrok/" title="Ngrok内网穿透实现远程监控">
+                        <span class="hidden-mobile">Ngrok内网穿透实现远程监控</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"JijHNKemeVNog4wF7g9I5TR3-gzGzoHsz","appKey":"FvsKdxHOP2aG5rHrHby5aV0b","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a rel="nofollow noopener"><span>Powered by</span></a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span><b>Hexo</b></span></a> <i class="iconfont icon-love"></i> <a rel="nofollow noopener"><span>Themed by</span></a> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span><b>Fluid</b></span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

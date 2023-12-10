@@ -1,0 +1,1157 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <link rel="icon" href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/星星.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Murphy">
+  <meta name="keywords" content="Murphy,CosmicDusty,murphy,cosmicdusty,cn">
+  
+    <meta name="description" content="一直以来都对Linux操作系统很感兴趣，林纳斯·本纳第克特·托瓦兹是我很崇拜的一个人。很早就知道了在未来工作当中可能大多数开发都会在Linux操作系统上，于是买了鸟哥的这本书，照着书开始学习Linux。因为鸟哥的书是依据CentOS发行版的，因此我对Linux的学习也将从CentOS开始了！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《鸟哥的Linux私房菜》">
+<meta property="og:url" content="https://cosmicdusty.cc/post/Knowledge/LearnLinux/index.html">
+<meta property="og:site_name" content="MurphyHou">
+<meta property="og:description" content="一直以来都对Linux操作系统很感兴趣，林纳斯·本纳第克特·托瓦兹是我很崇拜的一个人。很早就知道了在未来工作当中可能大多数开发都会在Linux操作系统上，于是买了鸟哥的这本书，照着书开始学习Linux。因为鸟哥的书是依据CentOS发行版的，因此我对Linux的学习也将从CentOS开始了！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/CentOS%E5%B0%81%E9%9D%A2.jpg">
+<meta property="article:published_time" content="2021-08-01T13:53:25.000Z">
+<meta property="article:modified_time" content="2023-05-05T14:18:45.000Z">
+<meta property="article:author" content="Murphy">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/CentOS%E5%B0%81%E9%9D%A2.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>《鸟哥的Linux私房菜》 - MurphyHou</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"cosmicdusty.cc","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"16d93d5abbd7ea15ec53daed5459ebf7","google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"JijHNKemeVNog4wF7g9I5TR3","app_key":"FvsKdxHOP2aG5rHrHby5aV0b","server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?16d93d5abbd7ea15ec53daed5459ebf7";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CosmicDusty</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/CentOS封面.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="《鸟哥的Linux私房菜》"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Murphy
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-08-01 21:53" pubdate>
+          2021年8月1日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          11k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          90 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">《鸟哥的Linux私房菜》</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><font face="黑体" size=10 color=MediumPurple>《鸟哥的Linux私房菜》</font></p>
+<h1 id="第一部分-Linux的规则与安装"><a href="#第一部分-Linux的规则与安装" class="headerlink" title="第一部分 Linux的规则与安装"></a><font color=DarkSeaGreen>第一部分 Linux的规则与安装</font></h1><h1 id="第三部分-学习设shell和shell-script"><a href="#第三部分-学习设shell和shell-script" class="headerlink" title="第三部分 学习设shell和shell script"></a><font color=DarkSeaGreen>第三部分 学习设shell和shell script</font></h1><h1 id="第四部分-Linux使用者管理"><a href="#第四部分-Linux使用者管理" class="headerlink" title="第四部分 Linux使用者管理"></a><font color=DarkSeaGreen>第四部分 Linux使用者管理</font></h1><h1 id="第五部分-Linux系统管理员"><a href="#第五部分-Linux系统管理员" class="headerlink" title="第五部分 Linux系统管理员"></a><font color=DarkSeaGreen>第五部分 Linux系统管理员</font></h1><h1 id="第0章-计算机概论"><a href="#第0章-计算机概论" class="headerlink" title="第0章 计算机概论"></a>第0章 计算机概论</h1><h2 id="0-1-电脑"><a href="#0-1-电脑" class="headerlink" title="0.1 电脑"></a>0.1 电脑</h2><ul>
+<li>接受用户 输入的命令与数据，经由中央处理器的算术和逻辑单元运算处理后，产生或存储成有用的信息</li>
+</ul>
+<h3 id="0-1-1-硬件五大单元"><a href="#0-1-1-硬件五大单元" class="headerlink" title="0.1.1 硬件五大单元"></a>0.1.1 硬件五大单元</h3><ul>
+<li>输入单元,输出单元,控制单元,算数逻辑单元,记忆单元<ul>
+<li>CPU包括控制单元和算数逻辑单元</li>
+<li>记忆单元包含内存和辅助存储</li>
+</ul>
+</li>
+<li>数据会流进或流出内存是CPU所发布的控制命令，CPU实际要处理的数据则完全来自于内存</li>
+</ul>
+<h3 id="0-1-2-CPU的架构"><a href="#0-1-2-CPU的架构" class="headerlink" title="0.1.2 CPU的架构"></a>0.1.2 CPU的架构</h3><p>目前世界上最常见的两种CPU架构：精简指令集（RISC）——复杂指令集（CICS）</p>
+<ul>
+<li>精简指令集（Reduced Instruction Set Computer,RISC）<ul>
+<li>指令较为精简，每个指令的运行时间都很短，完成的操作很简单，指令的执行性能较佳；</li>
+<li>做复杂的事情需要多个指令来完成；</li>
+<li>甲骨文公司——SPARC系列<ul>
+<li>学术领域的大型工作站</li>
+<li>金融体系服务器</li>
+</ul>
+</li>
+<li>IBM公司——Power Architecture（包括<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/PowerPC/7381773">PowerPC</a>）<ul>
+<li>Sony的PS3</li>
+</ul>
+</li>
+<li>ARM公司——ARM CPU<ul>
+<li>移动设备（手机等），网络设备（路由器，交换机等）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>复杂指令集（Complex Instruction Set Computer,CICS）<ul>
+<li>指令集的每个小指令可以执行一些较低级的硬件操作，指令数目多而复杂，每条指令的长度不同；</li>
+<li>指令执行较为复杂，每条指令执行花费的时间长，每个单条指令可以处理工作比较丰富；</li>
+<li>X86架构（Intel,AMD,<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/VIA/24460">VIA</a>)<ul>
+<li>X86——8位，16位，32位</li>
+<li>X86-64——64位</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="0-1-3-其他单元的设备"><a href="#0-1-3-其他单元的设备" class="headerlink" title="0.1.3  其他单元的设备"></a>0.1.3  其他单元的设备</h3><ul>
+<li>系统单元：CPU与内存及主板相关组件</li>
+<li>存储单元：内存（RAM）和辅助存储</li>
+<li>输入输出单元</li>
+</ul>
+<h3 id="0-1-4-运作流程"><a href="#0-1-4-运作流程" class="headerlink" title="0.1.4  运作流程"></a>0.1.4  运作流程</h3><h3 id="0-1-5-电脑的分类"><a href="#0-1-5-电脑的分类" class="headerlink" title="0.1.5 电脑的分类"></a>0.1.5 电脑的分类</h3><ul>
+<li>超级计算机（Supercomputer）</li>
+<li>大型计算机(Mainframe Computer)</li>
+<li>迷你计算机(Minicomputer)</li>
+<li>工作站(Workstation)</li>
+<li>微电脑(Microcomputer)</li>
+</ul>
+<h3 id="0-1-6-计算单位"><a href="#0-1-6-计算单位" class="headerlink" title="0.1.6 计算单位"></a>0.1.6 计算单位</h3><ul>
+<li>容量<ul>
+<li>Kilo</li>
+<li>Mega</li>
+<li>Giga</li>
+<li>Tera</li>
+<li>Peta</li>
+<li>Exa</li>
+<li>Zetta</li>
+</ul>
+</li>
+<li>速度<ul>
+<li>MB&#x2F;s</li>
+<li>Mbit&#x2F;s</li>
+</ul>
+</li>
+</ul>
+<h2 id="0-2-PC架构与设备组件"><a href="#0-2-PC架构与设备组件" class="headerlink" title="0.2 PC架构与设备组件"></a>0.2 PC架构与设备组件</h2><p>主板芯片组</p>
+<ul>
+<li>北桥：负责链接速度较快的CPU，内存与显卡等组件</li>
+<li>南桥：负责连接速度较慢的设备接口（硬盘，USB，网卡等）</li>
+<li>目前，北桥大多都集成在了CPU中</li>
+</ul>
+<h3 id="0-2-1-CPU"><a href="#0-2-1-CPU" class="headerlink" title="0.2.1 CPU"></a>0.2.1 CPU</h3><ul>
+<li><p>工作频率：外频和倍频</p>
+<p>外频指的是CPU与外部组件进行数据传输时的速度，倍频则是CPU内部用来加速工作性能的一个倍数，两者相乘就是CPU的频率速度；</p>
+<ul>
+<li>超频：将CPU的倍频或者是外频通过主板提供的设置功能更改成较高频率的一种方式，CPU倍频一般是被厂商锁定的，因此超频是提高外频；</li>
+<li>Intel的CPU会主动帮助超频，使用的是Turbo技术，即睿频；</li>
+</ul>
+</li>
+<li><p>CPU位数与总线位宽</p>
+</li>
+<li><p>CPU等级</p>
+</li>
+<li><p>超线程（Hyper-Threading）</p>
+</li>
+</ul>
+<h3 id="0-2-2-内存"><a href="#0-2-2-内存" class="headerlink" title="0.2.2 内存"></a>0.2.2 内存</h3><p>个人电脑的内存主要组件位动态随机存取内存（DRAM），即断电数据就消失</p>
+<p>发展：</p>
+<ul>
+<li><p>SDRAM</p>
+</li>
+<li><p>DDR SDRAM（Double Date Rate）</p>
+<ul>
+<li>DDR</li>
+<li>DDR2</li>
+<li>DDR3</li>
+<li>DDR4</li>
+</ul>
+</li>
+<li><p>多通道设计</p>
+</li>
+</ul>
+<p>​	传统的总线位宽一般大约位64位，为了加大这个位宽，芯片组厂商就将两个内存集合在一起，如果一根内存可达到64位，两个内存就是128位，这就是双通道</p>
+<ul>
+<li><p>DRAM与SRAM</p>
+<ul>
+<li><p>DRAM是内存</p>
+</li>
+<li><p>SRAM是CPU内部的Cache</p>
+<ul>
+<li><pre><code class="markdown">**CPU一级缓存、二级缓存、三级缓存是什么意思？**
+
+**一级缓存（L1 Cache）**
+
+CPU一级缓存，就是指CPU的第一层级的高速缓存，主要当担的工作是缓存指令和缓存数据。一级缓存的容量与结构对CPU性能影响十分大，但是由于它的结构比较复杂，又考虑到成本等因素，一般来说，CPU的一级缓存较小，通常CPU的一级缓存也就能做到256KB左右的水平。
+
+**二级缓存（L2 Cache）**
+
+CPU二级缓存，就是指CPU的第二层级的高速缓存，而二级缓存的容量会直接影响到CPU的性能，二级缓存的容量越大越好。例如intel的第八代i7-8700处理器，共有六个核心数量，而每个核心都拥有256KB的二级缓存，属于各核心独享，这样二级缓存总数就达到了1.5MB。
+
+**三级缓存（L3 Cache）**
+
+CPU三级缓存，就是指CPU的第三层级的高速缓存，其作用是进一步降低内存的延迟，同时提升海量数据量计算时的性能。和一级缓存、二级缓存不同的是，三级缓存是核心共享的，能够将容量做的很大。
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">-</span> ROM（只读存储器）<br><br><span class="hljs-section">### 0.2.3 显卡</span><br><br><span class="hljs-bullet">-</span> 一般对于图形影像的显示重点在于<span class="hljs-strong">**分辨率**</span>与<span class="hljs-strong">**颜色深度**</span>，因为每个图像显示的颜色会占用内存，因此在显卡上面会集成内存并称为显存，这个显存容量将会影响到你的屏幕分辨率和颜色深度；<br><br><span class="hljs-bullet">-</span> 显卡主要是通过GPU的控制芯片来与CPU，内存等通信；<br><br><span class="hljs-bullet">-</span> 显卡与主板连接接口规格的更新：PCI-&gt;AGP-&gt;PCI-Express(PCIe);<br><span class="hljs-bullet">-</span> 显卡与显示器连接接口规格：<br><span class="hljs-bullet">  -</span> D-Sub（VGA）<br><span class="hljs-bullet">  -</span> DVI<br><span class="hljs-bullet">  -</span> HDMI<br><span class="hljs-bullet">  -</span> DisplayPort<br><br><span class="hljs-section">### 0.2.4硬盘与存储设备</span><br><br><span class="hljs-bullet">-</span> 物理组成：圆形碟片，机械手臂，磁头，主轴马达；<br><span class="hljs-bullet">  -</span> 主轴马达让碟片转动，然后机械手臂可伸展让磁头在碟片上面进行读写的操作；<br><span class="hljs-bullet">-</span> ![<span class="hljs-string">961754-20170731180025880-471442869</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/961754-20170731180025880-471442869.png</span>)<br><span class="hljs-bullet">-</span> ![<span class="hljs-string">2843224-46fb935cd31addbd</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/2843224-46fb935cd31addbd.png</span>)<br><span class="hljs-bullet">-</span> 扇区：最小物理存储单位<br><span class="hljs-bullet">-</span> 磁道：同一个同心圆的扇区组合成的圆<br><span class="hljs-bullet">-</span> 所有碟片上面的同一个磁道<br><span class="hljs-bullet">-</span> 磁盘分区<br><span class="hljs-bullet">  -</span> （旧式）<span class="hljs-strong">**MBR**</span>（MS-DOS兼容）：通过<span class="hljs-strong">**柱面号码**</span>来划分磁盘的分区<br><span class="hljs-bullet">  -</span> （新式）<span class="hljs-strong">**GPT**</span>：使用<span class="hljs-strong">**扇区号码**</span>来划分磁盘的分区<br><span class="hljs-bullet">-</span> 传输接口<br><span class="hljs-bullet">  -</span> SATA<br><span class="hljs-bullet">    -</span> 注意：SATA传输接口传输时，通过数据算法的关系，当传输10位编码时，仅有8位为数据，其余两位为检验位。因此带宽计算，使用1B=10bits(而不是1B=8bits)<br><span class="hljs-bullet">  -</span> SAS<br><span class="hljs-bullet">    -</span> 速度更快，支持热插拔<br><span class="hljs-bullet">  -</span> USB<br><span class="hljs-bullet">-</span> SSD与HDD<br><span class="hljs-bullet">  -</span> 固态硬盘（Solid State Disk）：闪存，没有碟片和磁头等机械设备<br><span class="hljs-bullet">  -</span> 机械磁盘（Hard Disk Drive）<br><br><span class="hljs-section">### 0.2.5 扩展卡与接口</span><br><br><span class="hljs-section">### 0.2.6 主板</span><br><br><span class="hljs-bullet">-</span> 发挥拓展卡的性能必须要考虑插槽的位置<br><span class="hljs-bullet">  -</span> 主板上靠近CPU的PCIe插槽直接与CPU通信，远离CPU插槽的PCIe插槽是南桥提供的，先于南桥进行通信再通过南桥与CPU进行通信（CPU与南桥进行通信的管导称为DMI2.0总线）<br><span class="hljs-bullet">-</span> 设备IO地址与IRQ中断请求<br><span class="hljs-bullet">-</span> CMOS与BIOS<br><span class="hljs-bullet">  -</span> CMOS主要的功能为记录主板上面的重要参数，包括系统时间、CPU电压与频率、各项设备的IO地址与IRQ等，由于这些数据的记录要用电，因此主板上面大都有一颗纽扣电池<br><span class="hljs-bullet">    -</span> 百度：是主板上的一块可读写的<span class="hljs-strong">**RAM芯片**</span>，用来保存当前系统的硬件配置和用户对参数的设定，其内容可通过设置程序进行读写。 CMOS芯片由主板上的钮扣电池供电，即使系统断电，参数也不会丢失。<br><span class="hljs-bullet">  -</span> BIOS是写入到主板上某一块flash或EEPROM（<span class="hljs-strong">**很久之前是ROM**</span>）的<span class="hljs-strong">**程序**</span>，它可以在计算机启动的时候执行，以加载CMOS当中的参数，并尝试调用存储设备中的引导程序，进一步进入操作系统中<br><span class="hljs-bullet">  -</span> BIOS程序也可以修改CMOS中的数据，一般是通过开机时按下DELETE进入BIOS设置界面<br><span class="hljs-bullet">-</span> 连接外设的接口<br><span class="hljs-bullet">  -</span> PS/2：老式的键盘鼠标接口，现在已经被USB取代了<br><span class="hljs-bullet">  -</span> USB<br><span class="hljs-bullet">  -</span> 声音输入输出与麦克风<br><span class="hljs-bullet">  -</span> RJ-45：内部8个芯片触点，网口<br><span class="hljs-bullet">  -</span> HDMI：连接主板上的显示芯片<br><br><span class="hljs-section">### 0.2.7 主机电源</span><br><br><span class="hljs-section">### 0.2.8 选购须知</span><br><br><span class="hljs-section">## 0.3 数据表示方式</span><br><br><span class="hljs-section">### 0.3.1数字系统</span><br><br><span class="hljs-bullet">-</span> 数字进制<br><br><span class="hljs-section">### 0.3.2 字符编码系统</span><br><br><span class="hljs-bullet">-</span> 英文编码表：ASCII——英文，数字，符号占用一个字节<br><span class="hljs-bullet">-</span> 中文编码：台湾地区：Big5，大陆：GB2312或GBK<br><span class="hljs-bullet">-</span> Unicode编码系统（UTF-8或万国码）：用ISO/IEC指定，打破了所有国家使用不同的编码，目前是互联网是使用最多的编码系统<br><br><span class="hljs-section">## 0.4 软件程序运行</span><br><br><span class="hljs-section">### 0.4.1 机器语言程序与编译型程序</span><br><br><span class="hljs-section">### 0.4.2操作系统</span><br><br>OS（Operating System）<br><br><span class="hljs-section">#### 操作系统内核 Kernel</span><br>Kernel  [&#x27;kɜrn(ə)l]<br><br>OS其实就是一组程序，这组程序的重点在于管理电脑的所有活动以及驱动系统中的所有硬件<br><br>为了防止用户修改内核程序，造成系统崩溃，内核程序放置到内存当中的区块是受保护的，并且启动后就一直常驻在内存当中<br><br><span class="hljs-section">#### 系统调用System Call</span><br><br>API：应用程序编程接口<br><br><span class="hljs-bullet">-</span> 操作系统的<span class="hljs-strong">**内核层**</span>直接参考<span class="hljs-strong">**硬件规格**</span>写成，所以同一操作系统程序<span class="hljs-strong">**不能够**</span>在不一样的硬件架构下运行<br><span class="hljs-bullet">-</span> 操作系统只是管理整个硬件资源，包括CPU,内存，输入输出设备及文件系统等。<br><span class="hljs-bullet">  -</span> 如果没有其他的应用程序辅助，操作系统只能让电脑主机准备妥当（Ready）而已，无法运行其他功能。<br><span class="hljs-bullet">-</span> 应用程序的开发都是参考操作系统提供的API，所以该应用程序只能在该操作系统上面运行而已，不可以在其他操作系统上运行<br><br><span class="hljs-section">#### 内核功能</span><br><br><span class="hljs-bullet">-</span> 系统调用接口<br><span class="hljs-bullet">-</span> 进程管理<br><span class="hljs-bullet">-</span> 内存管理<br><span class="hljs-bullet">-</span> 文件系统管理<br><span class="hljs-bullet">-</span> 设备驱动<br><br><span class="hljs-section">#### 操作系统与驱动程序</span><br><br><span class="hljs-bullet">-</span> 操作系统必须要能够<span class="hljs-strong">**驱动硬件**</span>，如此应用程序才能使用该硬件功能；<br><span class="hljs-bullet">-</span> 一般来说，操作系统会提供API，让开发商编写他们的驱动程序；<br><span class="hljs-bullet">-</span> 要使用新硬件功能，必须要安装厂商提供的驱动程序才行；<br><span class="hljs-bullet">-</span> <span class="hljs-strong">**驱动程序是由厂商提供，与操作系统无关**</span>。<br><br><span class="hljs-section">### 0.4.应用程序</span><br><br>应用程序是参考操作系统提供的API所开发出来的软件；<br><br>应用程序是与操作系统有关的<br><br><span class="hljs-section">## 0.5 重点回顾</span><br><br><br><br><br><br><span class="hljs-section"># 第1章 Linux是什么与如何学习</span><br><br><span class="hljs-section">## 1.1 Linux是什么</span><br><br>Linux提供了一个操作系统中对底层的硬件控制资源与资源管理的完整架构，这个架构是继承了UNIX良好的传统而来，所以相当的稳定且功能强大；<br><br><span class="hljs-section">### 1.1.2 UNIX</span><br><br><span class="hljs-bullet">-</span> 1969年之前，Bell，MIT与GE的“Mutics”<br><span class="hljs-bullet">-</span> 1969年，Ken Thompson的小型file server system<br><span class="hljs-bullet">  -</span> UNIX的原型<br><span class="hljs-bullet">  -</span> 汇编语言：内核程序（内核工具程序和文件系统）<br><span class="hljs-bullet">  -</span> 提出重要概念<br><span class="hljs-bullet">    -</span> <span class="hljs-strong">**所有的程序或系统设备都是文件；**</span><br><span class="hljs-bullet">    -</span> 不管程序本书还是附属文件，所写的程序只有一个目的，且要有效地完成目标；<br><span class="hljs-bullet">-</span> 1973年，UNIX正式诞生，Ritchie等人用C语言写出第一次正式UNIX内核<br><span class="hljs-bullet">-</span> 1977年，重要的UNIX分支——BSD的诞生<br><span class="hljs-bullet">-</span> 1979年，重要的System V架构与版权声明<br><span class="hljs-bullet">  -</span> 支持x86架构的个人计算机<br><span class="hljs-bullet">  -</span> AT&amp;T收回UNIX的版权<br><span class="hljs-bullet">-</span> 1984，x86架构的Minix操作系统开始编写并于两年后诞生<br><span class="hljs-bullet">  -</span> 类UNIX的内核程序<br><span class="hljs-bullet">  -</span> Minix与UNIX兼容<br><span class="hljs-bullet">  -</span> 只用于教育教学<br><span class="hljs-bullet">-</span> 1984，GNU计划于FSF基金会的成立<br><span class="hljs-bullet">  -</span> 大佬：斯托曼<br><span class="hljs-bullet">  -</span> 开源<br><span class="hljs-bullet">  -</span> GNU：建立一个自由、开放的UNIX操作系统<br><span class="hljs-bullet">  -</span> 斯托曼开发C语言的编译器GNU Compiler（gcc）<br><span class="hljs-bullet">  -</span> FSF：自由软件基金会<br><span class="hljs-bullet">  -</span> C函数库：GNU C library<br><span class="hljs-bullet">  -</span> 运行操作系统的基本接口：Bash Shell<br><span class="hljs-bullet">  -</span> GNU的通用公共许可证：GPL<br><span class="hljs-bullet">-</span> 1988 图形用户界面模式XFree86计划<br><span class="hljs-bullet">  -</span> 图形用户接口 GUI<br><span class="hljs-bullet">  -</span> XFree86=X Windw System+Free+x86<br><span class="hljs-bullet">-</span> 1991：芬兰大学生Linus Torvalds<br><span class="hljs-bullet">  -</span> 以bash，gcc等GNU的工具写了一个小小的内核程序<br><br><span class="hljs-section">### 1.1.3  GUN 自由软件 开放源代码</span><br><br>使用GPL版权声明的软件就是自由软件，有以下特色<br><br><span class="hljs-bullet">-</span> 取得软件与源代码：可以根据自己的需求来使用这个自由软件<br><span class="hljs-bullet">-</span> 复制：可以自由地复制该软件<br><span class="hljs-bullet">-</span> 修改：可以将取得的源代码进行程序修改工作，使之适合你的工作<br><span class="hljs-bullet">-</span> 再发行：你可以将你修改过的程序，再度自由发行，而不会与原先的编者冲突<br><span class="hljs-bullet">-</span> 回馈：应该将你修改过的程序代码发聩于社区<br><span class="hljs-bullet">-</span> 不可以修改授权：不能把GPL授权的自由软件在经过你的修改后而取消GPL授权<br><span class="hljs-bullet">-</span> 不能销售自由软件<br><br>开放源代码<br><br><span class="hljs-bullet">-</span> 1988年诞生了开源这一名词（open source）<br><br><span class="hljs-section">## 1.2 托瓦兹的Linux的发展</span><br><br><span class="hljs-section">### 1.2.3 初次发布Linux 0.02</span><br><br>在BBS上发布了Linux 内核，之后从Linus单人维护到广大志愿者参与维护<br><br><span class="hljs-section">### 1.2.5 Linux的内核版本</span><br><br>Linux的内核版本与Linux的发行版本<br><br><span class="hljs-section">### 1.2.6 Linux发行版</span><br><br>![<span class="hljs-string">image-20210826170424750</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210826170424750.png</span>)<br><br><span class="hljs-section">## 1.3 Linux当前应用的角色</span><br><br><span class="hljs-section">## 1.4 Linux该如何学习</span><br><br><span class="hljs-section"># 第2章 主机规划与磁盘分区</span><br><br>磁盘阵列（RAID）是利用硬件技术将整个硬盘整合成为一个大硬盘的方法，操作系统只会看到最后被整合起来的大硬盘。由于磁盘阵列是由多个硬盘组成，所以可完成提升速度和性能，备份等任务。<br><br><span class="hljs-section">## 2.1 Linux与硬件的搭配</span><br><br><span class="hljs-section">### 2.1.3 各硬件设备在Linux中的文件名</span><br><br><span class="hljs-strong">**在Linux系统中，每个设备都被当作一个文件来对待**</span><br><br>![<span class="hljs-string">image-20210826222907635</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210826222907635.png</span>)<br><br><span class="hljs-section">## 2.2 磁盘分区</span><br><br><span class="hljs-section">### 2.2.1 磁盘连接方式与设备文件名的关系</span><br><br>设备文件名与Linux内核检测到的磁盘的顺序来命名<br><br>整个磁盘中并不是每个扇区都同等重要，第一个扇区特别重要，因为加鲁鲁整块磁盘的重要信息；<br><br><span class="hljs-bullet">-</span> 早期磁盘第一个扇区里面包含的重要信息称为MBR（Master Boot Record），硬盘容量过大之后，操作系统会读取MBR会有困难<br><span class="hljs-bullet">-</span> 目前新的磁盘分区格式称为GPT（GUID partition table）<br><br><span class="hljs-section">### 2.2.2 MBR与GPT磁盘分区表</span><br><br>![<span class="hljs-string">partition-1</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/partition-1.png</span>)<br><br>![<span class="hljs-string">partition-2</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/partition-2.png</span>)<br><br><span class="hljs-bullet">-</span> MBR（MS-DOS）分区表格式与限制<br><br><span class="hljs-bullet">  -</span> 第一个扇区存放的内容<br><span class="hljs-bullet">    -</span> 主引导记录（MBR）：可以安装启动引导程序的地方（446字节）；<br><span class="hljs-bullet">    -</span> 分区表：记录整块硬盘分区的状态（16字节）；<br><span class="hljs-bullet">  -</span> MBR主要分区，拓展分区，逻辑分区<br><span class="hljs-bullet">    -</span> 主要分区与拓展分区最多可以有4个（硬盘限制）<br><span class="hljs-bullet">    -</span> 拓展分区最多只能有1个（操作系统限制）<br><span class="hljs-bullet">    -</span> 逻辑分区是由扩展分区持续划分出来的分区<br><span class="hljs-bullet">    -</span> 能够被格式化后作为数据存取的分区是主要分区和逻辑分区，拓展分区无法格式化<br><span class="hljs-bullet">    -</span> 逻辑分区的数量依操作系统而不同<br><span class="hljs-bullet">  -</span> MBR分区的问题<br><span class="hljs-bullet">    -</span> 操作系统无法使用2.2TB以上的磁盘<br><span class="hljs-bullet">    -</span> MBR仅有一个区块，如果损坏，就有大问题了<br><span class="hljs-bullet">    -</span> MBR内存放启动引导程序的区块仅有446字节<br><br><span class="hljs-bullet">-</span> GPT磁盘分区表<br><br>  扇区定义，大多使用所谓的逻辑区块地址（LBA），GPT将磁盘所有区块以此LBA（默认大小521字节）来规划，而第一个LBA被称为LBA0<br><br>  MBR仅使用一个第一个512字节大学奥的区块来记录分区信息<br><br>  GPT使用34个LBA区块来记录分区信息，同时整个磁盘最后面的34个LBA作为备份<br><br>  ![<span class="hljs-string">gpt_partition_1</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/gpt_partition_1.jpg</span>)<br><br><span class="hljs-bullet">  -</span> LBA0 （MBR 兼容区块）<br><br><span class="hljs-code">    与 MBR 模式相似的，这个兼容区块也分为两个部份，一个就是跟之前 446 bytes 相似的区块，保存了第一阶段的启动引导程序！ 而在原本的**分区表的纪录区**内，这个兼容模式仅放入一个**特殊标志的分割**，用来表示**此磁盘为 GPT 格式**之意。 而不懂 GPT 分割表的磁盘管理程序， 就不会认识这颗磁盘，除非用户有特别要求要处理这颗磁盘，否则该管理软件不能修改此分割信息，进一步保护了此磁盘喔！</span><br><span class="hljs-code"></span><br><span class="hljs-bullet">  -</span> LBA1 （GPT 表头纪录）<br><br><span class="hljs-code">    这个部分纪录了分割表本身的位置与大小，同时纪录了备份用的 GPT 分割 （就是前面谈到的在最后 34 个 LBA 区块） 放置的位置， 同时放置了分割表的检验机制码 （CRC32），操作系统可以根据这个检验码来判断 GPT 是否正确。 若有错误，还可以通过这个记录区来取得备份的 GPT（磁盘最后的那个备份区块） 来恢复 GPT 的正常运作！</span><br><span class="hljs-code"></span><br><span class="hljs-bullet">  -</span> LBA2-33 （实际日志分信息处）<br><br><span class="hljs-code">    从 LBA2 区块开始，每个 LBA 都可以纪录 4 笔分割纪录，所以在默认的情况下，总共可以有 4*32 = 128 笔分割日志喔！ 因为每个 LBA 有 512bytes，因此每笔纪录用到 128 bytes 的空间，除了每笔纪录所需要的识别码与相关的纪录之外，GPT 在每笔纪录中分别提供了 64bits 来记载开始/结束的磁区号码，因此，GPT 分割表对于单一分割槽来说， 他的最大容量限制就会在&#x27; 264 * 512bytes = 263 * 1Kbytes = 233*TB = 8 ZB &#x27;，要注意 1ZB = 230TB 啦！ 你说有没有够大了？</span><br><span class="hljs-code"></span><br>GPT 分割已经没有所谓的主、延伸、逻辑分割的概念，既然每笔纪录都可以独立存在， 当然每个都可以视为是主分割！ 每一个分割都可以拿来格式化使用喔！<br><br><span class="hljs-section">### 2.2.3 BIOS与UEFI</span><br><br>早期的BIOS与新的UEFI<br><br><span class="hljs-emphasis">*（拓展知识：[<span class="hljs-string">UEFI和Legacy及UEFI+Legacy启动的区别</span>](<span class="hljs-link">https://www.cnblogs.com/net5x/p/6850801.html</span>)）*</span><br><br><span class="hljs-section">#### 1.BIOS搭配MBR/GPT的启动流程</span><br>（如果支持GPT的话，步骤类似，BIOS读取启动引导程序是从LBA0的MBR兼容区块读取0）<br><br><span class="hljs-bullet">-</span> <span class="hljs-strong">**CMOS**</span>是记录各项硬件参数且嵌入主板上面的<span class="hljs-strong">**存储器**</span><br><span class="hljs-bullet">-</span> <span class="hljs-strong">**BIOS**</span>是一个写入主板上的一个<span class="hljs-strong">**固件**</span>（<span class="hljs-strong">**固件就是写入到硬件上的一个软件程序**</span>）<br><span class="hljs-bullet">  -</span> BIOS就是在启动的时候，计算机系统会主动执行的第一个程序<br><span class="hljs-bullet">-</span> 开机时，计算机首先执行BIOS程序，接下来BIOS去分析计算中里面有哪些存储设备，找到用户设置的能够启动的硬盘，并且到该硬盘里面去读取第一个扇区的MBR位置；<br><span class="hljs-bullet">  -</span> MBR这个仅有446字节的硬盘容量里面放置了最基本的<span class="hljs-strong">**启动引导程序**</span>。（此时,BIOS就完成工作了，接下来就是MBR内的启动引导程序的工作了）<br><span class="hljs-bullet">-</span> 启动引导程序的目的是加载内核文件，内核文件工作就开启了操作系统<br><br><span class="hljs-section">#### 2.UEFI BIOS搭配GPT启动的流程</span><br><br><span class="hljs-bullet">-</span> <span class="hljs-strong">**统一可扩展固件接口**</span>（英语：Unified Extensible Firmware Interface，缩写<span class="hljs-strong">**UEFI**</span>）是一种[<span class="hljs-string">个人电脑</span>](<span class="hljs-link">https://baike.baidu.com/item/个人电脑</span>)系统规格，用来定义[<span class="hljs-string">操作系统</span>](<span class="hljs-link">https://baike.baidu.com/item/操作系统</span>)与系统[<span class="hljs-string">固件</span>](<span class="hljs-link">https://baike.baidu.com/item/固件</span>)之间的[<span class="hljs-string">软件界面</span>](<span class="hljs-link">https://baike.baidu.com/item/软件界面</span>)，作为[<span class="hljs-string">BIOS</span>](<span class="hljs-link">https://baike.baidu.com/item/BIOS</span>)的替代方案。可扩展固件接口负责[<span class="hljs-string">加电自检</span>](<span class="hljs-link">https://baike.baidu.com/item/加电自检</span>)（POST）、联系操作系统以及提供连接操作系统与硬件的接口。<br><span class="hljs-bullet">-</span> UEFI BIOS与UEFI 两种名称是一样的<br><span class="hljs-bullet">-</span> ![<span class="hljs-string">image-20210826233859729</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210826233859729.png</span>)<br><br><span class="hljs-section">### 2.2.4 Linux安装模式下，磁盘分区的选择</span><br><br><span class="hljs-bullet">-</span> <span class="hljs-strong">**目录树结构**</span><br><span class="hljs-bullet">  -</span> 所谓的目录树架构（directory tree）就是以根目录为主，然后向下呈现分支状的目录结构的一种档案架构。 所以，整个目录树架构最重要的就是那个根目录（root directory），这个根目录的表示方法为一条斜线<span class="hljs-strong">**/**</span>，<br><span class="hljs-bullet">  -</span> ![<span class="hljs-string">image-20210826234704573</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210826234704573.png</span>)<br><span class="hljs-bullet">  -</span> 如上图所示，所有的档案都是由根目录（/）衍生来的，而次目录之下还能够有其他的资料存在。 上图中长方形为目录， 波浪形则为档案。 那当我们想要取得mydata那个档案时，系统就得由根目录开始找，然后找到home接下来找到dmtsai， 最终的文件名为：/home/dmtsai/mydata的意思。<br><span class="hljs-bullet">-</span> 文件系统与目录树的关系（挂载）<br><span class="hljs-bullet">  -</span> <span class="hljs-strong">**挂载：就是利用一个目录当成进入点，将磁盘分区的数据放置在该目录下；也就是说进入该目录就可以读取该分区的意思。**</span><br><span class="hljs-bullet">  -</span> 进入点的目录称为挂载点；<br><span class="hljs-bullet">  -</span> <span class="hljs-strong">**Linux最重要的就是根目录，因此根目录一定需要挂载到某个分区**</span><br><span class="hljs-bullet">  -</span> <span class="hljs-strong">**Linux上的挂载和Windows中的分区代号是不一样的**</span><br><span class="hljs-bullet">-</span> 发行版安装时，挂载点与磁盘分区的规划<br><span class="hljs-bullet">  -</span> “/”根目录<br><span class="hljs-bullet">  -</span> “swap” 交换分区<br><span class="hljs-bullet">  -</span> 预留一个备份的剩余磁盘容量<br><span class="hljs-bullet">  -</span> 默认硬盘分区方式<br><br><br><br><br><br><span class="hljs-section">## 2.3 安装Linux前的规划</span><br><br><span class="hljs-section">### 2.3.1 发行版</span><br><br><span class="hljs-bullet">-</span> 每个Linux的发行版都是使用来自[<span class="hljs-string">The Linux Kernel Archives</span>](<span class="hljs-link">https://www.kernel.org/</span>)官方网站提供的Linux内核<br><br><span class="hljs-section">### 2.3.2 主机的服务规划与硬件的关系</span><br><br><span class="hljs-bullet">-</span> NAT：IP分享器的功能<br><span class="hljs-bullet">-</span> SAMBA：加入Windows网络邻居<br><span class="hljs-bullet">-</span> Mail：邮件服务器<br><span class="hljs-bullet">-</span> Web：WWW服务器<br><span class="hljs-bullet">-</span> DHCP：提供客户端自动获取IP的功能<br><span class="hljs-bullet">-</span> FTP：文件传输服务器<br><br><span class="hljs-section">### 2.3.3 主机硬盘的主要规划</span><br><br><span class="hljs-bullet">-</span> 最简单的分区<br><span class="hljs-bullet">  -</span> 仅划分根目录和内存交换分区（/和swap）<br><span class="hljs-bullet">  -</span> 遇了一些剩余的磁盘空间<br><span class="hljs-bullet">-</span> 稍微复杂<br><span class="hljs-bullet">  -</span> 将频繁使用的分区从根目录下独立出来<br><span class="hljs-bullet">  -</span> /boot<br><span class="hljs-bullet">  -</span> /<br><span class="hljs-bullet">  -</span> /home<br><span class="hljs-bullet">  -</span> /var<br><span class="hljs-bullet">  -</span> swap<br><br><br><br><span class="hljs-section"># 第3章 安装CentOS 7.x</span><br><br>[<span class="hljs-string">kickstart详解(超级详细)_Be_Nice的博客-CSDN博客_kickstart</span>](<span class="hljs-link">https://blog.csdn.net/mpu_nice/article/details/107922312</span>)<br><br><span class="hljs-section">## 3.2 安装CentOS</span><br><br><span class="hljs-section">### 3.2.1 BIOS</span><br><br><span class="hljs-section">### 3.2.2 选择安装模式与启动（inst.gpt）</span><br><br><span class="hljs-section">### 3.2.5  磁盘分区与文件系统设置</span><br><br><span class="hljs-bullet">-</span> 这是最重要的部分，这一部分得需要多安装几次Linux才能掌握理解<br><br><span class="hljs-section"># 第4章 首次登陆与在线求助</span><br><br><span class="hljs-section">## 4.1 首次登陆系统</span><br><br><span class="hljs-section">### 4.1.2GNOME的操作与注销</span><br><br><span class="hljs-bullet">-</span> 文件名开头是小数点，那么该文件就不会在一般观察模式中被显示出来<br><br>  ![<span class="hljs-string">2021-08-28 10-27-36屏幕截图</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/2021-08-28%2010-27-36%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png</span>)<br><br><span class="hljs-bullet">-</span> 带着箭头的文件：链接文件（类似Windows中的快截方式）<br><br>  ![<span class="hljs-string">image-20210828103148301</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210828103148301.png</span>)<br><br><span class="hljs-bullet">-</span> 带着X号的图标：账号没有权限进入该目录<br><br>  ![<span class="hljs-string">image-20210828103609210</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210828103609210.png</span>)<br><br><span class="hljs-bullet">-</span> 优化:<br><br>  ![<span class="hljs-string">image-20210828105330328</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210828105330328.png</span>)<br><br><span class="hljs-section">### 4.1.3 X Window 与命令行模式的切换</span><br><br><span class="hljs-bullet">  -</span> ctrl+alt+【F1-F6】<br><br><span class="hljs-section">### 4.1.4 在终端登陆Linux</span><br><br><br><br><span class="hljs-section">## 4.2 命令行模式下的命令的执行</span><br><br>命令行模式登陆后所运行的程序被称为壳（Shell），这是因为这个程序负责最外面跟用户沟通<br><br><br>&gt;[dmtsai@study ~]$ command  [-options]  parameter1  parameter2 ...<br><span class="hljs-quote">&gt;                   指令     選項        參數(1)     參數(2)</span><br><br><br><br><br>![<span class="hljs-string">image-20210828113804400</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210828113804400.png</span>)<br><br><span class="hljs-section">### 4.2.2 基础命令操作</span><br><br><span class="hljs-bullet">-</span> date 日期<br><span class="hljs-bullet">-</span> cal 日历<br><span class="hljs-bullet">-</span> bc 简易计算器<br><br><span class="hljs-section">### 4.2.3 热键</span><br><br><span class="hljs-bullet">-</span> 【tab】：命令补全与文件补齐<br><span class="hljs-bullet">  -</span> 我们按【tab】按键的地方如果在command（第一个输入的数据）的后面，就代表着【命令补全】，如果是在第二个字段后面就变成【文件补齐】功能<br><span class="hljs-bullet">  -</span> ![<span class="hljs-string">image-20210828121239694</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210828121239694.png</span>)<br><span class="hljs-bullet">-</span> 【CTRL】+C:中断目前的程序<br><span class="hljs-bullet">-</span> 【CTRL】+D：键盘结束输入<br><span class="hljs-bullet">  -</span> 退出root程序<br><span class="hljs-bullet">  -</span> 退出terminal<br><span class="hljs-bullet">  -</span> 类似exit<br><span class="hljs-bullet">-</span> 【shift】+&#123;【page up】【page down】&#125;：翻页<br><br><br><br><span class="hljs-section">## 4.3 在线求助</span><br><br><span class="hljs-section">### 4.3.1 【--help】</span><br><br><span class="hljs-section">### 4.3.2  man page</span><br><br><span class="hljs-bullet">-</span> man(manual的缩写)<br><br><span class="hljs-bullet">-</span> ![<span class="hljs-string">image-20210828133956061</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210828133956061.png</span>)<br><br><span class="hljs-bullet">-</span> 重点记忆:1,5,8<br><br><span class="hljs-bullet">-</span> ![<span class="hljs-string">image-20210828134140153</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210828134140153.png</span>)<br><br><span class="hljs-quote">&gt;   通常鸟哥在查询某个资料时是这样来查阅的：</span><br><br><span class="hljs-quote">&gt;  1.先察看NAME的项目，约略看一下这个资料的意思;</span><br><span class="hljs-quote">&gt;  2.再详看一下DESCRIPTION，这个部分会提到很多相关的数据与使用时机，从这个地方可以学&gt;到很多小细节呢;</span><br><span class="hljs-quote">&gt;  3.而如果这个指令其实很熟悉了（例如上面的date），那么鸟哥主要就是查询关于OPTIONS的&gt;部分了！ 可以知道每个选项的意义，这样就可以下达比较细部的指令内容呢！</span><br><span class="hljs-quote">&gt;  4.最后，鸟哥会再看一下，跟这个资料有关的还有哪些东西可以使用的？ 举例来说，上面的&gt;SEE ALSO就告知我们还可以利用&#x27;info coreutils date&#x27;来进一步查阅资料;</span><br> 5.某些说明内容还会列举有关的文件（FILES 部分）来提供我们参考！ 这些都是很有帮助的！<br><br><span class="hljs-bullet">-</span> ![<span class="hljs-string">image-20210828134412302</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210828134412302.png</span>)<br><br><span class="hljs-bullet">-</span> [man -f 命令]：获取更多与man相关的信息<br><br><span class="hljs-bullet">-</span> 【man -k 命令】：只要有“命令”这个关键词就将该说说明列出来<br><br><span class="hljs-bullet">-</span> 【whatis [命令或文件]】======等价于  man -f [命令或文件]<br><br><span class="hljs-bullet">-</span> 【apropos  [命令或文件]】====等价于 man -k [命令或文件]<br><br><span class="hljs-bullet">-</span> ![<span class="hljs-string">image-20210828140027144</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210828140027144.png</span>)<br><br><br><br><span class="hljs-section">### 4.3.3 info page(《鸟哥》P139 不太会用)</span><br><br>info命令与man命令类似，只不过info page是命令行模式的网页显示数据<br><br>![<span class="hljs-string">image-20210828144418231</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210828144418231.png</span>)<br><br><span class="hljs-section">### 4.3.4 其他有用的文件</span><br><br>/usr/share/doc<br><br>![<span class="hljs-string">image-20210828144702840</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210828144702840.png</span>)<br><br><span class="hljs-section">## 4.4 文本编辑器：nano</span><br><br>![<span class="hljs-string">image-20210828145922567</span>](<span class="hljs-link">https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210828145922567.png</span>)<br><br><br><br><span class="hljs-section">## 4.5 关机方法</span><br><br><span class="hljs-bullet">-</span> 观察系统的使用状态<br><br><span class="hljs-bullet">  -</span> 【who】:查看目前有谁在线<br><span class="hljs-bullet">  -</span> 【netstat -a】：网络的联机状态<br><span class="hljs-bullet">  -</span> 【ps -aux】：查看后台执行的程序<br><br><span class="hljs-bullet">-</span> 数据同步写入磁盘：【sync】<br><br><span class="hljs-bullet">-</span> 关机命令：【shutdown】<br><br><span class="hljs-bullet">  -</span> <span class="hljs-code">``` bash</span><br><span class="hljs-code">    [root@study ~]# shutdown -h now</span><br><span class="hljs-code">    立刻關機，其中 now 相當於時間為 0 的狀態</span><br><span class="hljs-code">    [root@study ~]# shutdown -h 20:25</span><br><span class="hljs-code">    系統在今天的 20:25 分會關機，若在21:25才下達此指令，則隔天才關機</span><br><span class="hljs-code">    [root@study ~]# shutdown -h +10</span><br><span class="hljs-code">    系統再過十分鐘後自動關機</span><br><span class="hljs-code">    [root@study ~]# shutdown -r now</span><br><span class="hljs-code">    系統立刻重新開機</span><br><span class="hljs-code">    [root@study ~]# shutdown -r +30 &#x27;The system will reboot&#x27; </span><br><span class="hljs-code">    再過三十分鐘系統會重新開機，並顯示後面的訊息給所有在線上的使用者</span><br><span class="hljs-code">    [root@study ~]# shutdown -k now &#x27;This system will reboot&#x27; </span><br><span class="hljs-code">    僅發出警告信件的參數！系統並不會關機啦！嚇唬人！</span><br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>重新启动，关机:reboot,halt,poweroff</p>
+</li>
+<li><p>实际使用管理工具：systemctl</p>
+</li>
+</ul>
+<h1 id="第二部分-Linux文件、目录与磁盘格式"><a href="#第二部分-Linux文件、目录与磁盘格式" class="headerlink" title="第二部分 Linux文件、目录与磁盘格式"></a><font color=DarkSeaGreen>第二部分 Linux文件、目录与磁盘格式</font></h1><h1 id="第5章-Linux的文加权限与目录配置"><a href="#第5章-Linux的文加权限与目录配置" class="headerlink" title="第5章 Linux的文加权限与目录配置"></a>第5章 Linux的文加权限与目录配置</h1><p>Linux一般将文件可读写的身份分为三个类别，分别是拥有者（owner），所属群组（group），其他人（others），且三种身份各有读(read),写（write），执行（execute）等权限。</p>
+<h2 id="5-1-用户与用户组"><a href="#5-1-用户与用户组" class="headerlink" title="5.1 用户与用户组"></a>5.1 用户与用户组</h2><ol>
+<li>文件拥有者</li>
+<li>用户组的概念</li>
+<li>其他人的概念</li>
+</ol>
+<p>在Linux系统当中，。默认情况下所有的系统上的账号与一般身份用户，还有那个root的相关信息都记录在&#x2F;etc&#x2F;passwd这个文件内，个人密码则是记录在&#x2F;etc&#x2F;shadow这个文件内。</p>
+<p>Linux所有的组名记录在&#x2F;etc&#x2F;group中。</p>
+<h2 id="5-2-Linux文件权限"><a href="#5-2-Linux文件权限" class="headerlink" title="5.2 Linux文件权限"></a>5.2 Linux文件权限</h2><h3 id="5-2-1-Linux文件属性"><a href="#5-2-1-Linux文件属性" class="headerlink" title="5.2.1 Linux文件属性"></a>5.2.1 Linux文件属性</h3><p>使用【su -】这个命令来切换身份，离开【su -】则使用【exit】</p>
+<p>【ls -a】：【ls】表示list，重点在显示文件的文件名和属性，选项【-al】则表示列出所有的文件详细的权限和属性</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210903221654870.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20210903221654870"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210904101341980.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20210904101341980"></p>
+<p>【文件类型权限】【链接数】【文件拥有者】【文件所属用户组】【文件大小】【文件最后被修改的时间】【文件名】</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/1.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="1"></p>
+<ul>
+<li>文件类型与权限（permission）<ul>
+<li>第一个字符代表这个文件是目录、文件或链接文件等；<ul>
+<li>[d] ：目录</li>
+<li>[-]  ： 文件</li>
+<li>[l]：链接文件</li>
+<li>[b]：设备文件里面的可供存储的周边设备</li>
+<li>[c]：设备文件里面的串行端口设备</li>
+</ul>
+</li>
+<li>之后的九个字符，每三个为一组，且均为【rwx】的三个参数组合。【r】：read，【w】:write， 【x】：execute，【-】：无权限<ul>
+<li>第一组：文件拥有者可具备的权限</li>
+<li>第二组：加入此用户组之账号的权限</li>
+<li>第三组：非本人且没有加入本用户组的其他账号的权限</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>目录与文件的权限意义并不相同，是因为目录与文件所记录的数据内容不相同</strong></p>
+<ul>
+<li>链接数<ul>
+<li>有多少文件名链接到此节点（inode）</li>
+</ul>
+</li>
+<li>文件或目录的拥有者账号</li>
+<li>文件所属的用户组</li>
+<li>文件的容量大小，默认单位是Byte</li>
+<li>创建日期或最近修改日期</li>
+</ul>
+<p>注意：<strong>目录与文件的权限意义并不相同，是因为目录与文件所记录的数据内容不相同</strong></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210904101541238.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20210904101541238"></p>
+<h3 id="5-2-2-修改文件属性与权限"><a href="#5-2-2-修改文件属性与权限" class="headerlink" title="5.2.2 修改文件属性与权限"></a>5.2.2 修改文件属性与权限</h3><ul>
+<li>【chgrp】：修改文件所属用户组</li>
+<li>【chown】：修改文件拥有者</li>
+<li>【chmod】：修改文件的权限</li>
+</ul>
+<h3 id="5-2-3-目录与文件的权限意义"><a href="#5-2-3-目录与文件的权限意义" class="headerlink" title="5.2.3 目录与文件的权限意义"></a>5.2.3 目录与文件的权限意义</h3><ul>
+<li>文件：存放实际数据<ul>
+<li>【r】：读取此文件的实际内容</li>
+<li>【w】：可以编辑、新增或是修改改文件的内容，不具备删除此文件本身的权限</li>
+<li>【x】：该文件具有可以被系统执行的权限<ul>
+<li>Windows下文件是否可以被执行是由文件的拓展名决定，Linux下文件能否被执行，是由权限决定</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><h2 id="目录：主要内容在记录文件名列表，文件名与目录有强烈的关联。-【r】：读取目录结构列表的权限，意味着可以在该文件夹下使用【ls】命令-【w】：具有改动该目录结构列表的权限-建立新的文件与目录-删除已存在的文件与目录（不管该文件的权限是什么）-将已存在的文件或目录进行更名-移动该目录内的文件、目录位置-【x】：用户进入该目录成为工作目录-有【x】权限意味着能使用【cd】命令，将该目录变成工作目录"><a href="#目录：主要内容在记录文件名列表，文件名与目录有强烈的关联。-【r】：读取目录结构列表的权限，意味着可以在该文件夹下使用【ls】命令-【w】：具有改动该目录结构列表的权限-建立新的文件与目录-删除已存在的文件与目录（不管该文件的权限是什么）-将已存在的文件或目录进行更名-移动该目录内的文件、目录位置-【x】：用户进入该目录成为工作目录-有【x】权限意味着能使用【cd】命令，将该目录变成工作目录" class="headerlink" title="目录：主要内容在记录文件名列表，文件名与目录有强烈的关联。- 【r】：读取目录结构列表的权限，意味着可以在该文件夹下使用【ls】命令- 【w】：具有改动该目录结构列表的权限  - 建立新的文件与目录  - 删除已存在的文件与目录（不管该文件的权限是什么）  - 将已存在的文件或目录进行更名  - 移动该目录内的文件、目录位置- 【x】：用户进入该目录成为工作目录  - 有【x】权限意味着能使用【cd】命令，将该目录变成工作目录"></a>目录：主要内容在记录文件名列表，文件名与目录有强烈的关联。<br>- 【r】：读取目录结构列表的权限，意味着可以在该文件夹下使用【ls】命令<br>- 【w】：具有改动该目录结构列表的权限<br>  - 建立新的文件与目录<br>  - 删除已存在的文件与目录（不管该文件的权限是什么）<br>  - 将已存在的文件或目录进行更名<br>  - 移动该目录内的文件、目录位置<br>- 【x】：用户进入该目录成为工作目录<br>  - 有【x】权限意味着能使用【cd】命令，将该目录变成工作目录</h2></li>
+</ul>
+<h3 id="5-2-4-Linux文件种类与扩展名"><a href="#5-2-4-Linux文件种类与扩展名" class="headerlink" title="5.2.4 Linux文件种类与扩展名"></a>5.2.4 Linux文件种类与扩展名</h3><h4 id="文件种类"><a href="#文件种类" class="headerlink" title="文件种类"></a>文件种类</h4><ul>
+<li>常规文件（regular file）：【ls -al】命令下，文件类型与权限的十个字符中，第一个字符为【-】的文件<ul>
+<li>纯文本文件（ASCII）</li>
+<li>二进制文件（binary）</li>
+<li>数据文件（data）</li>
+</ul>
+</li>
+<li>目录（directory）：【ls -al】命令下，文件类型与权限的十个字符中，第一个字符为【d】的文件</li>
+<li>链接文件（link）：【ls -al】命令下，文件类型与权限的十个字符中，第一个字符为【l】的文件<ul>
+<li>类似于Windows中的快截方式</li>
+<li><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210904114026148.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20210904114026148"></li>
+</ul>
+</li>
+<li>设备与设备文件（device）<ul>
+<li>区块（block）设备文件：【ls -al】命令下，文件类型与权限的十个字符中，第一个字符为【b】的文件<ul>
+<li>存储数据，以提供系统随机存取的接口设备（硬盘等）</li>
+</ul>
+</li>
+<li>字符（character）设备文件：【ls -al】命令下，文件类型与权限的十个字符中，第一个字符为【c】的文件<ul>
+<li>串行端口设备（鼠标键盘等）</li>
+<li>这些设备的特色是一次性读取，不能够截断输出</li>
+</ul>
+</li>
+<li><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210904114223200.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20210904114223200"></li>
+</ul>
+</li>
+<li>数据接口文件（sockets）：【ls -al】命令下，文件类型与权限的十个字符中，第一个字符为【s】的文件<ul>
+<li>通常被用在网络上的数据交换（&#x2F;run或&#x2F;tmp目录下）</li>
+</ul>
+</li>
+<li>数据输送文件（FIFO，pipe）：【ls -al】命令下，文件类型与权限的十个字符中，第一个字符为【p】的文件<ul>
+<li>FIFO是一种特殊的文件类型，主要目的是解决多个程序同时读写一个文件所造成的错误问题</li>
+<li>FIFO（fist-in-first-out）</li>
+</ul>
+</li>
+</ul>
+<h4 id="Linux文件扩展名"><a href="#Linux文件扩展名" class="headerlink" title="Linux文件扩展名"></a>Linux文件扩展名</h4><p>基本上，Linux的文件是没有所谓的扩展名的，一个Linux文件能否被执行，与她的第一栏的十个属性有关，与文件名根本没有一点关系</p>
+<ul>
+<li><pre><code class="bash">*sh:脚本或批处理文件（scripts），处理文件使用shell写成
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">- ``` bash<br>  *Z、*<span class="hljs-string">.tar</span>、*<span class="hljs-string">.tar.gz</span>、*<span class="hljs-string">.zip</span>、*<span class="hljs-string">.tag</span>:经过打包的压缩文件<br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><pre><code class="bash">*.html、*.php:网页相关文件
+<figure class="highlight node-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><code class="hljs node-repl"><br><br><br><br><br>#### Linux文件名长度限制<br><br>&gt;在Linux底下，使用传统的Ext2/Ext3/Ext4文件系统以及近来被CentOS 7当作默认文件系统的xfs而言，针对文件的文件名长度限制为：<br><span class="hljs-meta prompt_">&gt;</span><br>&gt;- 单一档案或目录的最大容许文件名为 255bytes，以一个 ASCII 英文占用一个 bytes 来说，则大约可达 255 个字符长度。 若是以每个中文字占用 2bytes 来说， 最大档名就是大约在 128 个中文字之谱！<br><span class="hljs-meta prompt_">&gt;</span><br>&gt;是相当长的档名喔！ 我们希望Linux的文件名称可以一看就知道该档案在干嘛的， 所以文件名通常是很长很长！ 而用惯了Windows的人可能会受不了，因为档案名称通常真的都很长， 对于用惯Windows而导致打字速度不快的朋友来说，嗯！ 真的是很困扰..... 不过，只得劝你好好的加强打字的训练啰！<br><br>#### Linux文件名的限制<br><br>&gt;由于Linux在文字界面下的一些指令操作关系，一般来说，你在设定Linux底下的档案名称时， 最好可以避免一些特殊字符比较好！ 例如底下这些：<br><span class="hljs-meta prompt_">&gt;</span><br>&gt;&gt; \* ? &gt; &lt; ; &amp; ! [ ] | \ &#x27; &quot; ` ( ) &#123; &#125;<br><span class="hljs-meta prompt_">&gt;</span><br>&gt;因为这些符号在文字界面下，是有特殊意义的！ 另外，文件名的开头为小数点&#x27;.&#x27; 时， 代表这个文件为『隐藏档』喔！ 同时，由于指令下达当中，常常会使用到 -option 之类的选项， 所以你最好也避免将档案文件名的开头以 - 或 + 来命名啊！<br><br><br><br><br><br><br><br><br><br>## 5.3 Linux目录配置<br><br>### 5.3.1 Linux目录配置的依据——FHS<br><br>标准：FHS:Filesystem Hisrarchy Standard<br><br>FHS的重点在于规范每个特性的目录下应该要放置什么样的数据<br><br>![image-20210904122155729](https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210904122155729.png)<br><br>&gt;- 可分享的：可以分享给其他系统挂载使用的目录，所以包括执行文件与使用者的邮件等资料， 是能够分享给网络上其他主机挂载用的目录;<br><span class="hljs-meta prompt_">&gt;</span><br><span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript"> </span><br><span class="hljs-meta prompt_">&gt;</span><br>&gt;- 不可分享的：自己机器上面运作的设备档案或者是与程序有关的socket档案等， 由于仅与自身机器有关，所以当然就不适合分享给其他主机了。<br><span class="hljs-meta prompt_">&gt;</span><br><span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript"> </span><br><span class="hljs-meta prompt_">&gt;</span><br>&gt;- 不变的：有些数据是不会经常变动的，跟随着distribution而不变动。 例如函式库、文档说明文件、系统管理员所管理的主机服务配置文件等等;<br><span class="hljs-meta prompt_">&gt;</span><br><span class="hljs-meta prompt_">&gt;</span> <span class="language-javascript"> </span><br><span class="hljs-meta prompt_">&gt;</span><br>&gt;- 可变动的：经常改变的数据，例如登录文件、一般用户可自行收受的新闻群组等。<br><br>事实上，FHS 针对目录树架构仅定义出三层目录底下应该放置什么数据而已，分别是底下这三个目录的定义：<br><br>- / （root， 根目录）：与开机系统有关;<br>- /usr （unix software resource）：与软件安装/执行有关;<br>- /var （variable）：与系统运作过程有关。<br><br>![image-20210904144038187](https://murhyimgur.oss-cn-beijing.aliyuncs.com/image/image-20210904144038187.png)<br><br>#### 根目录（/）的意义与内容<br><br>不但所有的目录都是由根目录衍生出来的，同时根目录也与启动、还原、系统修复等操作有关。<br><br>FHS要求根目录不要放在非常大的分区内，因为越大的分区会放置越多的文件，出错的机率也会越大<br><br>**根目录（/）所在的分区应该越小越好，且应用程序所安装的软件最好不要与根目录放在同一个分区内，保持根目录越小越好。**<br><br>有鉴于上述的说明，因此FHS定义出根目录（/）底下应该要有底下这些次目录的存在才好，即使没有实体目录，FHS也希望至少有链接文件存在才好：<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br># &lt;font color=DarkSeaGreen&gt;实际中遇到的问题&lt;/font&gt;<br><br>## 系统信息<br><br>设置root用户<br><br>``` bash<br>ubuntu@VM-8-15-ubuntu:~$ sudo passwd root<br>New password:<br>Retype new password:<br>passwd: password updated successfully<br>ubuntu@VM-8-15-ubuntu:~$ su<br>Password:<br>root@VM-8-15-ubuntu:/home/ubuntu#<br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<p>系统信息 20.04</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs bash">ubuntu@VM-8-15-ubuntu:~$ neofetch<br>            .-/+oossssoo+/-.               ubuntu@VM-8-15-ubuntu<br>        `:+ssssssssssssssssss+:`           ---------------------<br>      -+ssssssssssssssssssyyssss+-         OS: Ubuntu 20.04 LTS x86_64<br>    .ossssssssssssssssssdMMMNysssso.       Host: CVM 3.0<br>   /ssssssssssshdmmNNmmyNMMMMhssssss/      Kernel: 5.4.0-121-generic<br>  +ssssssssshmydMMMMMMMNddddyssssssss+     Uptime: 21 hours, 19 mins<br> /sssssssshNMMMyhhyyyyhmNMMMNhssssssss/    Packages: 959 (dpkg)<br>.ssssssssdMMMNhsssssssssshNMMMdssssssss.   Shell: bash 5.0.17<br>+sssshhhyNMMNyssssssssssssyNMMMysssssss+   Resolution: 1024x768<br>ossyNMMMNyMMhsssssssssssssshmmmhssssssso   Terminal: /dev/pts/0<br>ossyNMMMNyMMhsssssssssssssshmmmhssssssso   CPU: Intel Xeon Platinum 8255C (2) @ 2.494GHz<br>+sssshhhyNMMNyssssssssssssyNMMMysssssss+   GPU: 00:02.0 Cirrus Logic GD 5446<br>.ssssssssdMMMNhsssssssssshNMMMdssssssss.   Memory: 196MiB / 1982MiB<br> /sssssssshNMMMyhhyyyyhdNMMMNhssssssss/<br>  +sssssssssdmydMMMMMMMMddddyssssssss+<br>   /ssssssssssshdmNNNNmyNMMMMhssssss/<br>    .ossssssssssssssssssdMMMNysssso.<br>      -+sssssssssssssssssyyyssss+-<br>        `:+ssssssssssssssssss+:`<br>            .-/+oossssoo+/-.<br></code></pre></td></tr></table></figure>
+
+<h2 id="Conda"><a href="#Conda" class="headerlink" title="Conda"></a>Conda</h2><p>Miniconda依旧是首选：<a target="_blank" rel="noopener" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda — conda documentation</a></p>
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20220908092714214.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget <br><span class="hljs-built_in">chmod</span><br>./Miniconda3-latest-Linux-x86_64.sh <span class="hljs-comment"># .sh文件可以直接运行</span><br><span class="hljs-built_in">cat</span> ~/.bashrc <br><span class="hljs-built_in">source</span> ~/.bashrc <span class="hljs-comment"># 安装后环境变量不能立即生效，运行该命令后激活环境</span><br></code></pre></td></tr></table></figure>
+
+<p>关于退出环境的报错：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 这个错误信息是你在当前的conda虚拟环境里，只需要执行conda deactivate 命令即可，不能加参数</span><br>(base) ubuntu@VM-8-15-ubuntu:~$ conda deactivate base<br>deactivate does not accept arguments<br>remainder_args: [<span class="hljs-string">&#x27;base&#x27;</span>]<br><br>(base) ubuntu@VM-8-15-ubuntu:~$ conda deactivate<br>ubuntu@VM-8-15-ubuntu:~$<br></code></pre></td></tr></table></figure>
+
+<h2 id="apt源"><a href="#apt源" class="headerlink" title="apt源"></a>apt源</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/WU2629409421perfect/article/details/110881141">Ubuntu 20.04 &amp;&amp; Ubuntu 18.04 修改 apt 源_星汉空兮的博客-CSDN博客</a></p>
+<p>服务器本身配置的就是腾讯的源，不需要更换。在WSL上，更换源时遇到了有一些问题，一定要搞清楚期间的Ubuntu是什么版本的！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">murphy-dell@Murphy-DELL:/etc/apt$ lsb_release -a<br>No LSB modules are available.<br>Distributor ID: Ubuntu<br>Description:    Ubuntu 20.04.3 LTS<br>Release:        20.04<br>Codename:       focal<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs markdown">部分ubuntu系统LTS版本代号<br>Ubuntu 16.04代号为：xenial<br>Ubuntu 17.04代号为：zesty<br>Ubuntu 18.04代号为：bionic<br>Ubuntu 19.04代号为：disco<br>Ubuntu 20.04代号为：focal<br></code></pre></td></tr></table></figure>
+
+<h2 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a>GCC</h2><p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/766146">如何在 Ubuntu 20.04 上安装 GCC(build-essential)-阿里云开发者社区 (aliyun.com)</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt update<br>sudo apt install build-esstential<br>gcc --version<br>    gcc (Ubuntu 9.4.0-1ubuntu1~20.04.1) 9.4.0<br>    Copyright (C) 2019 Free Software Foundation, Inc.<br>    This is free software; see the <span class="hljs-built_in">source</span> <span class="hljs-keyword">for</span> copying conditions.  There is NO<br>    warranty; not even <span class="hljs-keyword">for</span> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.<br></code></pre></td></tr></table></figure>
+
+<h2 id="文本工具"><a href="#文本工具" class="headerlink" title="文本工具"></a>文本工具</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs markdown">常见的基于控制台的文本编辑器有以下几种：<br>emacs 综合性的GNU emacs 编辑环境<br>nano  一个类似于经典的pico的文本编辑器，内置了一个pine邮件程序<br>vim   一个改进的vi文本编辑器<br><br>注意并不是所有的文本编辑器都是基于控制台的，也就是说支持终端使用的。有一些文本编辑器被设计用来提供带有菜单栏，按钮，进度条等的图形界面。例如：<br>gedit 一个GUI的文本编辑器，Ubuntu默认安装<br>kate  一个简单的KDE文本编辑器<br>kedit 另外一个简单的KDE文本编辑器<br></code></pre></td></tr></table></figure>
+
+<p>目前主要用的还是Vim，nano未来也可以学习一下。(其实能熟练用起vim来估计都是一件很难的事情！</p>
+<h2 id="apt-apt-get"><a href="#apt-apt-get" class="headerlink" title="apt &amp; apt-get"></a>apt &amp; apt-get</h2><p>不是很懂</p>
+<blockquote>
+<p>简单来说就是：apt &#x3D; apt-get、apt-cache 和 apt-config 中最常用命令选项的集合。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/liudsl/article/details/79200134">apt 和 apt-get的区别_御龙冀人的博客-CSDN博客_apt get和apt</a></p>
+<h2 id="vimrc"><a href="#vimrc" class="headerlink" title=".vimrc"></a>.vimrc</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JE411G7N9/?spm_id_from=333.788.recommend_more_video.-1&vd_source=6d46640a443a49f050af078d1f65143e">如何使用 Vim 的配置文件 .vimrc_哔哩哔哩_bilibili</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) ubuntu@VM-8-15-ubuntu:~$ <span class="hljs-built_in">echo</span> <span class="hljs-variable">$HOME</span><br>/home/ubuntu<br>(base) ubuntu@VM-8-15-ubuntu:~$ ll<br>total 116<br>drwx------ 11 ubuntu ubuntu  4096 Sep 13 21:54 ./<br>drwxr-xr-x  4 root   root    4096 Sep  8 19:41 ../<br>-rw-r--r--  1 ubuntu ubuntu  6300 Sep 13 21:58 .bash_history<br>-rw-r--r--  1 ubuntu ubuntu   220 Jan 19  2021 .bash_logout<br>-rw-rw-r--  1 ubuntu ubuntu 13123 Jun 23 15:34 .bash-preexec.sh<br>-rw-r--r--  1 ubuntu ubuntu  4254 Sep  8 10:54 .bashrc<br>drwx------  2 ubuntu ubuntu  4096 Nov 10  2021 .cache/<br>drwxrwxr-x  2 ubuntu ubuntu  4096 Sep  8 10:54 .conda/<br>drwxrwxr-x  3 ubuntu ubuntu  4096 Sep  8 09:23 .config/<br>drwxrwxr-x  2 ubuntu ubuntu  4096 Sep  8 10:48 download/<br>drwx------  2 ubuntu ubuntu  4096 Jan 26  2022 .<span class="hljs-built_in">local</span>/<br>drwxrwxr-x 16 ubuntu ubuntu  4096 Sep  8 10:54 miniconda3/<br>drwxr-xr-x  2 ubuntu ubuntu  4096 Jun  5  2021 .pip/<br>-rw-r--r--  1 ubuntu ubuntu   807 Jan 19  2021 .profile<br>-rw-r--r--  1 ubuntu ubuntu    73 Sep  7 10:34 .pydistutils.cfg<br>-rw-------  1 ubuntu ubuntu  1520 Sep 13 20:16 .python_history<br>drwx------  2 ubuntu ubuntu  4096 Sep  7 10:34 .ssh/<br>-rw-r--r--  1 ubuntu ubuntu     0 Sep  8 09:09 .sudo_as_admin_successful<br>drwxrwxr-x  4 ubuntu ubuntu  4096 Sep 13 20:16 userDoc/<br>-rw-------  1 ubuntu ubuntu 10282 Sep 13 21:54 .viminfo<br>-rw-rw-r--  1 ubuntu ubuntu  8506 Sep 13 21:53 .vimrc         <span class="hljs-comment"># 新建这个.vimrc文件，写入vim配置文件</span><br></code></pre></td></tr></table></figure>
+
+<p>.vimrc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-string">&quot; All system-wide defaults are set in <span class="hljs-variable">$VIMRUNTIME</span>/debian.vim and sourced by</span><br><span class="hljs-string">&quot;</span> the call to :runtime you can find below.  If you wish to change any of those<br><span class="hljs-string">&quot; settings, you should do it in this file (/etc/vim/vimrc), since debian.vim</span><br><span class="hljs-string">&quot;</span> will be overwritten everytime an upgrade of the vim packages is performed.<br><span class="hljs-string">&quot; It is recommended to make changes after sourcing debian.vim since it alters</span><br><span class="hljs-string">&quot;</span> the value of the <span class="hljs-string">&#x27;compatible&#x27;</span> option.<br><br><span class="hljs-string">&quot; This line should not be removed as it ensures that various options are</span><br><span class="hljs-string">&quot;</span> properly <span class="hljs-built_in">set</span> to work with the Vim-related packages available <span class="hljs-keyword">in</span> Debian.<br>runtime! debian.vim<br><br><span class="hljs-string">&quot; Vim will load <span class="hljs-variable">$VIMRUNTIME</span>/defaults.vim if the user does not have a vimrc.</span><br><span class="hljs-string">&quot;</span> This happens after /etc/vim/vimrc(.<span class="hljs-built_in">local</span>) are loaded, so it will override<br><span class="hljs-string">&quot; any settings in these files.</span><br><span class="hljs-string">&quot;</span> If you don<span class="hljs-string">&#x27;t want that to happen, uncomment the below line to prevent</span><br><span class="hljs-string">&quot; defaults.vim from being loaded.</span><br><span class="hljs-string">&quot; let g:skip_defaults_vim = 1</span><br><span class="hljs-string"></span><br><span class="hljs-string">&quot; Uncomment the next line to make Vim more Vi-compatible</span><br><span class="hljs-string">&quot; NOTE: debian.vim sets &#x27;</span>nocompatible<span class="hljs-string">&#x27;.  Setting &#x27;</span>compatible<span class="hljs-string">&#x27; changes numerous</span><br><span class="hljs-string">&quot; options, so any other options should be set AFTER setting &#x27;</span>compatible<span class="hljs-string">&#x27;.</span><br><span class="hljs-string">&quot;set compatible</span><br><span class="hljs-string"></span><br><span class="hljs-string">&quot; Vim5 and later versions support syntax highlighting. Uncommenting the next</span><br><span class="hljs-string">&quot; line enables syntax highlighting by default.</span><br><span class="hljs-string">if has(&quot;syntax&quot;)</span><br><span class="hljs-string">  syntax on</span><br><span class="hljs-string">endif</span><br><span class="hljs-string"></span><br><span class="hljs-string">&quot; If using a dark background within the editing area and syntax highlighting</span><br><span class="hljs-string">&quot; turn on this option as well</span><br><span class="hljs-string">&quot;set background=dark</span><br><span class="hljs-string"></span><br><span class="hljs-string">&quot; Uncomment the following to have Vim jump to the last position when</span><br><span class="hljs-string">&quot; reopening a file</span><br><span class="hljs-string">&quot;if has(&quot;autocmd&quot;)</span><br><span class="hljs-string">&quot;  au BufReadPost * if line(&quot;&#x27;</span>\&quot;<span class="hljs-string">&quot;) &gt; 1 &amp;&amp; line(&quot;</span><span class="hljs-string">&#x27;\&quot;&quot;) &lt;= line(&quot;$&quot;) | exe &quot;normal! g&#x27;</span>\&quot;<span class="hljs-string">&quot; | endif</span><br><span class="hljs-string">&quot;</span>endif<br><br><span class="hljs-string">&quot; Uncomment the following to have Vim load indentation rules and plugins</span><br><span class="hljs-string">&quot;</span> according to the detected filetype.<br><span class="hljs-keyword">if</span> has(<span class="hljs-string">&quot;autocmd&quot;</span>)<br>  filetype plugin indent on<br>endif<br><br><span class="hljs-string">&quot; The following are commented out as they cause vim to behave a lot</span><br><span class="hljs-string">&quot;</span> differently from regular Vi. They are highly recommended though.<br><span class="hljs-string">&quot;set showcmd        &quot;</span> Show (partial) <span class="hljs-built_in">command</span> <span class="hljs-keyword">in</span> status line.<br><span class="hljs-string">&quot;set showmatch      &quot;</span> Show matching brackets.<br><span class="hljs-string">&quot;set ignorecase     &quot;</span> Do <span class="hljs-keyword">case</span> insensitive matching<br><span class="hljs-string">&quot;set smartcase      &quot;</span> Do smart <span class="hljs-keyword">case</span> matching<br><span class="hljs-string">&quot;set incsearch      &quot;</span> Incremental search<br><span class="hljs-string">&quot;set autowrite      &quot;</span> Automatically save before commands like :next and :make<br><span class="hljs-string">&quot;set hidden     &quot;</span> Hide buffers when they are abandoned<br><span class="hljs-string">&quot;set mouse=a        &quot;</span> Enable mouse usage (all modes)<br><br><span class="hljs-string">&quot; Source a global configuration file if available</span><br><span class="hljs-string">if filereadable(&quot;</span>/etc/vim/vimrc.local<span class="hljs-string">&quot;)</span><br><span class="hljs-string">  source /etc/vim/vimrc.local</span><br><span class="hljs-string">endif</span><br><span class="hljs-string">let mapleader=&quot;</span> <span class="hljs-string">&quot;           &quot;</span> 设置leader键为空格键<br><span class="hljs-built_in">set</span> nocompatible            <span class="hljs-string">&quot; 不以兼容模式运行</span><br><span class="hljs-string">set encoding=utf-8          &quot;</span> utf-8编码<br><span class="hljs-built_in">set</span> helplang=cn             <span class="hljs-string">&quot; 中文帮助文档</span><br><span class="hljs-string">set number              &quot;</span> 显示行号<br><span class="hljs-built_in">set</span> wrap                <span class="hljs-string">&quot; 自动换行</span><br><span class="hljs-string">set showcmd             &quot;</span> 显示输入信息<br><span class="hljs-built_in">set</span> cursorline              <span class="hljs-string">&quot; 显示光标所在行</span><br><span class="hljs-string">set wildmenu                &quot;</span> 显示补全提示<br><span class="hljs-built_in">set</span> hlsearch                <span class="hljs-string">&quot; 高亮搜索结果</span><br><span class="hljs-string">&quot;</span><span class="hljs-built_in">set</span> foldenable                 <span class="hljs-string">&quot; 允许折叠 </span><br><span class="hljs-string">&quot;</span><span class="hljs-built_in">set</span> foldmethod=manual          <span class="hljs-string">&quot; 手动折叠  </span><br><span class="hljs-string">&quot;</span>打开vim运行nohlsearch，取消高亮<br><span class="hljs-built_in">exec</span> <span class="hljs-string">&quot;nohlsearch&quot;</span>       <br><span class="hljs-built_in">set</span> ts=4                <span class="hljs-string">&quot; 设置tab键长度为四个空格</span><br><span class="hljs-string">set expandtab           &quot;</span> 设置tab键替换为四个空格键<br><span class="hljs-string">&quot; 将文件中的tab键替换成空格</span><br><span class="hljs-string">map &lt;LEADER&gt;    :retab!&lt;CR&gt;</span><br><span class="hljs-string">set incsearch               &quot;</span> 一边输入一边高亮  <br><span class="hljs-built_in">set</span> ignorecase              <span class="hljs-string">&quot; 忽略大小写</span><br><span class="hljs-string">set smartcase               &quot;</span> 智能大小写 <br><span class="hljs-built_in">set</span> laststatus=2            <span class="hljs-string">&quot; 设置状态栏在倒数第2行</span><br><span class="hljs-string"></span><br><span class="hljs-string">&quot;</span> 设置状态栏格式<br><span class="hljs-string">&quot;set statusline=%&lt;%F%=%y%m%r%h%w%&#123;&amp;ff&#125;\[%&#123;&amp;fenc&#125;]0x%02B@%040h#%n\(%3l/%3L,%3c\|%3v\)%3p%%</span><br><span class="hljs-string">set statusline=%1*\%&lt;%.50F\             &quot;</span>显示文件名和文件路径 <br><span class="hljs-built_in">set</span> statusline+=%=%2*\%y%m%r%h%w\ %*        <span class="hljs-string">&quot;显示文件类型及文件状态</span><br><span class="hljs-string">set statusline+=%3*\%&#123;&amp;ff&#125;\[%&#123;&amp;fenc&#125;]\ %*   &quot;</span>显示文件编码类型<br><span class="hljs-built_in">set</span> statusline+=%4*\ row:%l/%L,col:%c\ %*   <span class="hljs-string">&quot;显示光标所在行和列</span><br><span class="hljs-string">set statusline+=%5*\%3p%%\%*            &quot;</span>显示光标前文本所占总文本的比例<br>hi User1 cterm=none ctermfg=25 ctermbg=0 <br>hi User2 cterm=none ctermfg=208 ctermbg=0<br>hi User3 cterm=none ctermfg=169 ctermbg=0<br>hi User4 cterm=none ctermfg=100 ctermbg=0<br>hi User5 cterm=none ctermfg=green ctermbg=0<br><br><span class="hljs-built_in">set</span> mouse=a             <span class="hljs-string">&quot; 启用鼠标</span><br><span class="hljs-string">set backspace=indent,eol,start      &quot;</span> 退格键可以退到上一行<br><span class="hljs-built_in">set</span> scrolloff=5             <span class="hljs-string">&quot; 光标行上下移动范围各缩小5行</span><br><span class="hljs-string">&quot;</span><span class="hljs-built_in">set</span> ruler<br><span class="hljs-string">&quot;set transparency=11</span><br><span class="hljs-string">&quot;</span> 设置背景透明<br>hi Normal ctermfg=252 ctermbg=none<br><span class="hljs-string">&quot;寻找下一搜索结果，并将其置于屏幕中心</span><br><span class="hljs-string">noremap = nzz               </span><br><span class="hljs-string">&quot;</span>寻找上一搜索结果，并将其置于屏幕中心<br>noremap - Nzz<br><span class="hljs-string">&quot;取消高亮</span><br><span class="hljs-string">noremap &lt;LEADER&gt;&lt;CR&gt; :nohlsearch&lt;CR&gt;</span><br><span class="hljs-string">map s &lt;nop&gt;</span><br><span class="hljs-string">&quot;</span>保存<br>map S :w&lt;CR&gt;<br><span class="hljs-string">&quot;退出</span><br><span class="hljs-string">map Q :q&lt;CR&gt;</span><br><span class="hljs-string">&quot;</span>右分屏，聚焦右窗口<br>map sl :<span class="hljs-built_in">set</span> splitright&lt;CR&gt;:vsplit&lt;CR&gt;<br><span class="hljs-string">&quot;左分屏，聚焦左窗口</span><br><span class="hljs-string">map sh :set nosplitright&lt;CR&gt;:vsplit&lt;CR&gt;</span><br><span class="hljs-string">&quot;</span>上分屏，聚焦上窗口<br>map sk :<span class="hljs-built_in">set</span> nosplitbelow&lt;CR&gt;:<span class="hljs-built_in">split</span>&lt;CR&gt;<br><span class="hljs-string">&quot;下分屏，聚焦下窗口</span><br><span class="hljs-string">map sj :set splitbelow&lt;CR&gt;:split&lt;CR&gt;</span><br><span class="hljs-string">&quot;</span>光标移至右窗口<br>map &lt;LEADER&gt;l &lt;C-w&gt;l<br><span class="hljs-string">&quot;光标移至上窗口</span><br><span class="hljs-string">map &lt;LEADER&gt;k &lt;C-w&gt;k</span><br><span class="hljs-string">&quot;</span>光标移至下窗口<br>map &lt;LEADER&gt;j &lt;C-w&gt;j<br><span class="hljs-string">&quot;光标移至左窗口</span><br><span class="hljs-string">map &lt;LEADER&gt;h &lt;C-w&gt;h</span><br><span class="hljs-string">&quot;</span>窗口上移<br>map &lt;up&gt; :res +5&lt;CR&gt;<br><span class="hljs-string">&quot;窗口下移</span><br><span class="hljs-string">map &lt;down&gt; :res -5&lt;CR&gt;</span><br><span class="hljs-string">&quot;</span>窗口左移<br>map &lt;left&gt; :vertical resize-5&lt;CR&gt;<br><span class="hljs-string">&quot;窗口右移</span><br><span class="hljs-string">map &lt;right&gt; :vertical resize+5&lt;CR&gt;</span><br><span class="hljs-string">&quot;</span>新建标签页<br>map &lt;C-n&gt; :tabe&lt;CR&gt;<br><span class="hljs-string">&quot;前一标签页</span><br><span class="hljs-string">map t- :-tabnext&lt;CR&gt;</span><br><span class="hljs-string">&quot;</span>后一标签页<br>map t= :+tabnext&lt;CR&gt;<br><span class="hljs-string">&quot;重新加载vim配置文件</span><br><span class="hljs-string">map rc :source <span class="hljs-variable">$MYVIMRC</span>&lt;CR&gt;</span><br><span class="hljs-string">&quot;</span>寻找两个相等的单词<br>map &lt;LEADER&gt;fd /\(\&lt;\w\+\&gt;\)\_s*\1<br><span class="hljs-string">&quot;替换占空符&lt;++&gt;</span><br><span class="hljs-string">map &lt;LEADER&gt;&lt;LEADER&gt; &lt;ESC&gt;/&lt;++&gt;&lt;CR&gt;:nohlsearch&lt;CR&gt;c4l</span><br><span class="hljs-string">&quot;</span>全选<br>map &lt;C-a&gt; ggVG<br><span class="hljs-string">&quot;打开我的vimrc</span><br><span class="hljs-string">map &lt;LEADER&gt;rc :e ~/.vimrc&lt;CR&gt;</span><br><span class="hljs-string">&quot;</span>复制到系统剪切板<br>map +y <span class="hljs-string">&quot;+y</span><br><span class="hljs-string">&quot;</span>从系统剪切板粘贴<br>map +p <span class="hljs-string">&quot;+p</span><br><span class="hljs-string"></span><br><span class="hljs-string">set list</span><br><span class="hljs-string">set listchars=tab:&gt;-,trail:-</span><br><span class="hljs-string">&quot;</span>自动匹配括号<br>:inoremap ( ()&lt;ESC&gt;i<br>:inoremap ) &lt;c-r&gt;=ClosePair(<span class="hljs-string">&#x27;)&#x27;</span>)&lt;CR&gt; <br>:inoremap &#123; &#123;&#125;&lt;ESC&gt;i<br>:inoremap &#125; &lt;c-r&gt;=ClosePair(<span class="hljs-string">&#x27;&#125;&#x27;</span>)&lt;CR&gt;<br>:inoremap [ []&lt;ESC&gt;i<br>:inoremap ] &lt;c-r&gt;=ClosePair(<span class="hljs-string">&#x27;]&#x27;</span>)&lt;CR&gt;<br>:inoremap &lt; &lt;&gt;&lt;ESC&gt;i<br>:inoremap &gt; &lt;c-r&gt;=ClosePair(<span class="hljs-string">&#x27;&gt;&#x27;</span>)&lt;CR&gt;<br><span class="hljs-keyword">function</span>! ClosePair(char)<br>    <span class="hljs-keyword">if</span> getline(<span class="hljs-string">&#x27;.&#x27;</span>)[col(<span class="hljs-string">&#x27;.&#x27;</span>) - 1] == a:char<br>        <span class="hljs-built_in">return</span> <span class="hljs-string">&quot;\&lt;Right&gt;&quot;</span><br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-built_in">return</span> a:char<br>    endif<br>endfunction<br><span class="hljs-string">&quot;不同模式下光标样式不同</span><br><span class="hljs-string">let &amp;t_SI = &quot;</span>\&lt;Esc&gt;]50;CursorShape=1\x7<span class="hljs-string">&quot; </span><br><span class="hljs-string">let &amp;t_SR = &quot;</span>\&lt;Esc&gt;]50;CursorShape=2\x7<span class="hljs-string">&quot; </span><br><span class="hljs-string">let &amp;t_EI = &quot;</span>\&lt;Esc&gt;]50;CursorShape=0\x7<span class="hljs-string">&quot; </span><br><span class="hljs-string">&quot;</span>打开文件，光标回到上次编辑的位置<br>au BufReadPost * <span class="hljs-keyword">if</span> line(<span class="hljs-string">&quot;&#x27;\&quot;&quot;</span>) &gt; 1 &amp;&amp; line(<span class="hljs-string">&quot;&#x27;\&quot;&quot;</span>) &lt;= line(<span class="hljs-string">&quot;$&quot;</span>) | exe <span class="hljs-string">&quot;normal! g&#x27;\&quot;&quot;</span> | endif<br><span class="hljs-string">&quot;创建文件头</span><br><span class="hljs-string">autocmd BufNewFile *.py,*.tex exec &quot;</span>:call SetTitle()<span class="hljs-string">&quot;</span><br><span class="hljs-string"></span><br><span class="hljs-string">func! SetTitle() </span><br><span class="hljs-string">    if &amp;filetype == &#x27;python&#x27;</span><br><span class="hljs-string">        call setline(1,&quot;</span><span class="hljs-comment">#!/usr/bin/env python3&quot;)</span><br>        call append(line(<span class="hljs-string">&quot;.&quot;</span>),<span class="hljs-string">&quot;# -*- coding:UTF-8 -*-&quot;</span>)<br>        call append(line(<span class="hljs-string">&quot;.&quot;</span>)+1,<span class="hljs-string">&quot;##########################################################################&quot;</span>)<br>        call append(line(<span class="hljs-string">&quot;.&quot;</span>)+2, <span class="hljs-string">&quot;# File Name: &quot;</span>.<span class="hljs-built_in">expand</span>(<span class="hljs-string">&quot;%&quot;</span>))<br>        call append(line(<span class="hljs-string">&quot;.&quot;</span>)+3, <span class="hljs-string">&quot;# Author: stubborn vegeta&quot;</span>)<br>        call append(line(<span class="hljs-string">&quot;.&quot;</span>)+4, <span class="hljs-string">&quot;# Created Time: &quot;</span>.strftime(<span class="hljs-string">&quot;%c&quot;</span>))<br>        call append(line(<span class="hljs-string">&quot;.&quot;</span>)+5, <span class="hljs-string">&quot;##########################################################################&quot;</span>)<br>    endif<br>    <span class="hljs-keyword">if</span> &amp;filetype == <span class="hljs-string">&#x27;plaintex&#x27;</span><br>        call setline(1,<span class="hljs-string">&quot;% -*- coding:UTF-8 -*-&quot;</span>)<br>        call append(line(<span class="hljs-string">&quot;.&quot;</span>),<span class="hljs-string">&quot;%#########################################################################&quot;</span>)<br>        call append(line(<span class="hljs-string">&quot;.&quot;</span>)+1, <span class="hljs-string">&quot;% File Name: &quot;</span>.<span class="hljs-built_in">expand</span>(<span class="hljs-string">&quot;%&quot;</span>))<br>        call append(line(<span class="hljs-string">&quot;.&quot;</span>)+2, <span class="hljs-string">&quot;% Author: stubborn vegeta&quot;</span>)<br>        call append(line(<span class="hljs-string">&quot;.&quot;</span>)+3, <span class="hljs-string">&quot;% Created Time: &quot;</span>.strftime(<span class="hljs-string">&quot;%c&quot;</span>))<br>        call append(line(<span class="hljs-string">&quot;.&quot;</span>)+4, <span class="hljs-string">&quot;%#########################################################################&quot;</span>)<br>    endif<br>    <span class="hljs-string">&quot;autocmd BufNewFile * normal G </span><br><span class="hljs-string">    normal G </span><br><span class="hljs-string">endfunc</span><br><span class="hljs-string">&quot;</span> 设置注释快捷键 <br>map &lt;LEADER&gt;r :call Note()&lt;CR&gt;<br>func! Note()<br>    <span class="hljs-keyword">if</span> &amp;filetype == <span class="hljs-string">&#x27;python&#x27;</span><br>        normal 0i<span class="hljs-comment"># </span><br>    endif<br>    <span class="hljs-keyword">if</span> &amp;filetype == <span class="hljs-string">&#x27;vim&#x27;</span><br>        normal 0i<span class="hljs-string">&quot; </span><br><span class="hljs-string">    endif</span><br><span class="hljs-string">    if &amp;filetype == &#x27;plaintex&#x27;</span><br><span class="hljs-string">        normal 0i% </span><br><span class="hljs-string">    endif</span><br><span class="hljs-string">endfunc</span><br><span class="hljs-string">&quot;</span> 设置取消注释  <br>map &lt;LEADER&gt;t 0df j<br><span class="hljs-string">&quot;编译运行</span><br><span class="hljs-string">map &lt;F5&gt; :call RunPython()&lt;CR&gt;</span><br><span class="hljs-string">func! RunPython()</span><br><span class="hljs-string">    exec &quot;</span>W<span class="hljs-string">&quot;</span><br><span class="hljs-string">    if &amp;filetype == &#x27;python&#x27;</span><br><span class="hljs-string">       &quot;</span> <span class="hljs-built_in">exec</span> <span class="hljs-string">&quot;!time python3.6 %&quot;</span><br>    <span class="hljs-string">&quot;exec &quot;</span>:<span class="hljs-built_in">set</span> splitbelow&lt;CR&gt;:<span class="hljs-built_in">split</span>&lt;CR&gt;<span class="hljs-string">&quot;</span><br><span class="hljs-string">    exec &quot;</span>!time python3.6 %<span class="hljs-string">&quot;</span><br><span class="hljs-string"></span><br><span class="hljs-string">    endif</span><br><span class="hljs-string">    if &amp;filetype == &#x27;dot&#x27;</span><br><span class="hljs-string">    exec &quot;</span>!dot % -T png -o %.png<span class="hljs-string">&quot;</span><br><span class="hljs-string">    exec &quot;</span>!feh %.png<span class="hljs-string">&quot;</span><br><span class="hljs-string">    endif</span><br><span class="hljs-string">endfunc</span><br><span class="hljs-string"></span><br><span class="hljs-string">&quot;</span>colorscheme molokai<br><span class="hljs-built_in">set</span> t_Co=256            <span class="hljs-string">&quot;开启256色支持</span><br><span class="hljs-string">&quot;</span><span class="hljs-built_in">set</span> background=dark<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="su-su"><a href="#su-su" class="headerlink" title="su &amp; su -"></a>su &amp; su -</h2><p><a target="_blank" rel="noopener" href="http://c.biancheng.net/view/3089.html">Linux su命令：用户间切换（包含su和su -的区别） (biancheng.net)</a></p>
+<p>su 是最简单的用户切换命令，通过该命令可以实现任何身份的切换，包括从普通用户切换为 root 用户、从 root 用户切换为普通用户以及普通用户之间的切换。</p>
+<p>普通用户之间切换以及普通用户切换至 root 用户，都需要知晓对方的密码，只有正确输入密码，才能实现切换；从 root 用户切换至其他用户，无需知晓对方密码，直接可切换成功。</p>
+<p>su 命令的基本格式如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@localhost ~]<span class="hljs-comment"># su [选项] 用户名</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>选项：</p>
+<ul>
+<li>-：当前用户不仅切换为指定用户的身份，同时所用的<strong>工作环境</strong>也切换为此<strong>用户的环境（包括 PATH 变量、MAIL 变量等）</strong>，使用 - 选项可省略用户名，默认会切换为 root 用户。</li>
+<li>-l：同 - 的使用类似，也就是在切换用户身份的同时，完整切换工作环境，但后面需要添加欲切换的使用者账号。</li>
+<li>-p：表示切换为指定用户的身份，但不改变当前的工作环境（不使用切换用户的配置文件）。</li>
+<li>-m：和 -p 一样；</li>
+<li>-c 命令：仅切换用户执行一次命令，执行后自动切换回来，该选项后通常会带有要执行的命令。</li>
+</ul>
+</blockquote>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="*参考资料"></a>*参考资料</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38936626/article/details/86679070">腾讯云服务器获取root权限（ubuntu系统）_Foley_Zhao的博客-CSDN博客_云服务器root权限</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sunny_day_day/article/details/108714946">ppc64，ppc64le，ARM，AMD，X86，i386，x86_64（AMD64），AArch64的概念_ac.char的博客-CSDN博客_ppc64le</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46278037/article/details/120213833">如何查看 Ubuntu 版本和其他系统信息_BugMiaowu2021的博客-CSDN博客_ubuntu查看系统信息</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-command-manual.html">Linux 命令大全 | 菜鸟教程 (runoob.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/msq16021/article/details/118992379">Anaconda环境的 创建、激活、退出、删除_fish-aroma的博客-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/WU2629409421perfect/article/details/110881141">Ubuntu 20.04 &amp;&amp; Ubuntu 18.04 修改 apt 源_星汉空兮的博客-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/766146">如何在 Ubuntu 20.04 上安装 GCC(build-essential)-阿里云开发者社区 (aliyun.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lifuxiangcaohui/article/details/20221625">Ubuntu下几种常用的文本编辑器_Java海洋的博客-CSDN博客_ubuntu编辑器</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1JE411G7N9/?spm_id_from=333.788.recommend_more_video.-1&vd_source=6d46640a443a49f050af078d1f65143e">如何使用 Vim 的配置文件 .vimrc_哔哩哔哩_bilibili</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/l_changyun/article/details/98252459">vim配置（无插件，含状态栏，背景透明等）_stubborn vegeta的博客-CSDN博客_vim 状态栏</a></p>
+<h2 id="查看yum源（CentOS）"><a href="#查看yum源（CentOS）" class="headerlink" title="查看yum源（CentOS）"></a>查看yum源（CentOS）</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@iZ0jlftcfs16k3ahu5mu80Z ~]<span class="hljs-comment"># cat /etc/yum.repos.d/CentOS-Base.repo</span><br>[base]<br>name=CentOS-<span class="hljs-variable">$releasever</span><br>enabled=1<br>failovermethod=priority<br>baseurl=http://mirrors.cloud.aliyuncs.com/centos/<span class="hljs-variable">$releasever</span>/os/<span class="hljs-variable">$basearch</span>/<br>gpgcheck=1<br>gpgkey=http://mirrors.cloud.aliyuncs.com/centos/RPM-GPG-KEY-CentOS-7<br><br>[updates]<br>name=CentOS-<span class="hljs-variable">$releasever</span><br>enabled=1<br>failovermethod=priority<br>baseurl=http://mirrors.cloud.aliyuncs.com/centos/<span class="hljs-variable">$releasever</span>/updates/<span class="hljs-variable">$basearch</span>/<br>gpgcheck=1<br>gpgkey=http://mirrors.cloud.aliyuncs.com/centos/RPM-GPG-KEY-CentOS-7<br><br>[extras]<br>name=CentOS-<span class="hljs-variable">$releasever</span><br>enabled=1<br>failovermethod=priority<br>baseurl=http://mirrors.cloud.aliyuncs.com/centos/<span class="hljs-variable">$releasever</span>/extras/<span class="hljs-variable">$basearch</span>/<br>gpgcheck=1<br>gpgkey=http://mirrors.cloud.aliyuncs.com/centos/RPM-GPG-KEY-CentOS-7<br><br>[root@iZ0jlftcfs16k3ahu5mu80Z ~]<span class="hljs-comment">#</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="Linux-目录结构"><a href="#Linux-目录结构" class="headerlink" title="Linux 目录结构"></a>Linux 目录结构</h2><p>tree命令的下载<code>yum -y install tree</code></p>
+<blockquote>
+<ul>
+<li>-a 显示所有文件和目录。</li>
+<li>-A 使用ASNI绘图字符显示树状图而非以ASCII字符组合。</li>
+<li>-C 在文件和目录清单加上色彩，便于区分各种类型。</li>
+<li>-d 显示目录名称而非内容。</li>
+<li>-D 列出文件或目录的更改时间。</li>
+<li>-f 在每个文件或目录之前，显示完整的相对路径名称。</li>
+<li>-F 在执行文件，目录，Socket，符号连接，管道名称名称，各自加上”*”,”&#x2F;“,”&#x3D;”,”@”,”|”号。</li>
+<li>-g 列出文件或目录的所属群组名称，没有对应的名称时，则显示群组识别码。</li>
+<li>-i 不以阶梯状列出文件或目录名称。</li>
+<li>-L level 限制目录显示层级。</li>
+<li>-l 如遇到性质为符号连接的目录，直接列出该连接所指向的原始目录。</li>
+<li>-n 不在文件和目录清单加上色彩。</li>
+<li>-N 直接列出文件和目录名称，包括控制字符。</li>
+<li>-p 列出权限标示。</li>
+<li>-P&lt;范本样式&gt; 只显示符合范本样式的文件或目录名称。</li>
+<li>-q 用”?”号取代控制字符，列出文件和目录名称。</li>
+<li>-s 列出文件或目录大小。</li>
+<li>-t 用文件和目录的更改时间排序。</li>
+<li>-u 列出文件或目录的拥有者名称，没有对应的名称时，则显示用户识别码。</li>
+<li>-x 将范围局限在现行的文件系统中，若指定目录下的某些子目录，其存放于另一个文件系统上，则将该子目录予以排除在寻找范围外。</li>
+</ul>
+</blockquote>
+<p><strong>&#x2F; 目录</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@iZ0jlftcfs16k3ahu5mu80Z ~]<span class="hljs-comment"># pwd</span><br>/root<br>[root@iZ0jlftcfs16k3ahu5mu80Z ~]<span class="hljs-comment"># tree / -L 1</span><br>/<br>├── bin -&gt; usr/bin<br>├── boot<br>├── dev<br>├── etc<br>├── home<br>├── lib -&gt; usr/lib<br>├── lib64 -&gt; usr/lib64<br>├── lost+found<br>├── media<br>├── mnt<br>├── opt<br>├── proc<br>├── root<br>├── run<br>├── sbin -&gt; usr/sbin<br>├── srv<br>├── sys<br>├── tmp<br>├── usr<br>└── var<br><br><br>[root@iZ0jlftcfs16k3ahu5mu80Z ~]<span class="hljs-comment"># cd /</span><br>[root@iZ0jlftcfs16k3ahu5mu80Z /]<span class="hljs-comment"># ll</span><br>total 60<br>lrwxrwxrwx.  1 root root     7 Sep 14  2020 bin -&gt; usr/bin<br>dr-xr-xr-x.  5 root root  4096 Nov 30  2021 boot<br>drwxr-xr-x  19 root root  2980 Aug 18 08:20 dev<br>drwxr-xr-x. 76 root root  4096 Aug 16 14:29 etc<br>drwxr-xr-x.  3 root root  4096 Aug 16 14:13 home<br>lrwxrwxrwx.  1 root root     7 Sep 14  2020 lib -&gt; usr/lib<br>lrwxrwxrwx.  1 root root     9 Sep 14  2020 lib64 -&gt; usr/lib64<br>drwx------.  2 root root 16384 Sep 14  2020 lost+found<br>drwxr-xr-x.  2 root root  4096 Apr 11  2018 media<br>drwxr-xr-x.  2 root root  4096 Apr 11  2018 mnt<br>drwxr-xr-x.  2 root root  4096 Apr 11  2018 opt<br>dr-xr-xr-x  92 root root     0 Aug 18 08:19 proc<br>dr-xr-x---.  7 root root  4096 Aug 18 10:10 root<br>drwxr-xr-x  23 root root   620 Aug 18 14:11 run<br>lrwxrwxrwx.  1 root root     8 Sep 14  2020 sbin -&gt; usr/sbin<br>drwxr-xr-x.  2 root root  4096 Apr 11  2018 srv<br>dr-xr-xr-x  13 root root     0 Aug 18  2022 sys<br>drwxrwxrwt.  8 root root  4096 Aug 18 14:11 tmp<br>drwxr-xr-x. 13 root root  4096 Sep 14  2020 usr<br>drwxr-xr-x. 19 root root  4096 Sep 14  2020 var<br></code></pre></td></tr></table></figure>
+
+<img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/d0c50-linux2bfile2bsystem2bhierarchy.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload/>
+
+<blockquote>
+<ul>
+<li><p><strong>&#x2F;bin</strong>：<br>bin 是 Binaries (二进制文件) 的缩写, 这个目录存放着最经常使用的命令。</p>
+</li>
+<li><p><strong>&#x2F;boot：</strong><br>这里存放的是启动 Linux 时使用的一些核心文件，包括一些连接文件以及镜像文件。</p>
+</li>
+<li><p><strong>&#x2F;dev ：</strong><br>dev 是 Device(设备) 的缩写, 该目录下存放的是 Linux 的外部设备，在 Linux 中访问设备的方式和访问文件的方式是相同的。</p>
+</li>
+<li><p><strong>&#x2F;etc：</strong><br>etc 是 Etcetera(等等) 的缩写,这个目录用来存放所有的系统管理所需要的配置文件和子目录。</p>
+</li>
+<li><p><strong>&#x2F;home</strong>：<br>用户的主目录，在 Linux 中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的，如上图中的 alice、bob 和 eve。</p>
+</li>
+<li><p><strong>&#x2F;lib</strong>：<br>lib 是 Library(库) 的缩写这个目录里存放着系统最基本的动态连接共享库，其作用类似于 Windows 里的 DLL 文件。几乎所有的应用程序都需要用到这些共享库。</p>
+</li>
+<li><p><strong>&#x2F;lost+found</strong>：<br>这个目录一般情况下是空的，当系统非法关机后，这里就存放了一些文件。</p>
+</li>
+<li><p><strong>&#x2F;media</strong>：<br>linux 系统会自动识别一些设备，例如U盘、光驱等等，当识别后，Linux 会把识别的设备挂载到这个目录下。</p>
+</li>
+<li><p><strong>&#x2F;mnt</strong>：<br>系统提供该目录是为了让用户临时挂载别的文件系统的，我们可以将光驱挂载在 &#x2F;mnt&#x2F; 上，然后进入该目录就可以查看光驱里的内容了。</p>
+</li>
+<li><p><strong>&#x2F;opt</strong>：<br>opt 是 optional(可选) 的缩写，这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。</p>
+</li>
+<li><p><strong>&#x2F;proc</strong>：<br>proc 是 Processes(进程) 的缩写，&#x2F;proc 是一种伪文件系统（也即虚拟文件系统），存储的是当前内核运行状态的一系列特殊文件，这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。<br> 这个目录的内容不在硬盘上而是在内存里，我们也可以直接修改里面的某些文件，比如可以通过下面的命令来屏蔽主机的ping命令，使别人无法ping你的机器：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> 1 &gt; /proc/sys/net/ipv4/icmp_echo_ignore_all<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li><p><strong>&#x2F;root</strong>：<br>该目录为系统管理员，也称作超级权限者的用户主目录。</p>
+</li>
+<li><p><strong>&#x2F;sbin</strong>：<br>s 就是 Super User 的意思，是 Superuser Binaries (超级用户的二进制文件) 的缩写，这里存放的是系统管理员使用的系统管理程序。</p>
+</li>
+<li><p><strong>&#x2F;selinux</strong>：<br> 这个目录是 Redhat&#x2F;CentOS 所特有的目录，Selinux 是一个安全机制，类似于 windows 的防火墙，但是这套机制比较复杂，这个目录就是存放selinux相关的文件的。</p>
+</li>
+<li><p><strong>&#x2F;srv</strong>：<br> 该目录存放一些服务启动之后需要提取的数据。</p>
+</li>
+<li><p><strong>&#x2F;sys</strong>：</p>
+</li>
+</ul>
+<p>这是 Linux2.6 内核的一个很大的变化。该目录下安装了 2.6 内核中新出现的一个文件系统 sysfs 。</p>
+<p>sysfs 文件系统集成了下面3种文件系统的信息：针对进程信息的 proc 文件系统、针对设备的 devfs 文件系统以及针对伪终端的 devpts 文件系统。</p>
+<p>该文件系统是内核设备树的一个直观反映。</p>
+<p>当一个内核对象被创建的时候，对应的文件和目录也在内核对象子系统中被创建。</p>
+<ul>
+<li><p><strong>&#x2F;tmp</strong>：<br>tmp 是 temporary(临时) 的缩写这个目录是用来存放一些临时文件的。</p>
+</li>
+<li><p><strong>&#x2F;usr</strong>：<br> usr 是 unix shared resources(共享资源) 的缩写，这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于 windows 下的 program files 目录。</p>
+</li>
+<li><p><strong>&#x2F;usr&#x2F;bin：</strong><br>系统用户使用的应用程序。</p>
+</li>
+<li><p><strong>&#x2F;usr&#x2F;sbin：</strong><br>超级用户使用的比较高级的管理程序和系统守护程序。</p>
+</li>
+<li><p><strong>&#x2F;usr&#x2F;src：</strong><br>内核源代码默认的放置目录。</p>
+</li>
+<li><p><strong>&#x2F;var</strong>：<br>var 是 variable(变量) 的缩写，这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。</p>
+</li>
+<li><p><strong>&#x2F;run</strong>：<br>是一个临时文件系统，存储系统启动以来的信息。当系统重启时，这个目录下的文件应该被删掉或清除。如果你的系统上有 &#x2F;var&#x2F;run 目录，应该让它指向 run。</p>
+</li>
+</ul>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%9F%A5%E8%AF%86%E7%A7%AF%E7%B4%AF/" class="category-chain-item">知识积累</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>《鸟哥的Linux私房菜》</div>
+      <div>https://cosmicdusty.cc/post/Knowledge/LearnLinux/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Murphy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年8月1日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/post/Knowledge/CommunicationElectronicCircuits/" title="通信电子电路">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">通信电子电路</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/post/Knowledge/MicrocomputerPrincipleAndSinglechipMicrocomputer/" title="微机原理与单片机">
+                        <span class="hidden-mobile">微机原理与单片机</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"JijHNKemeVNog4wF7g9I5TR3-gzGzoHsz","appKey":"FvsKdxHOP2aG5rHrHby5aV0b","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a rel="nofollow noopener"><span>Powered by</span></a> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span><b>Hexo</b></span></a> <i class="iconfont icon-love"></i> <a rel="nofollow noopener"><span>Themed by</span></a> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span><b>Fluid</b></span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量
+        <span id="busuanzi_value_site_pv"></span>
+        次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数
+        <span id="busuanzi_value_site_uv"></span>
+        人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
