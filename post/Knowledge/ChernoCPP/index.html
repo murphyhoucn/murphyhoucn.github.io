@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20231225120947890.png">
 <meta property="article:published_time" content="2023-11-13T11:53:39.000Z">
-<meta property="article:modified_time" content="2023-12-25T06:58:35.496Z">
+<meta property="article:modified_time" content="2023-12-26T07:08:02.716Z">
 <meta property="article:author" content="Murphy">
 <meta property="article:tag" content="CPP">
 <meta name="twitter:card" content="summary_large_image">
@@ -281,7 +281,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.1k 字
+          7.2k 字
         
       </span>
     
@@ -292,7 +292,7 @@
         
         
         
-          59 分钟
+          60 分钟
         
       </span>
     
@@ -881,8 +881,23 @@
 
 <h2 id="2-类与方法中使用const"><a href="#2-类与方法中使用const" class="headerlink" title="2. 类与方法中使用const"></a>2. 类与方法中使用const</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Entity</span><br>&#123;<br><span class="hljs-keyword">private</span>:<br>	<span class="hljs-type">int</span> m_X, m_Y;<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">GetX</span><span class="hljs-params">()</span> <span class="hljs-type">const</span>  <span class="hljs-comment">// （这种方法只在类中有效）</span></span><br><span class="hljs-function">	</span>&#123;<br>		<span class="hljs-comment">// m_X = 1; // error! 因为方法后面加了const关键字，所有该方法不能修改类成员变量 </span><br>		<span class="hljs-keyword">return</span> m_X;<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">SetX</span><span class="hljs-params">(<span class="hljs-type">int</span> x)</span></span><br><span class="hljs-function">	</span>&#123;<br>		m_X = x;<br>	&#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
 
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Entity</span><br>&#123;<br><span class="hljs-keyword">private</span>:<br>	<span class="hljs-type">int</span>* m_X, m_Y;<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-function"><span class="hljs-type">const</span> <span class="hljs-type">int</span>* <span class="hljs-type">const</span> <span class="hljs-title">GetX</span><span class="hljs-params">()</span> <span class="hljs-type">const</span>  <span class="hljs-comment">// 指针m_X指向的内容不能变，指针的内容也不能变</span></span><br><span class="hljs-function">	</span>&#123;<br>		<span class="hljs-keyword">return</span> m_X;<br>	&#125;<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p><em>需要注意一个很有趣的地方！</em></p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-bullet">-</span> int* m<span class="hljs-emphasis">_X, m_</span>Y;<br><span class="hljs-bullet">	-</span> 这样写的代表着m<span class="hljs-emphasis">_X是int型指针变量，而m_</span>Y仍然是int型变量<br><span class="hljs-bullet">-</span> int* m<span class="hljs-emphasis">_X, *m_</span>Y<br><span class="hljs-bullet">	-</span> 而这样写才能使得两个变量都是int型指针变量<br></code></pre></td></tr></table></figure>
 
 
+
+<h1 id="35-The-Mutable-Keyword-in-C"><a href="#35-The-Mutable-Keyword-in-C" class="headerlink" title="35. The Mutable Keyword in C++"></a>35. The Mutable Keyword in C++</h1><p><code>mutable</code> means something can be changed.</p>
+<h2 id="1-mutable-and-const"><a href="#1-mutable-and-const" class="headerlink" title="1. mutable and const"></a>1. mutable and const</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Entity</span><br>&#123;<br><span class="hljs-keyword">private</span>:<br>	std::string m_Name;<br>	<span class="hljs-keyword">mutable</span> <span class="hljs-type">int</span> m_DebugCount = <span class="hljs-number">0</span>;<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-function"><span class="hljs-type">const</span> std::string&amp; <span class="hljs-title">GetName</span><span class="hljs-params">()</span> <span class="hljs-type">const</span></span><br><span class="hljs-function">	</span>&#123;<br>		m_DebugCount++;<br>		<span class="hljs-keyword">return</span> m_Name;<br>	&#125;<br>&#125;;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-type">const</span> Entity e;<br>	e.<span class="hljs-built_in">GetName</span>();<br><br>	std::cin.<span class="hljs-built_in">get</span>();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="2-mutable-and-lambda"><a href="#2-mutable-and-lambda" class="headerlink" title="2. mutable and lambda"></a>2. mutable and lambda</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-type">int</span> x = <span class="hljs-number">8</span>;<br><span class="hljs-keyword">auto</span> f = [=]() <span class="hljs-keyword">mutable</span><br>&#123;<br>    x++;<br>    std::cout &lt;&lt; x &lt;&lt; std::endl;<br>&#125;<br><br><span class="hljs-built_in">f</span>();<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="36-Member-Initializer-Lists-in-C-Constructor-Initializer-List"><a href="#36-Member-Initializer-Lists-in-C-Constructor-Initializer-List" class="headerlink" title="36. Member Initializer Lists in C++ (Constructor Initializer List)"></a>36. Member Initializer Lists in C++ (Constructor Initializer List)</h1><blockquote>
+<p>成员初始化列表，在构造函数中初始化类成员（变量）的一种方式</p>
+</blockquote>
 
                 
               </div>
