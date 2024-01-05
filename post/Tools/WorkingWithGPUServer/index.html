@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/%E6%96%87%E7%AB%A0%E9%BB%98%E8%AE%A4%E5%B0%81%E9%9D%A2.jpg">
 <meta property="article:published_time" content="2023-11-01T02:28:51.000Z">
-<meta property="article:modified_time" content="2023-12-08T01:17:04.000Z">
+<meta property="article:modified_time" content="2024-01-05T09:04:58.608Z">
 <meta property="article:author" content="Murphy">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Server">
@@ -285,7 +285,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          132 字
+          167 字
         
       </span>
     
@@ -378,6 +378,39 @@
 <h1 id="Clash-for-Linux"><a href="#Clash-for-Linux" class="headerlink" title="Clash for Linux"></a>Clash for Linux</h1><blockquote>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/662552814">Ubuntu配置 命令行Clash 教程 - 知乎 (zhihu.com)</a></p>
 </blockquote>
+<h1 id="MMDetection"><a href="#MMDetection" class="headerlink" title="MMDetection"></a>MMDetection</h1><h2 id="CUDA-11-3-CUDNN-8-5"><a href="#CUDA-11-3-CUDNN-8-5" class="headerlink" title="CUDA 11.3 &amp; CUDNN 8.5"></a>CUDA 11.3 &amp; CUDNN 8.5</h2><p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-11-3-1-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=18.04&target_type=runfile_local">CUDA Toolkit 11.3 Update 1 Downloads | NVIDIA Developer</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://developer.download.nvidia.com/compute/cuda/11.3.1/local_installers/cuda_11.3.1_465.19.01_linux.run<br>sudo sh cuda_11.3.1_465.19.01_linux.run<br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/198161777">非root用户安装cuda与cudnn - 知乎 (zhihu.com)</a></p>
+<p><img src="/WorkingWithGPUServer.assets/image-20240105154958922.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240105154958922"></p>
+<p><img src="/WorkingWithGPUServer.assets/image-20240105154857088.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240105154857088"></p>
+<p><img src="/WorkingWithGPUServer.assets/image-20240105155054178.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240105155054178"></p>
+<p><img src="/WorkingWithGPUServer.assets/image-20240105154820598.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240105154820598"></p>
+<p><img src="/WorkingWithGPUServer.assets/image-20240105154838934.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240105154838934"></p>
+<p><img src="/WorkingWithGPUServer.assets/image-20240105154907733.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240105154907733"></p>
+<p><img src="/WorkingWithGPUServer.assets/image-20240105155142558.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240105155142558"></p>
+<blockquote>
+<h1 id="base-houjinliang-3080server-userdoc-cuda-and-cudnn-sh-cuda-11-3-1-465-19-01-linux-run"><a href="#base-houjinliang-3080server-userdoc-cuda-and-cudnn-sh-cuda-11-3-1-465-19-01-linux-run" class="headerlink" title="(base) houjinliang@3080server:~&#x2F;userdoc&#x2F;cuda_and_cudnn$ sh .&#x2F;cuda_11.3.1_465.19.01_linux.run"></a>(base) houjinliang@3080server:~&#x2F;userdoc&#x2F;cuda_and_cudnn$ sh .&#x2F;cuda_11.3.1_465.19.01_linux.run</h1><h1 id="Summary"><a href="#Summary" class="headerlink" title="&#x3D; Summary &#x3D;"></a>&#x3D; Summary &#x3D;</h1><p>Driver:   Not Selected<br>Toolkit:  Installed in &#x2F;mnt&#x2F;houjinliang&#x2F;cuda-11.3&#x2F;<br>Samples:  Not Selected</p>
+<p>Please make sure that</p>
+<ul>
+<li>PATH includes &#x2F;mnt&#x2F;houjinliang&#x2F;cuda-11.3&#x2F;bin</li>
+<li>LD_LIBRARY_PATH includes &#x2F;mnt&#x2F;houjinliang&#x2F;cuda-11.3&#x2F;lib64, or, add &#x2F;mnt&#x2F;houjinliang&#x2F;cuda-11.3&#x2F;lib64 to &#x2F;etc&#x2F;ld.so.conf and run ldconfig as root</li>
+</ul>
+<p>To uninstall the CUDA Toolkit, run cuda-uninstaller in &#x2F;mnt&#x2F;houjinliang&#x2F;cuda-11.3&#x2F;bin<br>***WARNING: Incomplete installation! This installation did not install the CUDA Driver. A driver of version at least 465.00 is required for CUDA 11.3 functionality to work.<br>To install the driver using this installer, run the following command, replacing <CudaInstaller> with the name of this run file:<br>    sudo <CudaInstaller>.run –silent –driver</p>
+<p>Logfile is &#x2F;tmp&#x2F;cuda-installer.log</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim ~/.bashrc<br><br>```<br><span class="hljs-comment"># cuda environment variables</span><br><span class="hljs-comment"># murpy insert</span><br><br><span class="hljs-built_in">export</span> CUDA_HOME=<span class="hljs-variable">$CUDA_HOME</span>:/mnt/houjinliang/cuda-11.3<br><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/mnt/houjinliang/cuda-11.3/bin<br><span class="hljs-built_in">export</span> LD_LIBRARY_PATH=<span class="hljs-variable">$LD_LIBRARY_PATH</span>:/mnt/houjinliang/cuda-11.3/lib64<br>```<br><br><br>(base) houjinliang@3080server:~$ <span class="hljs-built_in">source</span> ~/.bashrc<br>(base) houjinliang@3080server:~$ nvcc -V<br>nvcc: NVIDIA (R) Cuda compiler driver<br>Copyright (c) 2005-2021 NVIDIA Corporation<br>Built on Mon_May__3_19:15:13_PDT_2021<br>Cuda compilation tools, release 11.3, V11.3.109<br>Build cuda_11.3.r11.3/compiler.29920130_0<br><br>(base) houjinliang@3080server:~/userdoc/cuda_and_cudnn$ tar -xf cudnn-linux-x86_64-8.5.0.96_cuda11-archive.tar.xz<br><br>(py38mmdetection) houjinliang@3080server:~/userdoc/cuda_and_cudnn/cudnn-linux-x86_64-8.5.0.96_cuda11-archive$ ll<br>总用量 48<br>drwxr-xr-x 4 houjinliang houjinliang  4096 8月   3  2022 ./<br>drwxrwxr-x 3 houjinliang houjinliang  4096 1月   5 16:32 ../<br>drwxr-xr-x 2 houjinliang houjinliang  4096 8月   3  2022 include/<br>drwxr-xr-x 2 houjinliang houjinliang  4096 8月   3  2022 lib/<br>-rw-r--r-- 1 houjinliang houjinliang 28994 8月   3  2022 LICENSE<br>(py38mmdetection) houjinliang@3080server:~/userdoc/cuda_and_cudnn/cudnn-linux-x86_64-8.5.0.96_cuda11-archive$ <span class="hljs-built_in">cp</span> lib/* ~/cuda-11.3/lib64/<br>(py38mmdetection) houjinliang@3080server:~/userdoc/cuda_and_cudnn/cudnn-linux-x86_64-8.5.0.96_cuda11-archive$ <span class="hljs-built_in">cp</span> include/* ~/cuda-11.3/include<br></code></pre></td></tr></table></figure>
+
+<h2 id="PyTorch-1-11"><a href="#PyTorch-1-11" class="headerlink" title="PyTorch 1.11"></a>PyTorch 1.11</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@3080server:~$ conda create -n py38mmdetection python=3.8 -y<br>(base) houjinliang@3080server:~$ conda activate py38mmdetection<br>(py38mmdetection) houjinliang@3080server:~$ conda install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch<br><br>(py38mmdetection) houjinliang@3080server:~$ python<br>Python 3.8.18 (default, Sep 11 2023, 13:40:15)<br>[GCC 11.2.0] :: Anaconda, Inc. on linux<br>Type <span class="hljs-string">&quot;help&quot;</span>, <span class="hljs-string">&quot;copyright&quot;</span>, <span class="hljs-string">&quot;credits&quot;</span> or <span class="hljs-string">&quot;license&quot;</span> <span class="hljs-keyword">for</span> more information.<br>&gt;&gt;&gt; import torch<br>&gt;&gt;&gt; <span class="hljs-built_in">print</span>(torch.cuda.is_available())<br>True<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>参考镜像：</p>
+<p><a target="_blank" rel="noopener" href="https://www.codewithgpu.com/i/open-mmlab/mmdetection3d/mmdetection3d-1.1">open-mmlab&#x2F;mmdetection3d&#x2F;mmdetection3d-1.1: mmdetection3d-1.1版本 - CG (codewithgpu.com)</a></p>
+<p><img src="/WorkingWithGPUServer.assets/image-20240105160510106.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240105160510106"></p>
+</blockquote>
+<h2 id="mmdet"><a href="#mmdet" class="headerlink" title="mmdet"></a>mmdet</h2><p><a target="_blank" rel="noopener" href="https://mmdetection.readthedocs.io/zh-cn/latest/get_started.html">开始你的第一步 — MMDetection 3.3.0 文档</a></p>
+<h2 id="阿里云源"><a href="#阿里云源" class="headerlink" title="阿里云源"></a>阿里云源</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip config <span class="hljs-built_in">set</span> global.index-url https://mirrors.aliyun.com/pypi/simple<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
