@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20231225120947890.png">
 <meta property="article:published_time" content="2023-12-29T03:33:08.000Z">
-<meta property="article:modified_time" content="2024-01-06T09:32:57.524Z">
+<meta property="article:modified_time" content="2024-01-06T13:34:27.105Z">
 <meta property="article:author" content="Murphy">
 <meta property="article:tag" content="CPP">
 <meta name="twitter:card" content="summary_large_image">
@@ -413,8 +413,8 @@
 <h2 id="3-用在类上的模板"><a href="#3-用在类上的模板" class="headerlink" title="3. 用在类上的模板"></a>3. 用在类上的模板</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T, <span class="hljs-type">int</span> N&gt;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Array</span><br>&#123;<br><span class="hljs-keyword">private</span>:<br>	T m_Array[N];<br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">GetSize</span><span class="hljs-params">()</span> <span class="hljs-type">const</span> </span>&#123; <span class="hljs-keyword">return</span> N; &#125;<br>&#125;;<br><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	Array&lt;<span class="hljs-type">int</span>, <span class="hljs-number">5</span>&gt; array1;<br>	std::cout &lt;&lt; array1.<span class="hljs-built_in">GetSize</span>() &lt;&lt; std::endl;<br><br>	std::cin.<span class="hljs-built_in">get</span>();<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="4-哪里用模板？哪里不用"><a href="#4-哪里用模板？哪里不用" class="headerlink" title="4. 哪里用模板？哪里不用"></a>4. 哪里用模板？哪里不用</h2><p>本部分完全是主观的，仅供参考。 <strong>很多游戏工作室或软件公司实际上禁止使用模板</strong>，但模板非常有用，比如在日志系统或者其它的使用场景下，你想记录每一种可能的类型，难道你真的要为每个函数都进行重载吗？你可以用模板自动完成，也就是你可以让编译器基于一些规则为你写代码。 这是说，你可以深入使用模板来做一些很好的事，但如果你的模板变得非常复杂，你开始让它为你生成一个完整的元语言就有点过头了。因为这里有一个平衡点，当模板变得越来越复杂时，没人能搞懂它是做什么的了，你得花大量时间弄清楚哪些代码已经被编译了以及你的模板到底发生了什么而不能工作。这种情况说明你做的过头了。</p>
-<p>Cherno 的观点是：手动做一些事，自己写代码实际上会让你和你的团队受益更多，而不是试图创建庞大的模板魔法般地为你做所有事。所以模板不应该被完全禁止，但也不应该滥用。比如游戏引擎的日志系统和材质系统肯定会用到模板，当你有一个可以包含各种不同类型的统一缓冲区时，模板在一定程序上是非常有用的。</p>
-<h1 id="54"><a href="#54" class="headerlink" title="54."></a>54.</h1>
+<p>Cherno 的观点是：手动做一些事，自己写代码实际上会让你和你的团队受益更多，而不是试图创建庞大的模板魔法般地为你做所有事。所以模板不应该被完全禁止，但也不应该滥用。比如游戏引擎的<strong>日志系统</strong>和<strong>材质系统</strong>肯定会用到模板，当你有一个可以包含各种不同类型的统一缓冲区时，模板在一定程序上是非常有用的。</p>
+<h1 id="54-Stack-vs-Heap-Memory-in-C"><a href="#54-Stack-vs-Heap-Memory-in-C" class="headerlink" title="54. Stack vs Heap Memory in C++"></a>54. Stack vs Heap Memory in C++</h1>
                 
               </div>
             
