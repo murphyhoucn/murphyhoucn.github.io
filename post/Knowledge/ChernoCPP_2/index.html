@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20231225120947890.png">
 <meta property="article:published_time" content="2023-12-29T03:33:08.000Z">
-<meta property="article:modified_time" content="2024-01-06T13:34:27.105Z">
+<meta property="article:modified_time" content="2024-01-07T02:55:22.121Z">
 <meta property="article:author" content="Murphy">
 <meta property="article:tag" content="CPP">
 <meta name="twitter:card" content="summary_large_image">
@@ -269,7 +269,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k 字
+          4.1k 字
         
       </span>
     
@@ -280,7 +280,7 @@
         
         
         
-          24 分钟
+          35 分钟
         
       </span>
     
@@ -414,7 +414,19 @@
 
 <h2 id="4-哪里用模板？哪里不用"><a href="#4-哪里用模板？哪里不用" class="headerlink" title="4. 哪里用模板？哪里不用"></a>4. 哪里用模板？哪里不用</h2><p>本部分完全是主观的，仅供参考。 <strong>很多游戏工作室或软件公司实际上禁止使用模板</strong>，但模板非常有用，比如在日志系统或者其它的使用场景下，你想记录每一种可能的类型，难道你真的要为每个函数都进行重载吗？你可以用模板自动完成，也就是你可以让编译器基于一些规则为你写代码。 这是说，你可以深入使用模板来做一些很好的事，但如果你的模板变得非常复杂，你开始让它为你生成一个完整的元语言就有点过头了。因为这里有一个平衡点，当模板变得越来越复杂时，没人能搞懂它是做什么的了，你得花大量时间弄清楚哪些代码已经被编译了以及你的模板到底发生了什么而不能工作。这种情况说明你做的过头了。</p>
 <p>Cherno 的观点是：手动做一些事，自己写代码实际上会让你和你的团队受益更多，而不是试图创建庞大的模板魔法般地为你做所有事。所以模板不应该被完全禁止，但也不应该滥用。比如游戏引擎的<strong>日志系统</strong>和<strong>材质系统</strong>肯定会用到模板，当你有一个可以包含各种不同类型的统一缓冲区时，模板在一定程序上是非常有用的。</p>
-<h1 id="54-Stack-vs-Heap-Memory-in-C"><a href="#54-Stack-vs-Heap-Memory-in-C" class="headerlink" title="54. Stack vs Heap Memory in C++"></a>54. Stack vs Heap Memory in C++</h1>
+<h1 id="54-Stack-vs-Heap-Memory-in-C"><a href="#54-Stack-vs-Heap-Memory-in-C" class="headerlink" title="54. Stack vs Heap Memory in C++"></a>54. Stack vs Heap Memory in C++</h1><h2 id="1-什么是栈和堆？"><a href="#1-什么是栈和堆？" class="headerlink" title="1. 什么是栈和堆？"></a>1. 什么是栈和堆？</h2><p>应用程序启动后，操作系统要做的就是将整个程序加载到内存，并分配一大堆物理 RAM（<em>随机存取存储器：Random Access Memory</em>）以便我们的实际应用程序可以运行。 栈和堆是 RAM 中实际存在的两个区域： 栈<em>stack</em>通常是一个预定义大小的内存区域，通常约为 2 兆字节（2MB）左右； 堆<em>heap</em>也是一个预定义了默认值的区域，但是它可以增长，并随着应用程序的进行而改变。 重要的是要知道这两个内存区域的实际物理位置都是在 RAM 中，很多人倾向于认为栈存储在 CPU 缓存中或类似的位置，它确实因为我们不停访问而在缓存中活跃，但不是所有的栈内存都会存储在这里，这并不是它的工作方式。只要记住这两个内存区域的实际位置都在我们的内存中，这就是为什么内存中有两个不同区域的原因。</p>
+<h2 id="2-栈与堆的内存分配"><a href="#2-栈与堆的内存分配" class="headerlink" title="2. 栈与堆的内存分配"></a>2. 栈与堆的内存分配</h2><p>我们的程序中，内存是用来存储运行程序所需的数据的，不管是从局部变量还是从文件中读取的东西。而栈和堆就是我们可以存储数据的地方。 它们的工作原理非常不同，但本质上做的事情是一样的：我们可以要求 C++从栈或者堆中给我们一些内存，顺利的话它会给我们一个要求大小的内存块。而不同之处在于，它会<strong>如何分配内存</strong>。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Vector3</span><br>&#123;<br>	<span class="hljs-type">float</span> x, y, z;<br><br>	<span class="hljs-built_in">Vector3</span>()<br>		:<span class="hljs-built_in">x</span>(<span class="hljs-number">10.0f</span>), <span class="hljs-built_in">y</span>(<span class="hljs-number">11.0f</span>), <span class="hljs-built_in">z</span>(<span class="hljs-number">12.0f</span>) &#123;&#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-type">int</span> value = <span class="hljs-number">5</span>;<br>	<span class="hljs-type">int</span> array[<span class="hljs-number">5</span>];<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++)<br>	&#123;<br>		array[i] = i;<br>	&#125;<br>	Vector3 vector;<br><br>	<span class="hljs-type">int</span>* hvalue = <span class="hljs-keyword">new</span> <span class="hljs-type">int</span>;<br>	*hvalue = <span class="hljs-number">5</span>;<br>	<span class="hljs-type">int</span>* harray = <span class="hljs-keyword">new</span> <span class="hljs-type">int</span>[<span class="hljs-number">5</span>];<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++)<br>	&#123;<br>		harray[i] = i;<br>	&#125;<br>	Vector3* hvector = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Vector3</span>();<br><br>	<span class="hljs-keyword">delete</span> hvalue;<br>	<span class="hljs-keyword">delete</span>[] harray;<br>	<span class="hljs-keyword">delete</span> hvector;<br><br>	std::cin.<span class="hljs-built_in">get</span>();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="栈分配"><a href="#栈分配" class="headerlink" title="栈分配"></a>栈分配</h3><p>因为 debug 模式下在变量周围添加了<em>safety guards</em>，以确保我们不会溢出所有变量，在错误的内存中访问它们等问题。所以在内存中这些变量的<strong>存储位置都很接近</strong>，因为实际发生的是：<strong>当我们在栈中分配变量时，栈顶部的指针就移动这个变量大小的字节。分配一个 4 个字节的整数，栈顶指针就移动 4 个字节。内存实际上是像栈一样相互叠加存储的，现在在大多数栈的实现中，栈是倒着来的。</strong>这就是为什么你看图中会发现：第一个 int value 存储在更高的内存地址，后续的 array 和 vector 在旁边存储在较低的内存地址，因为它是反向生长的。</p>
+<p>栈的做法就是把东西叠在一起，这就是为什么<em>stack allocation</em>（栈分配）非常快，它就像一条 CPU 指令，我们所做的就是移动栈指针，然后返回栈指针的地址。我如果要分配一个整数，我要反向移动栈指针 4 个字节，然后返回那个内存地址，因为这是 4 个字节块的开始。</p>
+<p>栈中分配内存时，一旦这个作用域结束，你在栈中分配的所有内存都会被弹出，内存被释放。</p>
+<h3 id="堆分配"><a href="#堆分配" class="headerlink" title="堆分配"></a>堆分配</h3><p>堆分配的内存不会紧挨着，在堆中分配<code>new</code>后要调用<code>delete</code>关键字来释放内存，用[智能指针](<a target="_blank" rel="noopener" href="https://nagi.fun/Cherno-CPP-Notes/51-100/54">https://nagi.fun/Cherno-CPP-Notes/51-100/54</a> Stack vs Heap Memory in C%2B%2B&#x2F;44 SMART POINTERS in C++.md)的<code>make</code>也一样会帮你调用关键字，所以我们需要手动去释放内存。</p>
+<h2 id="3-new关键字实际上做了什么？"><a href="#3-new关键字实际上做了什么？" class="headerlink" title="3. new关键字实际上做了什么？"></a>3. new关键字实际上做了什么？</h2><p><code>new</code>关键字实际上调用了一个叫做<code>malloc</code>的函数（memory allocate）的缩写，这样做通常会调用底层操作系统或平台的特定函数，这将在堆上为你分配内存。当你启动应用时，你会被分配到一定数量的物理 RAM，而你的程序会维护一个叫<em>free list</em>（空闲列表）的东西，它的作用是跟踪哪些内存块是空闲的并储存它们的位置。当你使用<code>malloc</code>请求堆内存时，它可以浏览空闲列表，找到一块符合大小要求的内存块，然后返回你一个它的指针，并记录分配的大小和它现在是否被分配的情况（这样你就不能使用这块内存了）。</p>
+<p>这里想说的重点是，在堆上分配内存是一大坨事情，而在栈上分配内存就像一条 CPU 指令。这两种主要内存的区别就是分配方式的区别，可以从汇编指令中看到，声明变量时栈分配的指令就一两行，而堆分配就是一大段指令了，之后还要调用<code>delete</code>，这又是大段指令。</p>
+<p>所以事实上，如果可能的话你应该<strong>尽量在栈上分配内存</strong>。在堆上分配的唯一原因是如果你不能在栈上分配，比如你需要让它的声明周期比你在处理的作用域更长，或者你特别需要更多的数据，比如我想加载一个 50MB 的纹理材质，这就不适合在栈上分配，因此你不得不在堆上分配。</p>
+<p>性能的不同是因为分配方式，所以理论上如果你在运行你的程序前在堆上预先分配一个内存块，然后从这个预先分配的内存块中进行堆分配，那栈、堆分配就基本一样了，你唯一可能要处理的就是<em>cpu cache miss</em>的问题（缓存不命中），但 miss 的数量可能不够造成麻烦。所以当你调用<code>new</code>时，你需要检查 free list，请求内存再记录所有内容，这就是堆相比于栈慢的地方，而实际的访问（CPU、缓存）通常可以忽略不计</p>
+
                 
               </div>
             
