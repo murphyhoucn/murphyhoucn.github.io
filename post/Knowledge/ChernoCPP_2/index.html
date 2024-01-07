@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20231225120947890.png">
 <meta property="article:published_time" content="2023-12-29T03:33:08.000Z">
-<meta property="article:modified_time" content="2024-01-07T08:56:41.069Z">
+<meta property="article:modified_time" content="2024-01-07T12:10:51.464Z">
 <meta property="article:author" content="Murphy">
 <meta property="article:tag" content="CPP">
 <meta name="twitter:card" content="summary_large_image">
@@ -269,7 +269,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.2k 字
+          5.8k 字
         
       </span>
     
@@ -280,7 +280,7 @@
         
         
         
-          44 分钟
+          49 分钟
         
       </span>
     
@@ -329,6 +329,7 @@
 <h2 id="Notebook-Links"><a href="#Notebook-Links" class="headerlink" title="Notebook Links"></a>Notebook Links</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://nagi.fun/Cherno-CPP-Notes/">📘 The Cherno’s C++ Course Notes 📘</a></li>
 <li><a target="_blank" rel="noopener" href="https://space.bilibili.com/364152971/channel/collectiondetail?sid=13909">神经元猫的个人空间-神经元猫个人主页-哔哩哔哩视频 (bilibili.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5">cppreference.com</a></li>
 </ul>
 <h1 id="47-Dynamic-Arrays-in-C"><a href="#47-Dynamic-Arrays-in-C" class="headerlink" title="47. Dynamic Arrays in C++"></a>47. Dynamic Arrays in C++</h1><blockquote>
 <p>所以C++提供给我们一个叫做<code>Vector</code>的类，这个Vector在<em>std namespace</em>（std命名空间中）。</p>
@@ -486,7 +487,25 @@
 <h1 id="59-lambda-in-C"><a href="#59-lambda-in-C" class="headerlink" title="59. lambda in C++"></a>59. lambda in C++</h1><p><em>lambda</em>本质上是我们定义一种叫做匿名函数的方式，用这种方法不需要实际创建一个函数，就像是一个快速的一次性函数，我们更想将它视作一个变量而不是像一个正式的函数那样，在我们编译的代码中作为一个符号存在。</p>
 <p>只要你有一个<strong>函数指针</strong>，你都可以在C++中使用lambda，这就是它的工作原理，所以lambda是我们不需要通过函数定义就可以定义一个函数的方法。 <strong>lambda的用法是，在我们会设置函数指针指向函数的任何地方，我们都可以将它设置为lambda。</strong></p>
 <p>lambda是一个指定一个函数未来想要运行的代码的很好的方法。</p>
-<p>如果我们想把外部变量放到lambda函数内部的指令中呢？ 和我们创建自己的函数其实一样，都是有两个方法：<strong>值传递和引用传递</strong>，这也就是捕获这一块的东西，<code>[]</code>就是我们打算如何传递变量。（<code>[=]</code>,传递所有变量，通过值传递；<code>[&amp;]</code>传递所有变量，通过引用传递） 还可以只传入单独的变量，<code>[a]</code>通过值传递传入a,<code>[&amp;a]</code>通过引用传递。</p>
+<h2 id="1-capture"><a href="#1-capture" class="headerlink" title="1. capture"></a>1. capture</h2><p>如果我们想把外部变量放到lambda函数内部的指令中呢？ 和我们创建自己的函数其实一样，都是有两个方法：<strong>值传递和引用传递</strong>，这也就是捕获这一块的东西，<code>[]</code>就是我们打算如何传递变量。（<code>[=]</code>,传递所有变量，通过值传递；<code>[&amp;]</code>传递所有变量，通过引用传递） 还可以只传入单独的变量，<code>[a]</code>通过值传递传入a,<code>[&amp;a]</code>通过引用传递。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;vector&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;functional&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;algorithm&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">ForEach</span><span class="hljs-params">(std::vector&lt;<span class="hljs-type">int</span>&gt;&amp; values, <span class="hljs-type">const</span> std::function&lt;<span class="hljs-type">void</span>(<span class="hljs-type">int</span>)&gt;&amp; func)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> value : values)<br>		<span class="hljs-built_in">func</span>(value);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	std::vector&lt;<span class="hljs-type">int</span>&gt; values = &#123; <span class="hljs-number">1</span>,<span class="hljs-number">7</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">4</span> &#125;;<br>	<span class="hljs-keyword">auto</span> it = std::<span class="hljs-built_in">find_if</span>(values.<span class="hljs-built_in">begin</span>(), values.<span class="hljs-built_in">end</span>(), [](<span class="hljs-type">int</span> value) &#123;<span class="hljs-keyword">return</span> value &gt; <span class="hljs-number">2</span>; &#125;);<br>	std::cout &lt;&lt; *it &lt;&lt; std::endl;<br><br>	<span class="hljs-type">int</span> a = <span class="hljs-number">5</span>;<br><br>	<span class="hljs-keyword">auto</span> lambda = [=](<span class="hljs-type">int</span> value) &#123;std::cout &lt;&lt; <span class="hljs-string">&quot;Value: &quot;</span> &lt;&lt; value &lt;&lt; std::endl; &#125;;<br><br>	<span class="hljs-built_in">ForEach</span>(values, lambda);<br><br>	std::cin.<span class="hljs-built_in">get</span>();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="60-Why-I-don’t-use-“using-namespace-std”"><a href="#60-Why-I-don’t-use-“using-namespace-std”" class="headerlink" title="60. Why I don’t use “using namespace std”"></a>60. Why I don’t use “using namespace std”</h1><h2 id="1-什么是-using-namespace"><a href="#1-什么是-using-namespace" class="headerlink" title="1. 什么是 using namespace?"></a>1. 什么是 using namespace?</h2><p>就像上文中的代码用了很多标准库的内容，如果在代码前面加上</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br></code></pre></td></tr></table></figure>
+
+<p>就可以直接写 vector，find_if 了，看上去代码更干净一点。 还可以把它限制在作用域中，比如写到 main 函数的第一行，这样 main 函数中调用标准库就不用写”std::“了。</p>
+<p>所以<code>using namespace</code>可以非常有用，如果你在处理很长的命名空间，或是你有自己的命名空间，自己的项目文件中的符号都在这个命名空间中，你可以使用这个。</p>
+<p>但是<strong>我个人</strong>不喜欢<code>using namespace std</code></p>
+<h2 id="2-为什么不喜欢"><a href="#2-为什么不喜欢" class="headerlink" title="2. 为什么不喜欢"></a>2. 为什么不喜欢</h2><p>第一眼看上去代码是干净了，但是如果看原始代码，可以发现你很容易就能指出代码中使用的是 C++标准模板库（带有 std 前缀的）。如果用了<code>using namespace std</code>，就相对而言有点难分辨了。如果你也用标准库喜欢用的<em>snake case</em>（蛇形命名法，如 find_if），就很难区分到底是不是 std 中的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-keyword">namespace</span> apple &#123;<br>    <br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-type">const</span> std::string&amp; text)</span></span><br><span class="hljs-function">	</span>&#123;<br>		std::cout &lt;&lt; text &lt;&lt; std::endl;<br>	&#125;<br>&#125;<br><br><span class="hljs-keyword">namespace</span> orange &#123;<br>    <br>	<span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span>* text)</span></span><br><span class="hljs-function">	</span>&#123;<br>		std::string temp = text;<br>		std::<span class="hljs-built_in">reverse</span>(temp.<span class="hljs-built_in">begin</span>(), temp.<span class="hljs-built_in">end</span>());<br>		std::cout &lt;&lt; temp &lt;&lt; std::endl;<br>	&#125;<br>&#125;<br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> apple;<br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> orange;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Hello&quot;</span>);<br>	std::cin.<span class="hljs-built_in">get</span>();<br>&#125;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">olleH</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<p>这并不是 orange 在 apple 后导致的，而是因为其它原因。“Hello”其实是一个 const char[]数组，而不是一个 string，如果只有 apple 命名空间，会在 apple::print()中做一个[隐式转换](<a target="_blank" rel="noopener" href="https://nagi.fun/Cherno-CPP-Notes/51-100/60">https://nagi.fun/Cherno-CPP-Notes/51-100/60</a> Why I don’t using namespace std&#x2F;40 Implicit Conversion and the Explicit Keyword in C++.md#^cde452)，将 const char 数组转换为 string 对象。但是引入 orange 命名空间后，orange::print()匹配度更高，因为它的参数本来就是一个 const char*，不需要隐式转换。</p>
+<p>如果我们不用<code>using namespace</code>，而是简单地引入另一个库<code>apple::print()</code>就不会有这样的运行时错误。</p>
+<p>另一个要<strong>百分百避免的就是在头文件中使用 using namespace</strong>，永远不要这样做，把这些命名空间用在了你原本没有打算用的地方，谁知道它会 include 什么呢？任何大型项目中追踪起来都是很困难的，所以<strong>绝对不要在头文件中使用 using namespace！</strong></p>
+<h1 id="61-Namespaces-in-C"><a href="#61-Namespaces-in-C" class="headerlink" title="61. Namespaces in C++"></a>61. Namespaces in C++</h1><p>[61 C++的名称空间 - cherno-cpp-notes (nagi.fun)](<a target="_blank" rel="noopener" href="https://nagi.fun/Cherno-CPP-Notes/51-100/61">https://nagi.fun/Cherno-CPP-Notes/51-100/61</a> Namespaces in C%2B%2B&#x2F;)</p>
+<h1 id="62-Threads-in-C"><a href="#62-Threads-in-C" class="headerlink" title="62. Threads in C++"></a>62. Threads in C++</h1><p>本节课讲的是<em>threads</em>（线程），也就是讲我们如何进行<em>parallelization</em>（并行化）。现在大多数计算机或处理器等设备都有不止一个逻辑处理线程，当我们进入更复杂的项目时，将某些工作移动到两个不同的执行线程会对我们非常有益。不仅仅是为了提高性能，也是我们还能用它做些什么事。</p>
 
                 
               </div>

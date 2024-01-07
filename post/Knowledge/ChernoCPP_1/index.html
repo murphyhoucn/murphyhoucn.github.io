@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20231225120947890.png">
 <meta property="article:published_time" content="2023-11-13T11:53:39.000Z">
-<meta property="article:modified_time" content="2024-01-05T03:34:33.433Z">
+<meta property="article:modified_time" content="2024-01-07T11:25:20.354Z">
 <meta property="article:author" content="Murphy">
 <meta property="article:tag" content="CPP">
 <meta name="twitter:card" content="summary_large_image">
@@ -1163,6 +1163,16 @@ Entity* e = new(b) Entity();
 <p>\4. 注意，在使用m_时应该尽可能使用访问器（getter和setter）而不是直接访问成员变量，这样可以使代码更加可维护和易于修改。</p>
 <p>总的来说，m_是一种很好的命名约定，可以使代码更加清晰和易于理解。在编写C++代码时，使用m_能够提高代码的可读性和可维护性，值得开发者们好好利用。</p>
 </blockquote>
+<h2 id="B-命名规则"><a href="#B-命名规则" class="headerlink" title="B. 命名规则"></a>B. 命名规则</h2><h3 id="1-驼峰"><a href="#1-驼峰" class="headerlink" title="1. 驼峰"></a>1. 驼峰</h3><p>原始：<code>user login count</code></p>
+<p>驼峰：<code>userLoginCount</code></p>
+<h3 id="2-帕斯卡"><a href="#2-帕斯卡" class="headerlink" title="2. 帕斯卡"></a>2. 帕斯卡</h3><p>原始：<code>user login count</code></p>
+<p>帕斯卡：<code>UserLoginCount</code></p>
+<h3 id="3-蛇形"><a href="#3-蛇形" class="headerlink" title="3. 蛇形"></a>3. 蛇形</h3><p>原始：<code>user login count</code></p>
+<p>蛇形：<code>user_login_count</code></p>
+<h3 id="4-匈牙利"><a href="#4-匈牙利" class="headerlink" title="4. 匈牙利"></a>4. 匈牙利</h3><p><code>int g_i32tempuratureValue</code>:全局 32位有符号整型变量</p>
+<p><code>float l_f32tempuratureValue</code>:局部 32位有符号整型变量</p>
+<p><code>unsigned char s_u8tempuratureValue</code>:静态 无符号字符型变量</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://zh-google-styleguide.readthedocs.io/en/latest/contents/#">内容目录 — Google 开源项目风格指南 (zh-google-styleguide.readthedocs.io)</a></p>
 
                 
               </div>
