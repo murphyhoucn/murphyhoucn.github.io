@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20231225120947890.png">
 <meta property="article:published_time" content="2023-12-29T03:33:08.000Z">
-<meta property="article:modified_time" content="2024-01-08T12:59:23.092Z">
+<meta property="article:modified_time" content="2024-01-08T14:19:19.158Z">
 <meta property="article:author" content="Murphy">
 <meta property="article:tag" content="CPP">
 <meta name="twitter:card" content="summary_large_image">
@@ -269,7 +269,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.3k 字
+          9.6k 字
         
       </span>
     
@@ -280,7 +280,7 @@
         
         
         
-          69 分钟
+          81 分钟
         
       </span>
     
@@ -593,7 +593,28 @@
 </li>
 </ul>
 <p>所以为什么要搞这么多 CAST ？因为除了可能收到上面说的那些编译时的检查外，还可以方便我们从代码库中搜索它们。如果我想看到我的类型转换都在哪儿，也许我有性能问题而不想用<code>dynamic_cast</code>，我可以直接搜索这个词，如果用的是 C 语言风格的 cast，就很难去搜索它，所以它对程序员的阅读和编写代码都有帮助。 而且它也能帮助我们减少在尝试强制转换时，可能意外犯下的错误，比如类型不兼容。</p>
-<h1 id="70-Conditional-and-Action-Breakpoints-in-C"><a href="#70-Conditional-and-Action-Breakpoints-in-C" class="headerlink" title="70. Conditional and Action Breakpoints in C++"></a>70. Conditional and Action Breakpoints in C++</h1>
+<h1 id="70-Conditional-and-Action-Breakpoints-in-C"><a href="#70-Conditional-and-Action-Breakpoints-in-C" class="headerlink" title="70. Conditional and Action Breakpoints in C++"></a>70. Conditional and Action Breakpoints in C++</h1><p>[70 条件与操作断点 - cherno-cpp-notes (nagi.fun)](<a target="_blank" rel="noopener" href="https://nagi.fun/Cherno-CPP-Notes/51-100/70">https://nagi.fun/Cherno-CPP-Notes/51-100/70</a> Conditional and Action Breakpoints in C%2B%2B&#x2F;)</p>
+<p>本讲内容是一个简单的 VS 开发和调试的技巧，不过不仅仅是断点，而是关于条件与操作应用在断点上。</p>
+<h2 id="1-条件断点-Condition"><a href="#1-条件断点-Condition" class="headerlink" title="1. 条件断点 Condition"></a>1. 条件断点 Condition</h2><p>通过条件或条件断点，我们可以告诉调试器想在这里放置一个断点，但我希望断点在特定条件下触发，比如内存中的某些东西满足了条件就触发这个断点。</p>
+<h2 id="2-操作断点-Action"><a href="#2-操作断点-Action" class="headerlink" title="2. 操作断点 Action"></a>2. 操作断点 Action</h2><p>操作断点是允许我们采取某种动作，一般是在碰到断点时打印一些东西到控制台。</p>
+<p>这里有两种类型的操作断点：</p>
+<ul>
+<li>一是让你在打印你想要的东西时继续执行，比如你想记录鼠标位置，每次鼠标移动，移动事件（打印鼠标位置）就会发生，可以让那个断点打印一些东西到控制台但保持程序运行；</li>
+<li>二是打印一些东西，但仍然中断程序，暂停程序的执行，这样我们就可以检查内存中的其它东西。</li>
+</ul>
+<h1 id="71-Safety-in-modern-C-and-how-to-teach-it"><a href="#71-Safety-in-modern-C-and-how-to-teach-it" class="headerlink" title="71. Safety in modern C++ and how to teach it"></a>71. Safety in modern C++ and how to teach it</h1><p>本节将讨论C++中“安全”意味着什么。</p>
+<p>安全编程，就是在编程中，我们希望降低崩溃、内存泄漏、非法访问等问题。 随着C++11的到来，Cherno想说的是应该转向智能指针这样的概念，而不是原始指针。这主要是因为存在内存泄漏以及不知道实际分配或者释放了哪些内存的问题。本节也重点围绕指针和内存，而不是异常或者是其它与安全编程有关的比如错误检查之类的东西。</p>
+<p>当我们开始倾向于[智能指针](<a target="_blank" rel="noopener" href="https://nagi.fun/Cherno-CPP-Notes/51-100/71">https://nagi.fun/Cherno-CPP-Notes/51-100/71</a> Safety in modern C%2B%2B and how to teach it&#x2F;44 SMART POINTERS in C++.md)之类的东西时，这一切都可以归结为我想要分配<strong>堆内存</strong>，智能指针和自动内存管理系统的存在使程序员的生活更容易，且更有力，这意味着你不再需要处理某些事情，就算忘记处理了它也会自动为你处理。</p>
+<p>分配内存这件事很简单，你想在堆上分配一块内存，如果你分配成功会得到一个指向那块内存开始部分的有效的指针，它将一直存在，直到你明确地删除它，这就是整个基本概念了。</p>
+<p>那问题就来自几方面了：</p>
+<ul>
+<li>如果我***忘记释放***我的内存会发生什么问题，可能是无害的甚至注意不到，也有内存耗尽灾难性地导致程序崩溃。而“细心一点、做一个好程序员”显然不是一个真正的解决方案，你还是需要考虑更复杂的结构来删除由你自己明确分配的内存。</li>
+<li>还有<em>ownership</em>（所有权问题），即谁会拥有分配的内存呢？如果我有一个原始指针，指向那块内存，我把它从一个函数传递给另一个函数，从一个类传递给另一个类，谁会<strong>负责管理和清理这些内存</strong>就是***所有权问题***。你不确定A、B这两个管理那个原始指针的函数哪个最后结束，但是要保证两个函数都能访问那个指针，除非你指明这两个函数运行完后再执行一个清理步骤，但这显然会极大复杂化整个程序，也是我们绝对想避免的。我想要重新分配数据，但我不想要显式地建立一些东西，比如管理所有权或者转义所有权，which会使事情变得非常复杂，你将不得不手动跟踪它。这是另一种所有权问题。</li>
+</ul>
+<p>这两大问题就是我们需要自动删除内存的原因，当我们讨论C++的安全问题时，特别是智能指针时，我们只需要自动化一行简单的代码就搞定了内存删除与释放问题，所以你百分之百不应该拒绝使用智能指针，自己构建、修改智能指针也是正常的。</p>
+<p>当然如果只是做一个一百来行的小型sandbox应用，可能用原始指针可读性更好，因为你不关心是否释放了内存，也不关心所有权，你只用写一个<code>*</code>就能让代码会更干净。</p>
+<p>Cherno认为大家应该停止关于“Smart or Raw”的争论，在一个真正的框架环境、真正的应用中，生产代码应该使用智能指针，不这么做是非常愚蠢的举动，大部分典型的问题都可以通过这样解决（可能线程方面有点问题，因为<code>shared_ptr</code>不是线程安全的，使用智能指针还有很多其它约束，所以智能指针不是通用的内存解决方案）。更严肃的代码中完全应该使用智能指针，只是初学C++是需要了解原始指针和内存是如何工作的，因为[智能指针只是原始指针上的包装](<a target="_blank" rel="noopener" href="https://nagi.fun/Cherno-CPP-Notes/51-100/71">https://nagi.fun/Cherno-CPP-Notes/51-100/71</a> Safety in modern C%2B%2B and how to teach it&#x2F;44 SMART POINTERS in C++.md#^a6997e)，它们围绕原始指针做了额外的辅助代码，以便自动化所有事情，但本质上只是删除和释放了内存。你必须得知道这一切是如何工作的，这也是为什么Cherno有几课是讲编译器和链接是如何工作的([06 How the C++ Compiler Works](<a target="_blank" rel="noopener" href="https://nagi.fun/Cherno-CPP-Notes/51-100/71">https://nagi.fun/Cherno-CPP-Notes/51-100/71</a> Safety in modern C%2B%2B and how to teach it&#x2F;06 How the C++ Compiler Works.md)、[07 How the C++ Linker Works](<a target="_blank" rel="noopener" href="https://nagi.fun/Cherno-CPP-Notes/51-100/71">https://nagi.fun/Cherno-CPP-Notes/51-100/71</a> Safety in modern C%2B%2B and how to teach it&#x2F;07 How the C++ Linker Works.md))</p>
+<h1 id="72-Precompiled-Headers-in-C"><a href="#72-Precompiled-Headers-in-C" class="headerlink" title="72. Precompiled Headers in C++"></a>72. Precompiled Headers in C++</h1>
                 
               </div>
             
