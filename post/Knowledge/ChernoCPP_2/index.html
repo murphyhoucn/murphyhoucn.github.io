@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20231225120947890.png">
 <meta property="article:published_time" content="2023-12-29T03:33:08.000Z">
-<meta property="article:modified_time" content="2024-01-09T01:49:04.041Z">
+<meta property="article:modified_time" content="2024-01-09T12:49:28.906Z">
 <meta property="article:author" content="Murphy">
 <meta property="article:tag" content="CPP">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
         
         
         
-          92 分钟
+          93 分钟
         
       </span>
     
@@ -623,6 +623,7 @@
 <p>预编译头文件真正有用的是外部依赖，本质上它主要用于不是你写的那些代码，比如 STL、Windows api 等，如果你要<code>#include &lt;windows.h&gt;</code>，which is a 巨大的的头文件，包含了非常多的其它头文件，你不回去修改 windows.h 或者 STL，所以它没有理由不被你放在预编译头文件中，因为它们的代码可能比你的实际项目代码多很多倍，每个 C++文件每次都要编译它们可想是一件多么恐怖的事情，你可能永远也不会去修改它们。因此直接把它们放入到预编译头文件中就不用管了。</p>
 <h2 id="2-依赖关系"><a href="#2-依赖关系" class="headerlink" title="2. 依赖关系"></a>2. 依赖关系</h2><p>PCH（就是预编译头文件）实际上做的事是把所有东西都塞进来，它可能会隐藏现在实际正在使用的东西，会影响可读性。比如只有个别文件需要使用一个窗口库 GLFW，那就没必要把所有的依赖项都放在 PCH 中，如果你只看一个单独的 cpp 文件你并不知道它需要什么依赖，再把它导入其它文件时就不好理解它依赖的东西了。但如果你通过实际的<code>include</code>包含它们就很清晰了，可以看到每个文件需要什么文件。但是如果你只包含 PCH，然后 PCH 中放很多包含文件，就会比较麻烦了。</p>
 <p>所以<strong>不要把所有依赖都放在 PCH 中</strong>，因为包含实际的依赖会更容易阅读。应该放进 PCH 的东西是像 STL 这样的，因为 string、vectors、std::cout 是许多地方都要用到的，你不希望每次都编译它们，而 GLFW 可能就只需要编译一次。</p>
+<h1 id="73-Dynamic-Casting-in-C"><a href="#73-Dynamic-Casting-in-C" class="headerlink" title="73. Dynamic Casting in C++"></a>73. Dynamic Casting in C++</h1><p><code>dynamic_cast</code>是专门用于<strong>沿继承层次结构</strong>进行的强制类型转换，比如我的一个游戏里有一个实体类，它派生出了玩家类和敌人类，如果我想将玩家转换为实体是很简单的，因为玩家本身就是实体对象，可以隐式转换。但如果我想将一个实体类型转换为玩家，编译器会相信我们，如果它并不是一个玩家的话我们就相当于在尝试玩家独有的数据，程序可能会崩溃。因为这个原因，<code>dynamic_cast</code>常被用来做验证，如果我们尝试使用它将一个敌人转化为玩家，这个转化会失败，<code>dynamic_cast</code>会返回一个 NULL 指针，也就是 0。</p>
 
                 
               </div>
