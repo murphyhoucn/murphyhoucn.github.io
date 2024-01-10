@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/640.jpeg">
 <meta property="article:published_time" content="2023-05-16T07:25:59.000Z">
-<meta property="article:modified_time" content="2024-01-09T13:56:32.088Z">
+<meta property="article:modified_time" content="2024-01-10T01:47:18.016Z">
 <meta property="article:author" content="Murphy">
 <meta property="article:tag" content="目标检测">
 <meta name="twitter:card" content="summary_large_image">
@@ -269,7 +269,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.5k 字
+          4.1k 字
         
       </span>
     
@@ -280,7 +280,7 @@
         
         
         
-          30 分钟
+          35 分钟
         
       </span>
     
@@ -322,7 +322,8 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Object-Detection-OD"><a href="#Object-Detection-OD" class="headerlink" title="Object Detection (OD)"></a>Object Detection (OD)</h1><blockquote>
+                <p>[TOC]</p>
+<h1 id="Object-Detection-OD"><a href="#Object-Detection-OD" class="headerlink" title="Object Detection (OD)"></a>Object Detection (OD)</h1><blockquote>
 <p>📄paper: [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1905.05055v2">1905.05055v2] Object Detection in 20 Years: A Survey (arxiv.org)</a></p>
 </blockquote>
 <blockquote>
@@ -330,9 +331,30 @@
 </blockquote>
 <p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/640.jpeg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="object detection milestones"></p>
 <p>目标检测任务是找出图像或视频中人们感兴趣的物体，并同时检测出它们的位置和大小。——分类+定位</p>
-<h2 id="box"><a href="#box" class="headerlink" title="box"></a>box</h2><h3 id="bounding-box（bbox）"><a href="#bounding-box（bbox）" class="headerlink" title="bounding box（bbox）"></a>bounding box（bbox）</h3><h3 id="anchor-box"><a href="#anchor-box" class="headerlink" title="anchor box"></a>anchor box</h3><h3 id="ground-truth-box（gt-box）"><a href="#ground-truth-box（gt-box）" class="headerlink" title="ground truth box（gt box）"></a>ground truth box（gt box）</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/v2-9c387bd12afb1ed62d9d0aab3f514f0b_r.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="three section"></p>
+<p><img src="/ClassicObjectDetection.assets/v2-9c387bd12afb1ed62d9d0aab3f514f0b_r.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="three section"></p>
+<h2 id="Three-different-boxes"><a href="#Three-different-boxes" class="headerlink" title="Three different boxes"></a>Three different boxes</h2><ol>
+<li><strong>bounding box（bbox）</strong></li>
+<li><strong>anchor box</strong></li>
+<li><strong>ground truth box（gt box）</strong></li>
+</ol>
 <blockquote>
-<p>backbone, neck, detection head</p>
+<ol>
+<li><strong>Bounding Box (Bbox):</strong><ul>
+<li><strong>定义：</strong> 边界框，用于描述物体在图像中的位置和范围。通常由两个点表示，即左上角和右下角的坐标。</li>
+<li><strong>用途：</strong> 目标检测任务中，模型通过预测边界框来确定图像中目标的位置。</li>
+</ul>
+</li>
+<li><strong>Anchor Box:</strong><ul>
+<li><strong>定义：</strong> 锚框，是一组预定义的边界框，具有不同的尺寸和宽高比。这些框在图像中均匀分布，用于捕捉不同尺寸和形状的目标。</li>
+<li><strong>用途：</strong> 在目标检测的多尺度处理中，锚框用于生成候选框，模型会根据这些框进行预测。锚框提供了对不同尺度目标的适应性。</li>
+</ul>
+</li>
+<li><strong>Ground Truth Box (GT Box):</strong><ul>
+<li><strong>定义：</strong> 真实边界框，是手动标注或从数据集中获得的目标真实位置的边界框。</li>
+<li><strong>用途：</strong> 在训练目标检测模型时，与预测的边界框进行比较，用于计算模型的损失。模型通过比较其预测的边界框与真实的边界框来学习目标的位置。</li>
+</ul>
+</li>
+</ol>
 </blockquote>
 <h2 id="backbone-extracting-the-useful-information"><a href="#backbone-extracting-the-useful-information" class="headerlink" title="backbone _ extracting the useful information"></a>backbone _ extracting the useful information</h2><p>VGG, ResNet… + ImageNet Pretrained</p>
 <blockquote>
@@ -373,7 +395,12 @@
 </li>
 </ul>
 <h2 id="detection-head-detection-location"><a href="#detection-head-detection-location" class="headerlink" title="detection head _ detection &amp; location"></a>detection head _ detection &amp; location</h2><p>Detection head这一部分通常就是普通的卷积。</p>
-<h1 id="Traditional"><a href="#Traditional" class="headerlink" title="Traditional"></a>Traditional</h1><h2 id="HOG"><a href="#HOG" class="headerlink" title="HOG"></a>HOG</h2><h2 id="DPM"><a href="#DPM" class="headerlink" title="DPM"></a>DPM</h2><p><strong>Deformable Parts Model</strong><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Object Detection for Dummies Part 2: CNN, DPM and Overfeat | Lil'Log (lilianweng.github.io)](https://lilianweng.github.io/posts/2017-12-15-object-recognition-part-2/)">[1]</span></a></sup><sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[DPM.pdf (brown.edu)](https://cs.brown.edu/courses/cs143/2011/lectures/DPM.pdf)">[2]</span></a></sup></p>
+<h1 id="Traditional"><a href="#Traditional" class="headerlink" title="Traditional"></a>Traditional</h1><h2 id="HOG"><a href="#HOG" class="headerlink" title="HOG"></a>HOG</h2><p><strong>HOG (Histogram of Oriented Gradients):</strong></p>
+<ul>
+<li><strong>特征提取方法：</strong> HOG是一种用于图像特征提取的方法，常用于目标检测。它通过计算图像局部区域的梯度方向直方图来描述图像的外观和纹理信息。</li>
+<li><strong>工作原理：</strong> HOG将图像划分为小的局部区域（cells），然后对每个局部区域计算梯度的方向直方图。这些直方图被串联成一个向量，形成整个图像的特征表示。HOG特征在目标检测中常用于支持向量机（SVM）等分类器，尤其在行人检测等领域取得了良好的效果。</li>
+</ul>
+<h2 id="DPM"><a href="#DPM" class="headerlink" title="DPM"></a>DPM</h2><p><strong>Deformable Parts Model</strong><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="[Object Detection for Dummies Part 2: CNN, DPM and Overfeat | Lil'Log (lilianweng.github.io)](https://lilianweng.github.io/posts/2017-12-15-object-recognition-part-2/)">[1]</span></a></sup><sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="[DPM.pdf (brown.edu)](https://cs.brown.edu/courses/cs143/2011/lectures/DPM.pdf)">[2]</span></a></sup></p>
 <blockquote>
 <p>📄paper:</p>
 </blockquote>
@@ -385,6 +412,11 @@
 <li>A <em><strong>spatial model</strong></em> for scoring the locations of part filters relative to the root.</li>
 </ol>
 </blockquote>
+<p><strong>DPM (Deformable Part Models):</strong></p>
+<ul>
+<li><strong>模型框架：</strong> DPM是一种用于目标检测的模型框架，最初由P. Felzenszwalb等人提出。它建模目标的不同部分，并允许这些部分之间的形状变化，以更灵活地适应目标的形状和姿态。</li>
+<li><strong>工作原理：</strong> DPM将目标表示为由若干部分组成的模型，每个部分用一个局部的HOG特征描述。这些部分被组织成一个图结构，可以灵活地适应不同的目标形状。通过训练，DPM学习如何组合这些部分以准确地定位目标。DPM在目标检测任务中取得了显著的成果，特别是在多尺度和复杂姿态的情况下。</li>
+</ul>
 <h1 id="Anchor-Based"><a href="#Anchor-Based" class="headerlink" title="Anchor Based"></a>Anchor Based</h1><p>二阶段目标检测算法一般比一阶段精度要高，但一阶段检测算法速度会更快.</p>
 <blockquote>
 <p>基于Anchor的目标检测算法主要有以下四大缺点：</p>
@@ -529,7 +561,8 @@
 <li>regression problem: straight from image pixels to bounding box coordinates and class probabilities</li>
 <li>fast; global; generalizable representation; struggle to precisely localize some objects, especially <strong>small ones.</strong></li>
 </ul>
-<h3 id="Network-design"><a href="#Network-design" class="headerlink" title="Network design"></a>Network design</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230520195558370.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="YOLOv1 architecture（论文中的网络结构）"></p>
+<p>🚩<strong>Network design</strong></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230520195558370.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="YOLOv1 architecture（论文中的网络结构）"></p>
 <blockquote>
 <p>仅使用了<strong>一个卷积神经网络</strong>实现了端到端的目标检测。卷积网络中使用了大量的1×1和3×3大小的卷积核。</p>
 <p>orignal design: 24 Convs + 2 FC</p>
@@ -537,7 +570,8 @@
 <p>code reference: <a target="_blank" rel="noopener" href="https://github.com/ProgrammerZhujinming/YOLOv1/blob/main/YOLO_Original/Train/YOLO_V1_Model.py">YOLOv1&#x2F;YOLO_V1_Model.py at main · ProgrammerZhujinming&#x2F;YOLOv1 · GitHub</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># FC section</span><br>self.Fc = nn.Sequential(<br>    nn.Linear(<span class="hljs-number">7</span>*<span class="hljs-number">7</span>*<span class="hljs-number">1024</span>,<span class="hljs-number">4096</span>),<br>    nn.LeakyReLU(inplace=<span class="hljs-literal">True</span>, negative_slope=<span class="hljs-number">1e-1</span>),<br>    nn.Linear(<span class="hljs-number">4096</span>,<span class="hljs-number">7</span> * <span class="hljs-number">7</span> * (B*<span class="hljs-number">5</span> + classes_num)),<br>)<br></code></pre></td></tr></table></figure>
 
-<h3 id="Detection-principle"><a href="#Detection-principle" class="headerlink" title="Detection principle"></a>Detection principle</h3><ol>
+<p>🚩<strong>Detection principle</strong></p>
+<ol>
 <li>S×S grid</li>
 <li>each grid cell predicts B bounding box<em><strong>（bbox）</strong></em>; each bbox consists of 5 predictions: <em><strong>(x,y,w,h) &amp; confidence score</strong></em></li>
 <li>each grid cell also predicts C conditions class probabilities</li>
@@ -546,7 +580,7 @@
 
 
 
-<h3 id="YOLO-v2-CVPR-2017"><a href="#YOLO-v2-CVPR-2017" class="headerlink" title="YOLO v2_CVPR 2017"></a>YOLO v2_CVPR 2017</h3><p>YOLO9000</p>
+<h3 id="YOLO-v2-CVPR-2017"><a href="#YOLO-v2-CVPR-2017" class="headerlink" title="YOLO v2_CVPR 2017"></a>YOLO v2_CVPR 2017</h3><p><strong>YOLO9000</strong></p>
 <blockquote>
 <p>📄paper: </p>
 <ul>
@@ -569,7 +603,7 @@
 </blockquote>
 <p>提出能根据Loss大小自动调节权重的<strong>Focal loss</strong>，代替了标准的交叉熵损失函数，使得模型的训练更专注于困难样本；</p>
 <p>基于FPN设计了RetinaNet；</p>
-<h3 id="YOLO-v3-2018"><a href="#YOLO-v3-2018" class="headerlink" title="YOLO v3_2018"></a>YOLO v3_2018</h3><blockquote>
+<h3 id="YOLO-v3-CVPR-2018"><a href="#YOLO-v3-CVPR-2018" class="headerlink" title="YOLO v3_CVPR 2018"></a>YOLO v3_CVPR 2018</h3><blockquote>
 <p>📄paper:</p>
 <ul>
 <li>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1804.02767">1804.02767] YOLOv3: An Incremental Improvement (arxiv.org)</a></li>
@@ -579,12 +613,8 @@
 <li><a target="_blank" rel="noopener" href="https://github.com/ultralytics/yolov3">ultralytics&#x2F;yolov3: YOLOv3 in PyTorch &gt; ONNX &gt; CoreML &gt; TFLite (github.com)</a></li>
 </ul>
 </blockquote>
-<p> 相比于YOLO v2，<strong>YOLO v3</strong>将特征提取网络换成了<strong>DarkNet53</strong>，对象分类用Logistic取代了Softmax，并借鉴了FPN思想采用三条分支（三个不同尺度&#x2F;不同感受野的特征图）去检测具有不同尺寸的对象。</p>
+<p>&emsp;&emsp;相比于YOLO v2，<strong>YOLO v3</strong>将特征提取网络换成了<strong>DarkNet53</strong>，对象分类用Logistic取代了Softmax，并借鉴了FPN思想采用三条分支（三个不同尺度&#x2F;不同感受野的特征图）去检测具有不同尺寸的对象。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;note note-light&quot;</span>&gt;</span>YOLO v1~v3都是出自Joseph Redmon小哥之手。小哥的论文写得非常好，不按照套路来，一点都不古板，给人一种活泼的感觉。但非英语母语的人或者英文不好的人读起来，其实是有点吃力的。<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
-
-
-
-
 
 <h3 id="YOLO-v4-2020"><a href="#YOLO-v4-2020" class="headerlink" title="YOLO v4_2020"></a>YOLO v4_2020</h3><blockquote>
 <p>📄paper: [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2004.10934">2004.10934] YOLOv4: Optimal Speed and Accuracy of Object Detection (arxiv.org)</a></p>
@@ -600,10 +630,14 @@
 <li><p>在预测阶段，采用了<strong>CIOU</strong>作为网络的边界框损失函数，同时将NMS换成了DIOU_NMS等等。</p>
 </li>
 </ul>
-<p>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1911.11929">1911.11929] CSPNet: A New Backbone that can Enhance Learning Capability of CNN (arxiv.org)</a></p>
-<p>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.08681">1908.08681] Mish: A Self Regularized Non-Monotonic Activation Function (arxiv.org)</a></p>
-<p>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1810.12890">1810.12890] DropBlock: A regularization method for convolutional networks (arxiv.org)</a></p>
-<p>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1803.01534">1803.01534] Path Aggregation Network for Instance Segmentation (arxiv.org)</a></p>
+<blockquote>
+<ul>
+<li>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1911.11929">1911.11929] CSPNet: A New Backbone that can Enhance Learning Capability of CNN (arxiv.org)</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1908.08681">1908.08681] Mish: A Self Regularized Non-Monotonic Activation Function (arxiv.org)</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1810.12890">1810.12890] DropBlock: A regularization method for convolutional networks (arxiv.org)</a></li>
+<li>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1803.01534">1803.01534] Path Aggregation Network for Instance Segmentation (arxiv.org)</a></li>
+</ul>
+</blockquote>
 <h3 id="YOLO-v5"><a href="#YOLO-v5" class="headerlink" title="YOLO v5"></a>YOLO v5</h3><blockquote>
 <p>📄paper: 目前YOLO V5公布了源代码，但尚未发表论文；</p>
 <p>💻code: <a target="_blank" rel="noopener" href="https://github.com/ultralytics/yolov5">ultralytics&#x2F;yolov5: YOLOv5 🚀 in PyTorch &gt; ONNX &gt; CoreML &gt; TFLite (github.com)</a></p>
