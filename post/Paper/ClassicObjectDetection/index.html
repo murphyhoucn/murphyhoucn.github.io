@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/640.jpeg">
 <meta property="article:published_time" content="2023-05-16T07:25:59.000Z">
-<meta property="article:modified_time" content="2024-01-10T01:47:18.016Z">
+<meta property="article:modified_time" content="2024-01-10T02:27:00.390Z">
 <meta property="article:author" content="Murphy">
 <meta property="article:tag" content="目标检测">
 <meta name="twitter:card" content="summary_large_image">
@@ -322,8 +322,7 @@
             
               <div class="markdown-body">
                 
-                <p>[TOC]</p>
-<h1 id="Object-Detection-OD"><a href="#Object-Detection-OD" class="headerlink" title="Object Detection (OD)"></a>Object Detection (OD)</h1><blockquote>
+                <h1 id="Object-Detection-OD"><a href="#Object-Detection-OD" class="headerlink" title="Object Detection (OD)"></a>Object Detection (OD)</h1><blockquote>
 <p>📄paper: [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1905.05055v2">1905.05055v2] Object Detection in 20 Years: A Survey (arxiv.org)</a></p>
 </blockquote>
 <blockquote>
@@ -331,7 +330,7 @@
 </blockquote>
 <p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/640.jpeg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="object detection milestones"></p>
 <p>目标检测任务是找出图像或视频中人们感兴趣的物体，并同时检测出它们的位置和大小。——分类+定位</p>
-<p><img src="/ClassicObjectDetection.assets/v2-9c387bd12afb1ed62d9d0aab3f514f0b_r.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="three section"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/v2-9c387bd12afb1ed62d9d0aab3f514f0b_r.jpg" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="three section"></p>
 <h2 id="Three-different-boxes"><a href="#Three-different-boxes" class="headerlink" title="Three different boxes"></a>Three different boxes</h2><ol>
 <li><strong>bounding box（bbox）</strong></li>
 <li><strong>anchor box</strong></li>
@@ -431,7 +430,7 @@
 <p><strong>Stage1</strong>：从图像中生成region proposals<br><strong>Stage2</strong>：从region proposals生成最终的物体边框。</p>
 <p>任务流程：特征提取 –&gt; 生成 RP –&gt; 分类&#x2F;定位回归。 常见 <code>Two-stage</code> 目标检测算法有：R-CNN、Fast R-CNN、Faster R-CNN、SPP-Net 和 R-FCN 等。</p>
 </blockquote>
-<h3 id="R-CNN-CVPR-2014"><a href="#R-CNN-CVPR-2014" class="headerlink" title="R-CNN_CVPR 2014"></a>R-CNN_CVPR 2014</h3><p>R-CNN将CNN方法引入目标检测领域， 大大提高了目标检测效果</p>
+<h3 id="R-CNN-CVPR-2014-✅"><a href="#R-CNN-CVPR-2014-✅" class="headerlink" title="R-CNN (CVPR 2014) ✅"></a>R-CNN (CVPR 2014) ✅</h3><p>R-CNN将CNN方法引入目标检测领域， 大大提高了目标检测效果</p>
 <blockquote>
 <p>📄paper: </p>
 <ul>
@@ -459,7 +458,7 @@
 <li><p>位置精修： 使用回归器精细修正候选框位置</p>
 </li>
 </ol>
-<h3 id="SPP-net-TPAMI-2015"><a href="#SPP-net-TPAMI-2015" class="headerlink" title="SPP-net_TPAMI 2015"></a>SPP-net_TPAMI 2015</h3><p>SPP-net</p>
+<h3 id="SPP-net-TPAMI-2015"><a href="#SPP-net-TPAMI-2015" class="headerlink" title="SPP-net (TPAMI 2015)"></a>SPP-net (TPAMI 2015)</h3><p>SPP-net</p>
 <blockquote>
 <p>📄paper: </p>
 <ul>
@@ -471,7 +470,7 @@
 <p>SPP-net提出了一种**空间金字塔池化层(Spatial Pyramid Pooling Layer, SPP)**。</p>
 <p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230530153215989.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="spatial pyramid pooling layer"></p>
 <p>它的主要思路是对于一副图像分成若干尺度的图像块(比如一副图像分成1份，4份，8份等)，然后对每一块提取的特征融合在一起，从而兼顾多个尺度的特征。<strong>SPP使得网络在全连接层之前能生成固定尺度的特征表示，而不管输入图片尺寸如何。</strong>当使用SPPNet网络用于目标检测时，整个图像只需计算一次即可生成相应特征图，不管候选框尺寸如何，经过SPP之后，都能生成固定尺寸的特征表示图，这避免了卷积特征图的重复计算。</p>
-<h3 id="Fast-R-CNN-ICCV-2015"><a href="#Fast-R-CNN-ICCV-2015" class="headerlink" title="Fast R-CNN_ICCV 2015"></a>Fast R-CNN_ICCV 2015</h3><p>Fast R-CNN</p>
+<h3 id="Fast-R-CNN-ICCV-2015-✅"><a href="#Fast-R-CNN-ICCV-2015-✅" class="headerlink" title="Fast R-CNN (ICCV 2015)✅"></a>Fast R-CNN (ICCV 2015)✅</h3><p>Fast R-CNN</p>
 <blockquote>
 <p>📄paper: </p>
 <ul>
@@ -482,7 +481,7 @@
 </blockquote>
 <p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230518173630235.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="Fast R-CNN"></p>
 <p><strong>Fast R-CNN</strong>网络是RCNN和SPPNet的改进版，该网路使得我们可以在相同的网络配置下同时训练一个检测器和边框回归器。该网络首先输入图像，图像被传递到CNN中提取特征，并返回感兴趣的区域ROI，之后再ROI上运用ROI池化层以保证每个区域的尺寸相同，最后这些区域的特征被传递到全连接层的网络中进行分类，并用Softmax和线性回归层同时返回边界框。</p>
-<h3 id="Faster-R-CNN-2015"><a href="#Faster-R-CNN-2015" class="headerlink" title="Faster R-CNN_2015"></a>Faster R-CNN_2015</h3><p>Faster R-CNN</p>
+<h3 id="Faster-R-CNN-2015-✅"><a href="#Faster-R-CNN-2015-✅" class="headerlink" title="Faster R-CNN (2015)✅"></a>Faster R-CNN (2015)✅</h3><p>Faster R-CNN</p>
 <blockquote>
 <p>📄paper: [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1506.01497">1506.01497] Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks (arxiv.org)</a></p>
 <p>💻code: <a target="_blank" rel="noopener" href="https://github.com/ShaoqingRen/faster_rcnn">ShaoqingRen&#x2F;faster_rcnn: Faster R-CNN (github.com)</a></p>
@@ -495,7 +494,7 @@
 <li>应用Rol池化层，将所有proposals修正到同样尺寸。</li>
 <li>将proposals传递到完全连接层，生成目标物体的边界框。</li>
 </ol>
-<h3 id="FPN-CVPR-2017"><a href="#FPN-CVPR-2017" class="headerlink" title="FPN_CVPR 2017"></a>FPN_CVPR 2017</h3><blockquote>
+<h3 id="FPN-CVPR-2017-✅"><a href="#FPN-CVPR-2017-✅" class="headerlink" title="FPN (CVPR 2017)✅"></a>FPN (CVPR 2017)✅</h3><blockquote>
 <p>📄papaer: </p>
 <ul>
 <li>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1612.03144">1612.03144] Feature Pyramid Networks for Object Detection (arxiv.org)</a></li>
@@ -506,11 +505,11 @@
 <p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230519104618169.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="FPN"></p>
 <p>在FPN技术出现之前，大多数检测算法的<strong>检测头都位于网络的最顶层(最深层)<strong>，虽说最深层的特征具备更丰富的语义信息，更有利于物体分类，但</strong>更深层的特征图由于空间信息的缺乏不利于物体定位</strong>，这大大影响了目标检测的定位精度。</p>
 <p>为了解决这一矛盾，FPN提出了一种具有<strong>横向连接的自上而下的网络架构</strong>，用于在所有具有<strong>不同尺度的高底层都构筑出高级语义信息</strong>。FPN的提出极大促进了检测网络精度的提高(尤其是对于一些待检测物体尺度变化大的数据集有非常明显的效果)。</p>
-<h3 id="Mask-R-CNN-2018"><a href="#Mask-R-CNN-2018" class="headerlink" title="Mask R-CNN_2018"></a>Mask R-CNN_2018</h3><blockquote>
+<h3 id="Mask-R-CNN-2018"><a href="#Mask-R-CNN-2018" class="headerlink" title="Mask R-CNN (2018)"></a>Mask R-CNN (2018)</h3><blockquote>
 <p>📄paper: [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1703.06870">1703.06870] Mask R-CNN (arxiv.org)</a></p>
 <p>💻code: <a target="_blank" rel="noopener" href="https://github.com/facebookresearch/Detectron">facebookresearch&#x2F;Detectron: FAIR’s research platform for object detection research, implementing popular algorithms like Mask R-CNN and RetinaNet. (github.com)</a></p>
 </blockquote>
-<h3 id="Cascade-R-CNN-CVPR-2018"><a href="#Cascade-R-CNN-CVPR-2018" class="headerlink" title="Cascade R-CNN_CVPR 2018"></a>Cascade R-CNN_CVPR 2018</h3><blockquote>
+<h3 id="Cascade-R-CNN-CVPR-2018"><a href="#Cascade-R-CNN-CVPR-2018" class="headerlink" title="Cascade R-CNN (CVPR 2018)"></a>Cascade R-CNN (CVPR 2018)</h3><blockquote>
 <p>📄paper: </p>
 <ul>
 <li>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1712.00726">1712.00726] Cascade R-CNN: Delving into High Quality Object Detection (arxiv.org)</a></li>
@@ -519,25 +518,33 @@
 <p>💻code: <a target="_blank" rel="noopener" href="https://github.com/zhaoweicai/cascade-rcnn">zhaoweicai&#x2F;cascade-rcnn: Caffe implementation of multiple popular object detection frameworks (github.com)</a></p>
 </blockquote>
 <p> Faster RCNN完成了对目标候选框的两次预测，其中RPN一次，后面的检测器一次，而<strong>Cascade RCNN</strong>[9]则更进一步将后面检测器部分堆叠了几个级联模块，并采用不同的IOU阈值训练，这种级联版的Faster RCNN就是Cascade RCNN。通过提升IoU阈值训练级联检测器，可以使得检测器的定位精度更高，在更为严格的IoU阈值评估下，Cascade R-CNN带来的性能提升更为明显。Cascade RCNN将二阶段目标检测算法的精度提升到了新的高度。</p>
-<h3 id="Libra-R-CNN"><a href="#Libra-R-CNN" class="headerlink" title="Libra R-CNN"></a>Libra R-CNN</h3><h3 id="Grid-R-CNN"><a href="#Grid-R-CNN" class="headerlink" title="Grid R-CNN"></a>Grid R-CNN</h3><h2 id="One-Stage"><a href="#One-Stage" class="headerlink" title="One-Stage"></a>One-Stage</h2><blockquote>
+<h3 id="Libra-R-CNN"><a href="#Libra-R-CNN" class="headerlink" title="Libra R-CNN"></a>Libra R-CNN</h3><blockquote>
+<p>📄paper:</p>
+<p>💻code: </p>
+</blockquote>
+<h3 id="Grid-R-CNN"><a href="#Grid-R-CNN" class="headerlink" title="Grid R-CNN"></a>Grid R-CNN</h3><blockquote>
+<p>📄paper:</p>
+<p>💻code: </p>
+</blockquote>
+<h2 id="One-Stage"><a href="#One-Stage" class="headerlink" title="One-Stage"></a>One-Stage</h2><blockquote>
 <p>一阶段目标检测算法不需要region proposal阶段，直接产生物体的类别概率和位置坐标值，经过一个阶段即可直接得到最终的检测结果，因此有着更快的检测速度。</p>
 <p><strong>One-stage</strong>：直接用网络提取图像特征来预测物体位置和分类，因此不需要 RP。</p>
 <p>任务流程：特征提取–&gt; 分类&#x2F;定位回归。</p>
 <p>常见的 <code>One-stage</code> 目标检测算法有：YOLO 系列、SSD 和 RetinaNet 等。不过，为了得到最终目标的定位和分类，往往需要后处理。</p>
 </blockquote>
-<h3 id="SSD-ECCV-2016"><a href="#SSD-ECCV-2016" class="headerlink" title="SSD_ ECCV 2016"></a>SSD_ ECCV 2016</h3><blockquote>
+<h3 id="SSD-ECCV-2016-✅"><a href="#SSD-ECCV-2016-✅" class="headerlink" title="SSD (ECCV 2016)✅"></a>SSD (ECCV 2016)✅</h3><blockquote>
 <p>📄paper: [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1512.02325">1512.02325] SSD: Single Shot MultiBox Detector (arxiv.org)</a></p>
 <p>💻code: <a target="_blank" rel="noopener" href="https://github.com/amdegroot/ssd.pytorch">amdegroot&#x2F;ssd.pytorch: A PyTorch Implementation of Single Shot MultiBox Detector (github.com)</a></p>
 </blockquote>
 <p>eliminating bounding box proposals and the subsequent pixel or feature resampling stage.</p>
 <p>提出了Multi-reference和Multi-resolution的检测技术。</p>
 <p>SSD算法和先前的一些检测算法的区别在于：先前的一些检测算法只是在网络最深层的分支进行检测，而SSD有多个不同的检测分支，不同的检测分支可以检测多个尺度的目标，所以SSD在多尺度目标检测的精度上有了很大的提高，对小目标检测效果要好很多。</p>
-<h3 id="RFBNet-ECCV-2018"><a href="#RFBNet-ECCV-2018" class="headerlink" title="RFBNet_ECCV 2018"></a>RFBNet_ECCV 2018</h3><blockquote>
+<h3 id="RFBNet-ECCV-2018"><a href="#RFBNet-ECCV-2018" class="headerlink" title="RFBNet (ECCV 2018)"></a>RFBNet (ECCV 2018)</h3><blockquote>
 <p>📄paper: [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1711.07767">1711.07767] Receptive Field Block Net for Accurate and Fast Object Detection (arxiv.org)</a></p>
 <p>💻code: </p>
 </blockquote>
 <p>2018年的ECCV上的<strong>RFBNet</strong>，是在SSD基础上，设计了RFB模块插进Neck部分，从而显著提升了模型性能。</p>
-<h3 id="YOLO-v1-CVPR-2016"><a href="#YOLO-v1-CVPR-2016" class="headerlink" title="YOLO v1_CVPR 2016"></a>YOLO v1_CVPR 2016</h3><blockquote>
+<h3 id="YOLO-v1-CVPR-2016-✅"><a href="#YOLO-v1-CVPR-2016-✅" class="headerlink" title="YOLO v1 (CVPR 2016)✅"></a>YOLO v1 (CVPR 2016)✅</h3><blockquote>
 <p>📄paper: </p>
 <ul>
 <li>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1506.02640">1506.02640] You Only Look Once: Unified, Real-Time Object Detection (arxiv.org)</a></li>
@@ -551,8 +558,6 @@
 </ul>
 </blockquote>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/NM6lrxy0bxs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-
 
 <p>该算法的思想就是将图像划分成多个网格，然后为每一个网格同时预测边界框并给出相应概率。例如某个待检测目标的中心落在图像中所划分的一个单元格内，那么该单元格负责预测该目标位置和类别。</p>
 <ul>
@@ -580,7 +585,7 @@
 
 
 
-<h3 id="YOLO-v2-CVPR-2017"><a href="#YOLO-v2-CVPR-2017" class="headerlink" title="YOLO v2_CVPR 2017"></a>YOLO v2_CVPR 2017</h3><p><strong>YOLO9000</strong></p>
+<h3 id="YOLO-v2-CVPR-2017-✅"><a href="#YOLO-v2-CVPR-2017-✅" class="headerlink" title="YOLO v2 (CVPR 2017)✅"></a>YOLO v2 (CVPR 2017)✅</h3><p><strong>YOLO9000</strong></p>
 <blockquote>
 <p>📄paper: </p>
 <ul>
@@ -589,9 +594,13 @@
 </ul>
 <p>💻code: <a target="_blank" rel="noopener" href="https://github.com/longcw/yolo2-pytorch">longcw&#x2F;yolo2-pytorch: YOLOv2 in PyTorch (github.com)</a></p>
 </blockquote>
-<p>YOLO v2使用<strong>DarkNet19作为特征提取网络</strong>，该网络比YOLO v1所使用的VGG-16要更快。</p>
-<p>YOLO v2使用目标分<strong>类和检测的联合训练</strong>技巧，结合Word Tree等方法，使得YOLO v2的检测种类扩充到了上千种。</p>
-<h3 id="RetinaNet-ICCV-2017"><a href="#RetinaNet-ICCV-2017" class="headerlink" title="RetinaNet_ICCV 2017"></a>RetinaNet_ICCV 2017</h3><blockquote>
+<ul>
+<li><p>YOLO v2使用<strong>DarkNet19作为特征提取网络</strong>，该网络比YOLO v1所使用的VGG-16要更快。</p>
+</li>
+<li><p>YOLO v2使用目标分<strong>类和检测的联合训练</strong>技巧，结合Word Tree等方法，使得YOLO v2的检测种类扩充到了上千种。</p>
+</li>
+</ul>
+<h3 id="RetinaNet-ICCV-2017"><a href="#RetinaNet-ICCV-2017" class="headerlink" title="RetinaNet (ICCV 2017)"></a>RetinaNet (ICCV 2017)</h3><blockquote>
 <p>📄paper:</p>
 <ul>
 <li><p>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1708.02002">1708.02002] Focal Loss for Dense Object Detection (arxiv.org)</a></p>
@@ -601,9 +610,11 @@
 </ul>
 <p>💻code: <a target="_blank" rel="noopener" href="https://github.com/yhenon/pytorch-retinanet">yhenon&#x2F;pytorch-retinanet: Pytorch implementation of RetinaNet object detection. (github.com)</a></p>
 </blockquote>
-<p>提出能根据Loss大小自动调节权重的<strong>Focal loss</strong>，代替了标准的交叉熵损失函数，使得模型的训练更专注于困难样本；</p>
-<p>基于FPN设计了RetinaNet；</p>
-<h3 id="YOLO-v3-CVPR-2018"><a href="#YOLO-v3-CVPR-2018" class="headerlink" title="YOLO v3_CVPR 2018"></a>YOLO v3_CVPR 2018</h3><blockquote>
+<ul>
+<li>提出能根据Loss大小自动调节权重的<strong>Focal loss</strong>，代替了标准的交叉熵损失函数，使得模型的训练更专注于困难样本；</li>
+<li>基于FPN设计了RetinaNet；</li>
+</ul>
+<h3 id="YOLO-v3-CVPR-2018-✅"><a href="#YOLO-v3-CVPR-2018-✅" class="headerlink" title="YOLO v3 (CVPR 2018)✅"></a>YOLO v3 (CVPR 2018)✅</h3><blockquote>
 <p>📄paper:</p>
 <ul>
 <li>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1804.02767">1804.02767] YOLOv3: An Incremental Improvement (arxiv.org)</a></li>
@@ -611,12 +622,22 @@
 <p>💻code:</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/ultralytics/yolov3">ultralytics&#x2F;yolov3: YOLOv3 in PyTorch &gt; ONNX &gt; CoreML &gt; TFLite (github.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/qqwweee/keras-yolo3">qqwweee&#x2F;keras-yolo3: A Keras implementation of YOLOv3 (Tensorflow backend) (github.com)</a></li>
+</ul>
+<p>🔗reference:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37541097/article/details/81214953">YOLO v3网络结构分析_yolov3网络结构-CSDN博客</a></li>
 </ul>
 </blockquote>
-<p>&emsp;&emsp;相比于YOLO v2，<strong>YOLO v3</strong>将特征提取网络换成了<strong>DarkNet53</strong>，对象分类用Logistic取代了Softmax，并借鉴了FPN思想采用三条分支（三个不同尺度&#x2F;不同感受野的特征图）去检测具有不同尺寸的对象。</p>
+<ul>
+<li>相比于YOLO v2，<strong>YOLO v3</strong>将特征提取网络换成了<strong>DarkNet53</strong>，对象分类用Logistic取代了Softmax；</li>
+<li>借鉴了FPN思想采用三条分支（三个不同尺度&#x2F;不同感受野的特征图）去检测具有不同尺寸的对象；</li>
+<li>DarkNet53中没有MaxPooling, 而是使用卷积层来实现下采样；</li>
+<li>卷积核个数少-&gt;速度快</li>
+</ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;note note-light&quot;</span>&gt;</span>YOLO v1~v3都是出自Joseph Redmon小哥之手。小哥的论文写得非常好，不按照套路来，一点都不古板，给人一种活泼的感觉。但非英语母语的人或者英文不好的人读起来，其实是有点吃力的。<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="YOLO-v4-2020"><a href="#YOLO-v4-2020" class="headerlink" title="YOLO v4_2020"></a>YOLO v4_2020</h3><blockquote>
+<h3 id="YOLO-v4-2020"><a href="#YOLO-v4-2020" class="headerlink" title="YOLO v4 (2020)"></a>YOLO v4 (2020)</h3><blockquote>
 <p>📄paper: [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2004.10934">2004.10934] YOLOv4: Optimal Speed and Accuracy of Object Detection (arxiv.org)</a></p>
 <p>💻code: <a target="_blank" rel="noopener" href="https://github.com/AlexeyAB/darknet">AlexeyAB&#x2F;darknet: YOLOv4 &#x2F; Scaled-YOLOv4 &#x2F; YOLO - Neural Networks for Object Detection (Windows and Linux version of Darknet ) (github.com)</a></p>
 </blockquote>
@@ -638,31 +659,31 @@
 <li>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1803.01534">1803.01534] Path Aggregation Network for Instance Segmentation (arxiv.org)</a></li>
 </ul>
 </blockquote>
-<h3 id="YOLO-v5"><a href="#YOLO-v5" class="headerlink" title="YOLO v5"></a>YOLO v5</h3><blockquote>
+<h3 id="YOLO-v5-2020"><a href="#YOLO-v5-2020" class="headerlink" title="YOLO v5 (2020)"></a>YOLO v5 (2020)</h3><blockquote>
 <p>📄paper: 目前YOLO V5公布了源代码，但尚未发表论文；</p>
 <p>💻code: <a target="_blank" rel="noopener" href="https://github.com/ultralytics/yolov5">ultralytics&#x2F;yolov5: YOLOv5 🚀 in PyTorch &gt; ONNX &gt; CoreML &gt; TFLite (github.com)</a></p>
 </blockquote>
-<h3 id="YOLO-X-2021"><a href="#YOLO-X-2021" class="headerlink" title="YOLO X_2021"></a>YOLO X_2021</h3><blockquote>
+<h3 id="YOLO-X-2021"><a href="#YOLO-X-2021" class="headerlink" title="YOLO X (2021)"></a>YOLO X (2021)</h3><blockquote>
 <p>📄paper: [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2107.08430">2107.08430] YOLOX: Exceeding YOLO Series in 2021 (arxiv.org)</a></p>
 <p>💻code: <a target="_blank" rel="noopener" href="https://github.com/Megvii-BaseDetection/YOLOX">Megvii-BaseDetection&#x2F;YOLOX: YOLOX is a high-performance anchor-free YOLO, exceeding yolov3~v5 with MegEngine, ONNX, TensorRT, ncnn, and OpenVINO supported. Documentation: https://yolox.readthedocs.io/ (github.com)</a></p>
 </blockquote>
 <blockquote>
 <p>yolox是以yolov3（更准确来说是yolov3-spp）为基础进行改进。</p>
 </blockquote>
-<h3 id="YOLO-v6-2022"><a href="#YOLO-v6-2022" class="headerlink" title="YOLO v6_2022"></a>YOLO v6_2022</h3><blockquote>
+<h3 id="YOLO-v6-2022"><a href="#YOLO-v6-2022" class="headerlink" title="YOLO v6 (2022)"></a>YOLO v6 (2022)</h3><blockquote>
 <p>📄paper: [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2209.02976">2209.02976] YOLOv6: A Single-Stage Object Detection Framework for Industrial Applications (arxiv.org)</a></p>
 </blockquote>
-<h3 id="YOLO-v7-2022"><a href="#YOLO-v7-2022" class="headerlink" title="YOLO v7_2022"></a>YOLO v7_2022</h3><blockquote>
+<h3 id="YOLO-v7-2022"><a href="#YOLO-v7-2022" class="headerlink" title="YOLO v7 (2022)"></a>YOLO v7 (2022)</h3><blockquote>
 <p>📄paper: [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2207.02696">2207.02696] YOLOv7: Trainable bag-of-freebies sets new state-of-the-art for real-time object detectors (arxiv.org)</a></p>
 </blockquote>
-<h3 id="YOLO-v8-2023"><a href="#YOLO-v8-2023" class="headerlink" title="YOLO v8_2023"></a>YOLO v8_2023</h3><blockquote>
+<h3 id="YOLO-v8-2023"><a href="#YOLO-v8-2023" class="headerlink" title="YOLO v8 (2023)"></a>YOLO v8 (2023)</h3><blockquote>
 <p>💻code: </p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/ultralytics/ultralytics">ultralytics&#x2F;ultralytics: NEW - YOLOv8 🚀 in PyTorch &gt; ONNX &gt; CoreML &gt; TFLite (github.com)</a></li>
 <li><a target="_blank" rel="noopener" href="https://docs.ultralytics.com/">Home - Ultralytics YOLOv8 Docs</a></li>
 </ul>
 </blockquote>
-<h3 id="YOLO-review-2023"><a href="#YOLO-review-2023" class="headerlink" title="YOLO review_2023"></a>YOLO review_2023</h3><blockquote>
+<h3 id="YOLO-review-2023"><a href="#YOLO-review-2023" class="headerlink" title="YOLO review (2023)"></a>YOLO review (2023)</h3><blockquote>
 <p>📄paper:</p>
 <ul>
 <li>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2304.00501">2304.00501] A Comprehensive Review of YOLO: From YOLOv1 and Beyond (arxiv.org)</a></li>
@@ -713,7 +734,7 @@
 <p>True positives (TP,真正): 预测为正,实际为正<br>True negatives (TN,真负): 预测为负,实际为负<br>False positives(FP,假正): 预测为正,实际为负<br>False negatives(FN,假负): 预测为负,实际为正</p>
 </blockquote>
 <p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230530163634505.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20230530163634505"></p>
-<h2 id="PR曲线-AP值"><a href="#PR曲线-AP值" class="headerlink" title="PR曲线-AP值"></a>PR曲线-AP值</h2><h2 id="ROC曲线-AUC值"><a href="#ROC曲线-AUC值" class="headerlink" title="ROC曲线-AUC值"></a>ROC曲线-AUC值</h2><h2 id="mAP"><a href="#mAP" class="headerlink" title="mAP"></a>mAP</h2><h2 id="FPS"><a href="#FPS" class="headerlink" title="FPS"></a>FPS</h2><h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/500859130">目标检测论文总结-YOLO系列 - 知乎 (zhihu.com)</a></p>
+<h2 id="PR曲线-AP值"><a href="#PR曲线-AP值" class="headerlink" title="PR曲线-AP值"></a>PR曲线-AP值</h2><h2 id="ROC曲线-AUC值"><a href="#ROC曲线-AUC值" class="headerlink" title="ROC曲线-AUC值"></a>ROC曲线-AUC值</h2><h2 id="mAP"><a href="#mAP" class="headerlink" title="mAP"></a>mAP</h2><h2 id="FPS"><a href="#FPS" class="headerlink" title="FPS"></a>FPS</h2><h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/500859130">目标检测论文总结-YOLO系列 - 知乎 (zhihu.com)</a></p>
 <p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/jSV47eDR9AcIXjzX_8xnqw">YOLO之父宣布退出CV界，坦言无法忽视自己工作带来的负面影响 (qq.com)</a></p>
 <p><a target="_blank" rel="noopener" href="https://jishuin.proginn.com/p/763bfbd5b863">童心未泯的 YOLO 之父，小马哥 Joseph Redmon 笑傲 CV 江湖记-技术圈 (proginn.com)</a></p>
 <p><a target="_blank" rel="noopener" href="https://mdnice.com/writing/9cdb98fbc3704d919006f7e3220407ea">【Make YOLO Great Again】YOLOv1-v7全系列大解析（Tricks篇） - mdnice 墨滴</a></p>
@@ -731,6 +752,8 @@
 <p><a target="_blank" rel="noopener" href="https://www.cvmart.net/community/detail/4992">综述：目标检测二十年（2001-2021）-极市开发者社区 (cvmart.net)</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.zhihu.com/column/c_1364967262269693952">第二卷-基于YOLO的目标检测入门教程 - 知乎 (zhihu.com)</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.zhihu.com/column/c_1178388040400302080">第一卷-目标检测入门科普教程 - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://handong1587.github.io/deep_learning/2015/10/09/object-detection.html">Object Detection - handong1587</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/amusi/awesome-object-detection">amusi&#x2F;awesome-object-detection: Awesome Object Detection based on handong1587 github: https://handong1587.github.io/deep_learning&#x2F;2015&#x2F;10&#x2F;09&#x2F;object-detection.html</a></p>
 <section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://lilianweng.github.io/posts/2017-12-15-object-recognition-part-2/">Object Detection for Dummies Part 2: CNN, DPM and Overfeat | Lil’Log (lilianweng.github.io)</a>
 <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://cs.brown.edu/courses/cs143/2011/lectures/DPM.pdf">DPM.pdf (brown.edu)</a>
 <a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/364372881">1.1 YOLO入门教程：YOLOv1(1)-目标检测结构浅析 - 知乎 (zhihu.com)</a>

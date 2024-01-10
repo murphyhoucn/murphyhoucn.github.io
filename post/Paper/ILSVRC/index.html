@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/imagenet_banner.jpeg">
 <meta property="article:published_time" content="2023-05-04T09:41:24.000Z">
-<meta property="article:modified_time" content="2023-05-18T06:57:39.000Z">
+<meta property="article:modified_time" content="2024-01-10T02:27:49.292Z">
 <meta property="article:author" content="Murphy">
 <meta property="article:tag" content="ILSVRC">
 <meta name="twitter:card" content="summary_large_image">
@@ -269,7 +269,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          947 字
+          971 字
         
       </span>
     
@@ -280,7 +280,7 @@
         
         
         
-          8 分钟
+          9 分钟
         
       </span>
     
@@ -371,7 +371,10 @@
 <li><p>Task 3: Fine-grained classification: ISI [ <a target="_blank" rel="noopener" href="https://www.image-net.org/static_files/files/isi.pdf">slides</a> ]</p>
 </li>
 </ul>
-<h2 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h2><p>paper: <em><a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf">ImageNet Classification with Deep Convolutional Neural Networks (neurips.cc)</a></em><br>code:</p>
+<h2 id="AlexNet-NeurIPS-2012-✅"><a href="#AlexNet-NeurIPS-2012-✅" class="headerlink" title="AlexNet (NeurIPS 2012)✅"></a>AlexNet (NeurIPS 2012)✅</h2><blockquote>
+<p>📄paper: <em><a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf">ImageNet Classification with Deep Convolutional Neural Networks (neurips.cc)</a></em></p>
+<p>💻code: </p>
+</blockquote>
 <ul>
 <li><p><strong>Deep</strong> Convolutional Neural Network</p>
 </li>
@@ -414,7 +417,8 @@
 <li><p>上层神经元学到的是“全局”特征，如形状；底层神经元学到的是“局部”特征，如纹理。</p>
 </li>
 </ul>
-<h3 id="Contribution-1-Architecture"><a href="#Contribution-1-Architecture" class="headerlink" title="Contribution 1: Architecture"></a>Contribution 1: Architecture</h3><ul>
+<p>🚩<strong>Contribution 1: Architecture</strong></p>
+<ul>
 <li><p>ReLU</p>
 <ul>
 <li>Saturating nonlinearities: tanh or sigmoid</li>
@@ -446,7 +450,8 @@
 <li>为了在两个GPU上跑这个模型，Alex用了大量的代码把模型切分为两半边，分别在单个GPU进行训练，搞得这个示意图非常复杂！</li>
 <li>AlexNet用的这个“模型并行”在此之后的很长时间都用的不多！但是<em>（没错，科技是个环，又回来了）</em>，随着GPT和BERT的出现，“模型并行”再次被提起！特别是自然语言处理任务中。</li>
 </ul>
-<h3 id="Contribution-2-reduce-overfitting"><a href="#Contribution-2-reduce-overfitting" class="headerlink" title="Contribution 2: reduce overfitting"></a>Contribution 2: reduce overfitting</h3><ul>
+<p>🚩<strong>Contribution 2: reduce overfitting</strong></p>
+<ul>
 <li>Data Augmentation<ul>
 <li>将256×256的图像随机抠出几个224×224的区域，扩大了数据量</li>
 <li>PCA，主成分分析，在颜色通道上做一些变换</li>
@@ -458,7 +463,10 @@
 </ul>
 </li>
 </ul>
-<h1 id="ILSVRC-2013"><a href="#ILSVRC-2013" class="headerlink" title="ILSVRC 2013"></a>ILSVRC 2013</h1><h2 id="ZFNet"><a href="#ZFNet" class="headerlink" title="ZFNet"></a>ZFNet</h2><p>ZF</p>
+<h1 id="ILSVRC-2013"><a href="#ILSVRC-2013" class="headerlink" title="ILSVRC 2013"></a>ILSVRC 2013</h1><h2 id="ZFNet"><a href="#ZFNet" class="headerlink" title="ZFNet"></a>ZFNet</h2><blockquote>
+<p>📄paper: <a target="_blank" rel="noopener" href="https://link.springer.com/chapter/10.1007/978-3-319-10590-1_53">Visualizing and Understanding Convolutional Networks | SpringerLink</a></p>
+<p>💻code:</p>
+</blockquote>
 <p>Matthew D Zeiler, New York University<br>Rob Fergus, New York University</p>
 <p>The approach is based on a combination of large convolutional networks with a range of different architectures. The choice of architectures was assisted by visualization of model features’ using a deconvolutional network, as described in Zeiler et. al “Adaptive Deconvolutional Networks for Mid and High Level Feature Learning”, ICCV 2011.  </p>
 <p>Each model is trained on a single Nvidia GPU for more than one week. Data is augmented by resizing the images to 256x256 pixels and then selecting random 224x224 pixel crops and horizontal flips from each example. This data augmentation is combined with the Dropout method of Hinton et al. (“Improving neural networks by preventing co-adaptation of feature detectors”), which prevents overfitting in these large networks.</p>
@@ -468,22 +476,32 @@
 <p>Matthew Zeiler, Clarifai</p>
 <p>A large deep convolutional network is trained on the original data to classify each of the 1,000 classes. The only preprocessing done to the data is subtracting a per-pixel mean. To augment the amount of training data, the image is downsampled to 256 pixels and a random 224 pixel crop is taken out of the image and randomly flipped horizontally to provide more views of each example. Additionally, the dropout technique of Hinton et al. “Improving neural networks by preventing co-adaptation of feature detectors” was utilized to further prevent overfitting.  </p>
 <p>The architecture contains 65M parameters trained for 10 days on a single Nvidia GPU. By using a novel visualization technique based on the deconvolutional networks of Zeiler et. al, “Adaptive Deconvolutional Networks for Mid and High Level Feature Learning”, it became clearer what makes the model perform, and from this a powerful architecture was chosen. Multiple such models were averaged together to further boost performance.</p>
-<h2 id="OverFeat"><a href="#OverFeat" class="headerlink" title="OverFeat"></a>OverFeat</h2><p><strong>Detection</strong></p>
-<p>OverFeat - NYU</p>
+<h2 id="OverFeat"><a href="#OverFeat" class="headerlink" title="OverFeat"></a>OverFeat</h2><p>OverFeat - NYU</p>
 <p>Pierre Sermanet, David Eigen, Michael Mathieu, Xiang Zhang, Rob Fergus, Yann LeCun</p>
 <p>Our submission is based on an integrated framework for using Convolutional Networks for <strong>classiﬁcation, localization and detection</strong>. We use a multiscale and sliding window approach, efficiently implemented within a ConvNet. This not only improves classiﬁcation performance, but naturally allows the prediction of one or more objects’ bounding boxes within the image. The same basic framework was applied to all three tasks. For the classification task, we vote among different views presented to the network. For localization and detection, each sliding window classification is refined using a regressor trained to predict bounding boxes; we produce final predictions by combining the regressor outputs.</p>
-<h1 id="ILSVRC-2014"><a href="#ILSVRC-2014" class="headerlink" title="ILSVRC 2014"></a>ILSVRC 2014</h1><h2 id="GoogLeNet"><a href="#GoogLeNet" class="headerlink" title="GoogLeNet"></a>GoogLeNet</h2><ul>
+<h1 id="ILSVRC-2014"><a href="#ILSVRC-2014" class="headerlink" title="ILSVRC 2014"></a>ILSVRC 2014</h1><h2 id="GoogLeNet-CVPR-2015-✅"><a href="#GoogLeNet-CVPR-2015-✅" class="headerlink" title="GoogLeNet (CVPR 2015)✅"></a>GoogLeNet (CVPR 2015)✅</h2><blockquote>
+<p>📄paper: </p>
+<ul>
+<li>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1409.4842">1409.4842] Going Deeper with Convolutions (arxiv.org)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cv-foundation.org/openaccess/content_cvpr_2015/html/Szegedy_Going_Deeper_With_2015_CVPR_paper.html">CVPR 2015 Open Access Repository (cv-foundation.org)</a></li>
+</ul>
+<p>💻code: </p>
+</blockquote>
+<ul>
 <li>a deep convolutional neural network architecture codenamed Inception</li>
 <li>the main hallmark of this architecture is the improved utilization of the <strong>computing resources</strong> inside the network</li>
 <li>increasing the depth and width of the network while keeping the computational budget constant.</li>
 </ul>
 <p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230517202517369.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="inception model"></p>
 <p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230517202539308.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="GoogLeNet"></p>
-<h2 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h2><ul>
+<h2 id="VGG-ICLR-2015-✅"><a href="#VGG-ICLR-2015-✅" class="headerlink" title="VGG (ICLR 2015)✅"></a>VGG (ICLR 2015)✅</h2><blockquote>
+<p>📄paper: [<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1409.1556">1409.1556] Very Deep Convolutional Networks for Large-Scale Image Recognition (arxiv.org)</a></p>
+<p>💻code: </p>
+</blockquote>
+<ul>
 <li>AlexNet -deeper-&gt; VGG</li>
 <li>AlexNet中出现的卷积核大小为11×11，7×7和5×5，但在VGG中，这么大的卷积核已经见不到了，取而代之的是3×3的卷积核</li>
 <li>VGG中，使用了3个3x3卷积核来代替7x7卷积核，使用了2个3x3卷积核来代替5*5卷积核，这样做的主要目的是在保证具有相同感知野的条件下，提升了网络的深度，在一定程度上提升了神经网络的效果。</li>
-<li></li>
 </ul>
 <p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230517202351878.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="ConvNet configurations"></p>
 <h1 id="ILSVRC-2015"><a href="#ILSVRC-2015" class="headerlink" title="ILSVRC 2015"></a>ILSVRC 2015</h1><ul>
@@ -504,12 +522,24 @@
 </ul>
 </li>
 </ul>
-<h2 id="ResNet"><a href="#ResNet" class="headerlink" title="ResNet"></a>ResNet</h2><p><em>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1512.03385">1512.03385] Deep Residual Learning for Image Recognition (arxiv.org)</a></em></p>
+<h2 id="ResNet-CVPR-2016-✅"><a href="#ResNet-CVPR-2016-✅" class="headerlink" title="ResNet (CVPR 2016)✅"></a>ResNet (CVPR 2016)✅</h2><blockquote>
+<p>📄paper:</p>
+<ul>
+<li><em>[<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1512.03385">1512.03385] Deep Residual Learning for Image Recognition (arxiv.org)</a></em></li>
+<li><a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_cvpr_2016/html/He_Deep_Residual_Learning_CVPR_2016_paper.html">CVPR 2016 Open Access Repository (thecvf.com)</a></li>
+</ul>
+<p>💻code: </p>
+<p>🔗reference:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/349717627">ResNet：残差神经网络 - 知乎 (zhihu.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/sazass/article/details/116864275">【pytorch系列】ResNet中的BasicBlock与bottleneck-CSDN博客</a></li>
+<li><a target="_blank" rel="noopener" href="http://zh.d2l.ai/chapter_convolutional-modern/resnet.html">7.6. 残差网络（ResNet） — 动手学深度学习 2.0.0 documentation (d2l.ai)</a></li>
+</ul>
+</blockquote>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1PGLj-uKT1w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-
-
-<h3 id="intro"><a href="#intro" class="headerlink" title="intro"></a>intro</h3><ul>
+<p>🚩<strong>intro</strong></p>
+<ul>
 <li>deeper neural network are more difficult to train!</li>
 <li>residual learning framework: more layers but lower complexity</li>
 <li>residual: $F(x)&#x3D;H(x)-x$<ul>
@@ -523,18 +553,28 @@
 </ul>
 </li>
 </ul>
-<h3 id="related-work"><a href="#related-work" class="headerlink" title="related work"></a>related work</h3><ul>
+<p>🚩<strong>related work</strong></p>
+<ul>
 <li>Resudial Representations</li>
 <li>Shortcut Connections</li>
 </ul>
-<h3 id="exp"><a href="#exp" class="headerlink" title="exp"></a>exp</h3><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230505112627441.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="Architectures for ImageNet"></p>
+<p>🚩<strong>exp</strong></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230505112627441.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="Architectures for ImageNet"></p>
 <p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20230505113324320.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="basic block and bottleneck block"></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/349717627">https://zhuanlan.zhihu.com/p/349717627</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sazass/article/details/116864275">https://blog.csdn.net/sazass/article/details/116864275</a></p>
-<p><a target="_blank" rel="noopener" href="http://zh.d2l.ai/chapter_convolutional-modern/resnet.html">http://zh.d2l.ai/chapter_convolutional-modern/resnet.html</a></p>
-<h1 id="ILSVRC-2016"><a href="#ILSVRC-2016" class="headerlink" title="ILSVRC 2016"></a>ILSVRC 2016</h1><h2 id="Trimps-Soushen"><a href="#Trimps-Soushen" class="headerlink" title="Trimps-Soushen"></a>Trimps-Soushen</h2><h2 id="ResNeXt"><a href="#ResNeXt" class="headerlink" title="ResNeXt"></a>ResNeXt</h2><h1 id="ILSVRC-2017"><a href="#ILSVRC-2017" class="headerlink" title="ILSVRC 2017"></a>ILSVRC 2017</h1><h2 id="SENet"><a href="#SENet" class="headerlink" title="SENet"></a>SENet</h2><h1 id="2017"><a href="#2017" class="headerlink" title="2017-"></a>2017-</h1><p>kaggle</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hzhj2007/article/details/87388240">那些年我们一起追过的ILSVRC冠军_hzhj的博客-CSDN博客</a></p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk">object detection<br>https:<span class="hljs-regexp">//</span>handong1587.github.io<span class="hljs-regexp">/deep_learning/</span><span class="hljs-number">2015</span><span class="hljs-regexp">/10/</span><span class="hljs-number">09</span>/object-detection.html<br>https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/amusi/</span>awesome-object-detection<br><br><br><br><br></code></pre></td></tr></table></figure>
+<h1 id="ILSVRC-2016"><a href="#ILSVRC-2016" class="headerlink" title="ILSVRC 2016"></a>ILSVRC 2016</h1><h2 id="Trimps-Soushen"><a href="#Trimps-Soushen" class="headerlink" title="Trimps-Soushen"></a>Trimps-Soushen</h2><blockquote>
+<p>📄paper:</p>
+<p>💻code: </p>
+</blockquote>
+<h2 id="ResNeXt-CVPR-2017"><a href="#ResNeXt-CVPR-2017" class="headerlink" title="ResNeXt(CVPR 2017)"></a>ResNeXt(CVPR 2017)</h2><blockquote>
+<p>📄paper: <a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_cvpr_2017/html/Xie_Aggregated_Residual_Transformations_CVPR_2017_paper.html">CVPR 2017 Open Access Repository (thecvf.com)</a></p>
+<p>💻code: </p>
+</blockquote>
+<h1 id="ILSVRC-2017"><a href="#ILSVRC-2017" class="headerlink" title="ILSVRC 2017"></a>ILSVRC 2017</h1><h2 id="SENet-CVPR-2018"><a href="#SENet-CVPR-2018" class="headerlink" title="SENet(CVPR 2018)"></a>SENet(CVPR 2018)</h2><blockquote>
+<p>📄paper: <a target="_blank" rel="noopener" href="https://openaccess.thecvf.com/content_cvpr_2018/html/Hu_Squeeze-and-Excitation_Networks_CVPR_2018_paper.html">CVPR 2018 Open Access Repository (thecvf.com)</a></p>
+<p>💻code:</p>
+</blockquote>
+<h1 id="2017"><a href="#2017" class="headerlink" title="2017-"></a>2017-</h1><p>kaggle</p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hzhj2007/article/details/87388240">那些年我们一起追过的ILSVRC冠军_hzhj的博客-CSDN博客</a></p>
 <section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.image-net.org/challenges/LSVRC/">ImageNet (image-net.org)</a>
 <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.image-net.org/">ImageNet (image-net.org)</a>
 <a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span><a target="_blank" rel="noopener" href="https://www.image-net.org/static_files/files/supervision.pdf">supervision.pdf (image-net.org)</a>
