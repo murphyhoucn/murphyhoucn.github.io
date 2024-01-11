@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/%E6%96%87%E7%AB%A0%E9%BB%98%E8%AE%A4%E5%B0%81%E9%9D%A2.jpg">
 <meta property="article:published_time" content="2024-01-11T05:33:41.000Z">
-<meta property="article:modified_time" content="2024-01-11T06:17:11.144Z">
+<meta property="article:modified_time" content="2024-01-11T11:45:26.430Z">
 <meta property="article:author" content="Murphy">
 <meta property="article:tag" content="unclassified">
 <meta name="twitter:card" content="summary_large_image">
@@ -269,7 +269,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7 字
+          48 字
         
       </span>
     
@@ -324,6 +324,38 @@
                 
                 <p><a target="_blank" rel="noopener" href="https://www.murtazahassan.com/">Murtaza Hassan</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11A411T7rL/?vd_source=6d46640a443a49f050af078d1f65143e">4h上手C++版Opencv_哔哩哔哩_bilibili</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/483604320">数字图像处理(c++ opencv)入门学习 - 知乎 (zhihu.com)</a></p>
+<h1 id="Installing-OpenCV-on-Windows-for-C"><a href="#Installing-OpenCV-on-Windows-for-C" class="headerlink" title="Installing OpenCV on Windows for C++"></a>Installing OpenCV on Windows for C++</h1><h2 id="Step-1-Download-and-Install-OpenCV"><a href="#Step-1-Download-and-Install-OpenCV" class="headerlink" title="Step 1 Download and Install OpenCV"></a>Step 1 Download and Install OpenCV</h2><p>Downloading and Installing OpenCV: <a target="_blank" rel="noopener" href="https://opencv.org/releases/">Releases - OpenCV</a></p>
+<p>2024年1月11日，最新版的OpenCV是4.9.0，我下载了的版本是OpenCV-4.8.0。下载解压到一个文件夹中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) PS D:\Dev\opencv480&gt; <span class="hljs-built_in">dir</span><br>    目录: D:\Dev\opencv480<br>Mode                 LastWriteTime         Length Name<br>----                 -------------         ------ ----<br>d-----         2024/1/11     14:14                build<br>d-----         2024/1/11     14:14                sources<br>-a----         2023/6/28     20:57          11560 LICENSE.txt<br>-a----         2023/6/28     20:57          27913 LICENSE_FFMPEG.txt<br>-a----         2023/6/28     20:57            868 README.md.txt<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="Step-2-Environment-Variables"><a href="#Step-2-Environment-Variables" class="headerlink" title="Step 2 Environment Variables"></a>Step 2 Environment Variables</h2><p>Add <code>bin folder</code> to Environment Variables path: <code>D:\Dev\opencv480\build\x64\vc16\bin</code>, then <strong>restart</strong> the PC.s</p>
+<p><img src="/CPPOpenCV.assets/image-20240111171607051.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240111171607051"></p>
+<h2 id="Step3-New-Visual-Studio-Project"><a href="#Step3-New-Visual-Studio-Project" class="headerlink" title="Step3 New Visual Studio Project"></a>Step3 New Visual Studio Project</h2><ol>
+<li>Best VS setting(Cherno)</li>
+</ol>
+<ul>
+<li>Output Directory: $(SolutionDir)bin$(Platform)$(Configuration)\</li>
+<li>Intermediate Directory: $(SolutionDir)bin\intermediate$(Platform)$(Configuration)\</li>
+</ul>
+<blockquote>
+<p>D:\userCode\IntroOpenCV\bin\Win32\Debug\</p>
+<p>D:\userCode\IntroOpenCV\bin\intermediate\Win32\Debug\</p>
+</blockquote>
+<p><img src="/CPPOpenCV.assets/image-20240111172341038.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240111172341038"></p>
+<ol start="2">
+<li>Set the platform target to x64</li>
+</ol>
+<p><img src="/CPPOpenCV.assets/image-20240111172118484.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240111172118484"></p>
+<h2 id="Step-4-OpenCV-configuration"><a href="#Step-4-OpenCV-configuration" class="headerlink" title="Step 4 OpenCV configuration"></a>Step 4 OpenCV configuration</h2><p>Add Directories by going to Project-Properties-Configuration Properties</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown">VC++ Directories<br><span class="hljs-bullet">	1.</span> Add Build Directories: D:\Dev\opencv480\build\include<br><span class="hljs-bullet">	2.</span> Add Library Directories: D:\Dev\opencv480\build\x64\vc16\lib<br>Linker Input<br><span class="hljs-bullet">	1.</span> Add Linker input: opencv<span class="hljs-emphasis">_world480d.lib</span><br><span class="hljs-emphasis">	** d(opencv_</span>world480d.lib) for debug <br><span class="hljs-code">	** without d(opencv_world480.lib) for release</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="/CPPOpenCV.assets/image-20240111181709454.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240111181709454"></p>
+<p><img src="/CPPOpenCV.assets/image-20240111181842738.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240111181842738"></p>
+<h2 id="Step-5-Test"><a href="#Step-5-Test" class="headerlink" title="Step 5 Test"></a>Step 5 Test</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;opencv2/imgcodecs.hpp&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;opencv2/highgui.hpp&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;opencv2/imgcodecs.hpp&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	std::string path = <span class="hljs-string">&quot;./Resources/test.png&quot;</span>;<br>	cv::Mat img = cv::<span class="hljs-built_in">imread</span>(path);<br>	cv::<span class="hljs-built_in">imshow</span>(<span class="hljs-string">&quot;Image&quot;</span>, img);<br>	cv::<span class="hljs-built_in">waitKey</span>(<span class="hljs-number">0</span>);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
