@@ -207,7 +207,11 @@
     
     <tags>
       
-      <tag>unclassified</tag>
+      <tag>Linux</tag>
+      
+      <tag>工具</tag>
+      
+      <tag>Windows</tag>
       
     </tags>
     
@@ -453,7 +457,7 @@
     <link href="/post/AI/AnimatedDrawings/"/>
     <url>/post/AI/AnimatedDrawings/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<p><a href="https://sketch.metademolab.com/">https://sketch.metademolab.com/</a><br><a href="https://fairanimateddrawings.com/site/home">https://fairanimateddrawings.com/site/home</a><br><a href="https://github.com/facebookresearch/AnimatedDrawings">https://github.com/facebookresearch/AnimatedDrawings</a></p>]]></content>
     
     
     <categories>
