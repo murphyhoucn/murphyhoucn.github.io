@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Material-for-MkDocs</title>
+    <link href="/post/Knowledge/Material-for-MkDocs/"/>
+    <url>/post/Knowledge/Material-for-MkDocs/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install mkdocs mkdocs-material<br>mkdocs --version<br>mkdocs new my-project<br>mkdocs serve<br>mkdocs build<br>mkdocs gh-deploy<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>知识积累</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>MkDocs</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>QT</title>
     <link href="/post/Knowledge/QT/"/>
     <url>/post/Knowledge/QT/</url>
