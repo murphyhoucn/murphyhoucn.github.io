@@ -31,11 +31,11 @@
   
   
   <entry>
-    <title>Material-for-MkDocs</title>
-    <link href="/post/Knowledge/Material-for-MkDocs/"/>
-    <url>/post/Knowledge/Material-for-MkDocs/</url>
+    <title>Material for MkDocs</title>
+    <link href="/post/Knowledge/MaterialforMkDocs/"/>
+    <url>/post/Knowledge/MaterialforMkDocs/</url>
     
-    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install mkdocs mkdocs-material<br>mkdocs --version<br>mkdocs new my-project<br>mkdocs serve<br>mkdocs build<br>mkdocs gh-deploy<br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install mkdocs mkdocs-material<br>mkdocs --version<br>mkdocs new my-project<br>mkdocs serve<br>mkdocs build<br>mkdocs gh-deploy<br></code></pre></td></tr></table></figure><p>参考</p><p><a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs (squidfunk.github.io)</a></p><p><a href="https://github.com/Nagi-ovo/Cherno-CPP-Notes">Nagi-ovo&#x2F;Cherno-CPP-Notes: Cherno C++课程个人笔记 (github.com)</a></p><p><a href="https://walkccc.me/LeetCode/">LeetCode Solutions (walkccc.me)</a></p><p><a href="https://zjdoc-docguide.readthedocs.io/zh-cn/latest/">DocGuide (zjdoc-docguide.readthedocs.io)</a></p>]]></content>
     
     
     <categories>
