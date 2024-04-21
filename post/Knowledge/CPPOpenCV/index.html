@@ -18,14 +18,14 @@
   
     <meta name="description" content="OpenCV对数字图像处理的重要性不言而喻，我之前用的OpenCV都是Python版本的，C++版本的OpenCV我之前接触的很少，现在也学习一些吧。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CPPOpenCV">
-<meta property="og:url" content="https://cosmicdusty.cc/post/Knowledge/CPPOpenCV/index.html">
+<meta property="og:title" content="CppOpenCV">
+<meta property="og:url" content="https://cosmicdusty.cc/post/Knowledge/CppOpenCV/index.html">
 <meta property="og:site_name" content="MurphyHou">
 <meta property="og:description" content="OpenCV对数字图像处理的重要性不言而喻，我之前用的OpenCV都是Python版本的，C++版本的OpenCV我之前接触的很少，现在也学习一些吧。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/computer-2583383_1280.jpg">
 <meta property="article:published_time" content="2024-01-11T05:33:41.000Z">
-<meta property="article:modified_time" content="2024-04-21T02:41:29.000Z">
+<meta property="article:modified_time" content="2024-04-21T13:59:02.400Z">
 <meta property="article:author" content="Murphy">
 <meta property="article:tag" content="OpenCV">
 <meta property="article:tag" content="CPP">
@@ -36,7 +36,7 @@
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>CPPOpenCV - MurphyHou</title>
+  <title>CppOpenCV - MurphyHou</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -242,7 +242,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="CPPOpenCV"></span>
+            <span id="subtitle" data-typed-text="CppOpenCV"></span>
           
         </div>
 
@@ -318,7 +318,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">CPPOpenCV</h1>
+            <h1 id="seo-header">CppOpenCV</h1>
             
             
               <div class="markdown-body">
@@ -331,7 +331,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) PS D:\Dev\opencv480&gt; <span class="hljs-built_in">dir</span><br>    目录: D:\Dev\opencv480<br>Mode                 LastWriteTime         Length Name<br>----                 -------------         ------ ----<br>d-----         2024/1/11     14:14                build<br>d-----         2024/1/11     14:14                sources<br>-a----         2023/6/28     20:57          11560 LICENSE.txt<br>-a----         2023/6/28     20:57          27913 LICENSE_FFMPEG.txt<br>-a----         2023/6/28     20:57            868 README.md.txt<br></code></pre></td></tr></table></figure>
 
 <h2 id="Step-2-Environment-Variables"><a href="#Step-2-Environment-Variables" class="headerlink" title="Step 2 Environment Variables"></a>Step 2 Environment Variables</h2><p>Add <code>bin folder</code> to Environment Variables path: <code>D:\Dev\opencv480\build\x64\vc16\bin</code>, then <strong>restart</strong> the PC.s</p>
-<p><img src="/CPPOpenCV.assets/image-20240111171607051.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240111171607051"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20240111171607051.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240111171607051"></p>
 <h2 id="Step3-New-Visual-Studio-Project"><a href="#Step3-New-Visual-Studio-Project" class="headerlink" title="Step3 New Visual Studio Project"></a>Step3 New Visual Studio Project</h2><ol>
 <li>Best VS setting(Cherno)</li>
 </ol>
@@ -343,15 +343,15 @@
 <p>D:\userCode\IntroOpenCV\bin\Win32\Debug\</p>
 <p>D:\userCode\IntroOpenCV\bin\intermediate\Win32\Debug\</p>
 </blockquote>
-<p><img src="/CPPOpenCV.assets/image-20240111172341038.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240111172341038"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20240111172341038.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240111172341038"></p>
 <ol start="2">
 <li>Set the platform target to x64</li>
 </ol>
 <p><img src="/CPPOpenCV.assets/image-20240111172118484.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240111172118484"><br>on</p>
 <h2 id="Step-4-OpenCV-configuration"><a href="#Step-4-OpenCV-configuration" class="headerlink" title="Step 4 OpenCV configuration"></a>Step 4 OpenCV configuration</h2><p>Add Directories by going to Project-Properties-Configuration Properties</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown">VC++ Directories<br><span class="hljs-bullet">	1.</span> Add Build Directories: D:\Dev\opencv480\build\include<br><span class="hljs-bullet">	2.</span> Add Library Directories: D:\Dev\opencv480\build\x64\vc16\lib<br>Linker Input<br><span class="hljs-bullet">	1.</span> Add Linker input: opencv<span class="hljs-emphasis">_world480d.lib</span><br><span class="hljs-emphasis">	** d(opencv_</span>world480d.lib) for debug <br><span class="hljs-code">	** without d(opencv_world480.lib) for release</span><br></code></pre></td></tr></table></figure>
-<p><img src="/CPPOpenCV.assets/image-20240111181709454.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240111181709454"></p>
-<p><img src="/CPPOpenCV.assets/image-20240111181842738.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240111181842738"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20240111181709454.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240111181709454"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20240111181842738.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240111181842738"></p>
 <h2 id="Step-5-Test"><a href="#Step-5-Test" class="headerlink" title="Step 5 Test"></a>Step 5 Test</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs C++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;opencv2/imgcodecs.hpp&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;opencv2/highgui.hpp&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;opencv2/imgcodecs.hpp&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;string&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	std::string path = <span class="hljs-string">&quot;./Resources/test.png&quot;</span>;<br>	cv::Mat img = cv::<span class="hljs-built_in">imread</span>(path);<br>	cv::<span class="hljs-built_in">imshow</span>(<span class="hljs-string">&quot;Image&quot;</span>, img);<br>	cv::<span class="hljs-built_in">waitKey</span>(<span class="hljs-number">0</span>);<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="Installing-OpenCV-4-8-0-on-Ubuntu-20-04-for-C"><a href="#Installing-OpenCV-4-8-0-on-Ubuntu-20-04-for-C" class="headerlink" title="Installing OpenCV 4.8.0 on Ubuntu 20.04 for C++"></a>Installing OpenCV 4.8.0 on Ubuntu 20.04 for C++</h1><p>reference: </p>
@@ -459,8 +459,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>CPPOpenCV</div>
-      <div>https://cosmicdusty.cc/post/Knowledge/CPPOpenCV/</div>
+      <div>CppOpenCV</div>
+      <div>https://cosmicdusty.cc/post/Knowledge/CppOpenCV/</div>
     </div>
     <div class="license-meta">
       
