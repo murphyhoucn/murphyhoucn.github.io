@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/cyberspace-2784907_1280.jpg">
 <meta property="article:published_time" content="2023-11-01T02:28:51.000Z">
-<meta property="article:modified_time" content="2024-10-24T13:15:33.167Z">
+<meta property="article:modified_time" content="2024-10-24T15:36:25.250Z">
 <meta property="article:author" content="Murphy">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Server">
@@ -273,7 +273,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          1.2k 字
         
       </span>
     
@@ -284,7 +284,7 @@
         
         
         
-          9 分钟
+          10 分钟
         
       </span>
     
@@ -383,7 +383,13 @@
 
 
 
-<h1 id="MMDetection"><a href="#MMDetection" class="headerlink" title="MMDetection"></a>MMDetection</h1><blockquote>
+<h1 id="3080Server-MMDetection"><a href="#3080Server-MMDetection" class="headerlink" title="3080Server - MMDetection"></a>3080Server - MMDetection</h1><ul>
+<li>Ubuntu 18.04.6 LTS</li>
+<li>gcc version 7.5.0</li>
+<li>CUDA 11.3</li>
+<li>cuDNN 8.9.5</li>
+</ul>
+<h2 id="MMDetection"><a href="#MMDetection" class="headerlink" title="MMDetection"></a>MMDetection</h2><blockquote>
 <p>版本选择参考镜像：</p>
 <p><a target="_blank" rel="noopener" href="https://www.codewithgpu.com/i/open-mmlab/mmdetection3d/mmdetection3d-1.1">open-mmlab&#x2F;mmdetection3d&#x2F;mmdetection3d-1.1: mmdetection3d-1.1版本 - CG (codewithgpu.com)</a></p>
 <p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20240105160510106-170513523460914.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240105160510106"></p>
@@ -411,7 +417,7 @@
 
 
 <h2 id="mmdet-installation"><a href="#mmdet-installation" class="headerlink" title="mmdet installation"></a>mmdet installation</h2><p><a target="_blank" rel="noopener" href="https://mmdetection.readthedocs.io/zh-cn/latest/get_started.html">开始你的第一步 — MMDetection 3.3.0 文档</a></p>
-<h1 id="MMYOLO"><a href="#MMYOLO" class="headerlink" title="MMYOLO"></a>MMYOLO</h1><p><a target="_blank" rel="noopener" href="https://mmyolo.readthedocs.io/en/latest/get_started/overview.html">Overview — MMYOLO 0.6.0 documentation</a></p>
+<h1 id="3080Server-MMYOLO"><a href="#3080Server-MMYOLO" class="headerlink" title="3080Server - MMYOLO"></a>3080Server - MMYOLO</h1><p><a target="_blank" rel="noopener" href="https://mmyolo.readthedocs.io/en/latest/get_started/overview.html">Overview — MMYOLO 0.6.0 documentation</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@3080server:~$ conda create -n py38mmyolo python=3.8<br><br>(base) houjinliang@3080server:~$ conda activate py38mmyolo<br>(py38mmyolo) houjinliang@3080server:~$ pip config list<br>global.index-url=<span class="hljs-string">&#x27;https://mirrors.aliyun.com/pypi/simple&#x27;</span><br><br>(py38mmyolo) houjinliang@3080server:~$ conda install pytorch==1.11.0 torchvision==0.12.0 torchaudio==0.11.0 cudatoolkit=11.3 -c pytorch<br><br>(py38mmyolo) houjinliang@3080server:~$ python -c <span class="hljs-string">&quot;import torch; print(torch.__version__); print(torch.cuda.is_available())&quot;</span><br>1.11.0<br>True<br></code></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install -U openmim<br>mim install <span class="hljs-string">&quot;mmengine&gt;=0.6.0&quot;</span><br>mim install <span class="hljs-string">&quot;mmcv&gt;=2.0.0rc4,&lt;2.1.0&quot;</span><br>mim install <span class="hljs-string">&quot;mmdet&gt;=3.0.0,&lt;4.0.0&quot;</span><br></code></pre></td></tr></table></figure>
@@ -434,7 +440,13 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">(py38mmyolo) houjinliang@3080server:~$ <span class="hljs-built_in">du</span> -h --max-depth=1<br>6.5M    ./.config<br>8.0K    ./.conda<br>1.1G    ./.vscode-server<br>12G     ./cuda-11.3<br>86G     ./userdoc<br>8.0K    ./.gnupg<br>16K     ./.ssh<br>8.0K    ./.nv<br>2.7G    ./.cache<br>24G     ./miniconda3<br>125G    .<br></code></pre></td></tr></table></figure>
 
-<h1 id="新服务器配置记录"><a href="#新服务器配置记录" class="headerlink" title="新服务器配置记录"></a>新服务器配置记录</h1><h2 id="系统详细"><a href="#系统详细" class="headerlink" title="系统详细"></a>系统详细</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 5.4.0-150-generic x86<span class="hljs-emphasis">_64)</span><br><span class="hljs-emphasis">Model name:          Intel(R) Xeon(R) CPU E5-2699C v4 @ 2.20GHz</span><br><span class="hljs-emphasis">NVIDIA Corporation GA102 [GeForce RTX 3090] (rev a1)</span><br></code></pre></td></tr></table></figure>
+<h1 id="3090Server"><a href="#3090Server" class="headerlink" title="3090Server"></a>3090Server</h1><ul>
+<li>Ubuntu 18.04.6 LTS</li>
+<li>gcc version 7.5.0</li>
+<li>CUDA 11.3</li>
+<li>cuDNN 8.9.5</li>
+</ul>
+<h2 id="系统详细"><a href="#系统详细" class="headerlink" title="系统详细"></a>系统详细</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 5.4.0-150-generic x86<span class="hljs-emphasis">_64)</span><br><span class="hljs-emphasis">Model name:          Intel(R) Xeon(R) CPU E5-2699C v4 @ 2.20GHz</span><br><span class="hljs-emphasis">NVIDIA Corporation GA102 [GeForce RTX 3090] (rev a1)</span><br></code></pre></td></tr></table></figure>
 
 <h2 id="个人目录"><a href="#个人目录" class="headerlink" title="个人目录"></a>个人目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">houjinliang@3090server:~$ ll<br>total 40<br>drwxr-xr-x  4 houjinliang houjinliang 4096 6月  26 10:18 ./<br>drwxrwxrwx 21 super       super       4096 6月  26 10:17 ../<br>-rw-r--r--  1 houjinliang houjinliang  220 4月   5  2018 .bash_logout<br>-rw-r--r--  1 houjinliang houjinliang 3771 4月   5  2018 .bashrc<br>drwx------  2 houjinliang houjinliang 4096 6月  26 10:18 .cache/<br>-rw-r--r--  1 houjinliang houjinliang 8980 4月  16  2018 examples.desktop<br>drwx------  3 houjinliang houjinliang 4096 6月  26 10:18 .gnupg/<br>-rw-r--r--  1 houjinliang houjinliang  807 4月   5  2018 .profile<br></code></pre></td></tr></table></figure>
 
@@ -473,6 +485,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@3090server:~/MyDownloadFiles$ ./cuda_11.3.1_465.19.01_linux.run<br>===========<br>= Summary =<br>===========<br><br>Driver:   Not Selected<br>Toolkit:  Installed <span class="hljs-keyword">in</span> /mnt/houjinliang/cuda-11.3/<br>Samples:  Not Selected<br><br>Please make sure that<br> -   PATH includes /mnt/houjinliang/cuda-11.3/bin<br> -   LD_LIBRARY_PATH includes /mnt/houjinliang/cuda-11.3/lib64, or, add /mnt/houjinliang/cuda-11.3/lib64 to /etc/ld.so.conf and run ldconfig as root<br><br>To uninstall the CUDA Toolkit, run cuda-uninstaller <span class="hljs-keyword">in</span> /mnt/houjinliang/cuda-11.3/bin<br>***WARNING: Incomplete installation! This installation did not install the CUDA Driver. A driver of version at least 465.00 is required <span class="hljs-keyword">for</span> CUDA 11.3 functionality to work.<br>To install the driver using this installer, run the following <span class="hljs-built_in">command</span>, replacing &lt;CudaInstaller&gt; with the name of this run file:<br>    sudo &lt;CudaInstaller&gt;.run --silent --driver<br><br>Logfile is /tmp/cuda-installer.log<br></code></pre></td></tr></table></figure>
 
 <p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20240626114642588.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240626114642588"></p>
+<p>安装完成之后，最好把这个<code>/tmp/cuda-installer.log</code>文件删除了，如果不删的话，后面的用户再安装就会有影响。为了不妨碍他人，最好把这个删掉。</p>
 <p>配置CUDA Toolkit 的环境变量，使用vim或vscode</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@3090server:~$ vim ~/.bashrc<br><br><br><span class="hljs-comment"># &gt;&gt;&gt; cuda environment variables &gt;&gt;&gt;</span><br><span class="hljs-comment"># murpy insert</span><br><span class="hljs-built_in">export</span> CUDA_HOME=<span class="hljs-variable">$CUDA_HOME</span>:/mnt/houjinliang/cuda-11.3<br><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/mnt/houjinliang/cuda-11.3/bin<br><span class="hljs-built_in">export</span> LD_LIBRARY_PATH=<span class="hljs-variable">$LD_LIBRARY_PATH</span>:/mnt/houjinliang/cuda-11.3/lib64<br><span class="hljs-comment"># &lt;&lt;&lt; cuda environment variables &lt;&lt;&lt;</span><br><br>(base) houjinliang@3090server:~$ <span class="hljs-built_in">source</span> ~/.bashrc<br><br><span class="hljs-comment"># CUDA安装和配置完成</span><br>(base) houjinliang@3090server:~$ nvcc -V<br>nvcc: NVIDIA (R) Cuda compiler driver<br>Copyright (c) 2005-2021 NVIDIA Corporation<br>Built on Mon_May__3_19:15:13_PDT_2021<br>Cuda compilation tools, release 11.3, V11.3.109<br>Build cuda_11.3.r11.3/compiler.29920130_0<br></code></pre></td></tr></table></figure>
 
@@ -487,30 +500,90 @@
 
 
 
-<h1 id="4090Server配置"><a href="#4090Server配置" class="headerlink" title="4090Server配置"></a>4090Server配置</h1><ul>
-<li>Ubuntu 22.04.2 LTS</li>
-<li>cuda_11.6.2_510.47.03_linux.run</li>
-<li>cudnn-linux-x86_64-8.9.5.29_cuda11-archive.tar.xz</li>
-<li>gcc 11.4.0</li>
+<h1 id="3090Server2"><a href="#3090Server2" class="headerlink" title="3090Server2"></a>3090Server2</h1><ul>
+<li>Ubuntu 20.04.5 LTS</li>
+<li>gcc version 9.4.0</li>
+<li>CUDA 11.3</li>
+<li>cuDNN 8.9.5</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server:~/MyDownloadFiles$ ./cuda_11.6.2_510.47.03_linux.run<br>(base) houjinliang@3090server:~/MyDownloadFiles$ <span class="hljs-built_in">cd</span> cudnn-linux-x86_64-8.9.5.29_cuda11-archive/<br><br><span class="hljs-comment"># CUDA版本是11.6.2</span><br><span class="hljs-comment"># CUDNN版本还是用的之前的</span><br></code></pre></td></tr></table></figure>
+<h1 id="4090Server"><a href="#4090Server" class="headerlink" title="4090Server"></a>4090Server</h1><ul>
+<li>Ubuntu 22.04.2 LTS</li>
+<li>gcc 11.4.0</li>
+<li>CUDA11.6 :       cuda_11.6.2_510.47.03_linux.run</li>
+<li>cuDNN 8.9.5:    cudnn-linux-x86_64-8.9.5.29_cuda11-archive.tar.xz</li>
+</ul>
+<h2 id="CUDA-11-6-cuDNN-8-9-5"><a href="#CUDA-11-6-cuDNN-8-9-5" class="headerlink" title="CUDA 11.6 &amp; cuDNN 8.9.5"></a>CUDA 11.6 &amp; cuDNN 8.9.5</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server:~/MyDownloadFiles$ ./cuda_11.6.2_510.47.03_linux.run<br>(base) houjinliang@3090server:~/MyDownloadFiles$ <span class="hljs-built_in">cd</span> cudnn-linux-x86_64-8.9.5.29_cuda11-archive/<br><br><span class="hljs-comment"># CUDA版本是11.6.2</span><br><span class="hljs-comment"># CUDNN版本还是用的之前的</span><br></code></pre></td></tr></table></figure>
 
 <p>安装过程跟上面的一样，记得把11.3都换成11.6</p>
 <p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241023150732692.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241023150732692"></p>
 <p>之后再配置Git。</p>
 <p>至于conda env，我把之前服务器上的环境使用conda-pack打包，然后使用scp传过来，然后解压到对应文件夹下。虽然之前cuda113，torch也是113版本的，但是在cuda116的服务器上也能用（那就先用着？！</p>
+<h1 id="4090Server2"><a href="#4090Server2" class="headerlink" title="4090Server2"></a>4090Server2</h1><ul>
+<li>Ubuntu 22.04.3 LTS</li>
+<li>gcc version 12.3.0</li>
+</ul>
+<h2 id="CUDA-12-4-1-cuDNN-8-9-7"><a href="#CUDA-12-4-1-cuDNN-8-9-7" class="headerlink" title="CUDA 12.4.1 &amp; cuDNN 8.9.7"></a>CUDA 12.4.1 &amp; cuDNN 8.9.7</h2><p>CUDA 12.4.1 : <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-12-4-1-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=runfile_local">CUDA Toolkit 12.4 Update 1 Downloads | NVIDIA Developer</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server2:~/MyDownloadFiles$ wget https://developer.download.nvidia.com/compute/cuda/12.4.1/local_installers/cuda_12.4.1_550.54.15_linux.run<br></code></pre></td></tr></table></figure>
+
+<div class="group-image-container"><div class="group-image-row"><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241024224047453.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241024224047453"></div><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241024224102744.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241024224102744"></div><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241024224157698.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241024224157698"></div><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241024224232933.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241024224232933"></div><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241024224310577.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241024224310577"></div><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241024224318258.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241024224318258"></div><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241024224333861.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241024224333861"></div></div></div>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241024224612237.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241024224612237"></p>
+<p>记得把这个log文件删掉！</p>
+<p>配置CUDA的环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server2:~/MyDownloadFiles$ vim ~/.bashrc<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs .bashrc"># &gt;&gt;&gt; cuda environment variables &gt;&gt;&gt;<br># murpy insert<br>export CUDA_HOME=$CUDA_HOME:/data/houjinliang/cuda-12.4<br>export PATH=$PATH:/data/houjinliang/cuda-12.4/bin<br>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/data/houjinliang/cuda-12.4/lib64<br># &lt;&lt;&lt; cuda environment variables &lt;&lt;&lt;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server2:~/MyDownloadFiles$ <span class="hljs-built_in">source</span> ~/.bashrc<br>(base) houjinliang@4090server2:~/MyDownloadFiles$ nvcc -V<br>nvcc: NVIDIA (R) Cuda compiler driver<br>Copyright (c) 2005-2024 NVIDIA Corporation<br>Built on Thu_Mar_28_02:18:24_PDT_2024<br>Cuda compilation tools, release 12.4, V12.4.131<br>Build cuda_12.4.r12.4/compiler.34097967_0<br></code></pre></td></tr></table></figure>
+
+<p>CUDNN : cudnn-linux-x86_64-8.9.7.29_cuda12-archive.tar</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://developer.nvidia.com/downloads/compute/cudnn/secure/8.9.7/local_installers/12.x/cudnn-linux-x86_64-8.9.7.29_cuda12-archive.tar.xz/">https://developer.nvidia.com/downloads/compute/cudnn/secure/8.9.7/local_installers/12.x/cudnn-linux-x86_64-8.9.7.29_cuda12-archive.tar.xz/</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server2:~/MyDownloadFiles$ tar xvJf cudnn-linux-x86_64-8.9.7.29_cuda12-archive.tar.xz<br><br>(base) houjinliang@4090server2:~/MyDownloadFiles$ <span class="hljs-built_in">cd</span> cudnn-linux-x86_64-8.9.7.29_cuda12-archive/<br>(base) houjinliang@4090server2:~/MyDownloadFiles/cudnn-linux-x86_64-8.9.7.29_cuda12-archive$ ll<br>total 48<br>drwxr-xr-x 4 houjinliang houjinliang  4096 11月 30  2023 ./<br>drwxrwxr-x 3 houjinliang houjinliang  4096 10月 24 22:53 ../<br>drwxr-xr-x 2 houjinliang houjinliang  4096 11月 30  2023 include/<br>drwxr-xr-x 2 houjinliang houjinliang  4096 11月 30  2023 lib/<br>-rw-r--r-- 1 houjinliang houjinliang 29662 11月 30  2023 LICENSE<br><br>(base) houjinliang@4090server2:~/MyDownloadFiles/cudnn-linux-x86_64-8.9.7.29_cuda12-archive$ <span class="hljs-built_in">cp</span> lib/* ~/cuda-12.4/lib64/<br>(base) houjinliang@4090server2:~/MyDownloadFiles/cudnn-linux-x86_64-8.9.7.29_cuda12-archive$ <span class="hljs-built_in">cp</span> include/* ~/cuda-12.4/include<br>(base) houjinliang@4090server2:~/MyDownloadFiles/cudnn-linux-x86_64-8.9.7.29_cuda12-archive$ <span class="hljs-built_in">chmod</span> +x ~/cuda-12.4/include/cudnn.h<br>(base) houjinliang@4090server2:~/MyDownloadFiles/cudnn-linux-x86_64-8.9.7.29_cuda12-archive$ <span class="hljs-built_in">chmod</span> +x ~/cuda-12.4/lib64/libcudnn*<br><br>(base) houjinliang@4090server2:~/MyDownloadFiles/cudnn-linux-x86_64-8.9.7.29_cuda12-archive$ <span class="hljs-built_in">cat</span> ~/cuda-12.4/include/cudnn_version.h | grep CUDNN_MAJOR -A 2<br><span class="hljs-comment">#define CUDNN_MAJOR 8</span><br><span class="hljs-comment">#define CUDNN_MINOR 9</span><br><span class="hljs-comment">#define CUDNN_PATCHLEVEL 7</span><br>--<br><span class="hljs-comment">#define CUDNN_VERSION (CUDNN_MAJOR * 1000 + CUDNN_MINOR * 100 + CUDNN_PATCHLEVEL)</span><br><br>/* cannot use constexpr here since this is a C-only file */<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="git-install"><a href="#git-install" class="headerlink" title="git install"></a>git install</h2><p>这台服务器上没有git，使用deb包安装一个</p>
+<blockquote>
+<ul>
+<li>deb包：<a target="_blank" rel="noopener" href="https://ubuntu.pkgs.org/22.04/ubuntu-updates-main-amd64/git_2.34.1-1ubuntu1.11_amd64.deb.html">https://ubuntu.pkgs.org/22.04/ubuntu-updates-main-amd64/git_2.34.1-1ubuntu1.11_amd64.deb.html</a></li>
+<li>教程参考：<a target="_blank" rel="noopener" href="https://www.ohyee.cc/post/note_install_git_without_root">https://www.ohyee.cc/post/note_install_git_without_root</a></li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server2:~/MyDownloadFiles$ wget http://archive.ubuntu.com/ubuntu/pool/main/g/git/git_2.34.1-1ubuntu1.11_amd64.deb<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server2:~/MyDownloadFiles$ <span class="hljs-built_in">cd</span> ~<br><br><span class="hljs-comment"># 先创建文件夹，把git安装到这里</span><br>(base) houjinliang@4090server2:~$ <span class="hljs-built_in">mkdir</span> git<br>(base) houjinliang@4090server2:~$ dpkg -x ./MyDownloadFiles/git_2.34.1-1ubuntu1.11_amd64.deb ./git<br><br>(base) houjinliang@4090server2:~$ <span class="hljs-built_in">cd</span> git/<br>(base) houjinliang@4090server2:~/git$ ll<br>total 20<br>drwxr-xr-x  5 houjinliang houjinliang 4096  5月 20 20:14 ./<br>drwxr-x--- 14 houjinliang houjinliang 4096 10月 24 23:22 ../<br>drwxr-xr-x  3 houjinliang houjinliang 4096  5月 20 20:14 etc/<br>drwxr-xr-x  5 houjinliang houjinliang 4096  5月 20 20:14 usr/<br>drwxr-xr-x  3 houjinliang houjinliang 4096  5月 20 20:14 var/<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server2:~$ vim ~/.bashrc<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># &gt;&gt;&gt; git environment variables &gt;&gt;&gt;</span><br><span class="hljs-comment"># murpy insert</span><br><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:~/git/usr/bin<br><span class="hljs-built_in">export</span> GIT_EXEC_PATH=~/git/usr/lib/git-core<br><span class="hljs-comment"># &lt;&lt;&lt; git environment variables &lt;&lt;&lt;</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server2:~$ <span class="hljs-built_in">source</span> ~/.bashrc<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server2:~$ git --version<br>git version 2.34.1<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="git-配置"><a href="#git-配置" class="headerlink" title="git 配置"></a>git 配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server2:~$ git config --global user.name <span class="hljs-string">&#x27;hjl_4090server2&#x27;</span><br>(base) houjinliang@4090server2:~$ git config --global user.email <span class="hljs-string">&#x27;cosmicdustycn@outlook.com&#x27;</span><br>(base) houjinliang@4090server2:~$ ssh-keygen -t rsa -C <span class="hljs-string">&quot;cosmicdustycn@outlook.com&quot;</span><br>Generating public/private rsa key pair.<br>Enter file <span class="hljs-keyword">in</span> <span class="hljs-built_in">which</span> to save the key (/data/houjinliang/.ssh/id_rsa):<br>Created directory <span class="hljs-string">&#x27;/data/houjinliang/.ssh&#x27;</span>.<br>Enter passphrase (empty <span class="hljs-keyword">for</span> no passphrase):<br>Enter same passphrase again:<br>Your identification has been saved <span class="hljs-keyword">in</span> /data/houjinliang/.ssh/id_rsa<br>Your public key has been saved <span class="hljs-keyword">in</span> /data/houjinliang/.ssh/id_rsa.pub<br>(base) houjinliang@4090server2:~$ <span class="hljs-built_in">cat</span> ~/.ssh/id_rsa.pub<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server2:~$ git config user.name<br>hjl_4090server2<br>(base) houjinliang@4090server2:~$ git config user.email<br>cosmicdustycn@outlook.com<br>(base) houjinliang@4090server2:~$ ssh -T git@github.com<br>The authenticity of host <span class="hljs-string">&#x27;github.com (20.205.243.166)&#x27;</span> can<span class="hljs-string">&#x27;t be established.</span><br><span class="hljs-string">ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.</span><br><span class="hljs-string">This key is not known by any other names</span><br><span class="hljs-string">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span><br><span class="hljs-string">Warning: Permanently added &#x27;</span>github.com<span class="hljs-string">&#x27; (ED25519) to the list of known hosts.</span><br><span class="hljs-string">Hi murphyhoucn! You&#x27;</span>ve successfully authenticated, but GitHub does not provide shell access.<br></code></pre></td></tr></table></figure>
+
+<h2 id="conda-env"><a href="#conda-env" class="headerlink" title="conda env"></a>conda env</h2><p>虽然4090server2上面的CUDA环境是12.4，但这里还是用了在3080上配置的sr_benchmark的环境。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server2:~$ <span class="hljs-built_in">mkdir</span> ~/miniconda3/envs/sr_benchmark<br>(base) houjinliang@4090server2:~$ tar -xzvf ./MyDownloadFiles/sr_benchmark.tar.gz -C ~/miniconda3/envs/sr_benchmark<br>(base) houjinliang@4090server2:~$ conda <span class="hljs-built_in">env</span> list<br><span class="hljs-comment"># conda environments:</span><br><span class="hljs-comment">#</span><br>base                  *  /data/houjinliang/miniconda3<br>sr_benchmark             /data/houjinliang/miniconda3/envs/sr_benchmark<br><br>(base) houjinliang@4090server2:~$<br>(base) houjinliang@4090server2:~$ conda activate sr_benchmark<br>(sr_benchmark) houjinliang@4090server2:~$ python<br>Python 3.8.19 (default, Mar 20 2024, 19:58:24)<br>[GCC 11.2.0] :: Anaconda, Inc. on linux<br>Type <span class="hljs-string">&quot;help&quot;</span>, <span class="hljs-string">&quot;copyright&quot;</span>, <span class="hljs-string">&quot;credits&quot;</span> or <span class="hljs-string">&quot;license&quot;</span> <span class="hljs-keyword">for</span> more information.<br>&gt;&gt;&gt; import torch<br>&gt;&gt;&gt; <span class="hljs-built_in">print</span>(torch.cuda.is_available())<br>True<br>&gt;&gt;&gt;<br><br><span class="hljs-comment"># torch版本还是之前的</span><br>torch                   1.10.1+cu113<br>torchvision             0.11.2+cu113<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+
+
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><h2 id="GCC与CUDA版本对应"><a href="#GCC与CUDA版本对应" class="headerlink" title="GCC与CUDA版本对应"></a>GCC与CUDA版本对应</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241023135851280.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241023135851280"></p>
 <ul>
-<li><p>3080Server - gcc 7.5.0   （Ubuntu 18.04.6 LTS）</p>
-</li>
-<li><p>3090Server - gcc 7.5.0   （Ubuntu 18.04.6 LTS）</p>
-</li>
-<li><p>3090Server2 - gcc 9.4.0 （Ubuntu  20.04.5 LTS）</p>
-</li>
-<li><p>4090Server - gcc 11.4.0  （Ubuntu 22.04.2 LTS）</p>
-</li>
+<li>3080Server - gcc 7.5.0   （Ubuntu 18.04.6 LTS）-&gt; CUDA 11.3</li>
+<li>3090Server - gcc 7.5.0   （Ubuntu 18.04.6 LTS）-&gt; CUDA 11.3</li>
+<li>3090Server2 - gcc 9.4.0 （Ubuntu  20.04.5 LTS）-&gt; CUDA 11.3</li>
+<li>4090Server - gcc 11.4.0  （Ubuntu 22.04.2 LTS）-&gt; CUDA 11.6</li>
+<li>4090Server - gcc 12.3.0  （Ubuntu 22.04.3 LTS）-&gt; CUDA 12.4</li>
 </ul>
-<p>所以前三个都能装CUDA 11.3</p>
 <p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241023142730502.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241023142730502"></p>
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html">https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html</a></p>
@@ -524,10 +597,17 @@
 </li>
 </ul>
 </blockquote>
-<h2 id="cuda-toolkit-archive"><a href="#cuda-toolkit-archive" class="headerlink" title="cuda toolkit archive"></a>cuda toolkit archive</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241023145423648.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241023145423648"></p>
+<h2 id="CUDA-Toolkit-Archive"><a href="#CUDA-Toolkit-Archive" class="headerlink" title="CUDA Toolkit Archive"></a>CUDA Toolkit Archive</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241023145423648.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241023145423648"></p>
 <blockquote>
 <p> <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA Toolkit Archive | NVIDIA Developer</a></p>
 </blockquote>
+<h2 id="cuDNN-Archive"><a href="#cuDNN-Archive" class="headerlink" title="cuDNN Archive"></a>cuDNN Archive</h2><blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/rdp/cudnn-archive">cuDNN Archive | NVIDIA Developer</a></li>
+</ul>
+</blockquote>
+<p><img src="/WorkingWithGPUServer.assets/image-20241024223544376.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241024223544376"></p>
+<p><img src="/WorkingWithGPUServer.assets/image-20241024223923702.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241024223923702"></p>
 
                 
               </div>
