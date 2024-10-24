@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/cyberspace-2784907_1280.jpg">
 <meta property="article:published_time" content="2023-11-01T02:28:51.000Z">
-<meta property="article:modified_time" content="2024-06-26T04:19:47.483Z">
+<meta property="article:modified_time" content="2024-10-24T13:15:33.167Z">
 <meta property="article:author" content="Murphy">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Server">
@@ -273,7 +273,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          880 字
+          1.1k 字
         
       </span>
     
@@ -284,7 +284,7 @@
         
         
         
-          8 分钟
+          9 分钟
         
       </span>
     
@@ -362,7 +362,7 @@
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">(dlpy310pth113) houjinliang@3080server:~$ pip install nvitop<br>Requirement already satisfied: nvitop <span class="hljs-keyword">in</span> ./miniconda3/envs/dlpy310pth113/lib/python3.10/site-packages (1.3.0)<br>Requirement already satisfied: nvidia-ml-py&lt;12.536.0a0,&gt;=11.450.51 <span class="hljs-keyword">in</span> ./miniconda3/envs/dlpy310pth113/lib/python3.10/site-packages (from nvitop) (12.535.108)<br>Requirement already satisfied: psutil&gt;=5.6.6 <span class="hljs-keyword">in</span> ./miniconda3/envs/dlpy310pth113/lib/python3.10/site-packages (from nvitop) (5.9.5)<br>Requirement already satisfied: cachetools&gt;=1.0.1 <span class="hljs-keyword">in</span> ./miniconda3/envs/dlpy310pth113/lib/python3.10/site-packages (from nvitop) (5.3.1)<br>Requirement already satisfied: termcolor&gt;=1.0.0 <span class="hljs-keyword">in</span> ./miniconda3/envs/dlpy310pth113/lib/python3.10/site-packages (from nvitop) (2.3.0)<br></code></pre></td></tr></table></figure>
 
-<p><img src="/WorkingWithGPUServer.assets/image-20231101110731169.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20231101110731169"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20231101110731169.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20231101110731169"></p>
 <h1 id="Clash-for-Linux"><a href="#Clash-for-Linux" class="headerlink" title="Clash for Linux"></a>Clash for Linux</h1><blockquote>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/662552814">Ubuntu配置 命令行Clash 教程 - 知乎 (zhihu.com)</a></p>
 <p><a target="_blank" rel="noopener" href="https://weilining.github.io/294.html">终端使用代理加速的正确方式（Clash） | Ln’s Blog (weilining.github.io)</a></p>
@@ -443,6 +443,9 @@
 <p>安装过程中会有选择安装路径的选择,直接选择默认路径.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 默认安装路径</span><br>Miniconda3 will now be installed into this location:<br>/mnt/houjinliang/miniconda3<br><br>  - Press ENTER to confirm the location<br>  - Press CTRL-C to abort the installation<br>  - Or specify a different location below<br><br>[/mnt/houjinliang/miniconda3] &gt;&gt;&gt;<br></code></pre></td></tr></table></figure>
 
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241023134128208.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241023134128208"></p>
+<p>这里选择输入<code>yes</code>,然后会自动配置<code> ~/.bashrc</code>，关闭Terminal然后再重启一个，就能看到命令行前面的<code>base</code>了;</p>
+<p>如果是输入<code>no</code>的话，手动输入下面的内容到<code> ~/.bashrc</code>中。</p>
 <p>安装完成之后conda命令在终端是识别不到的,需要配置环境变量.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 配置miniconda的环境变量（根据实际情况更改）</span><br>(base) houjinliang@3090server:~$ vim ~/.bashrc<br><br><span class="hljs-comment"># 这里vim用的不熟练就使用vscode打开这个‘~/.bashrc’文件，然后再末尾增加moniconda的配置文件</span><br><br><br><span class="hljs-comment"># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;</span><br><span class="hljs-comment"># !! Contents within this block are managed by &#x27;conda init&#x27; !!</span><br>__conda_setup=<span class="hljs-string">&quot;<span class="hljs-subst">$(&#x27;/mnt/houjinliang/miniconda3/bin/conda&#x27; &#x27;shell.bash&#x27; &#x27;hook&#x27; 2&gt; /dev/null)</span>&quot;</span><br><span class="hljs-keyword">if</span> [ $? -eq 0 ]; <span class="hljs-keyword">then</span><br>    <span class="hljs-built_in">eval</span> <span class="hljs-string">&quot;<span class="hljs-variable">$__conda_setup</span>&quot;</span><br><span class="hljs-keyword">else</span><br>    <span class="hljs-keyword">if</span> [ -f <span class="hljs-string">&quot;/mnt/houjinliang/miniconda3/etc/profile.d/conda.sh&quot;</span> ]; <span class="hljs-keyword">then</span><br>        . <span class="hljs-string">&quot;/mnt/houjinliang/miniconda3/etc/profile.d/conda.sh&quot;</span><br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-built_in">export</span> PATH=<span class="hljs-string">&quot;/mnt/houjinliang/miniconda3/bin:<span class="hljs-variable">$PATH</span>&quot;</span><br>    <span class="hljs-keyword">fi</span><br><span class="hljs-keyword">fi</span><br><span class="hljs-built_in">unset</span> __conda_setup<br><span class="hljs-comment"># &lt;&lt;&lt; conda initialize &lt;&lt;&lt;</span><br><br><br>houjinliang@3090server:~$ <span class="hljs-built_in">source</span> ~/.bashrc<br>(base) houjinliang@3090server:~$<br></code></pre></td></tr></table></figure>
 
@@ -462,6 +465,8 @@
 <h2 id="CUDA-11-3-1-CUDNN-8-9-5-1"><a href="#CUDA-11-3-1-CUDNN-8-9-5-1" class="headerlink" title="CUDA 11.3.1 &amp; CUDNN 8.9.5"></a>CUDA 11.3.1 &amp; CUDNN 8.9.5</h2><p>跟之前的服务器CUDA版本一样,这里还是参照上面的进行安装.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@3090server:~/MyDownloadFiles$ wget https://developer.download.nvidia.com/compute/cuda/11.3.1/local_installers/cuda_11.3.1_465.19.01_linux.run<br><br><br>(base) houjinliang@3090server:~/MyDownloadFiles$ ll<br>total 3224920<br>drwxrwxr-x  2 houjinliang houjinliang       4096 6月  26 11:10 ./<br>drwxr-xr-x 10 houjinliang houjinliang       4096 6月  26 11:04 ../<br>-rw-rw-r--  1 houjinliang houjinliang 3158494112 5月  14  2021 cuda_11.3.1_465.19.01_linux.run<br>-rwxrwxr-x  1 houjinliang houjinliang  143808873 5月  21 02:15 Miniconda3-latest-Linux-x86_64.sh*<br><br><span class="hljs-comment"># &quot;cuda_11.3.1_465.19.01_linux.run&quot;文件没有&quot;x&quot;的权限,加一个权限</span><br>(base) houjinliang@3090server:~/MyDownloadFiles$ <span class="hljs-built_in">chmod</span> +x cuda_11.3.1_465.19.01_linux.run<br>(base) houjinliang@3090server:~/MyDownloadFiles$ ll<br>total 3224920<br>drwxrwxr-x  2 houjinliang houjinliang       4096 6月  26 11:10 ./<br>drwxr-xr-x 10 houjinliang houjinliang       4096 6月  26 11:04 ../<br>-rwxrwxr-x  1 houjinliang houjinliang 3158494112 5月  14  2021 cuda_11.3.1_465.19.01_linux.run*<br>-rwxrwxr-x  1 houjinliang houjinliang  143808873 5月  21 02:15 Miniconda3-latest-Linux-x86_64.sh*<br><br><span class="hljs-comment"># 执行安装</span><br>(base) houjinliang@3090server:~/MyDownloadFiles$ ./cuda_11.3.1_465.19.01_linux.run<br><span class="hljs-comment"># 还是跟上面的安装步骤的图片有一样</span><br></code></pre></td></tr></table></figure>
 
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241023134348370.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241023134348370"></p>
+<p>出现这样的不要害怕，直接<code>Continue</code>就好了，然后按照下面的步骤。</p>
 <div class="group-image-container"><div class="group-image-row"><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/NPU_2024-06-26_11-29-59.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="NPU_2024-06-26_11-29-59"></div><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/NPU_2024-06-26_11-31-04.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="NPU_2024-06-26_11-31-04"></div><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/NPU_2024-06-26_11-31-37.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="NPU_2024-06-26_11-31-37"></div><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/NPU_2024-06-26_11-32-40.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="NPU_2024-06-26_11-32-40"></div><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/NPU_2024-06-26_11-34-55.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="NPU_2024-06-26_11-34-55"></div><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/NPU_2024-06-26_11-35-29.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="NPU_2024-06-26_11-35-29"></div><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20240626114348562.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20240626114348562"></div><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/NPU_2024-06-26_11-36-37.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="NPU_2024-06-26_11-36-37"></div><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/NPU_2024-06-26_11-37-23.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="NPU_2024-06-26_11-37-23"></div></div></div>
 
 <p>安装完成</p>
@@ -480,6 +485,49 @@
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@3090server:~$ git config user.name<br>hjl_3090server<br>(base) houjinliang@3090server:~$ git config user.email<br>cosmicdustycn@outlook.com<br>(base) houjinliang@3090server:~$ ssh -T git@github.com<br>The authenticity of host <span class="hljs-string">&#x27;github.com (20.205.243.166)&#x27;</span> can<span class="hljs-string">&#x27;t be established.</span><br><span class="hljs-string">ECDSA key fingerprint is xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span><br><span class="hljs-string">Are you sure you want to continue connecting (yes/no)? yes</span><br><span class="hljs-string">Warning: Permanently added &#x27;</span>github.com,20.205.243.166<span class="hljs-string">&#x27; (ECDSA) to the list of known hosts.</span><br><span class="hljs-string">Hi murphyhoucn! You&#x27;</span>ve successfully authenticated, but GitHub does not provide shell access.<br></code></pre></td></tr></table></figure>
 
+
+
+<h1 id="4090Server配置"><a href="#4090Server配置" class="headerlink" title="4090Server配置"></a>4090Server配置</h1><ul>
+<li>Ubuntu 22.04.2 LTS</li>
+<li>cuda_11.6.2_510.47.03_linux.run</li>
+<li>cudnn-linux-x86_64-8.9.5.29_cuda11-archive.tar.xz</li>
+<li>gcc 11.4.0</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server:~/MyDownloadFiles$ ./cuda_11.6.2_510.47.03_linux.run<br>(base) houjinliang@3090server:~/MyDownloadFiles$ <span class="hljs-built_in">cd</span> cudnn-linux-x86_64-8.9.5.29_cuda11-archive/<br><br><span class="hljs-comment"># CUDA版本是11.6.2</span><br><span class="hljs-comment"># CUDNN版本还是用的之前的</span><br></code></pre></td></tr></table></figure>
+
+<p>安装过程跟上面的一样，记得把11.3都换成11.6</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241023150732692.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241023150732692"></p>
+<p>之后再配置Git。</p>
+<p>至于conda env，我把之前服务器上的环境使用conda-pack打包，然后使用scp传过来，然后解压到对应文件夹下。虽然之前cuda113，torch也是113版本的，但是在cuda116的服务器上也能用（那就先用着？！</p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><h2 id="GCC与CUDA版本对应"><a href="#GCC与CUDA版本对应" class="headerlink" title="GCC与CUDA版本对应"></a>GCC与CUDA版本对应</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241023135851280.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241023135851280"></p>
+<ul>
+<li><p>3080Server - gcc 7.5.0   （Ubuntu 18.04.6 LTS）</p>
+</li>
+<li><p>3090Server - gcc 7.5.0   （Ubuntu 18.04.6 LTS）</p>
+</li>
+<li><p>3090Server2 - gcc 9.4.0 （Ubuntu  20.04.5 LTS）</p>
+</li>
+<li><p>4090Server - gcc 11.4.0  （Ubuntu 22.04.2 LTS）</p>
+</li>
+</ul>
+<p>所以前三个都能装CUDA 11.3</p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241023142730502.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241023142730502"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html">https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html</a></p>
+</blockquote>
+<h2 id="cudnn-docs"><a href="#cudnn-docs" class="headerlink" title="cudnn docs"></a>cudnn docs</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241023145233186.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241023145233186"></p>
+<blockquote>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/cudnn/latest/reference/support-matrix.html">Support Matrix — NVIDIA cuDNN v9.5.0 documentation</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/cudnn/archives/index.html">Documentation Archives :: NVIDIA cuDNN Documentation</a></p>
+</li>
+</ul>
+</blockquote>
+<h2 id="cuda-toolkit-archive"><a href="#cuda-toolkit-archive" class="headerlink" title="cuda toolkit archive"></a>cuda toolkit archive</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241023145423648.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241023145423648"></p>
+<blockquote>
+<p> <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA Toolkit Archive | NVIDIA Developer</a></p>
+</blockquote>
 
                 
               </div>
