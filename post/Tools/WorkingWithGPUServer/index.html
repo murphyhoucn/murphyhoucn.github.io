@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/cyberspace-2784907_1280.jpg">
 <meta property="article:published_time" content="2023-11-01T02:28:51.000Z">
-<meta property="article:modified_time" content="2024-10-24T15:36:25.250Z">
+<meta property="article:modified_time" content="2024-10-30T09:12:26.742Z">
 <meta property="article:author" content="Murphy">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Server">
@@ -273,7 +273,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.2k 字
+          1.3k 字
         
       </span>
     
@@ -284,7 +284,7 @@
         
         
         
-          10 分钟
+          11 分钟
         
       </span>
     
@@ -448,6 +448,10 @@
 </ul>
 <h2 id="系统详细"><a href="#系统详细" class="headerlink" title="系统详细"></a>系统详细</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs markdown">Welcome to Ubuntu 18.04.6 LTS (GNU/Linux 5.4.0-150-generic x86<span class="hljs-emphasis">_64)</span><br><span class="hljs-emphasis">Model name:          Intel(R) Xeon(R) CPU E5-2699C v4 @ 2.20GHz</span><br><span class="hljs-emphasis">NVIDIA Corporation GA102 [GeForce RTX 3090] (rev a1)</span><br></code></pre></td></tr></table></figure>
 
+<h2 id="NV-Driver"><a href="#NV-Driver" class="headerlink" title="NV Driver"></a>NV Driver</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@3090server:~$ <span class="hljs-built_in">cat</span> /proc/driver/nvidia/version<br>NVRM version: NVIDIA UNIX x86_64 Kernel Module  515.65.01  Wed Jul 20 14:00:58 UTC 2022<br>GCC version:  gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)<br></code></pre></td></tr></table></figure>
+
+
+
 <h2 id="个人目录"><a href="#个人目录" class="headerlink" title="个人目录"></a>个人目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">houjinliang@3090server:~$ ll<br>total 40<br>drwxr-xr-x  4 houjinliang houjinliang 4096 6月  26 10:18 ./<br>drwxrwxrwx 21 super       super       4096 6月  26 10:17 ../<br>-rw-r--r--  1 houjinliang houjinliang  220 4月   5  2018 .bash_logout<br>-rw-r--r--  1 houjinliang houjinliang 3771 4月   5  2018 .bashrc<br>drwx------  2 houjinliang houjinliang 4096 6月  26 10:18 .cache/<br>-rw-r--r--  1 houjinliang houjinliang 8980 4月  16  2018 examples.desktop<br>drwx------  3 houjinliang houjinliang 4096 6月  26 10:18 .gnupg/<br>-rw-r--r--  1 houjinliang houjinliang  807 4月   5  2018 .profile<br></code></pre></td></tr></table></figure>
 
 <h2 id="Miniconda"><a href="#Miniconda" class="headerlink" title="Miniconda"></a>Miniconda</h2><p>下载Miniconda的sh脚本文件,增加文件可执行的权限,然后执行下载脚本.</p>
@@ -473,6 +477,10 @@
 
 <p>或者是修改 ~&#x2F;.config&#x2F;pip&#x2F;pip.conf (没有就创建一个)， 内容如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@3090server:~$ <span class="hljs-built_in">cat</span> ~/.config/pip/pip.conf<br>[global]<br>index-url = https://mirrors.aliyun.com/pypi/simple/<br></code></pre></td></tr></table></figure>
+
+<h2 id="NV-Driver-1"><a href="#NV-Driver-1" class="headerlink" title="NV Driver"></a>NV Driver</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@3080server:~$ <span class="hljs-built_in">cat</span> /proc/driver/nvidia/version<br>NVRM version: NVIDIA UNIX x86_64 Kernel Module  525.60.11  Wed Nov 23 23:04:03 UTC 2022<br>GCC version:  gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)<br></code></pre></td></tr></table></figure>
+
+
 
 <h2 id="CUDA-11-3-1-CUDNN-8-9-5-1"><a href="#CUDA-11-3-1-CUDNN-8-9-5-1" class="headerlink" title="CUDA 11.3.1 &amp; CUDNN 8.9.5"></a>CUDA 11.3.1 &amp; CUDNN 8.9.5</h2><p>跟之前的服务器CUDA版本一样,这里还是参照上面的进行安装.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@3090server:~/MyDownloadFiles$ wget https://developer.download.nvidia.com/compute/cuda/11.3.1/local_installers/cuda_11.3.1_465.19.01_linux.run<br><br><br>(base) houjinliang@3090server:~/MyDownloadFiles$ ll<br>total 3224920<br>drwxrwxr-x  2 houjinliang houjinliang       4096 6月  26 11:10 ./<br>drwxr-xr-x 10 houjinliang houjinliang       4096 6月  26 11:04 ../<br>-rw-rw-r--  1 houjinliang houjinliang 3158494112 5月  14  2021 cuda_11.3.1_465.19.01_linux.run<br>-rwxrwxr-x  1 houjinliang houjinliang  143808873 5月  21 02:15 Miniconda3-latest-Linux-x86_64.sh*<br><br><span class="hljs-comment"># &quot;cuda_11.3.1_465.19.01_linux.run&quot;文件没有&quot;x&quot;的权限,加一个权限</span><br>(base) houjinliang@3090server:~/MyDownloadFiles$ <span class="hljs-built_in">chmod</span> +x cuda_11.3.1_465.19.01_linux.run<br>(base) houjinliang@3090server:~/MyDownloadFiles$ ll<br>total 3224920<br>drwxrwxr-x  2 houjinliang houjinliang       4096 6月  26 11:10 ./<br>drwxr-xr-x 10 houjinliang houjinliang       4096 6月  26 11:04 ../<br>-rwxrwxr-x  1 houjinliang houjinliang 3158494112 5月  14  2021 cuda_11.3.1_465.19.01_linux.run*<br>-rwxrwxr-x  1 houjinliang houjinliang  143808873 5月  21 02:15 Miniconda3-latest-Linux-x86_64.sh*<br><br><span class="hljs-comment"># 执行安装</span><br>(base) houjinliang@3090server:~/MyDownloadFiles$ ./cuda_11.3.1_465.19.01_linux.run<br><span class="hljs-comment"># 还是跟上面的安装步骤的图片有一样</span><br></code></pre></td></tr></table></figure>
@@ -506,22 +514,38 @@
 <li>CUDA 11.3</li>
 <li>cuDNN 8.9.5</li>
 </ul>
+<h2 id="NV-Driver-2"><a href="#NV-Driver-2" class="headerlink" title="NV Driver"></a>NV Driver</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@3090server2:~$ <span class="hljs-built_in">cat</span> /proc/driver/nvidia/version<br>NVRM version: NVIDIA UNIX x86_64 Kernel Module  535.183.01  Sun May 12 19:39:15 UTC 2024<br>GCC version:  gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.2)<br></code></pre></td></tr></table></figure>
+
+
+
 <h1 id="4090Server"><a href="#4090Server" class="headerlink" title="4090Server"></a>4090Server</h1><ul>
 <li>Ubuntu 22.04.2 LTS</li>
 <li>gcc 11.4.0</li>
 <li>CUDA11.6 :       cuda_11.6.2_510.47.03_linux.run</li>
 <li>cuDNN 8.9.5:    cudnn-linux-x86_64-8.9.5.29_cuda11-archive.tar.xz</li>
 </ul>
+<h2 id="NV-Driver-3"><a href="#NV-Driver-3" class="headerlink" title="NV Driver"></a>NV Driver</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">(sr_benchmark) houjinliang@4090server:~$ <span class="hljs-built_in">cat</span> /proc/driver/nvidia/version<br>NVRM version: NVIDIA UNIX x86_64 Kernel Module  535.183.06  Wed Jun 26 06:46:07 UTC 2024<br>GCC version:  gcc version 11.4.0 (Ubuntu 11.4.0-1ubuntu1~22.04)<br></code></pre></td></tr></table></figure>
+
 <h2 id="CUDA-11-6-cuDNN-8-9-5"><a href="#CUDA-11-6-cuDNN-8-9-5" class="headerlink" title="CUDA 11.6 &amp; cuDNN 8.9.5"></a>CUDA 11.6 &amp; cuDNN 8.9.5</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server:~/MyDownloadFiles$ ./cuda_11.6.2_510.47.03_linux.run<br>(base) houjinliang@3090server:~/MyDownloadFiles$ <span class="hljs-built_in">cd</span> cudnn-linux-x86_64-8.9.5.29_cuda11-archive/<br><br><span class="hljs-comment"># CUDA版本是11.6.2</span><br><span class="hljs-comment"># CUDNN版本还是用的之前的</span><br></code></pre></td></tr></table></figure>
 
 <p>安装过程跟上面的一样，记得把11.3都换成11.6</p>
 <p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241023150732692.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241023150732692"></p>
 <p>之后再配置Git。</p>
 <p>至于conda env，我把之前服务器上的环境使用conda-pack打包，然后使用scp传过来，然后解压到对应文件夹下。虽然之前cuda113，torch也是113版本的，但是在cuda116的服务器上也能用（那就先用着？！</p>
+<h2 id="问题：Failed-to-initialize-NVML-Driver-library-version-mismatch"><a href="#问题：Failed-to-initialize-NVML-Driver-library-version-mismatch" class="headerlink" title="问题：Failed to initialize NVML: Driver&#x2F;library version mismatch"></a>问题：Failed to initialize NVML: Driver&#x2F;library version mismatch</h2><p>环境正常运行了很长一段时间，但是突然有一天，在运行程序的时候出现了这样一个报错！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ERROR: cuda is not available, try running on CPU<br></code></pre></td></tr></table></figure>
+<p>这个error是我自己的程序里写得报错提示，系统的cuda不可用了？！这是咋回事？！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server:~$ nvidia-smi<br>Failed to initialize NVML: Driver/library version mismatch<br>NVML library version: 535.216<br><br>(base) houjinliang@4090server:~$ nvitop<br>NVML ERROR: RM has detected an NVML/RM version mismatch.<br><br>(base) houjinliang@4090server:~$ gpustat<br>Error on querying NVIDIA devices. Use --debug flag to see more details.<br>RM has detected an NVML/RM version mismatch.<br><br>(base) houjinliang@4090server:~$ gpustat --debug<br>Error on querying NVIDIA devices. Use --debug flag to see more details.<br>RM has detected an NVML/RM version mismatch.<br><br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;/mnt/houjinliang/miniconda3/lib/python3.12/site-packages/gpustat/cli.py&quot;</span>, line 58, <span class="hljs-keyword">in</span> print_gpustat<br>    gpu_stats = GPUStatCollection.new_query(debug=debug, <span class="hljs-built_in">id</span>=<span class="hljs-built_in">id</span>)<br>                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^<br>  File <span class="hljs-string">&quot;/mnt/houjinliang/miniconda3/lib/python3.12/site-packages/gpustat/core.py&quot;</span>, line 402, <span class="hljs-keyword">in</span> new_query<br>    N.nvmlInit()<br>  File <span class="hljs-string">&quot;/mnt/houjinliang/miniconda3/lib/python3.12/site-packages/pynvml.py&quot;</span>, line 1947, <span class="hljs-keyword">in</span> nvmlInit<br>    nvmlInitWithFlags(0)<br>  File <span class="hljs-string">&quot;/mnt/houjinliang/miniconda3/lib/python3.12/site-packages/pynvml.py&quot;</span>, line 1937, <span class="hljs-keyword">in</span> nvmlInitWithFlags<br>    _nvmlCheckReturn(ret)<br>  File <span class="hljs-string">&quot;/mnt/houjinliang/miniconda3/lib/python3.12/site-packages/pynvml.py&quot;</span>, line 899, <span class="hljs-keyword">in</span> _nvmlCheckReturn<br>    raise NVMLError(ret)<br>pynvml.NVMLError_LibRmVersionMismatch: RM has detected an NVML/RM version mismatch.<br><br><br>(sr_benchmark) houjinliang@4090server:~$ python<br>Python 3.8.19 (default, Mar 20 2024, 19:58:24)<br>[GCC 11.2.0] :: Anaconda, Inc. on linux<br>Type <span class="hljs-string">&quot;help&quot;</span>, <span class="hljs-string">&quot;copyright&quot;</span>, <span class="hljs-string">&quot;credits&quot;</span> or <span class="hljs-string">&quot;license&quot;</span> <span class="hljs-keyword">for</span> more information.<br>&gt;&gt;&gt; import torch<br>&gt;&gt;&gt; <span class="hljs-built_in">print</span>(torch.cuda.is_available())<br>/mnt/houjinliang/miniconda3/envs/sr_benchmark/lib/python3.8/site-packages/torch/cuda/__init__.py:80: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda <span class="hljs-built_in">functions</span> before calling NumCudaDevices() that might have already <span class="hljs-built_in">set</span> an error? Error 804: forward compatibility was attempted on non supported HW (Triggered internally at  ../c10/cuda/CUDAFunctions.cpp:112.)<br>  <span class="hljs-built_in">return</span> torch._C._cuda_getDeviceCount() &gt; 0<br>False<br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/643343668">Failed to initialize NVML: Driver&#x2F;library version mismatch 的解决方法 - 知乎</a></p>
 <h1 id="4090Server2"><a href="#4090Server2" class="headerlink" title="4090Server2"></a>4090Server2</h1><ul>
 <li>Ubuntu 22.04.3 LTS</li>
 <li>gcc version 12.3.0</li>
 </ul>
+<h2 id="NV-Driver-4"><a href="#NV-Driver-4" class="headerlink" title="NV Driver"></a>NV Driver</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server2:~$ <span class="hljs-built_in">cat</span> /proc/driver/nvidia/version<br>NVRM version: NVIDIA UNIX x86_64 Kernel Module  550.107.02  Wed Jul 24 23:53:00 UTC 2024<br>GCC version:  gcc version 12.3.0 (Ubuntu 12.3.0-1ubuntu1~22.04)<br></code></pre></td></tr></table></figure>
+
+
+
 <h2 id="CUDA-12-4-1-cuDNN-8-9-7"><a href="#CUDA-12-4-1-cuDNN-8-9-7" class="headerlink" title="CUDA 12.4.1 &amp; cuDNN 8.9.7"></a>CUDA 12.4.1 &amp; cuDNN 8.9.7</h2><p>CUDA 12.4.1 : <a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-12-4-1-download-archive?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=runfile_local">CUDA Toolkit 12.4 Update 1 Downloads | NVIDIA Developer</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">(base) houjinliang@4090server2:~/MyDownloadFiles$ wget https://developer.download.nvidia.com/compute/cuda/12.4.1/local_installers/cuda_12.4.1_550.54.15_linux.run<br></code></pre></td></tr></table></figure>
 
@@ -576,7 +600,13 @@
 
 
 
-<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><h2 id="GCC与CUDA版本对应"><a href="#GCC与CUDA版本对应" class="headerlink" title="GCC与CUDA版本对应"></a>GCC与CUDA版本对应</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241023135851280.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241023135851280"></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><h2 id="CUDA-Toolkit-and-Corresponding-Driver-Versions"><a href="#CUDA-Toolkit-and-Corresponding-Driver-Versions" class="headerlink" title="CUDA Toolkit and Corresponding Driver Versions"></a>CUDA Toolkit and Corresponding Driver Versions</h2><p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#id5">CUDA 12.6 Update 2 Release Notes</a></p>
+<div class="group-image-container"><div class="group-image-row"><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241030165027775.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241030165027775"></div><div class="group-image-wrap"><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241030165047346.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241030165047346"></div></div></div>
+
+
+
+
+<h2 id="GCC与CUDA版本对应"><a href="#GCC与CUDA版本对应" class="headerlink" title="GCC与CUDA版本对应"></a>GCC与CUDA版本对应</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241023135851280.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241023135851280"></p>
 <ul>
 <li>3080Server - gcc 7.5.0   （Ubuntu 18.04.6 LTS）-&gt; CUDA 11.3</li>
 <li>3090Server - gcc 7.5.0   （Ubuntu 18.04.6 LTS）-&gt; CUDA 11.3</li>
@@ -588,7 +618,7 @@
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html">https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html</a></p>
 </blockquote>
-<h2 id="cudnn-docs"><a href="#cudnn-docs" class="headerlink" title="cudnn docs"></a>cudnn docs</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241023145233186.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241023145233186"></p>
+<h2 id="cuDNN-docs"><a href="#cuDNN-docs" class="headerlink" title="cuDNN docs"></a>cuDNN docs</h2><p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241023145233186.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241023145233186"></p>
 <blockquote>
 <ul>
 <li><p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/deeplearning/cudnn/latest/reference/support-matrix.html">Support Matrix — NVIDIA cuDNN v9.5.0 documentation</a></p>
@@ -606,8 +636,8 @@
 <li><a target="_blank" rel="noopener" href="https://developer.nvidia.com/rdp/cudnn-archive">cuDNN Archive | NVIDIA Developer</a></li>
 </ul>
 </blockquote>
-<p><img src="/WorkingWithGPUServer.assets/image-20241024223544376.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241024223544376"></p>
-<p><img src="/WorkingWithGPUServer.assets/image-20241024223923702.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241024223923702"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241024223544376.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241024223544376"></p>
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241024223923702.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241024223923702"></p>
 
                 
               </div>
