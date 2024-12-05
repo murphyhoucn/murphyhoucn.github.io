@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/cyberspace-2784907_1280.jpg">
 <meta property="article:published_time" content="2023-11-01T02:28:51.000Z">
-<meta property="article:modified_time" content="2024-10-30T09:12:26.742Z">
+<meta property="article:modified_time" content="2024-12-05T09:19:22.853Z">
 <meta property="article:author" content="Murphy">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Server">
@@ -273,7 +273,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          2k 字
         
       </span>
     
@@ -284,7 +284,7 @@
         
         
         
-          11 分钟
+          17 分钟
         
       </span>
     
@@ -638,6 +638,75 @@
 </blockquote>
 <p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241024223544376.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241024223544376"></p>
 <p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241024223923702.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241024223923702"></p>
+<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><blockquote>
+<ul>
+<li>这个中文文档很不错：<a target="_blank" rel="noopener" href="https://yeasy.gitbook.io/docker_practice/install/ubuntu">Ubuntu | Docker — 从入门到实践 (gitbook.io)</a></li>
+</ul>
+</blockquote>
+<h2 id="Docker-Install"><a href="#Docker-Install" class="headerlink" title="Docker Install"></a>Docker Install</h2><blockquote>
+<p><em>需要管理员用户！</em></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://yeasy.gitbook.io/docker_practice/install/ubuntu">Ubuntu | Docker — 从入门到实践 (gitbook.io)</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43844521/article/details/132737354">Linux 查看属于某个组（例如docker组）的所有用户_getent group docker-CSDN博客</a></li>
+</ul>
+</blockquote>
+<ul>
+<li>使用APT安装（具体步骤参考网上教程）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Step 1</span><br>sudo apt update<br>sudo apt install \<br>    apt-transport-https \<br>    ca-certificates \<br>    curl \<br>    gnupg \<br>    lsb-release<br><br><span class="hljs-comment"># Step 2</span><br>curl -fsSL https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg<br><br><span class="hljs-comment"># Step 3</span><br><span class="hljs-built_in">echo</span> \<br>  <span class="hljs-string">&quot;deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://mirrors.aliyun.com/docker-ce/linux/ubuntu \</span><br><span class="hljs-string">  <span class="hljs-subst">$(lsb_release -cs)</span> stable&quot;</span> | sudo <span class="hljs-built_in">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null<br><br><span class="hljs-comment"># Step 4</span><br>sudo apt update<br>sudo apt install docker-ce docker-ce-cli containerd.io<br><br><span class="hljs-comment"># Step 5</span><br>sudo systemctl <span class="hljs-built_in">enable</span> docker<br>sudo systemctl start docker<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>为了让非管理员用户也能使用docker，需要建立用户组，赋予用户组内的用户权限</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 建立 docker 组</span><br>sudo groupadd docker<br><br><span class="hljs-comment"># 将当前用户加入 docker 组</span><br>sudo usermod -aG docker <span class="hljs-variable">$USER</span><br><span class="hljs-comment"># 将xxx用户加入 docker 组</span><br>sudo usermod -aG docker xxxxxxxx<br><br><span class="hljs-comment"># 查看docker用户组用户 - 方法1</span><br>getent group docker<br><span class="hljs-comment"># 查看docker用户组用户 - 方法2</span><br>grep <span class="hljs-string">&#x27;^docker:&#x27;</span> /etc/group<br></code></pre></td></tr></table></figure>
+
+<h2 id="配置docker代理"><a href="#配置docker代理" class="headerlink" title="配置docker代理"></a>配置docker代理</h2><blockquote>
+<p>docker 代理配置需要<em>管理员用户</em>！</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://isedu.top/index.php/archives/146/">Docker的网络代理配置 - 清~幽殇 (isedu.top)</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/vic_qxz/article/details/130061661">配置docker pull代理_docker pull 代理-CSDN博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://yeasy.gitbook.io/docker_practice/install/mirror">镜像加速器 | Docker — 从入门到实践 (gitbook.io)</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.coderjia.cn/archives/dba3f94c-a021-468a-8ac6-e840f85867ea">目前国内可用Docker镜像源汇总（截至2024年12月） - CoderJia</a></li>
+</ul>
+</blockquote>
+<p>上网代理，参考<a href="https://cosmicdusty.cc/post/Tools/WorkingWithGPUServer/#Clash-for-Linux">瞧瞧我对服务器干了些什么！ - MurphyHou (cosmicdusty.cc)</a></p>
+<p>一、配置镜像服务器（很多镜像服务器已经不能用了）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim /etc/docker/daemon.json<br><br><span class="hljs-comment"># 在json配置文件中，输入以下配置</span><br>&#123;<br>  <span class="hljs-string">&quot;registry-mirrors&quot;</span>: [<br>    <span class="hljs-string">&quot;https://hub-mirror.c.163.com&quot;</span>,<br>    <span class="hljs-string">&quot;https://mirror.baidubce.com&quot;</span><br>  ]<br>&#125;<br><br><span class="hljs-comment"># 然后重启docker服务</span><br>sudo systemctl daemon-reload<br>sudo systemctl restart docker<br></code></pre></td></tr></table></figure>
+
+<p>二、docker pull代理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">mkdir</span> -p /etc/systemd/system/docker.service.d<br>sudo <span class="hljs-built_in">touch</span> /etc/systemd/system/docker.service.d/proxy.conf<br><br><span class="hljs-comment"># 在json配置文件中，输入以下配置 -&gt; (7890端口号是因为clash是代理的这个端口)</span><br>[Service]<br>Environment=<span class="hljs-string">&quot;HTTP_PROXY=http://127.0.0.1:7890/&quot;</span><br>Environment=<span class="hljs-string">&quot;HTTPS_PROXY=http://127.0.0.1:7890/&quot;</span><br>Environment=<span class="hljs-string">&quot;NO_PROXY=localhost,127.0.0.1,.example.com&quot;</span><br><br><span class="hljs-comment"># 然后重启docker服务</span><br>sudo systemctl daemon-reload<br>sudo systemctl restart docker<br></code></pre></td></tr></table></figure>
+
+<p>三、Container代理</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 1、用户级代理(这个就不需要管理员用户了，使用自己的用户登录)</span><br>vim ~/.docker/config.json<br><br><span class="hljs-comment"># 在json配置文件中，输入以下配置 -&gt; (7890端口号是因为clash是代理的这个端口)</span><br>&#123;<br> <span class="hljs-string">&quot;proxies&quot;</span>:<br> &#123;<br>   <span class="hljs-string">&quot;default&quot;</span>:<br>   &#123;<br>     <span class="hljs-string">&quot;httpProxy&quot;</span>: <span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span>,<br>     <span class="hljs-string">&quot;httpsProxy&quot;</span>: <span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span>,<br>     <span class="hljs-string">&quot;noProxy&quot;</span>: <span class="hljs-string">&quot;localhost,127.0.0.1,.example.com&quot;</span><br>   &#125;<br> &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="测试Docker配置是否成功"><a href="#测试Docker配置是否成功" class="headerlink" title="测试Docker配置是否成功"></a>测试Docker配置是否成功</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://yeasy.gitbook.io/docker_practice/install/ubuntu">Ubuntu | Docker — 从入门到实践 (gitbook.io)</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run --<span class="hljs-built_in">rm</span> hello-world<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241205160737158.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241205160737158"></p>
+<h2 id="配置overleaf"><a href="#配置overleaf" class="headerlink" title="配置overleaf"></a>配置overleaf</h2><blockquote>
+<p><em>上述的docker环境配置好之后，可以配置一下overleaf. 特别是得配置好网络环境，要不然Docker Image拉取不下来</em></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ziuch.com/article/self-hosted-overleaf">自建OverLeaf——妈妈再也不用担心我的论文编译超时 | Ziuch の Blog</a></li>
+<li><a target="_blank" rel="noopener" href="https://yangzhang.site/Note/NAS/self-hosted-overleaf/">自建Overleaf - yangzhang’s Site</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.tnnidm.com/build-and-use-overleaf-server/index.html">搭建和使用overleaf服务器 | Tnnidm-Blog</a></li>
+</ul>
+</blockquote>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Step 1：下载源码</span><br>git <span class="hljs-built_in">clone</span> https://github.com/overleaf/toolkit.git ./overleaf-toolkit &amp;&amp; <span class="hljs-built_in">cd</span> overleaf-toolkit<br><br><span class="hljs-comment"># Step 2：初始化配置</span><br>bin/init<br><br><span class="hljs-comment"># Step 3：建立服务</span><br>bin/up<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://murhyimgur.oss-cn-beijing.aliyuncs.com/img/image-20241205161651945.png" srcset="https://murhyimgur.oss-cn-beijing.aliyuncs.com/website/loading.gif" lazyload alt="image-20241205161651945"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 启动服务</span><br>bin/start<br><br><span class="hljs-comment"># 结束服务</span><br>bin/stop<br></code></pre></td></tr></table></figure>
+
+<h3 id="远程访问"><a href="#远程访问" class="headerlink" title="远程访问"></a>远程访问</h3><p>因为服务是在远程服务器上，为了在本地能直接方法，需要修改端口和外网访问</p>
+<p>在<code>./config/overleaf.rc</code>中，需要修改以下字段：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">OVERLEAF_LISTEN_IP=xx.xx.xx.xx # 远程服务器IP<br>OVERLEAF_PORT=80 # 默认是80<br></code></pre></td></tr></table></figure>
+
+<p>Overleaf 容器启动之后，可以打开 <a href="http://xx.xx.xx.xx:xx/launchpad">http://xx.xx.xx.xx:xx/launchpad</a> 注册管理员帐户。之后我们就可以用这个帐户登录 Overleaf 平台。</p>
+<p>网上教程中还给出了一些复杂的配置，后面根据需要再配置吧。</p>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>因为Overleaf官网对于免费用户，只有20s的编译时间，超过时间限制则无法编译。对于这种情况，只能付费解决。如果面对我遇到这样的情况的话，我可能也会选择付费的方式。但在网上看到了可以在服务器上搭建自己的Overleaf，所以想跟着教程自己试一下。按照教程一步步走下来，最后也配置成功了。也许最后并不会使用自己配置的这个，但折腾永不停息，万一用到了呢？！</p>
 
                 
               </div>
