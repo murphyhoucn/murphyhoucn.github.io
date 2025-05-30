@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "Jingliang Hou - NPU"
-description              : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. "
+description              : "A master's student at Northwestern Polytechnical University, majoring in Information and Communication Engineering. Focusing on computer vision, image super-resolution, and image generation."
 repository               : "murphyhoucn/murphyhoucn.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -21,13 +21,13 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 
 # Site Author
 author:
-  name             : "Jinliang Hou - 侯金良 🤗"
+  name             : "Jinliang Hou 🤗"
   avatar           : "https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202505301416927.jpg"
   bio              : "Northwestern Polytechnical University"
   location         : "Xi'an, China"
   employer         :
   pubmed           :
-  googlescholar    : "https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"
+  googlescholar    :  # "https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"
   email            : "cosmicdustycn@outlook.com"
   researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
   uri              :
@@ -37,7 +37,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "github murphyhoucn" # e.g., "github username"
+  github           : "murphyhoucn" # e.g., "github username"
   google_plus      :
   keybase          :
   instagram        :
