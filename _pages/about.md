@@ -23,7 +23,7 @@ I earned my Bachelor's degree in **Telecommunication Engineering** from the Facu
 
 To date, I have submitted 0 papers to SCI journals, applied for 0 invention patents, and been authorized 0 utility model patents and 0 software copyrights.
 
-<a href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/attaches/houjinliang-cv.pdf" style="display: block; width: 15%; padding: 8px 0; background-color: #f2f3f3; color: #444; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 14px; border: 1px solid #e5e5e5; transition: all 0.3s ease; text-align: center;">  Download CV 📑 </a>
+<a href="https://murhyimgur.oss-cn-beijing.aliyuncs.com/attaches/houjinliang-cv.pdf" style="display: block; width: 25%; padding: 8px 0; background-color: #f2f3f3; color: #444; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 14px; border: 1px solid #e5e5e5; transition: all 0.3s ease; text-align: center;">  Download CV 📑 </a>
 
 
 <!-- My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>). -->

@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Jingliang Hou - NPU"
+title                    : "Jingliang Hou-NPU"
 description              : "A master's student at NPU, focusing on computer vision, image super-resolution, and image generation."
 repository               : "murphyhoucn/murphyhoucn.github.io"
 google_scholar_stats_use_cdn : true
