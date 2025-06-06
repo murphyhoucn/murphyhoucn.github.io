@@ -149,14 +149,13 @@ This project aims to implement and evaluate deep learning-based methods for 3D h
 <img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202505302014947.png' alt="sym" width="100%">
 </div>
 <div class='paper-box-text' markdown="1">
-This project focuses on enhancing the anti-jamming capabilities of airborne fire control radar by designing and implementing an aeronautical electronic countermeasures simulation system. The system includes performance evaluation functionalities, aiming to provide a realistic and controllable simulation environment for aviation training and combat research. By building a multi-aircraft collaborative detection and tracking module, the system supports radar performance simulation, model testing, and algorithm expansion in multi-target scenarios, ultimately helping to improve the radar system's adaptability in real-world combat situations.
+This project developed a mission-oriented avionics electronic countermeasures (ECM) simulation system to enhance radar anti-jamming capabilities in modern aerial combat. The system provides multi-platform, multi-target radar performance modeling and evaluation, supporting flexible jamming scenario configuration and algorithm extensions. It offers realistic, controllable, and reproducible technical support for air force combat training, equipment demonstration, and countermeasure strategy research. This platform improves radar system evaluation efficiency and battlefield adaptability in highly contested environments, laying the groundwork for systematic design and real-world performance validation of next-generation airborne radar.
 </div><div markdown="1">
 
 **Finished Works**:
-1. We've established a system framework with anti-jamming modeling and simulation capabilities, supporting the simulation and evaluation of various electronic jamming scenarios.
-2. A task-oriented evaluation mechanism has been introduced to enable quantitative analysis of radar anti-jamming performance in different operational scenarios.
-3. The system simulates multi-platform collaborative detection scenarios, allowing for the tracking and localization of multiple targets. This provides experimental support for the design of collaborative radar networks.
-4. Finally, the system supports comparisons of target tracking models, optimization of radar network configurations, and the integration of fusion estimation algorithms, enhancing its research and validation capabilities.
+1. Developed virtual radar subsystem models covering signal generation, echo simulation, clutter/jamming, and anti-jamming processing across air-to-air, air-to-ground, and air-to-sea modes. Integrated mainstream anti-jamming algorithms (STAP, sidelobe cancellation) and provided real-time signal visualization and effect evaluation.
+2. Designed an interactive human-machine interface for combat drills and training, enabling human-in-the-loop simulation control and flexible mission configuration for interventional teaching.
+3. Developed and validated a target tracking and data fusion module, creating configurable aerial target motion models for accurate echo simulation. Integrated and optimized typical tracking algorithms (Kalman filter, JPDA) for robust multi-target tracking. Developed a cooperative data fusion module for multiple radar platforms using Bayesian estimation and neural networks, significantly boosting tracking robustness and evaluation in complex environments.
 </div>
 </div>
 
@@ -170,14 +169,13 @@ This project focuses on enhancing the anti-jamming capabilities of airborne fire
 <img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202505302014947.png' alt="sym" width="100%">
 </div>
 <div class='paper-box-text' markdown="1">
-This project addresses the challenge of hyperspectral image (HSI) classification under few-shot conditions, specifically tackling the high cost of HSI data annotation and the limited availability of training samples. We propose a method based on meta-learning and a deep relation network. By building a "learn to learn" model framework, our approach enables efficient and accurate pixel-wise classification with only a few labeled samples, thereby enhancing the practicality and applicability of hyperspectral images in resource-constrained scenarios.
+This project tackles Hyperspectral Image (HSI) classification with limited samples, aiming to reduce reliance on large labeled datasets. We use a Meta-Learning approach to enable models to adapt quickly and generalize across tasks, achieving robust pixel-level classification even with scarce data. Our framework combines 3D spatio-spectral features with relational reasoning to leverage HSI's unique structure. Experiments on public datasets show superior accuracy with minimal labeled samples, demonstrating strong robustness and transferability. This research provides a practical solution for few-shot HSI interpretation, laying the foundation for generalization, lightweight deployment, and data-efficient learning in remote sensing applications.
 </div><div markdown="1">
 
 **Finished Works**:
-1. We aim to construct a few-shot learning model suitable for hyperspectral images, improving the model's generalization ability through a meta-learning strategy, enabling it to perform classification tasks with limited labeled samples.
-2. In the feature extraction phase, we utilize 3D convolution operations to extract joint spatial and spectral features from HSIs, thoroughly leveraging the structural information within hyperspectral images.
-3. Based on the extracted spatial-spectral features, we use 2D convolution to compute relation scores between samples, constructing a relation module to achieve pixel-wise class inference.
-4. Experiments conducted on multiple public hyperspectral datasets demonstrate that the proposed method achieves high classification accuracy even with a limited number of samples, exhibiting strong robustness and generalizability.
+1. We designed an end-to-end Few-Shot Learning classification model based on meta-learning principles. This significantly enhances the model's generalization capability in scenarios with extremely limited samples.
+2. We utilized 3D Convolutional Neural Networks (3D-CNN) to extract both spatial and spectral features from hyperspectral images. This effectively uncovers the inter-dimensional relationships within the data.
+3. We incorporated a deep Relation Network that uses 2D convolutional modules to compute relational scores between samples. This enables pixel-wise class prediction, boosting discriminative performance under few-shot conditions.
 </div>
 </div>
 
@@ -190,20 +188,20 @@ This project addresses the challenge of hyperspectral image (HSI) classification
 <img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202505302014947.png' alt="sym" width="100%">
 </div>
 <div class='paper-box-text' markdown="1">
-In the 2022 Mathematical Contest in Modeling (MCM), our team conducted modeling research centered on "Global Equity Assessment." The project aimed to construct a comprehensive and quantifiable indicator system to measure countries' performance in terms of global equity, and to analyze the impact of resource development (such as asteroid mining) on this system. Through multi-level modeling methods, we provided quantitative support for global equity analysis and policy formulation.
+In the 2022 Math Modeling Contest, our team built a comprehensive and quantifiable model for "Global Equity Assessment." We measured national equity across resource access, economic development, and environmental responsibility. Our work also explored how external factors, like future asteroid mining, might impact this global balance. Using systems thinking and various mathematical techniques, we developed an interpretable quantitative framework covering indicator design, data clustering, and causal modeling. This project highlighted our interdisciplinary modeling skills and our commitment to applying theoretical models to real-world policy and governance challenges. It provides a strong foundation for quantifying international equity and informs future global resource allocation strategies.
 </div><div markdown="1">
 
 **Finished Works**:
-1. Utilized the Analytic Hierarchy Process (AHP) to construct a global equity assessment indicator system, proposing the Global Equity Index (GIEI) and calculating scores for each country.
-2. Applied the K-means++ clustering algorithm to classify countries based on their GIEI scores, identifying differences and distribution characteristics of equity levels.
-3. Incorporated resource development, especially mining revenue, into an economic model, establishing a correlation model between economic growth and equity.
-4. Conducted sensitivity analysis on key parameters within the model to evaluate the impact of different factors on the GIEI and country classification results, thereby enhancing the model's robustness and explanatory power.
+1. Multi-dimensional Assessment with AHP: We designed a multi-dimensional global equity assessment system using the Analytic Hierarchy Process (AHP). This resulted in the Global Equity Index (GIEI), providing a comprehensive score for each country.
+2. National Classification via K-means++: We applied the K-means++ clustering algorithm to categorize countries. This helped us uncover distribution features and cluster patterns across different equity levels.
+3. Coupling Economic Growth with Resource Development: Our model integrates resource development factors, like mining revenue, into an economic growth framework. This allowed us to build a coupling model of equity and economic interests.
+4. Sensitivity Analysis for Robustness: We conducted sensitivity tests on key weights and parameters within the model. This evaluated how variable changes impact the GIEI and classification results, thereby enhancing the model's robustness and interpretability.
 </div>
 </div>
 
 
 <!-- Project01 -->
-## Research on Semantic Segmentation of Mariana Trench Remote Sensing Terrain Images Based on PyTorch Semantic Segmentation
+## Systematic Study of Deep Segmentation Architectures for Remote Sensing with Insights into Maritime Transferability
 
 <div class='paper-box'>
 <div class='paper-box-image'>
@@ -212,14 +210,13 @@ In the 2022 Mathematical Contest in Modeling (MCM), our team conducted modeling 
 <img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202505302014947.png' alt="sym" width="50%">
 </div>
 <div class='paper-box-text' markdown="1">
-The Mariana Trench presents a complex terrain that traditional image processing methods struggle to analyze effectively. Semantic segmentation offers a novel approach to understanding remote sensing imagery of such regions. This project leverages PSPNet, PSANet, and ResNet backbone networks, combined with transfer learning and data augmentation, to achieve high-precision terrain segmentation even with limited data. This capability is crucial for advancing deep-sea geomorphological analysis.
+This project focuses on semantic segmentation of remote sensing images, systematically evaluating the adaptability and performance of current deep learning segmentation methods across various remote sensing scenarios. Our goal is to provide theoretical support and methodological guidance for future model transfer and structural fine-tuning in marine remote sensing image segmentation. We specifically investigated the models' capabilities in preserving spatial structure, refining boundaries, and modeling inter-class differences. We also explored their transferability in practical marine applications, especially concerning few-shot learning and inter-class confusion challenges.
 </div><div markdown="1">
 
 **Finished Works**:
-1. This project focuses on high-precision scene segmentation of remote sensing terrain images of the Mariana Trench region, utilizing the PyTorch framework.
-2. We employ ResNet-50, ResNet-101, and ResNet-152 as backbone networks to construct PSPNet and PSANet models. These models are then pre-trained on public datasets such as ADE20K, PASCAL VOC 2012, and Cityscapes.
-3. Subsequently, we address the limited dataset of Mariana Trench terrain images by employing various data augmentation techniques to expand the sample size. The models are then fine-tuned on this target dataset.
-4. Experimental results demonstrate effective segmentation of complex terrain structures, achieving high accuracy and robustness in terrain scene parsing tasks.
+1. Systematic Evaluation of Mainstream Architectures: We conducted a comprehensive evaluation of three representative semantic segmentation architectures: FCN (with HRNet backbone), DeepLabV3+ (with ResNet backbone), and PSPNet (with ResNet backbone). Our experiments spanned three typical remote sensing datasets (LoveDA, Potsdam, and Vaihingen), involving 27 model training and evaluation tasks to thoroughly compare their performance in remote sensing scenarios.
+2. Analysis of Architectural Adaptability: We systematically analyzed the adaptability differences of these semantic segmentation architectures in remote sensing images. This revealed their performance limitations in complex backgrounds and multi-scale object scenarios, providing a reliable benchmark assessment and model selection reference for few-shot semantic segmentation tasks in marine remote sensing.
+3. Preliminary Framework for Cross-Domain Transfer: We established a preliminary framework for model structure analysis and adaptability specifically designed for transferring from general remote sensing to marine remote sensing tasks. This offers a systematic theoretical foundation and practical support for future work in key areas such as transfer learning, structural fine-tuning, and lightweight deployment.
 </div>
 </div>
 
