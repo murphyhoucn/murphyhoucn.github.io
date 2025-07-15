@@ -33,8 +33,8 @@ To date, I have submitted 0 papers to SCI journals, applied for 0 invention pate
 - *2019.09 - 2023.06*, Ocean University of China, Qingdao, Telecommunication Engineering.
 
 # 🔥 News
-- *2025.08*: &nbsp;🎉🎉 News02
-- *2025.03*: &nbsp;🎉🎉 News01
+- *2025.04*: &nbsp;🎉🎉 Our paper **"HSCT: Hierarchical Self-Calibration Transformer for Hyperspectral Image Super-Resolution"** was accepted as an **Oral presentation** at **IGARSS 2025**!
+
 
 # 📝 Publications 
 
@@ -48,24 +48,37 @@ To date, I have submitted 0 papers to SCI journals, applied for 0 invention pate
 
 **Jinliang Hou**, Yifan Zhang, Shaohui Mei.
 
-- description
-- description
-- description
+- TODO
+
 </div>
 </div>
 
 
-<!-- Paper 2025.03 -->
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"> 2025 IEEE International Geoscience and Remote Sensing Symposium</div><img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202505302014947.png' alt="sym" width="100%"></div></div>
+<!-- Paper 2025.04 -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge"> 2025 IEEE International Geoscience and Remote Sensing Symposium</div><img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151629567.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[**HSCT: HIERARCHICAL SELF-CALIBRATION TRANSFORMER FOR HYPERSPECTRAL IMAGE SUPER-RESOLUTION**](https://www.2025.ieeeigarss.org/papers/accepted_papers.php)
+**HSCT: HIERARCHICAL SELF-CALIBRATION TRANSFORMER FOR HYPERSPECTRAL IMAGE SUPER-RESOLUTION**[[IGARSS 2025 Session]](https://2025.ieeeigarss.org/view_session.php?SessionID=1608)[[Paper]](https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151629567.png)
 
 **Jinliang Hou**, Yifan Zhang, Yuanjie Zhi, Rugui Yao, Shaohui Mei.
 
-- description
-- description
-- description
+- 📄 Paper Introduction
+We propose a novel method named **Hierarchical Self-Calibration Transformer (HSCT)** for **hyperspectral image super-resolution (HSR)**. This work addresses the limitations of existing approaches in capturing multi-scale spatial structures and integrating spatial-spectral information effectively. HSCT is designed to enhance both spatial detail and spectral consistency through hierarchical modeling and coordinated feature learning.
+
+- 🚀 Key Contributions
+
+1. **Hierarchical Variable-Window Self-Attention**
+   A multi-stage Transformer framework with progressively varying window sizes is designed to capture spatial features from local to global scales, enabling flexible and effective multi-scale representation.
+
+2. **Parallel Spatial-Spectral Collaborative Attention**
+   A dual-branch attention mechanism is introduced to model spatial and spectral dependencies in parallel, facilitating effective spatial-spectral feature fusion and reducing spectral distortion.
+
+3. **Self-Calibration Convolutional Feature Enhancement**
+   A lightweight self-calibrated convolution module is embedded to enhance local feature stability and robustness, improving fine-grained representation in shallow layers.
+
+- ✅ Experimental Results
+
+Extensive experiments on benchmark hyperspectral datasets (e.g., Chikusei, Houston) demonstrate the superiority of HSCT over state-of-the-art methods in terms of MPSNR, SSIM, and SAM.
 
 </div>
 </div>
