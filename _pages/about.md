@@ -21,7 +21,7 @@ I am currently a Master's student in Information and Communication Engineering a
 
 I earned my Bachelor's degree in **Telecommunication Engineering** from the Faculty of Information Science and Engineering at **[Ocean University of China (OUC)](https://www.ouc.edu.cn/)**.
 
-To date, I have submitted 0 papers to SCI journals, applied for 0 invention patents, and been authorized 0 utility model patents and 0 software copyrights.
+<!-- To date, I have submitted 0 papers to SCI journals, applied for 0 invention patents, and been authorized 0 utility model patents and 0 software copyrights. -->
 
 <a href="https://murphyimg.oss-cn-beijing.aliyuncs.com/archive/HJL_CV_ing_zh_20250606.pdf" style="display: block; width: 25%; padding: 8px 0; background-color: #f2f3f3; color: #444; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 14px; border: 1px solid #e5e5e5; transition: all 0.3s ease; text-align: center;">  Download CV 📑 </a>
 
