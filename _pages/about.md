@@ -41,17 +41,45 @@ To date, I have submitted 0 papers to SCI journals, applied for 0 invention pate
 ## 📃 Papers
 
 <!-- Paper 2025.03 -->
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"> IEEE Transactions on Geoscience and Remote Sensing </div><img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202505302014947.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'>
+  <div class='paper-box-image'>
+      <div class="badge">IEEE Transactions on Geoscience and Remote Sensing (TGRS)</div>
+      <div>
+        <img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151737134.png' alt="sym" width="100%">
+      </div>
+  </div>
 <div class='paper-box-text' markdown="1">
 
-[**TODO**](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=36)
+## 🛰️ Multi-Stage Grouped-Aggregation Transformer with Large-Window Feature Learning for Hyperspectral Image Super-Resolution
+
 
 **Jinliang Hou**, Yifan Zhang, Shaohui Mei.
 
-- TODO
+📄 Submitted to **IEEE Transactions on Geoscience and Remote Sensing (TGRS)** — Under Review  
+🔗 [**Manuscript Preview**](Coming Soon)
+
+---
+
+- 📄 Paper Introduction
+
+We propose a novel method for hyperspectral image super-resolution (HSR) based on a Multi-Stage Grouped-Aggregation Transformer with Large-Window Feature Learning. The method is designed to address the challenges of insufficient feature representation and inefficient modeling of high-dimensional spectral data by progressively extracting and reconstructing features across stages while effectively capturing global spatial dependencies.
+
+- 🚀 Key Contributions
+
+1. **Multi-Stage Feature Extraction and Reconstruction Framework**
+
+2. **Grouped-Aggregation Strategy for High-Dimensional Spectral Data**
+
+3. **Transformer Architecture Adapted for Large-Window Feature Learning**
+
+
+- ✅ Experimental Results
+
+To release
 
 </div>
 </div>
+
 
 <!-- Paper 2025.04 -->
 <div class='paper-box'>
@@ -64,15 +92,17 @@ To date, I have submitted 0 papers to SCI journals, applied for 0 invention pate
   </div>
 <div class='paper-box-text' markdown="1">
 
-# 🛰️ HSCT: Hierarchical Self-Calibration Transformer for Hyperspectral Image Super-Resolution
-
-🎤 Accepted as an **Oral Presentation** at [**IGARSS 2025**](https://2025.ieeeigarss.org/view_session.php?SessionID=1608)  
-📄 [**View Paper**](https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151629567.png)
-
+## 🛰️ HSCT: Hierarchical Self-Calibration Transformer for Hyperspectral Image Super-Resolution
 
 **Jinliang Hou**, Yifan Zhang, Yuanjie Zhi, Rugui Yao, Shaohui Mei.
 
+🎤 Accepted as an **Oral Presentation** at [**IGARSS 2025**](https://2025.ieeeigarss.org/view_session.php?SessionID=1608)  
+📄 [**View Paper**](https://murphyimg.oss-cn-beijing.aliyuncs.com/archive/Echo_v9_250414_250514.pdf)
+
+---
+
 - 📄 Paper Introduction
+
 We propose a novel method named **Hierarchical Self-Calibration Transformer (HSCT)** for **hyperspectral image super-resolution (HSR)**. This work addresses the limitations of existing approaches in capturing multi-scale spatial structures and integrating spatial-spectral information effectively. HSCT is designed to enhance both spatial detail and spectral fidelity through hierarchical modeling and coordinated feature learning.
 
 - 🚀 Key Contributions
@@ -126,7 +156,7 @@ Extensive experiments on benchmark hyperspectral datasets (e.g., Chikusei, Houst
 <div class='paper-box'>
 <div class='paper-box-image'>
 <div class="badge">2024.06 - 2025.06</div>
-<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202505302014947.png' alt="sym" width="100%">
+<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151826730.png' alt="sym" width="100%">
 </div>
 <div class='paper-box-text' markdown="1">
 This project focuses on the research of intelligent target recognition and tracking technology in multi-platform, multi-modal collaborative scenarios, aiming to enhance the system's intelligent perception and decision-making capabilities in complex environments. By introducing deep learning-based object detection and multi-object tracking algorithms, we achieve efficient fusion and processing of multi-source heterogeneous data, supporting stable operation on resource-constrained platforms. This provides critical technical support for multi-platform collaborative operations and intelligent monitoring.
@@ -147,7 +177,7 @@ This project focuses on the research of intelligent target recognition and track
 <div class='paper-box'>
 <div class='paper-box-image'>
 <div class="badge">2024.04 - 2024.06</div>
-<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202505302014947.png' alt="sym" width="100%">
+<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151802966.png' alt="sym" width="100%">
 </div>
 <div class='paper-box-text' markdown="1">
 This project aims to implement and evaluate deep learning-based methods for 3D human pose estimation. By reproducing the recently proposed MotionBERT model, training and testing it on the Human3.6M dataset, we explore its performance in 3D pose reconstruction. This method utilizes a combination of pre-training and fine-tuning to recover human pose in 3D space from 2D skeleton sequences, showing broad prospects in applications such as action recognition, human-computer interaction, and virtual reality.
@@ -169,7 +199,8 @@ This project aims to implement and evaluate deep learning-based methods for 3D h
 <div class='paper-box'>
 <div class='paper-box-image'>
 <div class="badge">2023.10 - 2024.05</div>
-<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202505302014947.png' alt="sym" width="100%">
+<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151827650.jpg' alt="sym" width="50%">
+<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151828099.png' alt="sym" width="50%">
 </div>
 <div class='paper-box-text' markdown="1">
 This project developed a mission-oriented avionics electronic countermeasures (ECM) simulation system to enhance radar anti-jamming capabilities in modern aerial combat. The system provides multi-platform, multi-target radar performance modeling and evaluation, supporting flexible jamming scenario configuration and algorithm extensions. It offers realistic, controllable, and reproducible technical support for air force combat training, equipment demonstration, and countermeasure strategy research. This platform improves radar system evaluation efficiency and battlefield adaptability in highly contested environments, laying the groundwork for systematic design and real-world performance validation of next-generation airborne radar.
@@ -189,7 +220,7 @@ This project developed a mission-oriented avionics electronic countermeasures (E
 <div class='paper-box'>
 <div class='paper-box-image'>
 <div class="badge">2022.12 - 2023.05</div>
-<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202505302014947.png' alt="sym" width="100%">
+<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151802747.png' alt="sym" width="100%">
 </div>
 <div class='paper-box-text' markdown="1">
 This project tackles Hyperspectral Image (HSI) classification with limited samples, aiming to reduce reliance on large labeled datasets. We use a Meta-Learning approach to enable models to adapt quickly and generalize across tasks, achieving robust pixel-level classification even with scarce data. Our framework combines 3D spatio-spectral features with relational reasoning to leverage HSI's unique structure. Experiments on public datasets show superior accuracy with minimal labeled samples, demonstrating strong robustness and transferability. This research provides a practical solution for few-shot HSI interpretation, laying the foundation for generalization, lightweight deployment, and data-efficient learning in remote sensing applications.
@@ -208,10 +239,12 @@ This project tackles Hyperspectral Image (HSI) classification with limited sampl
 <div class='paper-box'>
 <div class='paper-box-image'>
 <div class="badge">2022.02</div>
-<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202505302014947.png' alt="sym" width="100%">
+<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151819781.png' alt="sym" width="100%">
 </div>
 <div class='paper-box-text' markdown="1">
-In the 2022 Math Modeling Contest, our team built a comprehensive and quantifiable model for "Global Equity Assessment." We measured national equity across resource access, economic development, and environmental responsibility. Our work also explored how external factors, like future asteroid mining, might impact this global balance. Using systems thinking and various mathematical techniques, we developed an interpretable quantitative framework covering indicator design, data clustering, and causal modeling. This project highlighted our interdisciplinary modeling skills and our commitment to applying theoretical models to real-world policy and governance challenges. It provides a strong foundation for quantifying international equity and informs future global resource allocation strategies.
+In the 2022 Math Modeling Contest, our team built a comprehensive and quantifiable model for "Global Equity Assessment." We measured national equity across resource access, economic development, and environmental responsibility. Our work also explored how external factors, like future asteroid mining, might impact this global balance. Using systems thinking and various mathematical techniques, we developed an interpretable quantitative framework covering indicator design, data clustering, and causal modeling. This project highlighted our interdisciplinary modeling skills and our commitment to applying theoretical models to real-world policy and governance challenges. It provides a strong foundation for quantifying international equity and informs future global resource allocation strategies. 
+
+📄 [**View Paper**](https://murphyimg.oss-cn-beijing.aliyuncs.com/archive/MCM2022_2210113.pdf)
 </div><div markdown="1">
 
 **Finished Works**:
@@ -229,8 +262,7 @@ In the 2022 Math Modeling Contest, our team built a comprehensive and quantifiab
 <div class='paper-box'>
 <div class='paper-box-image'>
 <div class="badge">2021.10 - 2021.12</div>
-<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202505302014947.png' alt="sym" width="50%">
-<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202505302014947.png' alt="sym" width="50%">
+<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151818659.png' alt="sym" width="100%">
 </div>
 <div class='paper-box-text' markdown="1">
 This project focuses on semantic segmentation of remote sensing images, systematically evaluating the adaptability and performance of current deep learning segmentation methods across various remote sensing scenarios. Our goal is to provide theoretical support and methodological guidance for future model transfer and structural fine-tuning in marine remote sensing image segmentation. We specifically investigated the models' capabilities in preserving spatial structure, refining boundaries, and modeling inter-class differences. We also explored their transferability in practical marine applications, especially concerning few-shot learning and inter-class confusion challenges.
