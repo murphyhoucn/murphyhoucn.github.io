@@ -285,8 +285,8 @@ This project focuses on semantic segmentation of remote sensing images, systemat
 - *2021.09*, Ocean University of China Social Practice Scholarship
 
 ## 🎏 Competitions
-- *2022.05*, Mathematical Contest in Modeling (MCM) Meritorious Winner
-- *2020.12*, Shandong Province College Student Physics Competition Third Prize
+- *2022.05*, Mathematical Contest in Modeling (MCM), Meritorious Winner
+- *2020.12*, Shandong Province College Student Physics Competition, Third Prize
 
 # 💼 Societies
 - *2024.12*, Reviewer for IEEE Transactions on Geoscience and Remote Sensing
