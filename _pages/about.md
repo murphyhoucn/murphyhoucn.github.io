@@ -53,17 +53,27 @@ To date, I have submitted 0 papers to SCI journals, applied for 0 invention pate
 </div>
 </div>
 
-
 <!-- Paper 2025.04 -->
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge"> 2025 IEEE International Geoscience and Remote Sensing Symposium</div><img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151629567.png' alt="sym" width="100%"></div></div>
+<div class='paper-box'>
+  <div class='paper-box-image'>
+      <div class="badge"> 2025 IEEE International Geoscience and Remote Sensing Symposium</div>
+      <div>
+        <img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151629567.png' alt="sym" width="100%">
+        <img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151639503.png' alt="sym" width="100%">
+      </div>
+  </div>
 <div class='paper-box-text' markdown="1">
 
-**HSCT: HIERARCHICAL SELF-CALIBRATION TRANSFORMER FOR HYPERSPECTRAL IMAGE SUPER-RESOLUTION**[[IGARSS 2025 Session]](https://2025.ieeeigarss.org/view_session.php?SessionID=1608)[[Paper]](https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151629567.png)
+# 🛰️ HSCT: Hierarchical Self-Calibration Transformer for Hyperspectral Image Super-Resolution
+
+🎤 Accepted as an **Oral Presentation** at [**IGARSS 2025**](https://2025.ieeeigarss.org/view_session.php?SessionID=1608)  
+📄 [**View Paper**](https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151629567.png)
+
 
 **Jinliang Hou**, Yifan Zhang, Yuanjie Zhi, Rugui Yao, Shaohui Mei.
 
 - 📄 Paper Introduction
-We propose a novel method named **Hierarchical Self-Calibration Transformer (HSCT)** for **hyperspectral image super-resolution (HSR)**. This work addresses the limitations of existing approaches in capturing multi-scale spatial structures and integrating spatial-spectral information effectively. HSCT is designed to enhance both spatial detail and spectral consistency through hierarchical modeling and coordinated feature learning.
+We propose a novel method named **Hierarchical Self-Calibration Transformer (HSCT)** for **hyperspectral image super-resolution (HSR)**. This work addresses the limitations of existing approaches in capturing multi-scale spatial structures and integrating spatial-spectral information effectively. HSCT is designed to enhance both spatial detail and spectral fidelity through hierarchical modeling and coordinated feature learning.
 
 - 🚀 Key Contributions
 
@@ -78,7 +88,7 @@ We propose a novel method named **Hierarchical Self-Calibration Transformer (HSC
 
 - ✅ Experimental Results
 
-Extensive experiments on benchmark hyperspectral datasets (e.g., Chikusei, Houston) demonstrate the superiority of HSCT over state-of-the-art methods in terms of MPSNR, SSIM, and SAM.
+Extensive experiments on benchmark hyperspectral datasets (e.g., Chikusei, Houston) demonstrate the superiority of HSCT over state-of-the-art methods in terms of PSNR, SSIM, SAM, and ERGAS.
 
 </div>
 </div>
