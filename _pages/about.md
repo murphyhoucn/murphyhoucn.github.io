@@ -17,7 +17,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am currently a Master's student in Information and Communication Engineering at [Northwestern Polytechnical University (NPU)](https://www.nwpu.edu.cn/). I am a member of the Intelligent Optoelectronic Information Detection and Processing Group within the School of Electronics and Information, where I am supervised by [Prof. Yifan Zhang](https://teacher.nwpu.edu.cn/zhangyifan) and [Prof. Shaohui Mei](https://teacher.nwpu.edu.cn/meishaohui). My research primarily focuses on **computer vision**, with specific interests in **image super-resolution** and **image generation**.
+I am currently a Master's student in Information and Communication Engineering at [Northwestern Polytechnical University (NPU)](https://www.nwpu.edu.cn/). I am a member of Shaanxi Provincial Key Laboratory of Information Acquisition and Processing within the School of Electronics and Information, where I am supervised by [Prof. Yifan Zhang](https://teacher.nwpu.edu.cn/zhangyifan) and [Prof. Shaohui Mei](https://teacher.nwpu.edu.cn/meishaohui). My research primarily focuses on **computer vision**, with specific interests in **image super-resolution** and **image generation**.
 
 I earned my Bachelor's degree in **Telecommunication Engineering** from the Faculty of Information Science and Engineering at **[Ocean University of China (OUC)](https://www.ouc.edu.cn/)**.
 
