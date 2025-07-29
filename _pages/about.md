@@ -23,7 +23,7 @@ I earned my Bachelor's degree in **Telecommunication Engineering** from the Facu
 
 <!-- To date, I have submitted 0 papers to SCI journals, applied for 0 invention patents, and been authorized 0 utility model patents and 0 software copyrights. -->
 
-<a href="https://murphyimg.oss-cn-beijing.aliyuncs.com/archive/HJL_CV_ing_zh_20250606.pdf" style="display: block; width: 25%; padding: 8px 0; background-color: #f2f3f3; color: #444; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 14px; border: 1px solid #e5e5e5; transition: all 0.3s ease; text-align: center;">  Download CV 📑 </a>
+<a href="https://murphyimg.oss-cn-beijing.aliyuncs.com/archive/HJL_CV_2025.pdf" style="display: block; width: 25%; padding: 8px 0; background-color: #f2f3f3; color: #444; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 14px; border: 1px solid #e5e5e5; transition: all 0.3s ease; text-align: center;">  Download CV 📑 </a>
 
 
 <!-- My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>). -->
@@ -39,6 +39,9 @@ I earned my Bachelor's degree in **Telecommunication Engineering** from the Facu
 # 📝 Publications 
 
 ## 📃 Papers
+<!-- 一作者文章 -->
+
+
 
 <!-- Paper 2025.03 -->
 <div class='paper-box'>
@@ -79,6 +82,9 @@ To release
 
 </div>
 </div>
+
+
+
 
 
 <!-- Paper 2025.04 -->
@@ -124,6 +130,10 @@ Extensive experiments on benchmark hyperspectral datasets (e.g., Chikusei, Houst
 </div>
 
 
+
+
+<!-- 非一作者文章 -->
+
 <!-- - <code class="language-plaintext highlighter-rouge">INT J MED ROBOT COMP</code> Wenda Xu, Zhihang Tan, Zexin Cao, **Haofei Ma**, Gongcheng Wang, Han Wang, Weidong Wang, Zhijiang Du. "[**DP4AuSu: Autonomous Surgical Framework for Suturing Manipulation Using Diffusion Policy with Dynamic Time Wrapping-based Locally Weighted Regression**](https://doi.org/10.1002/rcs.70072)." *The International Journal of Medical Robotics and Computer Assisted Surgery* (2025). doi: [10.1002/rcs.70072](https://doi.org/10.1002/rcs.70072)
 
 - <code class="language-plaintext highlighter-rouge">Int J Adv Manuf Tech</code> **Haofei Ma**, Gongcheng Wang, Hua Bai, Zhiyu Xia, Weidong Wang, and Zhijiang Du. "[**Robotic Grasping Method with 6D Pose Estimation and Point Cloud Fusion**](https://doi.org/10.1007/s00170-024-14372-3)." *The International Journal of Advanced Manufacturing Technology* (2024): 1-11. doi: [10.1007/s00170-024-14372-3](https://doi.org/10.1007/s00170-024-14372-3)
@@ -133,6 +143,7 @@ Extensive experiments on benchmark hyperspectral datasets (e.g., Chikusei, Houst
 - <code class="language-plaintext highlighter-rouge">IEEE Sensors Journal</code> Zhiyu Xia, Han Wang, Yulong Men, **Haofei Ma**, Zexin Cao, Weidong Wang, Zhijiang Du. "[**Kalman Filter-based EM-optical Sensor Fusion for Bone Needle Position Tracking**](https://doi.org/10.1109/JSEN.2024.3364701)." *IEEE Sensors Journal* (2024). doi: [10.1109/JSEN.2024.3364701](https://doi.org/10.1109/JSEN.2024.3364701)
 
 - <code class="language-plaintext highlighter-rouge">RAS</code> Hua Bai, Wenrui Gao, **Haofei Ma**, Pengchao Ding, Gongcheng Wang, Wenda Xu, Weidong Wang, Zhijiang Du. "[**A study of robotic search strategy for multi-radiation sources in unknown environments**](https://doi.org/10.1109/JSEN.2024.3364701)." *Robotics and Autonomous Systems* 169 (2023): 104529. doi: [10.1109/JSEN.2024.3364701](https://doi.org/10.1109/JSEN.2024.3364701). -->
+
 
 
 
@@ -146,6 +157,32 @@ Extensive experiments on benchmark hyperspectral datasets (e.g., Chikusei, Houst
 - <code class="language-plaintext highlighter-rouge">Software Copyright</code> [**Identity Recognition and Infrared Temperature Measurement Control System**](https://register.ccopyright.com.cn/publicInquiry.html?type=softList&registerNumber=2021SR1391064&keyWord=%E9%A9%AC%E6%B5%A9%E9%A3%9E&publicityType=ALL&registerDateType=ALL), **Haofei Ma** (2021SR1391064) 
 
 -->
+
+
+
+
+
+
+# 💻 Internships
+
+## China Electronics Technology Group Corporation Information Science Academy, Beijing, China. (*2025.06 - 2025.07*)
+
+<div class='paper-box'>
+<div class='paper-box-image'>
+<div class="badge">2025.06 - 2025.07</div>
+<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507291507061.png' alt="sym" width="100%">
+</div>
+<div class='paper-box-text' markdown="1">
+The internship centered on the Large Model-Driven Intelligent Command Decision-Making and Adversarial Simulation System. This cutting-edge project leveraged large language models (LLMs) to enhance various facets of military operations, spanning LLM training, fine-tuning, and deployment; intelligence data analysis, knowledge graph construction, and RAG integration; situational awareness and target threat assessment; firepower planning scheme generation; and wargaming and simulation.
+</div><div markdown="1">
+
+**Large Language Model Applications for Fire Planning**:
+1. Played a central role in the argumentation phase of a large language model-based fire planning project, meticulously assessing the feasibility and challenges of key technical routes. This included commander preference-based tactical recommendations, intelligent scheme matching and modification, and agent-based scheme generation.
+2. Conducted technology analysis and comparative studies, identifying potential opportunities and technical bottlenecks for large model applications in complex military decision-making scenarios. My work provided strategic and scientific argumentation, laying a solid foundation for the project's subsequent research and development direction.
+</div>
+</div>
+
+
 
 # 🔎 Projects 
 
@@ -297,5 +334,3 @@ This project focuses on semantic segmentation of remote sensing images, systemat
 - *2021.06*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet. 
 - *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/) -->
 
-<!-- # 💻 Internships
-- *2019.05 - 2020.02*, [Lorem](https://github.com/), China. -->
