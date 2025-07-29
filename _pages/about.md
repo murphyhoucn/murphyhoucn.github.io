@@ -48,7 +48,7 @@ I earned my Bachelor's degree in **Telecommunication Engineering** from the Facu
   <div class='paper-box-image'>
       <div class="badge">IEEE Transactions on Geoscience and Remote Sensing (TGRS)</div>
       <div>
-        <img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151737134.png' alt="sym" width="100%">
+        <img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507292149877.png' alt="sym" width="100%">
       </div>
   </div>
 <div class='paper-box-text' markdown="1">
@@ -170,7 +170,7 @@ Extensive experiments on benchmark hyperspectral datasets (e.g., Chikusei, Houst
 <div class='paper-box'>
 <div class='paper-box-image'>
 <div class="badge">2025.06 - 2025.07</div>
-<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507291507061.png' alt="sym" width="100%">
+<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507292141611.jpg' alt="sym" width="100%">
 </div>
 <div class='paper-box-text' markdown="1">
 The internship centered on the Large Model-Driven Intelligent Command Decision-Making and Adversarial Simulation System. This cutting-edge project leveraged large language models (LLMs) to enhance various facets of military operations, spanning LLM training, fine-tuning, and deployment; intelligence data analysis, knowledge graph construction, and RAG integration; situational awareness and target threat assessment; firepower planning scheme generation; and wargaming and simulation.
@@ -193,7 +193,7 @@ The internship centered on the Large Model-Driven Intelligent Command Decision-M
 <div class='paper-box'>
 <div class='paper-box-image'>
 <div class="badge">2024.06 - 2025.06</div>
-<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507151826730.png' alt="sym" width="100%">
+<img src='https://murphyimg.oss-cn-beijing.aliyuncs.com/img/202507292154765.png' alt="sym" width="100%">
 </div>
 <div class='paper-box-text' markdown="1">
 This project focuses on the research of intelligent target recognition and tracking technology in multi-platform, multi-modal collaborative scenarios, aiming to enhance the system's intelligent perception and decision-making capabilities in complex environments. By introducing deep learning-based object detection and multi-object tracking algorithms, we achieve efficient fusion and processing of multi-source heterogeneous data, supporting stable operation on resource-constrained platforms. This provides critical technical support for multi-platform collaborative operations and intelligent monitoring.
