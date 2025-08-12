@@ -33,6 +33,7 @@ I earned my Bachelor's degree in **Telecommunication Engineering** from the Facu
 - *2019.09 - 2023.06*, Ocean University of China, Qingdao, Telecommunication Engineering.
 
 # 🔥 News
+- *2025.08*: &nbsp;🎉🎉 I presented my paper **"HSCT: Hierarchical Self-Calibration Transformer for Hyperspectral Image Super-Resolution"** as an **Oral presentation** at **IGARSS 2025** in Brisbane, Australia.
 - *2025.04*: &nbsp;🎉🎉 Our paper **"HSCT: Hierarchical Self-Calibration Transformer for Hyperspectral Image Super-Resolution"** was accepted as an **Oral presentation** at **IGARSS 2025**!
 
 
@@ -40,8 +41,6 @@ I earned my Bachelor's degree in **Telecommunication Engineering** from the Facu
 
 ## 📃 Papers
 <!-- 一作者文章 -->
-
-
 
 <!-- Paper 2025.03 -->
 <div class='paper-box'>
@@ -326,6 +325,7 @@ This project focuses on semantic segmentation of remote sensing images, systemat
 - *2020.12*, Shandong Province College Student Physics Competition, Third Prize
 
 # 💼 Societies
+- *2025.08*, 2025 IEEE International Geoscience and Remote Sensing Symposium (IGARSS 2025) • 3-8 August 2025 • Brisbane, Australia
 - *2024.12*, Reviewer for IEEE Transactions on Geoscience and Remote Sensing
 - *2024.11*, The 5th China International SAR Symposium (CISS 2024), Xi'an, China
 - *2024.05*, Chinese Congress on Image and Graphics (CCIG 2024), Xi'an, China
